@@ -1,0 +1,65 @@
+generated: '2026-07-18'
+method: searched
+source: openapi/*.yaml + https://developer.celonis.com/celonis-apis/auth/
+docs: https://developer.celonis.com/celonis-apis/auth/
+oauth_docs: https://developer.celonis.com/celonis-apis/oauth-authentication/
+summary:
+  types:
+  - oauth2
+  - http
+  - apiKey
+  api_key_in:
+  - header
+  oauth2_flows:
+  - clientCredentials
+  - authorizationCode
+  recommended: oauth2
+  deprecating:
+  - User API Key (Bearer)
+  - Application API Key (AppKey)
+notes: >-
+  Celonis Platform APIs authenticate via the Authorization header. OAuth 2.0 is the
+  recommended method (User API Key and Application API Key are deprecating). OAuth
+  access tokens are short-lived (~899s / 15 min) and support refresh; client secrets
+  can be rotated. Client-credentials (machine-to-machine) and authorization-code
+  (user delegation) grants are supported, with client_secret_basic and
+  client_secret_post client authentication. Base host is
+  https://{team_domain}.{realm}.celonis.cloud; token endpoint is
+  https://{team_domain}.{realm}.celonis.cloud/oauth2/token.
+schemes:
+- name: OAuth2
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://{team_domain}.{realm}.celonis.cloud/oauth2/token
+  - flow: authorizationCode
+    authorizationUrl: https://{team_domain}.{realm}.celonis.cloud/oauth2/authorize
+    tokenUrl: https://{team_domain}.{realm}.celonis.cloud/oauth2/token
+  token_lifetime_seconds: 899
+  client_auth: [client_secret_basic, client_secret_post]
+  source: https://developer.celonis.com/celonis-apis/oauth-authentication/
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/celonis-agents-ai-openapi.yaml
+  - openapi/celonis-knowledge-model-openapi.yaml
+  - openapi/celonis-subscription-openapi.yaml
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter: AppKey
+  status: deprecating
+  sources:
+  - openapi/celonis-agents-ai-openapi.yaml
+  - openapi/celonis-knowledge-model-openapi.yaml
+  - openapi/celonis-subscription-openapi.yaml
+- name: Authorization
+  type: apiKey
+  in: header
+  parameter: Authorization
+  description: Prefix the token with "AppKey " or "Bearer " to indicate the authorization type.
+  sources:
+  - openapi/celonis-permissions-openapi.yaml
+  - openapi/celonis-team-openapi.yaml
