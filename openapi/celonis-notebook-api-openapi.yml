@@ -1,0 +1,1010 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI Specification Agents - Conversation Notebook API
+  description: AI API to chat with Celonis Agents and run their tools.
+  x-audience: EX
+  version: v1.2.0
+servers:
+- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+security:
+- BearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Notebook
+  description: The Notebook API is used to create, read, update, and delete notebooks.
+paths:
+  /api/notebooks/{id}:
+    get:
+      tags:
+      - Notebook
+      summary: Get an app
+      operationId: findOne_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/NotebookTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+    put:
+      tags:
+      - Notebook
+      summary: Update an app
+      operationId: update_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotebookTransport'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/NotebookTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+    delete:
+      tags:
+      - Notebook
+      summary: Delete an app
+      operationId: delete_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/{id}/upgrade:
+    put:
+      tags:
+      - Notebook
+      summary: Upgrade app to the latest version
+      operationId: upgrade
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/{id}/probe:
+    put:
+      tags:
+      - Notebook
+      summary: Check if an app is running
+      operationId: activeProbe
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/{id}/move:
+    put:
+      tags:
+      - Notebook
+      summary: Move an app from one workspace to another
+      operationId: moveToWorkspace
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: workspaceId
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/NotebookTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/{id}/app-key:
+    get:
+      tags:
+      - Notebook
+      summary: Get the application key of the app
+      operationId: getApplicationKey
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ApplicationKeyTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+    put:
+      tags:
+      - Notebook
+      summary: Set an application key to the app
+      operationId: setApplicationKey
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: appKey
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks:
+    get:
+      tags:
+      - Notebook
+      summary: List all notebooks
+      operationId: findAll_1
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NotebookTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+    post:
+      tags:
+      - Notebook
+      summary: Create an app
+      operationId: create_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotebookTransport'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/NotebookTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/{id}/stop:
+    post:
+      tags:
+      - Notebook
+      summary: Stop an app
+      operationId: stop_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/{id}/start:
+    post:
+      tags:
+      - Notebook
+      summary: Start an app
+      operationId: start
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/{id}/open:
+    post:
+      tags:
+      - Notebook
+      summary: Open an app
+      operationId: open
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/{id}/versions/latest:
+    get:
+      tags:
+      - Notebook
+      summary: Get a list of all versions newer than the Notebook id version provided in the parameter
+      operationId: getAllNewVersions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NotebookVersionTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/{id}/llm/access-info:
+    get:
+      tags:
+      - Notebook
+      summary: Get app's access information for LLM use case
+      operationId: getAccessInformationLLM
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/NotebookAccessInformationTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/{id}/content:
+    get:
+      tags:
+      - Notebook
+      summary: Get a list of all the files inside the app
+      operationId: getContents
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: path
+        in: query
+        required: false
+        schema:
+          type: string
+          default: ''
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/NotebookTreeItem'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/{id}/access-info:
+    get:
+      tags:
+      - Notebook
+      summary: Get access information for the app
+      operationId: getAccessInformation
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/NotebookAccessInformationTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/versions:
+    get:
+      tags:
+      - Notebook
+      summary: Get a list of all the versions of the app
+      operationId: getAllVersions
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NotebookVersionTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/node:
+    get:
+      tags:
+      - Notebook
+      summary: Check if team has dedicated service
+      operationId: hasDedicatedService
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: boolean
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/machine-learning-images:
+    get:
+      tags:
+      - Notebook
+      summary: List all Machine Learning images
+      operationId: getMachineLearningImages
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ImageTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/notebooks/limit/reached:
+    get:
+      tags:
+      - Notebook
+      summary: Check if the team has reached the maximum number of notebooks
+      operationId: limitReached
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: boolean
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+components:
+  schemas:
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
+    NotebookTreeItem:
+      type: object
+      properties:
+        name:
+          type: string
+        path:
+          type: string
+        type:
+          type: string
+        content: {}
+        directory:
+          type: boolean
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/NotebookTreeItem'
+        notebook:
+          type: boolean
+    ApplicationKeyTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        key:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        lastUsedAt:
+          type: string
+          format: date-time
+        originalId:
+          type: string
+        teamRole:
+          type: integer
+          format: int32
+        internal:
+          type: boolean
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
+    NotebookTransport:
+      type: object
+      properties:
+        permissions:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+        resourcePath:
+          type: string
+        actions:
+          type: array
+          items:
+            type: string
+            enum:
+            - COPY_ALL
+            - COPY
+            - CREATE
+            - DELETE_ALL
+            - DELETE
+            - EDIT_ALL
+            - EDIT
+            - EXECUTE_ALL
+            - EXECUTE
+            - EXPORT_ALL
+            - EXPORT
+            - MANAGE_ALL
+            - MANAGE
+            - READ_ALL
+            - READ
+            - SHARE_ALL
+            - SHARE
+            - USE_ALL
+            - USE
+            - ANY_ACTION_ON_CHILDREN
+            - ENABLED
+            - MOVE
+            - MOVE_ALL
+            - IMPORT_ALL
+            - IMPORT
+            - UNRECOGNIZED
+        groupedResourceTypeToActions:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+              enum:
+              - COPY_ALL
+              - COPY
+              - CREATE
+              - DELETE_ALL
+              - DELETE
+              - EDIT_ALL
+              - EDIT
+              - EXECUTE_ALL
+              - EXECUTE
+              - EXPORT_ALL
+              - EXPORT
+              - MANAGE_ALL
+              - MANAGE
+              - READ_ALL
+              - READ
+              - SHARE_ALL
+              - SHARE
+              - USE_ALL
+              - USE
+              - ANY_ACTION_ON_CHILDREN
+              - ENABLED
+              - MOVE
+              - MOVE_ALL
+              - IMPORT_ALL
+              - IMPORT
+              - UNRECOGNIZED
+        id:
+          type: string
+        name:
+          type: string
+        url:
+          type: string
+        versionId:
+          type: string
+        lastAccessDate:
+          type: string
+          format: date-time
+        agreement:
+          type: boolean
+        appKey:
+          type: string
+        imageType:
+          type: string
+          enum:
+          - JUPYTER
+          - VSCODE
+          - STREAMLIT
+        imageId:
+          type: string
+        imageKey:
+          type: string
+        homePath:
+          type: string
+        machineId:
+          type: string
+        workspaceId:
+          type: string
+        stopped:
+          type: boolean
+        notebookResources:
+          $ref: '#/components/schemas/NotebookResourcesTransport'
+        productive:
+          type: boolean
+        logRetentionDays:
+          type: integer
+          format: int32
+        availableStorageInMb:
+          type: integer
+          format: int32
+        modelId:
+          type: string
+        llmEnabled:
+          type: boolean
+        objectId:
+          type: string
+        status:
+          type: string
+      required:
+      - agreement
+      - imageId
+      - name
+    NotebookResourcesTransport:
+      type: object
+      properties:
+        cpu:
+          type: number
+          format: double
+        memory:
+          type: integer
+          format: int32
+        storage:
+          type: integer
+          format: int32
+        gpu:
+          type: integer
+          format: int32
+      required:
+      - cpu
+      - memory
+      - storage
+    NotebookAccessInformationTransport:
+      type: object
+      properties:
+        token:
+          type: string
+        machineId:
+          type: string
+        puppetId:
+          type: string
+        publicAddress:
+          type: string
+        instanceType:
+          type: string
+        volumeDriver:
+          type: string
+        memoryLimit:
+          type: string
+        cpuCoresLimit:
+          type: string
+        diskUsageLimit:
+          type: string
+        gpuCoresLimit:
+          type: string
+        appKey:
+          type: string
+        imageUrl:
+          type: string
+        imageType:
+          type: string
+        execCommands:
+          type: array
+          items:
+            type: string
+        notebookMode:
+          type: boolean
+        routeToBedrock:
+          type: boolean
+        kubernetes:
+          type: boolean
+        withPlan:
+          type: boolean
+        migration:
+          type: boolean
+    ImageTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        imageKey:
+          type: string
+        imageType:
+          type: string
+          enum:
+          - JUPYTER
+          - VSCODE
+          - STREAMLIT
+        imageUrl:
+          type: string
+        homePath:
+          type: string
+        visibleInDropdown:
+          type: boolean
+    NotebookVersionTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        versionCode:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        imageId:
+          type: string
+        imageKey:
+          type: string
+        latest:
+          type: boolean
+        warning:
+          type: string
+        warningCode:
+          type: string
+        releaseNotes:
+          type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: AppKey

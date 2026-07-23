@@ -1,0 +1,145 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI Specification Agents - Conversation Members API API
+  description: AI API to chat with Celonis Agents and run their tools.
+  x-audience: EX
+  version: v1.2.0
+servers:
+- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+security:
+- BearerAuth: []
+- ApiKeyAuth: []
+tags:
+- description: Allows you to query and export a list of all members assigned to a Celonis Platform team.
+  name: Members API
+paths:
+  /api/external/members:
+    get:
+      description: Maximum number of members that will be received by page is 200.<br> The OAuth 2.0 scope to use is <tt>team.user-group-info:read</tt>.<br>
+      operationId: getMemberProfileExternalTransport
+      parameters:
+      - description: Page number to be retrieved. Starts with 0.
+        example: 0
+        in: query
+        name: pageNumber
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+      - description: Limit of results per page
+        example: 200
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 200
+          maximum: 200
+          minimum: 1
+      - description: A boolean parameter to show internal or external members
+        example: true
+        in: query
+        name: includeInternal
+        required: true
+        schema:
+          type: boolean
+          default: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageTransportMemberProfileExternalTransport'
+          description: A list of Members
+        '204':
+          description: No Content
+        '400':
+          content: {}
+          description: Bad Request. Check the response contents for an explanation of the cause.
+        '401':
+          description: Unauthorized. Check whether your API key or application key has sufficient permissions. If you are unsure, refer the documentation on [application keys](https://docs.celonis.com/en/creating-api-keys.html) and [permissions](https://docs.celonis.com/en/creating-and-granting-permissions-to-application-keys.html).
+        '403':
+          description: Forbidden
+        '405':
+          description: Method Not Allowed
+        '500':
+          content: {}
+          description: An internal error happened. Forward the associated error ID along with any helpful information to [our support](https://www.celopeers.com/s/support?language=en_US)
+      security:
+      - Authorization: []
+      summary: List of all members
+      tags:
+      - Members API
+components:
+  schemas:
+    ExternalGroupTransport:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the group
+          example: Sample Group
+        teamRole:
+          type: string
+          description: Role assigned to group
+          example: ANALYST
+    MemberProfileExternalTransport:
+      type: object
+      properties:
+        group:
+          type: array
+          items:
+            $ref: '#/components/schemas/ExternalGroupTransport'
+        inactivityPeriod:
+          type: integer
+          format: int64
+          description: Number of days in which the user has not logged in.
+          example: 14
+        lastLogin:
+          type: string
+          description: Date and time when of member last login in UTC format
+          example: 12/10/2023, 6:49:07 AM UTC
+        nameAndEmail:
+          type: string
+          description: Name and email address of member
+          example: Lorem Ipsum (email@example.com)
+        status:
+          type: string
+          description: Current status of member in his team
+          example: Active
+        userId:
+          type: string
+          description: Unique identifier of a member
+          example: 8161c24e-2b32-44eb-bedb-ede2267be989
+        userRole:
+          type: string
+          description: Role of the member in the Celonis Platform
+          example: MEMBER
+    PageTransportMemberProfileExternalTransport:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/MemberProfileExternalTransport'
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int64
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: AppKey

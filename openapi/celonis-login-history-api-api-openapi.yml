@@ -1,0 +1,147 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI Specification Agents - Conversation Login History API API
+  description: AI API to chat with Celonis Agents and run their tools.
+  x-audience: EX
+  version: v1.2.0
+servers:
+- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+security:
+- BearerAuth: []
+- ApiKeyAuth: []
+tags:
+- description: Allows you to query the Login History for a team and export it for use with external monitoring tools to capture and monitor platform login events.
+  name: Login History API
+paths:
+  /api/external/authentication-events:
+    get:
+      description: Login History events can be filtered by specifying a date interval.<br> Maximum number of events that will be received by page is 200. <br> The OAuth 2.0 scope to use is <tt>team.login-history:read</tt>.<br> If there would be more events on the specified date interval total number of pages will be returned for further querying.
+      operationId: findAllAuthenticationEvents
+      parameters:
+      - description: Page number to be retrieved, starts with 0
+        example: 0
+        in: query
+        name: pageNumber
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+      - description: Limit of results per page
+        example: 200
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 200
+          maximum: 200
+          minimum: 1
+      - description: Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss
+        example: '2022-01-01T09:00:00'
+        in: query
+        name: from
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - description: Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss
+        example: '2022-01-31T09:00:00'
+        in: query
+        name: to
+        required: false
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PageTransportAuthenticationEventExternalTransport'
+          description: A list of Login History events
+        '204':
+          description: No Content
+        '400':
+          content: {}
+          description: Bad Request. Please check the response contents for an explanation of the cause.
+        '401':
+          description: Unauthorized. Check whether your API key or application key has sufficient permissions. In case you are unsure, please refer the documentation on [application keys](https://docs.celonis.com/en/creating-api-keys.html) and [permissions](https://docs.celonis.com/en/creating-and-granting-permissions-to-application-keys.html).
+        '403':
+          description: Forbidden
+        '405':
+          description: Method Not Allowed
+        '500':
+          content: {}
+          description: An internal error happened. Please forward the associated error ID along with any helpful information to [our support](https://www.celopeers.com/s/support?language=en_US)
+      security:
+      - Authorization: []
+      summary: List Login History
+      tags:
+      - Login History API
+components:
+  schemas:
+    PageTransportAuthenticationEventExternalTransport:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticationEventExternalTransport'
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int64
+    AuthenticationEventExternalTransport:
+      type: object
+      properties:
+        authenticationEventType:
+          $ref: '#/components/schemas/AuthenticationEventType'
+        email:
+          type: string
+          description: Email associated with Login History request
+          example: email@example.com
+        success:
+          type: boolean
+          description: Result of the Login History Event
+          example: true
+        timestamp:
+          type: string
+          format: date-time
+          description: Date and time when event occurred in ISO 8601 UTC format
+          example: '2021-01-08T16:36:29.003Z'
+    AuthenticationEventType:
+      type: string
+      description: Category of the Login History Event
+      enum:
+      - LOGIN
+      - LOGIN_SSO
+      - LOGIN_CELONIS_ID
+      - LOGIN_OIDC
+      - LOGOUT
+      - ACCOUNT_TEMPORARILY_LOCKED
+      - ACCOUNT_NOT_CONFIRMED
+      - ACCOUNT_NOT_ACTIVE
+      - NOT_MEMBER_OF_TEAM
+      - TEAM_MEMBERSHIP_NOT_ACTIVE
+      - TEAM_MEMBERSHIP_NOT_CONFIRMED
+      - BAD_CREDENTIALS
+      - INVALID_2FA_TOKEN
+      - INVALID_PROVIDER
+      example: LOGIN
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: AppKey

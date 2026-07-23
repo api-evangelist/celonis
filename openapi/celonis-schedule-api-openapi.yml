@@ -1,0 +1,596 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI Specification Agents - Conversation Schedule API
+  description: AI API to chat with Celonis Agents and run their tools.
+  x-audience: EX
+  version: v1.2.0
+servers:
+- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+security:
+- BearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Schedule
+  description: The Schedule API is used to create, read, update, and delete schedules.
+paths:
+  /api/scheduling/{id}:
+    get:
+      tags:
+      - Schedule
+      summary: Get a schedule
+      operationId: findOne
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SchedulingTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+    put:
+      tags:
+      - Schedule
+      summary: Update a schedule
+      operationId: update
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SchedulingTransport'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SchedulingTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+    delete:
+      tags:
+      - Schedule
+      summary: Delete a schedule
+      operationId: delete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/scheduling/{id}/change-status:
+    put:
+      tags:
+      - Schedule
+      summary: Enable or Disable a schedule
+      operationId: changeStatus
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: status
+        in: query
+        required: true
+        schema:
+          type: boolean
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SchedulingTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/scheduling:
+    get:
+      tags:
+      - Schedule
+      summary: List all schedules
+      operationId: findAll
+      parameters:
+      - name: notebookId
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SchedulingTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+    post:
+      tags:
+      - Schedule
+      summary: Create a schedule
+      operationId: create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SchedulingTransport'
+        required: true
+      responses:
+        '201':
+          description: Created
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/SchedulingTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/scheduling/{id}/run:
+    post:
+      tags:
+      - Schedule
+      summary: Run a schedule
+      operationId: runSchedule
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/scheduling/{id}/executions:
+    get:
+      tags:
+      - Schedule
+      summary: List all executions of a schedule
+      operationId: findAllExecutions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: pageIndex
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+          minimum: 1
+      - name: startedOrder
+        in: query
+        required: false
+        schema:
+          type: string
+          default: DESC
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageNotebookExecutionTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+components:
+  schemas:
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
+    PageNotebookExecutionTransport:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/NotebookExecutionTransport'
+        pageSize:
+          type: integer
+          format: int32
+        pageNumber:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int64
+        first:
+          type: boolean
+        last:
+          type: boolean
+        empty:
+          type: boolean
+        totalPages:
+          type: integer
+          format: int32
+    JsonNode: {}
+    NotebookExecutionTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        notebookId:
+          type: string
+        notebookExecutionSourceId:
+          type: string
+        notebookExecutionSource:
+          type: string
+        executionFileName:
+          type: string
+        notebookExecutionStatus:
+          type: string
+          enum:
+          - CREATED
+          - QUEUED
+          - STARTING
+          - STARTED
+          - COMPLETED
+          - NOTEBOOK_ERROR
+          - FAILED
+          - TIMEOUT
+          - CANCELED
+          - RESOURCES_ERROR
+          - CONFIGURATION_ERROR
+        started:
+          type: string
+          format: date-time
+        completed:
+          type: string
+          format: date-time
+        params:
+          $ref: '#/components/schemas/JsonNode'
+        result:
+          type: string
+        logsOutputPath:
+          type: string
+        executionTimeout:
+          type: integer
+          format: int32
+        maxRetries:
+          type: integer
+          format: int32
+        timeUnit:
+          type: string
+          enum:
+          - NANOSECONDS
+          - MICROSECONDS
+          - MILLISECONDS
+          - SECONDS
+          - MINUTES
+          - HOURS
+          - DAYS
+      required:
+      - executionFileName
+      - notebookId
+    SchedulingConfig:
+      type: object
+      properties:
+        executionPattern:
+          type: string
+          enum:
+          - HOURLY
+          - X_HOURLY
+          - DAILY
+          - WEEKLY
+          - MONTHLY
+          - CUSTOM
+        minute:
+          type: integer
+          format: int32
+        everyXHours:
+          type: integer
+          format: int32
+        time:
+          type: string
+        day:
+          type: integer
+          format: int32
+        weekDays:
+          type: array
+          items:
+            type: integer
+            format: int32
+        monthPattern:
+          type: string
+          enum:
+          - SPECIFIC_DAY
+          - LAST_DAY
+        customCron:
+          type: string
+        timezoneId:
+          type: string
+        lastExecutionDate:
+          type: string
+          format: date-time
+        nextExecutionDate:
+          type: string
+          format: date-time
+        enabled:
+          type: boolean
+    SchedulingTransport:
+      type: object
+      properties:
+        permissions:
+          type: array
+          items:
+            type: string
+          uniqueItems: true
+        resourcePath:
+          type: string
+        actions:
+          type: array
+          items:
+            type: string
+            enum:
+            - COPY_ALL
+            - COPY
+            - CREATE
+            - DELETE_ALL
+            - DELETE
+            - EDIT_ALL
+            - EDIT
+            - EXECUTE_ALL
+            - EXECUTE
+            - EXPORT_ALL
+            - EXPORT
+            - MANAGE_ALL
+            - MANAGE
+            - READ_ALL
+            - READ
+            - SHARE_ALL
+            - SHARE
+            - USE_ALL
+            - USE
+            - ANY_ACTION_ON_CHILDREN
+            - ENABLED
+            - MOVE
+            - MOVE_ALL
+            - IMPORT_ALL
+            - IMPORT
+            - UNRECOGNIZED
+        groupedResourceTypeToActions:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+              enum:
+              - COPY_ALL
+              - COPY
+              - CREATE
+              - DELETE_ALL
+              - DELETE
+              - EDIT_ALL
+              - EDIT
+              - EXECUTE_ALL
+              - EXECUTE
+              - EXPORT_ALL
+              - EXPORT
+              - MANAGE_ALL
+              - MANAGE
+              - READ_ALL
+              - READ
+              - SHARE_ALL
+              - SHARE
+              - USE_ALL
+              - USE
+              - ANY_ACTION_ON_CHILDREN
+              - ENABLED
+              - MOVE
+              - MOVE_ALL
+              - IMPORT_ALL
+              - IMPORT
+              - UNRECOGNIZED
+        id:
+          type: string
+        name:
+          type: string
+        notebookId:
+          type: string
+        executeFile:
+          type: string
+        notebookName:
+          type: string
+        lastNotebookExecutionId:
+          type: string
+        schedulingConfig:
+          $ref: '#/components/schemas/SchedulingConfig'
+        timeout:
+          type: integer
+          format: int32
+        timeUnit:
+          type: string
+          enum:
+          - MINUTES
+          - HOURS
+        maxRetries:
+          type: integer
+          format: int32
+        lastNotebookExecutionStatus:
+          type: string
+          enum:
+          - CREATED
+          - QUEUED
+          - STARTING
+          - STARTED
+          - COMPLETED
+          - NOTEBOOK_ERROR
+          - FAILED
+          - TIMEOUT
+          - CANCELED
+          - RESOURCES_ERROR
+          - CONFIGURATION_ERROR
+        notebookStopped:
+          type: boolean
+        objectId:
+          type: string
+      required:
+      - executeFile
+      - name
+      - notebookId
+      - schedulingConfig
+      - timeUnit
+      - timeout
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: AppKey

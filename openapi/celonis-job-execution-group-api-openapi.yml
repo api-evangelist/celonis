@@ -1,0 +1,91 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI Specification Agents - Conversation Job Execution Group API
+  description: AI API to chat with Celonis Agents and run their tools.
+  x-audience: EX
+  version: v1.2.0
+servers:
+- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+security:
+- BearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Job Execution Group
+  description: The Job Execution Group API retrieves job execution groups.
+paths:
+  /api/jobs/executions/groups:
+    get:
+      tags:
+      - Job Execution Group
+      summary: Get execution groups
+      operationId: getExecutionGroups
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/JobExecutionGroup'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+components:
+  schemas:
+    JobExecutionGroup:
+      type: object
+      properties:
+        jobName:
+          type: string
+        lastJobExecutionId:
+          type: string
+        lastJobExecutionStatus:
+          type: string
+          enum:
+          - CREATED
+          - STARTED
+          - RUNNING
+          - COMPLETED
+          - FAILED
+          - CANCELED
+        lastJobExecutionStartedDate:
+          type: string
+          format: date-time
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: AppKey

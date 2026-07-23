@@ -1,0 +1,287 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI Specification Agents - Conversation Triggers API
+  description: AI API to chat with Celonis Agents and run their tools.
+  x-audience: EX
+  version: v1.2.0
+servers:
+- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+security:
+- BearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Triggers
+paths:
+  /intelligence/api/knowledge-models/{km_id}/triggers:
+    get:
+      operationId: getTriggers
+      tags:
+      - Triggers
+      summary: List the Triggers of a Knowledge Model
+      description: List the Triggers of a Knowledge Model
+      parameters:
+      - $ref: '#/components/parameters/pageParam'
+      - $ref: '#/components/parameters/pageSizeParam'
+      - $ref: '#/components/parameters/singleSortParam'
+      - name: km_id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: open-purchase-requisition.purchase-requisition-kms
+      responses:
+        '200':
+          description: List of Trigger ids and names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/triggerResultPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/knowledge-models/{km_id}/triggers/{trigger_id}:
+    get:
+      operationId: getTriggerDetails
+      tags:
+      - Triggers
+      summary: Get Trigger Schema details
+      description: Get Trigger Schema details
+      parameters:
+      - name: km_id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: open-purchase-requisition.purchase-requisition-km
+      - name: trigger_id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: MATERIALS
+      responses:
+        '200':
+          description: Trigger Schema details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/triggerDetailedDTO'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+components:
+  responses:
+    InternalError:
+      description: Internal Server Error.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    Forbidden:
+      description: Forbidden.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    Unauthorized:
+      description: Unauthorized access.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/authErrorDTO'
+    ServiceUnavailable:
+      description: Service Unavailable.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    BadRequest:
+      description: Bad Request.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+  schemas:
+    triggerResultPage:
+      title: Trigger schema result page
+      type: object
+      additionalProperties: false
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/triggerDTO'
+      allOf:
+      - $ref: '#/components/schemas/schemaResultPage'
+    triggerDTO:
+      title: Trigger
+      description: Trigger defined at KM
+      type: object
+      properties:
+        id:
+          type: string
+          description: Trigger's Unique identifier as a SUID
+          example: abc-123-bad-123
+        record:
+          type: string
+          description: Record's Unique identifier as a SUID
+          example: efg-456-efg-456
+        name:
+          type: string
+          description: Human understandable Trigger name
+          example: Blocked Orders
+    schemaResultPage:
+      title: Result page
+      type: object
+      properties:
+        page:
+          type: integer
+          description: Page
+          example: 0
+        pageSize:
+          type: integer
+          description: Page size, defined by pageSize parameter
+          example: 50
+        total:
+          type: integer
+          description: Total elements returned in the page
+          example: 1
+        sort:
+          type: string
+          description: Field used to apply sorting to the requested data, + or no symbol means ASC, - means DESC
+          example: +id
+    errorDTO:
+      title: Error
+      type: object
+      description: This [RFC7807] specification is to define common error formats for those applications that need one, so that they aren't required to define their own, or worse, tempted to redefine the semantics of existing HTTP status codes. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+      properties:
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type.  It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4). This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+        detail:
+          type: string
+          description: The details of the Error
+        errorCode:
+          type: string
+          description: Unique Identifier of the Error
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+    authErrorDTO:
+      title: Authentication Error
+      type: object
+      properties:
+        error:
+          type: string
+    triggerDetailedDTO:
+      title: Trigger
+      description: Trigger detailed
+      type: object
+      properties:
+        id:
+          type: string
+          description: Trigger's Unique identifier as a SUID
+          example: abc-123-bad-123
+        name:
+          type: string
+          description: Human understandable Trigger name
+          example: Blocked Orders
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/triggerFieldDTO'
+    triggerFieldDTO:
+      title: Trigger Field
+      description: Fields for a Trigger
+      type: object
+      properties:
+        name:
+          type: string
+          example: Amount in euros pending to pay
+          description: human understandable name
+        type:
+          type: string
+          enum:
+          - string
+          - date
+          - time
+          - integer
+          - boolean
+          - number
+          - datetime
+          - timestamp
+          - float
+        format:
+          type: string
+          example: '#.###'
+          description: Format to be applied
+        unit:
+          type: string
+          example: euros
+          description: Unit added to field value
+  parameters:
+    pageSizeParam:
+      in: query
+      name: pageSize
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 50
+        description: The number of items returned in a page.
+    singleSortParam:
+      style: form
+      explode: false
+      in: query
+      name: sort
+      required: false
+      description: Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with "+" to apply ASC order or "-" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error
+      schema:
+        type: string
+        example:
+        - -field1
+    pageParam:
+      in: query
+      name: page
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+        description: The page number of the result, starting by 0 (first page)
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: AppKey

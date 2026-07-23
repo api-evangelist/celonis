@@ -1,0 +1,214 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI Specification Agents - Conversation API
+  description: AI API to chat with Celonis Agents and run their tools.
+  x-audience: EX
+  version: v1.2.0
+servers:
+- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+security:
+- BearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Agents - Conversation
+paths:
+  /intelligence/api/ai/agents/{agent_id}/conversations:
+    post:
+      tags:
+      - Agents - Conversation
+      operationId: pushConversations
+      summary: Post Conversation Message
+      description: 'Posts a conversation message to an asset, optionally with a conversation id.
+
+        Always returns a text response for external use cases.'
+      parameters:
+      - name: agent_id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: agent
+      requestBody:
+        description: Message details
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Message'
+      responses:
+        '200':
+          description: Return agent id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '409':
+          $ref: '#/components/responses/Conflict'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+        default:
+          $ref: '#/components/responses/DefaultResponse'
+components:
+  responses:
+    InternalError:
+      description: Internal Server Error.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    DefaultResponse:
+      description: Default error
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Forbidden:
+      description: Forbidden.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    TooManyRequests:
+      description: Too Many Requests.
+      headers:
+        X-RateLimit-Limit:
+          description: Request limit per hour.
+          schema:
+            type: integer
+            format: int32
+        X-RateLimit-Remaining:
+          description: The number of requests left for the time window.
+          schema:
+            type: integer
+            format: int32
+        X-RateLimit-Reset:
+          description: The UTC date/time at which the current rate limit window resets.
+          schema:
+            type: string
+            format: date-time
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Conflict:
+      description: Conflict.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Unauthorized:
+      description: Unauthorized access.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    ServiceUnavailable:
+      description: Service Unavailable.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    BadRequest:
+      description: Bad Request.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+  schemas:
+    Problem:
+      type: object
+      properties:
+        type:
+          type: string
+          format: uri-reference
+          description: 'A URI reference that uniquely identifies the problem type only in the context of the provided API. Opposed to the specification in RFC-7807, it is not recommended that it be dereferenceable and point to a human-readable documentation or be globally unique for the problem type.
+
+            '
+          default: about:blank
+          example: /some/uri-reference
+        title:
+          type: string
+          description: 'A short summary of the problem type. Written in English and readable for engineers. Usually not suited for non technical stakeholders and not localized.
+
+            '
+          example: some title for the error situation
+        status:
+          type: integer
+          format: int32
+          description: 'The HTTP status code generated by the origin server for this occurrence of the problem.
+
+            '
+          minimum: 100
+          maximum: 600
+          exclusiveMaximum: true
+        detail:
+          type: string
+          description: 'A human readable explanation specific to this occurrence of the problem that is helpful to locate the problem and give advice on how to proceed. Written in English and readable for engineers. Usually not suited for non technical stakeholders and not localized.
+
+            '
+          example: some description for the error situation
+        instance:
+          type: string
+          format: uri-reference
+          description: 'A URI reference that identifies the specific occurrence of the problem, e.g. by adding a fragment identifier or sub-path to the problem type. May be used to locate the root of this problem in the source code.
+
+            '
+          example: /some/uri-reference#specific-occurrence-context
+    ChatResponse:
+      title: ChatResponse
+      description: Hits conversations of an specific agent
+      type: object
+      properties:
+        conversationId:
+          type: string
+          description: Conversation identifier
+          example: abc-def-ghi-etc
+        text:
+          type: string
+          description: Text from Chat
+          example: this is an example
+        structuredOutput:
+          type: object
+          additionalProperties: true
+          nullable: true
+          description: 'This field is intended for machine-to-machine communication. The structure  is dynamic and defined by the JSON schema configured within the specific  agent’s settings. This field will only be present if a schema is defined  for the agent and the LLM successfully populates it based on the  conversation context. If no schema is configured, or if the agent provides  a purely conversational response, this field will be omitted.
+
+            '
+    Message:
+      title: Message chat
+      type: object
+      additionalProperties: false
+      properties:
+        message:
+          type: string
+        conversationId:
+          type: string
+      required:
+      - message
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: AppKey

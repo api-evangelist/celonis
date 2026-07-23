@@ -1,0 +1,643 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI Specification Agents - Conversation Schema API
+  description: AI API to chat with Celonis Agents and run their tools.
+  x-audience: EX
+  version: v1.2.0
+servers:
+- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+security:
+- BearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Schema
+paths:
+  /intelligence/api/knowledge-models:
+    get:
+      operationId: getKnowledgeModel
+      summary: Get a list of KMs
+      tags:
+      - Schema
+      description: List of Knowledge Models defined in an EMS team
+      parameters:
+      - $ref: '#/components/parameters/pageParam'
+      - $ref: '#/components/parameters/pageSizeParam'
+      - $ref: '#/components/parameters/singleSortParam'
+      responses:
+        '200':
+          description: List of Knowledge Model ids and names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/knowledgeModelResultPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/knowledge-models/{km_id}:
+    get:
+      operationId: getKnowledgeModelDetails
+      summary: Get the top-level KM details
+      description: Knowledge Model defined in an EMS team
+      tags:
+      - Schema
+      parameters:
+      - name: km_id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: open-purchase-requisition.purchase-requisition-km
+      responses:
+        '200':
+          description: Top-level Knowledge Model details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/knowledgeModelDetailedDTO'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/knowledge-models/{km_id}/filters:
+    get:
+      operationId: getFilters
+      tags:
+      - Schema
+      summary: Get a list of KM Filters
+      description: List of Filters for the Knowledge Model
+      parameters:
+      - $ref: '#/components/parameters/pageParam'
+      - $ref: '#/components/parameters/pageSizeParam'
+      - $ref: '#/components/parameters/singleSortParam'
+      - name: km_id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: open-purchase-requisition.purchase-requisition-kms
+      responses:
+        '200':
+          description: List of Filter ids and names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/filterResultPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/knowledge-models/{km_id}/records:
+    get:
+      operationId: getRecords
+      tags:
+      - Schema
+      summary: Get a list of KM Records schema
+      description: List of Records schema
+      parameters:
+      - $ref: '#/components/parameters/pageParam'
+      - $ref: '#/components/parameters/pageSizeParam'
+      - $ref: '#/components/parameters/singleSortParam'
+      - name: km_id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: open-purchase-requisition.purchase-requisition-km
+      responses:
+        '200':
+          description: List of Record ids and names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/recordSchemaResultPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/knowledge-models/{km_id}/records/{record_id}:
+    get:
+      operationId: getRecordDetails
+      tags:
+      - Schema
+      summary: Get the top-level KM Record Schema details
+      description: Top-level Record Schema details
+      parameters:
+      - name: km_id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: open-purchase-requisition.purchase-requisition-km
+      - name: record_id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: MATERIALS
+      - $ref: '#/components/parameters/singleSortParam'
+      responses:
+        '200':
+          description: Top-level Record Schema details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/recordDTO'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/knowledge-models/{km_id}/kpis:
+    get:
+      operationId: getKpis
+      tags:
+      - Schema
+      summary: Get a list of KM KPI's schema
+      description: List of KPI's schema.
+      parameters:
+      - $ref: '#/components/parameters/pageParam'
+      - $ref: '#/components/parameters/pageSizeParam'
+      - $ref: '#/components/parameters/singleSortParam'
+      - name: km_id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: open-purchase-requisition.purchase-requisition-km
+      responses:
+        '200':
+          description: List of KPI's.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/kpiSchemaResultPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+components:
+  schemas:
+    knowledgeModelSimplifiedDTO:
+      title: Knowledge Model
+      description: Knowledge Model data's structure
+      type: object
+      properties:
+        published:
+          type: string
+          description: Latest published date
+          example: '2023-04-19 11:29:45'
+      allOf:
+      - $ref: '#/components/schemas/knowledgeModelIdDTO'
+    schemaResultPage:
+      title: Result page
+      type: object
+      properties:
+        page:
+          type: integer
+          description: Page
+          example: 0
+        pageSize:
+          type: integer
+          description: Page size, defined by pageSize parameter
+          example: 50
+        total:
+          type: integer
+          description: Total elements returned in the page
+          example: 1
+        sort:
+          type: string
+          description: Field used to apply sorting to the requested data, + or no symbol means ASC, - means DESC
+          example: +id
+    knowledgeModelDetailedDTO:
+      title: Knowledge Model
+      description: Knowledge Model data's structure
+      type: object
+      properties:
+        extendedKMId:
+          type: string
+          description: Knowledge model used as reference, KM base.
+          example: open-purchase-requisition.purchase-requisition-km-base
+      allOf:
+      - $ref: '#/components/schemas/knowledgeModelIdDTO'
+    filterDTO:
+      title: Filter
+      description: Filter to apply in a KM
+      type: object
+      properties:
+        id:
+          type: string
+          description: Filter's Unique identifier
+          example: 24M_FILTER
+        name:
+          type: string
+          description: Human understandable Filter display name
+          example: 24 Months
+        description:
+          type: string
+          description: Human understandable Filter description
+          example: Materials we purchased over the past 24 months.
+    knowledgeModelResultPage:
+      title: KnowledgeModel result page
+      type: object
+      additionalProperties: false
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/knowledgeModelSimplifiedDTO'
+      allOf:
+      - $ref: '#/components/schemas/schemaResultPage'
+    recordIdDTO:
+      title: Record Type Identifier
+      description: Record Type's id and name
+      type: object
+      properties:
+        id:
+          type: string
+          description: Record's Unique identifier
+          example: MATERIALS
+        name:
+          type: string
+          description: Record display name, a human understandable name
+          example: Materials
+        description:
+          type: string
+          description: Record description
+          example: Materials that have been purchased.
+        shortDisplayName:
+          type: string
+          description: Record short display name
+          example: Materials
+        internalNote:
+          type: string
+          description: Record internal note
+          example: Materials
+    recordFieldDTO:
+      title: Record Type Field
+      description: Fields for a Record
+      type: object
+      properties:
+        id:
+          type: string
+          example: payment_amount
+          description: Amount pending to pay
+        name:
+          type: string
+          example: Amount in euros pending to pay
+          description: human understandable name
+        description:
+          type: string
+          description: Record field description
+          example: Amount pending to pay
+        shortDisplayName:
+          type: string
+          description: Record short display name
+          example: Amount
+        internalNote:
+          type: string
+          description: Record internal note
+          example: Amount of the record
+        type:
+          type: string
+          enum:
+          - string
+          - date
+          - integer
+          - boolean
+          - number
+          - datetime
+          - timestamp
+          - float
+        format:
+          type: string
+          example: '#.###'
+          description: Format to be applied
+        unit:
+          type: string
+          example: euros
+          description: Unit added to field value
+    recordDTO:
+      title: Record Type
+      description: Record represents a concept inside a Knowledge Model
+      type: object
+      properties:
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/recordFieldDTO'
+          example:
+          - id: material_name
+            name: Material Name
+            description: Materials name that have been purchased.
+            shortDisplayName: Materials
+            internalNote: Materials
+            type: string
+            format: ''
+            unit: ''
+          - id: material_number
+            name: Material Number
+            description: Materials number that have been purchased.
+            shortDisplayName: Materials
+            internalNote: Materials
+            type: string
+            format: ''
+            unit: ''
+          - id: material_group
+            name: Material Group
+            description: Materials group that have been purchased.
+            shortDisplayName: Materials
+            internalNote: Materials
+            type: string
+            format: ''
+            unit: ''
+      allOf:
+      - $ref: '#/components/schemas/recordIdDTO'
+    recordSchemaResultPage:
+      title: Record schema result page
+      type: object
+      additionalProperties: false
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/recordIdDTO'
+      allOf:
+      - $ref: '#/components/schemas/schemaResultPage'
+    errorDTO:
+      title: Error
+      type: object
+      description: This [RFC7807] specification is to define common error formats for those applications that need one, so that they aren't required to define their own, or worse, tempted to redefine the semantics of existing HTTP status codes. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+      properties:
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type.  It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4). This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+        detail:
+          type: string
+          description: The details of the Error
+        errorCode:
+          type: string
+          description: Unique Identifier of the Error
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+    knowledgeModelIdDTO:
+      title: Knowledge Model Identifier
+      description: Knowledge Model id and name
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique Identifier of Knowledge Model
+          example: open-purchase-requisition.purchase-requisition-km
+        name:
+          type: string
+          description: Human understandable text
+          example: Purchase Requisition KM
+    filterResultPage:
+      title: Filter schema result page
+      type: object
+      additionalProperties: false
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/filterDTO'
+      allOf:
+      - $ref: '#/components/schemas/schemaResultPage'
+    kpiSchemaResultPage:
+      title: KPI schema result page
+      type: object
+      additionalProperties: false
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/kpiDTO'
+      allOf:
+      - $ref: '#/components/schemas/schemaResultPage'
+    authErrorDTO:
+      title: Authentication Error
+      type: object
+      properties:
+        error:
+          type: string
+    kpiDTO:
+      title: KPI asset definition
+      description: KPI structure within the knowledge model
+      type: object
+      properties:
+        id:
+          type: string
+          description: KPI's Unique identifier
+          example: AVG_EVENTS_PER_CASE
+        name:
+          type: string
+          description: KPI's display name, a human understandable name
+          example: Average events per case
+        description:
+          type: string
+          description: KPI's description
+          example: An average events per case
+        format:
+          type: string
+          example: '#.###'
+          description: Format to be applied
+        unit:
+          type: string
+          example: euros
+          description: Unit added to field value
+        direction:
+          type: string
+          example: Up, Down, None
+          description: Desired trend direction for the KPI progress
+        target:
+          type: string
+          example: any value
+          description: Default KPI target (Optional)
+        parameters:
+          type: array
+          description: KPI's List of parameters
+          items:
+            $ref: '#/components/schemas/kpiParameterItemDTO'
+            example:
+            - id: parameter_1
+              name: My First Parameter
+              value: '1'
+            - id: parameter_2
+              name: My Second Parameter
+              value: a
+            - id: parameter_3
+              name: My Third Parameter
+              value: '5'
+    kpiParameterItemDTO:
+      title: Parameter defined for a Knowledge Model KPI
+      type: object
+      properties:
+        id:
+          type: string
+          description: Field identity to use in field list param and filterExpression param
+        name:
+          type: string
+          description: Human understandable text
+        value:
+          type: string
+          description: Initial value for the parameter.
+  responses:
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    ServiceUnavailable:
+      description: Service Unavailable.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    Forbidden:
+      description: Forbidden.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    Unauthorized:
+      description: Unauthorized access.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/authErrorDTO'
+    TooManyRequests:
+      description: Too Many Requests.
+      headers:
+        X-RateLimit-Limit:
+          description: Request limit per hour.
+          schema:
+            type: integer
+            format: int32
+        X-RateLimit-Remaining:
+          description: The number of requests left for the time window.
+          schema:
+            type: integer
+            format: int32
+        X-RateLimit-Reset:
+          description: The UTC date/time at which the current rate limit window resets.
+          schema:
+            type: string
+            format: date-time
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    InternalError:
+      description: Internal Server Error.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    BadRequest:
+      description: Bad Request.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+  parameters:
+    singleSortParam:
+      style: form
+      explode: false
+      in: query
+      name: sort
+      required: false
+      description: Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with "+" to apply ASC order or "-" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error
+      schema:
+        type: string
+        example:
+        - -field1
+    pageParam:
+      in: query
+      name: page
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+        description: The page number of the result, starting by 0 (first page)
+    pageSizeParam:
+      in: query
+      name: pageSize
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 50
+        description: The number of items returned in a page.
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: AppKey

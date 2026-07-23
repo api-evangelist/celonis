@@ -1,0 +1,97 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI Specification Agents - Conversation Permissions Export API API
+  description: AI API to chat with Celonis Agents and run their tools.
+  x-audience: EX
+  version: v1.2.0
+servers:
+- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+security:
+- BearerAuth: []
+- ApiKeyAuth: []
+tags:
+- description: Export all permissions for the team as a JSON file.
+  name: Permissions Export API
+paths:
+  /api/authorization/external/permissions:
+    get:
+      description: Exports all permissions for the team as a JSON file.
+      operationId: findAllPermissions
+      parameters: []
+      responses:
+        '200':
+          description: A JSON file containing all permissions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionExportResponse'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '401':
+          description: Unauthorized. Please check whether your API key or application key has sufficient\ \permissions. In case you are unsure, please refer the documentation on [application keys]\ \(https://help.celonis.cloud/help/display/CIBC/Application+Keys) and [permissions]\ \(https://help.celonis.cloud/help/display/CIBC/Permissions).
+        '403':
+          description: Forbidden
+        '500':
+          description: An internal error happened.\ \Please forward the associated error ID along with any helpful information to [our support]\ \(https://help.celonis.cloud/help/display/CIBC/Support)
+      security:
+      - Authorization: []
+      summary: Export permissions
+      tags:
+      - Permissions Export API
+components:
+  schemas:
+    PermissionExportItem:
+      type: object
+      properties:
+        subjectName:
+          type: string
+        subjectType:
+          type: string
+        subjectId:
+          type: string
+        groups:
+          type: string
+        role:
+          type: string
+        service:
+          type: string
+        objectName:
+          type: string
+        objectType:
+          type: string
+        objectId:
+          type: string
+        actions:
+          type: array
+          items:
+            type: string
+    PermissionExportResponse:
+      type: object
+      properties:
+        permissions:
+          type: array
+          description: List of permissions
+          items:
+            $ref: '#/components/schemas/PermissionExportItem'
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation:
+          type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: AppKey

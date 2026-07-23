@@ -1,0 +1,468 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI Specification Agents - Conversation Notebook Execution API
+  description: AI API to chat with Celonis Agents and run their tools.
+  x-audience: EX
+  version: v1.2.0
+servers:
+- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+security:
+- BearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Notebook Execution
+  description: The Notebook Executions API is used to trigger, stop, and track notebook executions.
+paths:
+  /api/executions/{id}/stop:
+    put:
+      tags:
+      - Notebook Execution
+      summary: Stop a running execution
+      operationId: stop
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/executions:
+    post:
+      tags:
+      - Notebook Execution
+      summary: Trigger an execution
+      operationId: execute_1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotebookExecutionTransport'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/NotebookExecutionTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/executions/{id}:
+    get:
+      tags:
+      - Notebook Execution
+      summary: Get an execution
+      operationId: find
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/NotebookExecutionTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/executions/{id}/logs:
+    get:
+      tags:
+      - Notebook Execution
+      summary: Get execution logs
+      operationId: getLogs_1
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: logLevels
+        in: query
+        required: false
+        schema:
+          type: array
+          default:
+          - INFO
+          - DEBUG
+          - WARNING
+          - ERROR
+          items:
+            type: string
+            enum:
+            - DEBUG
+            - INFO
+            - WARNING
+            - ERROR
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/NotebookExecutionLogTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/executions/triggered/{id}:
+    get:
+      tags:
+      - Notebook Execution
+      operationId: getTriggeredExecutions
+      summary: Get triggered executions
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: pageIndex
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 0
+          minimum: 0
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          format: int32
+          default: 1
+          minimum: 1
+      - name: startedOrder
+        in: query
+        required: false
+        schema:
+          type: string
+          default: DESC
+      - name: executionSources
+        in: query
+        required: false
+        schema:
+          type: array
+          default:
+          - DATA_MODEL_RELOAD
+          - KNOWLEDGE_MODEL
+          - API
+          items:
+            type: string
+            enum:
+            - SCHEDULING
+            - API
+            - KNOWLEDGE_MODEL
+            - DATA_MODEL_RELOAD
+            - SKILL_UPDATE
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/PageNotebookExecutionTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/executions/triggered-groups:
+    get:
+      tags:
+      - Notebook Execution
+      operationId: getTriggeredExecutionGroups
+      summary: Get triggered execution groups
+      parameters:
+      - name: notebookId
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/TriggeredExecutionGroupTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+  /api/executions/triggered-groups/{id}:
+    get:
+      tags:
+      - Notebook Execution
+      operationId: getTriggeredExecutionGroup
+      summary: Get triggered execution groups by ID
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/TriggeredExecutionGroupTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+components:
+  schemas:
+    TriggeredExecutionGroupTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        notebookId:
+          type: string
+        notebookName:
+          type: string
+        executionFileName:
+          type: string
+        lastExecutionId:
+          type: string
+        lastExecutionStatus:
+          type: string
+          enum:
+          - CREATED
+          - QUEUED
+          - STARTING
+          - STARTED
+          - COMPLETED
+          - NOTEBOOK_ERROR
+          - FAILED
+          - TIMEOUT
+          - CANCELED
+          - RESOURCES_ERROR
+          - CONFIGURATION_ERROR
+        lastExecutionStartedDate:
+          type: string
+          format: date-time
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
+    PageNotebookExecutionTransport:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/NotebookExecutionTransport'
+        pageSize:
+          type: integer
+          format: int32
+        pageNumber:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int64
+        first:
+          type: boolean
+        last:
+          type: boolean
+        empty:
+          type: boolean
+        totalPages:
+          type: integer
+          format: int32
+    JsonNode: {}
+    NotebookExecutionTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        notebookId:
+          type: string
+        notebookExecutionSourceId:
+          type: string
+        notebookExecutionSource:
+          type: string
+        executionFileName:
+          type: string
+        notebookExecutionStatus:
+          type: string
+          enum:
+          - CREATED
+          - QUEUED
+          - STARTING
+          - STARTED
+          - COMPLETED
+          - NOTEBOOK_ERROR
+          - FAILED
+          - TIMEOUT
+          - CANCELED
+          - RESOURCES_ERROR
+          - CONFIGURATION_ERROR
+        started:
+          type: string
+          format: date-time
+        completed:
+          type: string
+          format: date-time
+        params:
+          $ref: '#/components/schemas/JsonNode'
+        result:
+          type: string
+        logsOutputPath:
+          type: string
+        executionTimeout:
+          type: integer
+          format: int32
+        maxRetries:
+          type: integer
+          format: int32
+        timeUnit:
+          type: string
+          enum:
+          - NANOSECONDS
+          - MICROSECONDS
+          - MILLISECONDS
+          - SECONDS
+          - MINUTES
+          - HOURS
+          - DAYS
+      required:
+      - executionFileName
+      - notebookId
+    NotebookExecutionLogTransport:
+      type: object
+      properties:
+        notebookExecutionId:
+          type: string
+        message:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        logLevel:
+          type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: AppKey

@@ -1,0 +1,135 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI Specification Agents - Conversation Notebook Resources API
+  description: AI API to chat with Celonis Agents and run their tools.
+  x-audience: EX
+  version: v1.2.0
+servers:
+- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+security:
+- BearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Notebook Resources
+  description: The Notebook Resources API configures notebook resource such as CPU, memory, storage, and gpu.
+paths:
+  /api/notebooks/{id}/resources:
+    get:
+      tags:
+      - Notebook Resources
+      summary: Get Notebook Resources
+      operationId: getResources
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/NotebookResourcesTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+    put:
+      tags:
+      - Notebook Resources
+      summary: Update Notebook Resources
+      operationId: updateResources
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NotebookResourcesTransport'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/NotebookResourcesTransport'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '403':
+          description: Forbidden
+        '500':
+          description: Internal Server Error
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/ExceptionReference'
+components:
+  schemas:
+    NotebookResourcesTransport:
+      type: object
+      properties:
+        cpu:
+          type: number
+          format: double
+        memory:
+          type: integer
+          format: int32
+        storage:
+          type: integer
+          format: int32
+        gpu:
+          type: integer
+          format: int32
+      required:
+      - cpu
+      - memory
+      - storage
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: AppKey

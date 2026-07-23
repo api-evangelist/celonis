@@ -1,0 +1,853 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI Specification Agents - Conversation Data API
+  description: AI API to chat with Celonis Agents and run their tools.
+  x-audience: EX
+  version: v1.2.0
+servers:
+- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+security:
+- BearerAuth: []
+- ApiKeyAuth: []
+tags:
+- name: Data
+paths:
+  /intelligence/api/knowledge-models/{km_id}/data:
+    get:
+      operationId: getKnowledgeModelDataResult
+      tags:
+      - Data
+      summary: Get a list of KM data
+      description: Data for a Knowledge Model
+      parameters:
+      - name: km_id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: open-purchase-requisition.purchase-requisition-km
+      - $ref: '#/components/parameters/filtersParam'
+      - $ref: '#/components/parameters/fieldsOptionalParam'
+      - $ref: '#/components/parameters/pageParam'
+      - $ref: '#/components/parameters/pageSizeParam'
+      - $ref: '#/components/parameters/sortParamKm'
+      - $ref: '#/components/parameters/filterExprParam'
+      - $ref: '#/components/parameters/options'
+      - $ref: '#/components/parameters/kpisParam'
+      - $ref: '#/components/parameters/searchTerm'
+      - $ref: '#/components/parameters/searchPrecision'
+      - $ref: '#/components/parameters/searchField'
+      responses:
+        '200':
+          description: List of Knowledge Model data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/recordResultPageDTO'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+    post:
+      tags:
+      - Data
+      summary: Get a list of KM data with advanced filtering
+      description: Query Data for a Knowledge Model that is combining different Records, this endpoint allows clients to easily include more complicated queries.
+      operationId: getKnowledgeModelQueryResultByUsingQueryInBody
+      parameters:
+      - name: km_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: open-purchase-requisition.purchase-requisition-km
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KmQueryDataRequest'
+        required: true
+      responses:
+        '200':
+          description: List of Knowledge Model data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/recordResultPageDTO'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/knowledge-models/{km_id}/records/{record_id}/data:
+    get:
+      operationId: getRecordDataResult
+      tags:
+      - Data
+      summary: Get a list of KM Record data
+      description: Data for a Record in the Knowledge Model.
+      parameters:
+      - name: km_id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: open-purchase-requisition.purchase-requisition-km
+      - name: record_id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: MATERIALS
+      - $ref: '#/components/parameters/filtersParam'
+      - $ref: '#/components/parameters/fieldsParam'
+      - $ref: '#/components/parameters/pageParam'
+      - $ref: '#/components/parameters/pageSizeParam'
+      - $ref: '#/components/parameters/sortParamRecord'
+      - $ref: '#/components/parameters/filterExprParam'
+      - $ref: '#/components/parameters/options'
+      - $ref: '#/components/parameters/searchTerm'
+      - $ref: '#/components/parameters/searchPrecision'
+      - $ref: '#/components/parameters/searchField'
+      responses:
+        '200':
+          description: List of Record data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/recordResultPageDTO'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          $ref: '#/components/responses/TooManyRequests'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+    post:
+      tags:
+      - Data
+      summary: Get a list of KM Record data with advanced filtering
+      description: Query Data for a Record in the Knowledge Model. This endpoint allows clients to easily include more complicated queries.
+      operationId: getRecordDataResultByUsingQueryInBody
+      parameters:
+      - name: km_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: open-purchase-requisition.purchase-requisition-km
+      - name: record_id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: MATERIALS
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/KmQueryRecordDataRequest'
+        required: true
+      responses:
+        '200':
+          description: List of Record data.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/recordResultPageDTO'
+        '400':
+          description: Bad Request.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/errorDTO'
+        '401':
+          description: Unauthorized access.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/authErrorDTO'
+        '403':
+          description: Forbidden.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/errorDTO'
+        '404':
+          description: The specified resource was not found.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/errorDTO'
+        '429':
+          description: Too Many Requests.
+          headers:
+            X-RateLimit-Limit:
+              description: Request limit per hour.
+              schema:
+                type: integer
+                format: int32
+            X-RateLimit-Remaining:
+              description: The number of requests left for the time window.
+              schema:
+                type: integer
+                format: int32
+            X-RateLimit-Reset:
+              description: The UTC date/time at which the current rate limit window. resets.
+              schema:
+                type: string
+                format: date-time
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/errorDTO'
+        '500':
+          description: Internal Server Error.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/errorDTO'
+        '503':
+          description: Service Unavailable.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/errorDTO'
+components:
+  parameters:
+    searchField:
+      in: query
+      name: searchField
+      required: false
+      schema:
+        type: string
+        description: The specific field within the data structure that is targeted by the search.
+    kpisParam:
+      style: form
+      explode: false
+      in: query
+      name: kpis
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          description: As many kpi ids if they exists in the knowledge model
+          example: AVG_EVENTS_PER_CASE,FILTERED_COUNT
+    sortParamRecord:
+      style: form
+      explode: false
+      in: query
+      name: sort
+      required: false
+      description: 'Defines the order in which results are returned (record-level GET).
+
+
+        The `sortParamRecord` query parameter must be a comma-separated list of record fields.
+
+        Any value used in `sortParamRecord` **must also be included** in the `fields` parameter.
+
+        If a value appears in `sortParamRecord` but is **not** included in `fields`, the API cannot evaluate it and sorting will not be applied correctly.
+
+
+        If a non-existing field is provided, the request will return an error.
+
+
+        Sort direction is specified using optional prefixes:
+
+        - `+` for ascending order (ASC)
+
+        - `-` for descending order (DESC)
+
+        - No prefix defaults to ascending order (ASC)
+
+
+        **Examples**
+
+        - `sortParamRecord=+field1` (sorting in ascending order by a record field)
+
+        - `sortParamRecord=-field2,field1` (sorting in descending order by a record field and in ascending order by another record field)'
+      schema:
+        type: array
+        items:
+          type: string
+          example: +field1,-field2,field3
+    sortParamKm:
+      style: form
+      explode: false
+      in: query
+      name: sort
+      required: false
+      description: 'Defines the order in which results are returned (Knowledge Model–level GET).
+
+
+        The `sortParamKm` query parameter must be a comma-separated list of record fields and/or KPIs.
+
+        Any value used in `sortParamKm` **must also be included** in the `fields` or `kpis` parameters.
+
+        If a value appears in `sortParamKm` but is **not** included in `fields` or `kpis`, the API cannot evaluate it and sorting will not be applied correctly.
+
+
+        If a non-existing field is provided, the request will return an error.
+
+
+        Sort direction is specified using optional prefixes:
+
+        - `+` for ascending order (ASC)
+
+        - `-` for descending order (DESC)
+
+        - No prefix defaults to ascending order (ASC)
+
+
+        **Examples**
+
+        - `sortParamKm=+record1_id.field1` (sorting in ascending order by a record field)
+
+        - `sortParamKm=-record1_id.field2,kpi1` (sorting in descending order by a record field and in ascending order by a KPI)
+
+        - `sortParamKm=record1_id.field1,-kpi2` (sorting in ascending order by a record field and in descending order by a KPI)
+
+        - `sortParamKm=-kpi1` (sorting in descending order by a KPI)'
+      schema:
+        type: array
+        items:
+          type: string
+          example: +record1_id.field1,-record1_id.field2,kpi1
+    pageParam:
+      in: query
+      name: page
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+        description: The page number of the result, starting by 0 (first page)
+    pageSizeParam:
+      in: query
+      name: pageSize
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 50
+        description: The number of items returned in a page.
+    fieldsOptionalParam:
+      style: form
+      explode: false
+      in: query
+      name: fields
+      required: false
+      allowEmptyValue: false
+      schema:
+        type: array
+        items:
+          type: string
+          description: A predefined filter id
+          example: active,approval
+    filtersParam:
+      style: form
+      explode: false
+      in: query
+      name: filters
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          description: A predefined filter id
+          example: active_incidents,cel_and_kpi
+    filterExprParam:
+      style: form
+      explode: true
+      in: query
+      name: filterExpr
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          description: Dynamic filter expressions
+          example: active eq true and name not eq 'John Doe'
+    fieldsParam:
+      style: form
+      explode: false
+      in: query
+      name: fields
+      required: true
+      allowEmptyValue: false
+      schema:
+        type: array
+        items:
+          type: string
+          description: A predefined filter id
+          example: active,approval
+    searchPrecision:
+      in: query
+      name: searchPrecision
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        description: The strictness of the fuzzy matching algorithm. A lower value will return less accurate matches (more 'fuzzy').
+    options:
+      style: form
+      explode: false
+      in: query
+      name: options
+      required: false
+      description: "Set different **options to customize the data results** for a query. Supported options \n* **Distinct**: Enable the unique data results for a query\n"
+      schema:
+        type: array
+        items:
+          type: string
+          example: distinct
+    searchTerm:
+      in: query
+      name: searchTerm
+      required: false
+      schema:
+        type: string
+        description: The term to search for. The search will attempt to find matches that are similar to this term.
+  schemas:
+    KmRecordFieldsProjection:
+      maxLength: 2048
+      minLength: 1
+      type: string
+      description: Projection of KM Record fields expressed as a comma separated list of Record Fields names to be used.
+      nullable: false
+      example: material_name,material_number,material_group
+    FiltersProjection:
+      type: object
+      properties:
+        kmFilterNames:
+          type: array
+          description: List of predefined Knowledge Model filter names to apply.
+          example:
+          - filter1
+          - filter2
+          - filter3
+          items:
+            type: string
+        filterExpr:
+          type: array
+          description: List of raw filter expressions (e.g., OData syntax).
+          example:
+          - active eq true and name ne 'John Doe'
+          items:
+            type: string
+      description: Defines filtering criteria for the Knowledge Model query.
+    SearchProjection:
+      type: object
+      properties:
+        term:
+          type: string
+          description: The search term or keyword.
+          example: tot_revenue
+        field:
+          type: string
+          description: Optional specific field to search within. If omitted, searches across all relevant fields.
+          example: revenue
+        precision:
+          maximum: 100
+          minimum: 0
+          type: integer
+          description: The precision level for the search (e.g., fuzzy matching tolerance).
+          format: int32
+          example: 10
+      description: Defines search criteria for full-text search or specific field search.
+    SortProjectionKm:
+      description: 'Defines the order in which results are returned (Knowledge Model–level query body).
+
+
+        The `sort` property must be a comma-separated list of record fields and/or KPIs.
+
+        Any value used in `sort` **must also be included** in the `fields` or `kpis` properties.
+
+        If a value appears in `sort` but is **not** included in `fields` or `kpis`, the API cannot evaluate it and sorting will not be applied correctly.
+
+
+        If a non-existing field is provided, the request will return an error.
+
+
+        Sort direction is specified using optional prefixes:
+
+        - `+` for ascending order (ASC)
+
+        - `-` for descending order (DESC)
+
+        - No prefix defaults to ascending order (ASC)
+
+
+        **Examples** (string value in `projection.sort`)
+
+        - `+record1_id.field1` (sorting in ascending order by a record field)
+
+        - `-record1_id.field2,kpi1` (sorting in descending order by a record field and in ascending order by a KPI)
+
+        - `record1_id.field1,-kpi2` (sorting in ascending order by a record field and in descending order by a KPI)
+
+        - `-kpi1` (sorting in descending order by a KPI)'
+      type: string
+      minLength: 2
+      maxLength: 2048
+      nullable: true
+      example: +record1_id.field1,-record1_id.field2,kpi1
+    recordResultPageDTO:
+      title: Record data result page
+      type: object
+      additionalProperties: false
+      properties:
+        content:
+          $ref: '#/components/schemas/recordItemDTO'
+      allOf:
+      - $ref: '#/components/schemas/resultPage'
+    resultPage:
+      title: Result page
+      type: object
+      properties:
+        page:
+          type: integer
+          description: Page
+          example: 0
+        pageSize:
+          type: integer
+          description: Page size, defined by pageSize parameter
+          example: 50
+        total:
+          type: integer
+          description: Total elements returned in the page
+          example: 1
+        sort:
+          type: array
+          items:
+            type: string
+            example: material_number
+    KmQueryDataRequest:
+      required:
+      - projection
+      type: object
+      properties:
+        projection:
+          $ref: '#/components/schemas/Projection'
+      description: The top-level request object for querying the Knowledge Model.
+    Projection:
+      type: object
+      properties:
+        fields:
+          $ref: '#/components/schemas/KmRecordFieldsProjection'
+        filters:
+          $ref: '#/components/schemas/FiltersProjection'
+        pagination:
+          $ref: '#/components/schemas/KmPaginationProjection'
+        sort:
+          $ref: '#/components/schemas/SortProjectionKm'
+        options:
+          $ref: '#/components/schemas/KmOptionsProjection'
+        kpis:
+          $ref: '#/components/schemas/KpisProjection'
+        search:
+          $ref: '#/components/schemas/SearchProjection'
+      description: Defines the projection criteria for the Knowledge Model query.
+    KmRecordDataRequestProjection:
+      required:
+      - fields
+      type: object
+      properties:
+        fields:
+          $ref: '#/components/schemas/KmRecordFieldsProjection'
+        filters:
+          $ref: '#/components/schemas/FiltersProjection'
+        pagination:
+          $ref: '#/components/schemas/KmPaginationProjection'
+        sort:
+          $ref: '#/components/schemas/SortProjectionRecord'
+        options:
+          $ref: '#/components/schemas/KmOptionsProjection'
+        search:
+          $ref: '#/components/schemas/SearchProjection'
+      description: Defines the parameters related to the query to be executed against the Knowledge Model Record.
+    recordItemDTO:
+      title: Record Item
+      type: object
+      properties:
+        headers:
+          type: array
+          items:
+            $ref: '#/components/schemas/recordItemHeaderDTO'
+          example:
+          - id: material_name
+            name: Material name
+            type: string
+            format: ''
+            unit: ''
+            aggregation: 'false'
+            filterable: 'true'
+            sortable: 'true'
+          - id: material_number
+            name: Material number
+            type: string
+            format: ''
+            unit: ''
+            aggregation: 'false'
+            filterable: 'true'
+            sortable: 'true'
+          - id: material_group
+            name: Material group
+            type: string
+            format: ''
+            unit: ''
+            aggregation: 'false'
+            filterable: 'true'
+            sortable: 'true'
+        data:
+          type: array
+          description: List of record item, compound with name and value
+          items:
+            additionalProperties: {}
+            example:
+            - material_name: PC Installation / Configuration
+              material_number: I-1000
+              material_group: Services
+    KmQueryRecordDataRequest:
+      required:
+      - projection
+      type: object
+      properties:
+        projection:
+          $ref: '#/components/schemas/KmRecordDataRequestProjection'
+      description: The top-level request records for querying the Knowledge Model.
+    KmPaginationProjection:
+      type: object
+      properties:
+        pageNumber:
+          minimum: 0
+          type: integer
+          description: Page number of the result, starting by 0 (first page).
+          format: int32
+          default: 0
+        pageSize:
+          minimum: 1
+          type: integer
+          description: Page size of the result, the number of items returned in a page.
+          format: int32
+          default: 50
+      description: Projection of pagination parameters to be used, expressed as a page number and a page size.
+    errorDTO:
+      title: Error
+      type: object
+      description: This [RFC7807] specification is to define common error formats for those applications that need one, so that they aren't required to define their own, or worse, tempted to redefine the semantics of existing HTTP status codes. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+      properties:
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type.  It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4). This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+        detail:
+          type: string
+          description: The details of the Error
+        errorCode:
+          type: string
+          description: Unique Identifier of the Error
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+    KmOptionsProjection:
+      maxItems: 1
+      minItems: 0
+      type: array
+      description: Set different options to customize the data results for a projection.
+      nullable: true
+      items:
+        $ref: '#/components/schemas/KmOptionsValues'
+    recordItemHeaderDTO:
+      title: Record Item Header
+      type: object
+      properties:
+        id:
+          type: string
+          description: Field identity to use in field list param and filterExpression param
+        name:
+          type: string
+          description: Human understandable text
+        type:
+          type: string
+          enum:
+          - integer
+          - date
+          - time
+          - datetime
+          - timestamp
+          - float
+          - boolean
+          - string
+          description: Possible data types.
+        format:
+          type: string
+          description: Format expression
+        unit:
+          type: string
+          description: A complementary sign for format value view
+        aggregation:
+          type: boolean
+          default: false
+          description: Indicate if a field is a aggregation/calculated information(KPI).
+        filterable:
+          type: boolean
+          default: false
+          description: Indicate if the field could be filtered.
+        sortable:
+          type: boolean
+          default: false
+          description: Indicate if the field could be sorted.
+    SortProjectionRecord:
+      description: 'Defines the order in which results are returned (record-level query body).
+
+
+        The `sort` property must be a comma-separated list of record fields.
+
+        Any value used in `sort` **must also be included** in the `fields` property.
+
+        If a value appears in `sort` but is **not** included in `fields`, the API cannot evaluate it and sorting will not be applied correctly.
+
+
+        If a non-existing field is provided, the request will return an error.
+
+
+        Sort direction is specified using optional prefixes:
+
+        - `+` for ascending order (ASC)
+
+        - `-` for descending order (DESC)
+
+        - No prefix defaults to ascending order (ASC)
+
+
+        **Examples** (string value in `projection.sort`)
+
+        - `+field1` (sorting in ascending order by a record field)
+
+        - `-field2,field1` (sorting in descending order by a record field and in ascending order by another record field)'
+      type: string
+      minLength: 2
+      maxLength: 2048
+      nullable: true
+      example: +field1,-field2,field3
+    authErrorDTO:
+      title: Authentication Error
+      type: object
+      properties:
+        error:
+          type: string
+    KpisProjection:
+      type: array
+      description: List of KPIs.
+      items:
+        type: string
+    KmOptionsValues:
+      type: string
+      description: "Set different **options to customize the data results** for a query. Supported options \n* **Distinct**: Enable the unique data results for a query\n"
+      enum:
+      - distinct
+  responses:
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    ServiceUnavailable:
+      description: Service Unavailable.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    Forbidden:
+      description: Forbidden.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    Unauthorized:
+      description: Unauthorized access.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/authErrorDTO'
+    TooManyRequests:
+      description: Too Many Requests.
+      headers:
+        X-RateLimit-Limit:
+          description: Request limit per hour.
+          schema:
+            type: integer
+            format: int32
+        X-RateLimit-Remaining:
+          description: The number of requests left for the time window.
+          schema:
+            type: integer
+            format: int32
+        X-RateLimit-Reset:
+          description: The UTC date/time at which the current rate limit window resets.
+          schema:
+            type: string
+            format: date-time
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    InternalError:
+      description: Internal Server Error.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    BadRequest:
+      description: Bad Request.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: AppKey
