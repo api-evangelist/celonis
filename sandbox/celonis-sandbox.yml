@@ -1,0 +1,24 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+summary: >-
+  Celonis publishes interactive "Try it!" API consoles in the developer center for the
+  Process Intelligence APIs, backed by hosted mock servers. There is no separate
+  test-vs-live key prefix scheme; developers exercise APIs against their own EMS team
+  (App key / OAuth) or against the mock server URLs embedded in each OpenAPI.
+try_it_consoles:
+- api: Knowledge Model API
+  url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+- api: AI Agent API
+  url: https://developer.celonis.com/process-intelligence-apis/agents-api/api-reference/try-it
+- api: Event Subscription API
+  url: https://developer.celonis.com/process-intelligence-apis/subscription-api/api-reference/try-it
+mock_servers:
+  provider: Redocly (remockly.com)
+  note: Each Process Intelligence OpenAPI declares a per-spec remockly.com mock server as its default `servers[]` entry.
+  hosts:
+  - https://b0eca2bc-fbc3-400f-b855-9fe468151d15.remockly.com   # Knowledge Model API
+  - https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com   # AI Agent API
+  - https://6c823f95-99fb-4d3f-8e8e-749be34ece02.remockly.com   # Event Subscription API
+production_base_url: https://{team_domain}.{realm}.celonis.cloud
+note: No published static test credentials or magic test identifiers were found; none are fabricated here.

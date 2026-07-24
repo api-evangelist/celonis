@@ -1,0 +1,111 @@
+openapi: 3.1.0
+info:
+  description: >-
+    This is the documentation for the Permissions Export API that allows
+    querying of access permissions for a Celonis team. This API supports
+    authentication via OAuth 2.0 token with scope
+    <tt>authorization.permissions:read</tt>, passed in an HTTP header like this:
+    <tt>Authorization: Bearer TOKEN</tt><br/><br/>Please see [this help
+    page](https://docs.celonis.com/en/using-oauth-2-0.html) for more information
+    about OAuth 2.0.<br/>
+  title: Permissions API
+  version: 1.0.0
+servers:
+  - description: Default Server URL
+    url: /
+security:
+  - Authorization: []
+tags:
+  - description: Export all permissions for the team as a JSON file.
+    name: Permissions Export API
+paths:
+  /api/authorization/external/permissions:
+    get:
+      description: Exports all permissions for the team as a JSON file.
+      operationId: findAllPermissions
+      parameters: []
+      responses:
+        '200':
+          description: A JSON file containing all permissions.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionExportResponse'
+        '204':
+          description: No Content
+        '400':
+          description: Bad Request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FrontendHandledBackendError'
+        '401':
+          description: >-
+            Unauthorized. Please check whether your API key or application key
+            has sufficient\ \permissions. In case you are unsure, please refer
+            the documentation on [application keys]\
+            \(https://help.celonis.cloud/help/display/CIBC/Application+Keys) and
+            [permissions]\
+            \(https://help.celonis.cloud/help/display/CIBC/Permissions).
+        '403':
+          description: Forbidden
+        '500':
+          description: >-
+            An internal error happened.\ \Please forward the associated error ID
+            along with any helpful information to [our support]\
+            \(https://help.celonis.cloud/help/display/CIBC/Support)
+      security:
+        - Authorization: []
+      summary: Export permissions
+      tags:
+        - Permissions Export API
+components:
+  schemas:
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation:
+          type: string
+    PermissionExportItem:
+      type: object
+      properties:
+        subjectName:
+          type: string
+        subjectType:
+          type: string
+        subjectId:
+          type: string
+        groups:
+          type: string
+        role:
+          type: string
+        service:
+          type: string
+        objectName:
+          type: string
+        objectType:
+          type: string
+        objectId:
+          type: string
+        actions:
+          type: array
+          items:
+            type: string
+    PermissionExportResponse:
+      type: object
+      properties:
+        permissions:
+          type: array
+          description: List of permissions
+          items:
+            $ref: '#/components/schemas/PermissionExportItem'
+  securitySchemes:
+    Authorization:
+      description: >-
+        Please, prefix the Token with "AppKey " or "Bearer " (word and space) to
+        indicate   the Authorization type
+      in: header
+      name: Authorization
+      type: apiKey

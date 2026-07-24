@@ -1,0 +1,125 @@
+openapi: 3.0.2
+info:
+  title: Agent Tools (MCP) Asset Tool Calling API
+  version: v1.0.0
+servers:
+  - url: https://{team_domain}.{realm}
+    description: MCP Server Wrapper
+    variables:
+      team_domain:
+        default: my_team
+        description: Team domain name in Celonis
+      realm:
+        default: eu-1.celonis.cloud
+        description: Celonis realm (e.g., eu-1.celonis.cloud)
+paths:
+  /studio-copilot/api/v1/mcp-servers/mcp/{asset_id}/tool-api/{tool_id}:
+    post:
+      tags:
+        - OpenAPI Tool Calling
+      summary: Call Agent Tools (MCP) Asset Tool
+      operationId: postMcpServerToolResponse
+      parameters:
+        - name: asset_id
+          in: path
+          required: true
+          schema:
+            type: string
+            title: Asset Id
+            example: dba9e6e8-7fbf-42f9-baf4-78747fb3e125
+        - name: tool_id
+          in: path
+          required: true
+          description: >-
+            Tool ID as configured in the asset (for example, `search-data` or
+            `load-data`).
+          schema:
+            type: string
+            title: Tool Id
+            example: search-data
+        - name: draft
+          in: query
+          required: false
+          description: Set to true to call the draft version of the asset.
+          schema:
+            type: boolean
+            default: false
+            title: Draft
+            example: false
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                anyOf:
+                  - type: object
+                    additionalProperties: true
+                  - type: string
+                title: Response 200 Postmcpservertoolresponse
+              examples:
+                searchDataResponse:
+                  summary: search-data response example
+                  value:
+                    search_result: >-
+                      {"string": [{"id": "MCP_GETTING_STARTED.TEXT",
+                      "display_name": "Text", "record_display_name": "Mcp
+                      Getting Started", "column_type": "STRING", "entity_type":
+                      "Attribute"}]}
+                loadDataResponse:
+                  summary: load-data response example
+                  value:
+                    page: 0
+                    page_size: 50
+                    total: 1
+                    data_frame_content:
+                      data:
+                        - MCP_GETTING_STARTED.ID: '123'
+                          MCP_GETTING_STARTED.TEXT: Sample result
+                      schema:
+                        - id: MCP_GETTING_STARTED.ID
+                          type: STRING
+                          displayName: Id
+                        - id: MCP_GETTING_STARTED.TEXT
+                          type: STRING
+                          displayName: Text
+        '404':
+          description: Asset not found
+        '422':
+          description: Unprocessable Entity
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CelonisValidationError'
+                title: Response 422 Postmcpservertoolresponse
+components:
+  schemas:
+    CelonisValidationError:
+      type: object
+      title: CelonisValidationError
+      description: Celonis frontend compatible validation error model.
+      properties:
+        error:
+          type: string
+          title: Error
+        attribute:
+          type: string
+          title: Attribute
+          default: ''
+        errorCode:
+          type: string
+          title: Errorcode
+          default: ''
+        additionalInfo:
+          type: string
+          title: Additionalinfo
+          default: ''
+      required:
+        - error
+tags:
+  - name: OpenAPI Tool Calling
+    description: >-
+      OpenAPI endpoints for calling tools configured in the Agent Tools (MCP)
+      Asset.

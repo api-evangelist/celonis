@@ -1,0 +1,51 @@
+generated: '2026-07-18'
+method: searched
+source: >-
+  https://developer.celonis.com/celonis-apis/pagination/,
+  https://developer.celonis.com/celonis-apis/rate-limiting/,
+  https://developer.celonis.com/celonis-apis/req-tracing/
+authentication:
+  style: Authorization header (OAuth 2.0 Bearer JWT recommended; AppKey / User API Key deprecating)
+  ref: authentication/celonis-authentication.yml
+base_url: https://{team_domain}.{realm}.celonis.cloud
+versioning:
+  scheme: uri-path
+  example: /intelligence/api/knowledge-models
+  per_api_semver: true
+  note: >-
+    Each API is independently semver-versioned in its OpenAPI (e.g. Knowledge Model
+    API v1.32.0, Subscription API v1.8.0, AI Agent API v1.2.0). Legacy CPM/Power
+    Platform APIs are explicitly marked (Legacy) in the developer center.
+pagination:
+  style: page-number
+  params:
+  - {name: page, description: 'Page index, starting at 0'}
+  - {name: pageSize, description: Number of items per page}
+  limits:
+    data_endpoint_max_records: 5000
+  docs: https://developer.celonis.com/celonis-apis/pagination/
+rate_limiting:
+  signal: response-headers
+  status_on_exceed: 429
+  headers:
+  - {name: x-ratelimit-limit, description: Maximum requests in the current window}
+  - {name: x-ratelimit-remaining, description: Remaining requests in the current window}
+  - {name: x-ratelimit-reset, description: Seconds to wait before the next request is accepted}
+  docs: https://developer.celonis.com/celonis-apis/rate-limiting/
+  ref: rate-limits/
+request_tracing:
+  docs: https://developer.celonis.com/celonis-apis/req-tracing/
+  note: Celonis documents an API request-tracing mechanism for correlating requests.
+field_selection:
+  supported: true
+  note: The Process Intelligence / Knowledge Model API supports field selection and OData-style filtering, sorting.
+  docs: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/get-started/field-selection
+filtering:
+  style: OData semantics (Knowledge Model API)
+  docs: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/features/filtering-odata-typed
+idempotency:
+  supported: false
+  note: No idempotency-key contract is documented on the public developer center.
+error_envelope:
+  ref: errors/celonis-problem-types.yml
+  fields: [title, status, detail, errorCode]

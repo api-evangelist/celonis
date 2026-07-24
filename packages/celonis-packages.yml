@@ -1,0 +1,35 @@
+generated: '2026-07-18'
+method: searched
+source: >-
+  https://github.com/celonis, https://github.com/celonis/pycelonis,
+  https://www.npmjs.com/package/@celonis/content-cli
+packages:
+- language: python
+  registry: github
+  name: pycelonis
+  url: https://github.com/celonis/pycelonis
+  docs: https://celonis.github.io/pycelonis/
+  install: pip install pycelonis  (from the Celonis-hosted package index)
+  official: true
+  kind: sdk
+  description: >-
+    PyCelonis — official Python client for the Celonis Platform / EMS (Studio, Apps,
+    Data Integration, Knowledge Models). Distributed via the Celonis package index,
+    not public PyPI. Examples at github.com/celonis/pycelonis-examples.
+- language: javascript
+  registry: npm
+  name: "@celonis/content-cli"
+  url: https://www.npmjs.com/package/@celonis/content-cli
+  repo: https://github.com/celonis/content-cli
+  install: npm install -g @celonis/content-cli
+  version: 1.13.1
+  official: true
+  kind: cli
+  description: Command-line tool to manage content in the Celonis EMS.
+- language: python
+  registry: github
+  name: pycelonis-examples
+  url: https://github.com/celonis/pycelonis-examples
+  official: true
+  kind: examples
+  description: Demo notebooks covering popular PyCelonis functionalities and use cases.

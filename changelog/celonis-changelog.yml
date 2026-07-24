@@ -1,0 +1,29 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.celonis.com/changelog/
+scheme: per-api-semver
+channels:
+- name: Developer Changelog
+  url: https://developer.celonis.com/changelog/
+  scope: Celonis Platform APIs (developer center)
+- name: Product Release Notes
+  url: https://docs.celonis.com/en/release-notes.html
+  scope: Celonis Platform product features
+- name: 2026 Release Notes
+  url: https://docs.celonis.com/en/2026-release-notes.html
+- name: Community Product Updates
+  url: https://community.celonis.com/product-updates
+- name: PyCelonis Change-Log
+  url: https://community.celonis.com/ai-8/pycelonis-change-log-release-notes-3057
+  scope: PyCelonis Python SDK
+per_api_release_notes:
+- api: Knowledge Model API
+  url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/release-notes
+  current_version: v1.32.0
+- api: Event Subscription API
+  url: https://developer.celonis.com/process-intelligence-apis/subscription-api/release-notes
+  current_version: v1.8.0
+note: >-
+  Celonis maintains dated changelogs per surface; each Process Intelligence API also
+  publishes its own release-notes page and carries an independent semver version in
+  its OpenAPI. Full historical entries live on the live changelog pages.

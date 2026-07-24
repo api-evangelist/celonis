@@ -1,27 +1,388 @@
 aid: celonis
 name: Celonis
-description: 'Celonis is a company surfaced as a portfolio company of accel and added to the API Evangelist
-  network as a stub for enrichment. Sector: automation. This profile is a lead awaiting the enrichment
-  pipeline.'
+description: >-
+  Celonis is the process intelligence and process mining company. Its cloud platform
+  ingests event data from enterprise systems, builds Knowledge Models of how business
+  processes actually run, and surfaces KPIs, bottlenecks and automation opportunities.
+  For developers Celonis publishes a Developer Center with REST APIs across Process
+  Intelligence (Knowledge Model, AI Agent, Event Subscription), data ingestion and
+  push, Machine Learning Workbench, Team, Permissions and SCIM, plus an official
+  hosted Agent Tools (MCP) server, the PyCelonis Python SDK and the content-cli. Auth
+  is via OAuth 2.0 (recommended) or API keys, with page-based pagination, x-ratelimit
+  signaling and OData-style querying on the Knowledge Model API.
 url: https://raw.githubusercontent.com/api-evangelist/celonis/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - accel
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: enriched
+x-tier-reason: portfolio-lead enriched with published developer surface
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://delivery-p141552-e1488202.adobeaemcloud.com/adobe/assets/urn:aaid:aem:df855fa1-2c83-4a48-8cad-536a7d5cb952/as/Meta_Image.png
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-18'
 tags:
 - Company
 - Automation
-apis: []
+- Process Mining
+- Process Intelligence
+- Data
+- Analytics
+- Machine Learning
+- AI Agents
+- Enterprise
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: celonis:celonis-agents-conversation-api
+  name: Celonis Agents - Conversation API
+  description: The Agents - Conversation API from Celonis — 1 operation(s) for agents - conversation.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - Agents - Conversation
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-agents-conversation-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-beta-odata-protocol-api
+  name: 'Celonis Beta: OData Protocol API'
+  description: 'The Beta: OData Protocol API from Celonis — 3 operation(s) for beta: odata protocol.'
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - 'Beta: OData Protocol'
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-beta-odata-protocol-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-beta-semantics-for-3p-ai-agents-api
+  name: 'Celonis Beta: Semantics for 3P AI Agents API'
+  description: >-
+    The Beta: Semantics for 3P AI Agents API from Celonis — 4 operation(s) for beta: semantics for 3p
+    ai agents.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - 'Beta: Semantics for 3P AI Agents'
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-beta-semantics-for-3p-ai-agents-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-data-api
+  name: Celonis Data API
+  description: The Data API from Celonis — 2 operation(s) for data.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - Data
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-data-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-job-execution-api
+  name: Celonis Job Execution API
+  description: The Job Execution API is used to trigger, stop, and track job executions.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - Job Execution
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-job-execution-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-job-execution-group-api
+  name: Celonis Job Execution Group API
+  description: The Job Execution Group API retrieves job execution groups.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - Job Execution Group
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-job-execution-group-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-login-history-api-api
+  name: Celonis Login History API API
+  description: >-
+    Allows you to query the Login History for a team and export it for use with external monitoring tools
+    to capture and monitor platform login events.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - Login History API
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-login-history-api-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-members-api-api
+  name: Celonis Members API API
+  description: >-
+    Allows you to query and export a list of all members assigned to a Celonis Platform team.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - Members API
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-members-api-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-notebook-api
+  name: Celonis Notebook API
+  description: The Notebook API is used to create, read, update, and delete notebooks.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - Notebook
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-notebook-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-notebook-execution-api
+  name: Celonis Notebook Execution API
+  description: The Notebook Executions API is used to trigger, stop, and track notebook executions.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - Notebook Execution
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-notebook-execution-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-notebook-resources-api
+  name: Celonis Notebook Resources API
+  description: >-
+    The Notebook Resources API configures notebook resource such as CPU, memory, storage, and gpu.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - Notebook Resources
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-notebook-resources-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-openapi-tool-calling-api
+  name: Celonis OpenAPI Tool Calling API
+  description: OpenAPI endpoints for calling tools configured in the Agent Tools (MCP) Asset.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - OpenAPI Tool Calling
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-openapi-tool-calling-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-permissions-export-api-api
+  name: Celonis Permissions Export API API
+  description: Export all permissions for the team as a JSON file.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - Permissions Export API
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-permissions-export-api-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-schedule-api
+  name: Celonis Schedule API
+  description: The Schedule API is used to create, read, update, and delete schedules.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - Schedule
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-schedule-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-schema-api
+  name: Celonis Schema API
+  description: The Schema API from Celonis — 6 operation(s) for schema.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - Schema
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-schema-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-subscriptions-api
+  name: Celonis Subscriptions API
+  description: The Subscriptions API from Celonis — 8 operation(s) for subscriptions.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - Subscriptions
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-subscriptions-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
+- aid: celonis:celonis-triggers-api
+  name: Celonis Triggers API
+  description: The Triggers API from Celonis — 2 operation(s) for triggers.
+  humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
+  baseURL: https://{team_domain}.{realm}.celonis.cloud
+  tags:
+  - Triggers
+  properties:
+  - type: OpenAPI
+    url: openapi/celonis-triggers-api-openapi.yml
+  - type: Try it
+    url: >-
+      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+  - type: Webhooks
+    url: asyncapi/celonis-subscription-webhooks.yml
 common:
+- type: DeveloperPortal
+  url: https://developer.celonis.com/
+- type: Documentation
+  url: https://docs.celonis.com/
+- type: APIReference
+  url: https://developer.celonis.com/celonis-apis/get-started-with-celonis-apis/
+- type: GettingStarted
+  url: https://developer.celonis.com/celonis-apis/get-started-with-celonis-apis/
+- type: Support
+  url: https://community.celonis.com/
+- type: Blog
+  url: https://www.celonis.com/blog/
+- type: GitHubOrganization
+  url: https://github.com/celonis
+- type: Pricing
+  url: https://www.celonis.com/pricing/
+- type: SignUp
+  url: https://signup.celonis.com/ui/sign-up/get-started
+- type: TermsOfService
+  url: https://www.celonis.com/legal/terms-and-conditions/
+- type: PrivacyPolicy
+  url: https://www.celonis.com/privacy-policy/
+- type: Authentication
+  url: authentication/celonis-authentication.yml
+- type: OAuthScopes
+  url: scopes/celonis-scopes.yml
+- type: MCPServer
+  url: mcp/celonis-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: AgenticAccess
+  url: agentic-access/celonis-agentic-access.yml
+- type: Packages
+  url: packages/celonis-packages.yml
+- type: SDKs
+  url: packages/celonis-packages.yml
+- type: CLI
+  url: cli/celonis-cli.yml
+- type: Sandbox
+  url: sandbox/celonis-sandbox.yml
+- type: Conventions
+  url: conventions/celonis-conventions.yml
+- type: ErrorCatalog
+  url: errors/celonis-problem-types.yml
+- type: DataModel
+  url: data-model/celonis-data-model.yml
+- type: Webhooks
+  url: asyncapi/celonis-subscription-webhooks.yml
+- type: Lifecycle
+  url: lifecycle/celonis-lifecycle.yml
+- type: StatusPage
+  url: https://status.celonis.com
+- type: Deprecation
+  url: lifecycle/celonis-lifecycle.yml
+- type: ChangeLog
+  url: changelog/celonis-changelog.yml
+- type: Conformance
+  url: conformance/celonis-conformance.yml
+- type: Compliance
+  url: https://trust.celonis.com/
+- type: TrustCenter
+  url: security/celonis-trust-center.yml
+- type: DomainSecurity
+  url: security/celonis-domain-security.yml
+- type: WellKnown
+  url: well-known/celonis-well-known.yml
+- type: LLMsTxt
+  url: llms/celonis-llms.txt
 - type: Website
-  url: http://www.celonis.com/de
+  url: https://www.celonis.com
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

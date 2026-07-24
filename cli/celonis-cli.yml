@@ -1,0 +1,27 @@
+generated: '2026-07-18'
+method: searched
+source: https://github.com/celonis/content-cli
+name: content-cli
+package: "@celonis/content-cli"
+language: TypeScript
+official: true
+purpose: Manage content in the Celonis EMS from the command line (pull/push/list assets across teams).
+install:
+- npm install -g @celonis/content-cli
+usage: content-cli <command> [options]
+config:
+  profiles: content-cli manages named profiles that store a team URL + API key for authenticating against an EMS realm.
+command_families:
+- name: profile
+  description: Create and manage connection profiles (team URL + API key).
+- name: pull
+  description: Export content assets (e.g. packages, analyses, skills, semantic models) from a team.
+- name: push
+  description: Import content assets into a team.
+- name: list
+  description: List content assets available in a team.
+- name: config
+  description: Batch config-based content operations.
+note: >-
+  The command surface tracks the EMS content model and evolves per release; see the
+  repository README for the authoritative, versioned command list.

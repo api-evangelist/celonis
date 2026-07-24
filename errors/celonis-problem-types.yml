@@ -1,0 +1,52 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.celonis.com/celonis-apis/api-reference/common-error-catalog
+derived_from: openapi/*.yaml (4xx/5xx responses)
+format: custom-json
+envelope:
+  media_type: application/json
+  fields:
+  - {name: title, description: Brief error description}
+  - {name: status, description: HTTP status code}
+  - {name: detail, description: Detailed explanation of the error}
+  - {name: errorCode, description: Machine-readable error identifier}
+  schemas: [errorDTO, authErrorDTO]
+  note: >-
+    Celonis uses a custom JSON error envelope (title/status/detail/errorCode), NOT
+    RFC 9457 application/problem+json. Some auth failures return {"error":"Unauthorized"}
+    or an empty body. Individual APIs may add domain-specific error codes.
+problems:
+- status: 400
+  errorCode: GENERAL_PARAMETER_MISSMATCH
+  title: Query parameter type mismatch.
+- status: 401
+  errorCode: null
+  title: Unauthorized
+- status: 403
+  errorCode: ADMIN_ACCESS_ERROR
+  title: Access Denied.
+- status: 404
+  errorCode: GENERAL_NOTFOUND_PATH
+  title: Path not found.
+- status: 429
+  errorCode: LIMIT_RATE_EXCEEDED
+  title: Rate limit exceeded
+  remediation: Wait for the number of seconds in the x-ratelimit-reset response header before retrying.
+- status: 500
+  errorCode: ADMIN_FATAL_ERROR
+  title: Unexpected error.
+observed_status_codes:
+  knowledge-model: [400, 401, 403, 404, 415, 429, 500, 503]
+  agents-ai: [400, 401, 403, 404, 409, 429, 500, 503]
+  subscription: [400, 401, 403, 404, 500, 503]
+  team: [400, 401, 403, 405, 500]
+  permissions: [400, 401, 403, 500]
+  mlwb: [400, 403, 500]
+  mcp-tool-calling: [404, 422]
+per_api_error_catalogs:
+- api: AI Agent API
+  url: https://developer.celonis.com/process-intelligence-apis/agents-api/api-reference/error-catalog
+- api: Knowledge Model API
+  url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/error-catalog
+- api: Event Subscription API
+  url: https://developer.celonis.com/process-intelligence-apis/subscription-api/api-reference/error-catalog

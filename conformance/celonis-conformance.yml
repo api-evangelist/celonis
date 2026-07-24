@@ -1,0 +1,38 @@
+generated: '2026-07-18'
+method: searched
+source: >-
+  openapi/*.yaml, https://developer.celonis.com/celonis-apis/scim-api/overview,
+  https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/features/filtering-odata-typed,
+  https://trust.celonis.com/
+standards:
+- id: oauth2
+  conforms: true
+  evidence: OAuth 2.0 client-credentials + authorization-code documented as the recommended auth method.
+- id: oidc
+  conforms: true
+  evidence: OIDC discovery served at developer.celonis.com/.well-known/oauth-authorization-server (openid scopes); OAuth token endpoint issues JWTs.
+- id: scim2
+  conforms: true
+  evidence: Celonis publishes a SCIM API for user/identity provisioning (celonis-apis/scim-api).
+- id: odata
+  conforms: true
+  evidence: Knowledge Model API exposes OData endpoints ($metadata, .svc) and OData-typed filter semantics.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a custom JSON envelope (title/status/detail/errorCode), not application/problem+json.
+- id: pagination
+  conforms: true
+  evidence: Documented page/pageSize page-number pagination across list endpoints.
+- id: rate-limit-headers
+  conforms: true
+  evidence: x-ratelimit-limit / x-ratelimit-remaining / x-ratelimit-reset headers, 429 on exceed.
+- id: idempotency
+  conforms: false
+  evidence: No idempotency-key contract documented.
+- id: mcp
+  conforms: true
+  evidence: Official hosted Agent Tools (MCP) Asset with a Tool Calling API.
+compliance_program:
+  source: https://trust.celonis.com/
+  certifications: [SOC 2, ISO 27001, HIPAA, GDPR, CSA STAR]
+  ref: security/celonis-trust-center.yml

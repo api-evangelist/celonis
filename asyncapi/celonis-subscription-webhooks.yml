@@ -1,0 +1,53 @@
+generated: '2026-07-18'
+method: searched
+type: Webhooks
+source: https://developer.celonis.com/process-intelligence-apis/subscription-api/overview
+spec_type: none
+backing_openapi: openapi/celonis-subscription-openapi.yaml
+summary: >-
+  Celonis exposes an event surface through the Process Intelligence Event Subscription
+  API. Consumers create subscriptions against Knowledge Model triggers and then consume
+  the resulting event stream (pull-based, with cursor/offset replay) or receive email
+  notifications. No standalone AsyncAPI document is published; this catalogs the
+  documented event/subscription surface.
+delivery:
+- mode: pull
+  description: Poll subscription events; paginate remaining data and replay from an offset.
+- mode: email
+  description: Email notifications for event subscriptions.
+  docs: https://developer.celonis.com/process-intelligence-apis/subscription-api/notifications
+operations:
+- id: getTriggers
+  method: GET
+  path: '/intelligence/api/knowledge-models/{km_id}/triggers'
+- id: getTriggerDetails
+  method: GET
+  path: '/intelligence/api/knowledge-models/{km_id}/triggers/{trigger_id}'
+- id: createSubscription
+  method: POST
+  path: '/intelligence/api/knowledge-models/{km_id}/triggers/{trigger_id}/subscriptions'
+- id: getSubscriptions
+  method: GET
+  path: '/intelligence/api/subscriptions'
+- id: unsubscribe
+  method: DELETE
+  path: '/intelligence/api/subscriptions/{subscription_id}'
+- id: updateSubscription
+  method: PUT
+  path: '/intelligence/api/subscriptions/{subscription_id}'
+- id: nextPageFromRemainingData
+  method: PATCH
+  path: '/intelligence/api/subscriptions/{subscription_id}/events'
+- id: pauseSubscription
+  method: PATCH
+  path: '/intelligence/api/subscriptions/{subscription_id}/pause'
+- id: resumeSubscription
+  method: PATCH
+  path: '/intelligence/api/subscriptions/{subscription_id}/resume'
+- id: resumeSubscriptionNoHistory
+  method: PATCH
+  path: '/intelligence/api/subscriptions/{subscription_id}/resume-from-latest'
+- id: replaySubscriptionFromAnOffset
+  method: PATCH
+  path: '/intelligence/api/subscriptions/{subscription_id}/replay'
+version: v1.8.0

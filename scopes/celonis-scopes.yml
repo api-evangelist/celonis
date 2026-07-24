@@ -1,0 +1,28 @@
+generated: '2026-07-18'
+method: searched
+source: https://developer.celonis.com/celonis-apis/oauth-authentication/
+docs: https://developer.celonis.com/celonis-apis/audit-log-api/overview
+model: >-
+  Celonis OAuth 2.0 uses scopes to gate which APIs an OAuth client may reach. A client
+  can only access an API if it holds BOTH the OAuth scope and the matching Celonis
+  permission. With the client-credentials grant, the requested scopes are passed in the
+  space-separated `scope` parameter of the token request. The full scope catalog is
+  published inside the authenticated Celonis Platform docs (docs.celonis.com is
+  login-gated); the entries below are the scopes confirmed on public developer pages.
+grant_types:
+- clientCredentials
+- authorizationCode
+token_url: https://{team_domain}.{realm}.celonis.cloud/oauth2/token
+scopes:
+- scope: audit.log:read
+  description: Read-only access to the Audit Log API.
+  flows: [clientCredentials, authorizationCode]
+  source: https://developer.celonis.com/celonis-apis/audit-log-api/overview
+- scope: audit.log
+  description: Access to the Audit Log API (audit.log family).
+  flows: [clientCredentials, authorizationCode]
+  source: https://developer.celonis.com/celonis-apis/audit-log-api/overview
+caveat: >-
+  The complete OAuth scope reference (intelligence / integration / machine-learning
+  families, etc.) is behind the authenticated docs.celonis.com portal and was not
+  captured verbatim to avoid fabrication; only publicly confirmed scopes are listed.

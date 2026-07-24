@@ -1,0 +1,878 @@
+openapi: 3.0.0
+info:
+  title: OpenAPI Specification
+  description: >-
+    Celonis API to create subscriptions to triggers and to manage their
+    lifecycle.
+  x-audience: EX
+  version: v1.8.0
+security:
+  - BearerAuth: []
+  - ApiKeyAuth: []
+servers:
+  - url: https://6c823f95-99fb-4d3f-8e8e-749be34ece02.remockly.com
+paths:
+  /intelligence/api/knowledge-models/{km_id}/triggers:
+    get:
+      operationId: getTriggers
+      tags:
+        - Triggers
+      summary: List the Triggers of a Knowledge Model
+      description: List the Triggers of a Knowledge Model
+      parameters:
+        - $ref: '#/components/parameters/pageParam'
+        - $ref: '#/components/parameters/pageSizeParam'
+        - $ref: '#/components/parameters/singleSortParam'
+        - name: km_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: open-purchase-requisition.purchase-requisition-kms
+      responses:
+        '200':
+          description: List of Trigger ids and names
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/triggerResultPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/knowledge-models/{km_id}/triggers/{trigger_id}:
+    get:
+      operationId: getTriggerDetails
+      tags:
+        - Triggers
+      summary: Get Trigger Schema details
+      description: Get Trigger Schema details
+      parameters:
+        - name: km_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: open-purchase-requisition.purchase-requisition-km
+        - name: trigger_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: MATERIALS
+      responses:
+        '200':
+          description: Trigger Schema details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/triggerDetailedDTO'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/knowledge-models/{km_id}/triggers/{trigger_id}/subscriptions:
+    post:
+      operationId: createSubscription
+      tags:
+        - Subscriptions
+      summary: Creates a subscription to a Knowledge Model trigger
+      description: Creates a subscription to a Knowledge Model trigger
+      parameters:
+        - name: km_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: open-purchase-requisition.purchase-requisition-kms
+        - name: trigger_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: abc-123-efg-456
+      requestBody:
+        description: Subscription's details
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscriptionRequest'
+      responses:
+        '201':
+          description: Id of the created subscription
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/subscriptionId'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/subscriptions:
+    get:
+      operationId: getSubscriptions
+      tags:
+        - Subscriptions
+      summary: List all Subscriptions
+      description: List all Subscriptions
+      parameters:
+        - $ref: '#/components/parameters/pageParam'
+        - $ref: '#/components/parameters/pageSizeParam'
+        - $ref: '#/components/parameters/singleSortParam'
+      responses:
+        '200':
+          description: List of Subscription details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/subscriptionResultPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/subscriptions/{subscription_id}:
+    delete:
+      operationId: unsubscribe
+      tags:
+        - Subscriptions
+      summary: Unsubscribe from a trigger removing all the data of the subscription
+      description: Unsubscribe from a trigger removing all the data of the subscription
+      parameters:
+        - name: subscription_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: abc-123-efg-456
+      responses:
+        '204':
+          description: Removed successfully.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+    put:
+      operationId: updateSubscription
+      tags:
+        - Subscriptions
+      summary: Updates the subscription metadata
+      description: Updates the subscription metadata
+      parameters:
+        - name: subscription_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: abc-123-efg-456
+      requestBody:
+        description: Details to update
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/subscriptionRequest'
+      responses:
+        '200':
+          description: Updated
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/subscriptions/{subscription_id}/events:
+    patch:
+      operationId: nextPageFromRemainingData
+      tags:
+        - Subscriptions
+      summary: Retrieves the next page of failed events
+      description: Retrieves the next page of failed events
+      parameters:
+        - name: subscription_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: abc-123-efg-456
+      responses:
+        '200':
+          description: List of Signals data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignalResultPage'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/subscriptions/{subscription_id}/pause:
+    patch:
+      operationId: pauseSubscription
+      tags:
+        - Subscriptions
+      summary: Pauses the subscription (stops emitting events)
+      description: Pauses the subscription (stops emitting events)
+      parameters:
+        - name: subscription_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: abc-123-efg-456
+      responses:
+        '204':
+          description: Subscription was paused successfully.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/subscriptions/{subscription_id}/resume:
+    patch:
+      operationId: resumeSubscription
+      tags:
+        - Subscriptions
+      summary: Resumes a paused subscription (events queued are now emitted)
+      description: Resumes paused subscription (events queued are now emitted)
+      parameters:
+        - name: subscription_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: abc-123-efg-456
+      responses:
+        '204':
+          description: Subscription was resumed successfully
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/subscriptions/{subscription_id}/resume-from-latest:
+    patch:
+      operationId: resumeSubscriptionNoHistory
+      tags:
+        - Subscriptions
+      summary: >-
+        Resumes paused subscription discarding historic events (new events only
+        are emitted)
+      description: >-
+        Resumes paused subscription discarding history events (new events only
+        are emitted)
+      parameters:
+        - name: subscription_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: abc-123-efg-456
+      responses:
+        '204':
+          description: Subscription was resumed successfully.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+  /intelligence/api/subscriptions/{subscription_id}/replay:
+    patch:
+      operationId: replaySubscriptionFromAnOffset
+      tags:
+        - Subscriptions
+      summary: Replay subscription (re-emit events from the specified position)
+      description: Replay subscription (re-emit events from the specified position)
+      parameters:
+        - name: subscription_id
+          in: path
+          required: true
+          schema:
+            type: string
+            example: abc-123-efg-456
+        - name: fromOffset
+          in: query
+          required: false
+          schema:
+            type: integer
+            minimum: 0
+            default: 0
+            description: >-
+              The position where the offset of the event queue will be moved to
+              replay events, if they exist
+      responses:
+        '204':
+          description: Subscription replay was successful.
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '403':
+          $ref: '#/components/responses/Forbidden'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+        '503':
+          $ref: '#/components/responses/ServiceUnavailable'
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: AppKey
+  schemas:
+    resultPage:
+      title: Result page
+      type: object
+      properties:
+        page:
+          type: integer
+          description: Page
+          example: 0
+        pageSize:
+          type: integer
+          description: Page size, defined by pageSize parameter
+          example: 50
+        total:
+          type: integer
+          description: Total elements returned in the page
+          example: 1
+        sort:
+          type: array
+          items:
+            type: string
+            example: material_number
+    schemaResultPage:
+      title: Result page
+      type: object
+      properties:
+        page:
+          type: integer
+          description: Page
+          example: 0
+        pageSize:
+          type: integer
+          description: Page size, defined by pageSize parameter
+          example: 50
+        total:
+          type: integer
+          description: Total elements returned in the page
+          example: 1
+        sort:
+          type: string
+          description: >-
+            Field used to apply sorting to the requested data, + or no symbol
+            means ASC, - means DESC
+          example: +id
+    triggerResultPage:
+      title: Trigger schema result page
+      type: object
+      additionalProperties: false
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/triggerDTO'
+      allOf:
+        - $ref: '#/components/schemas/schemaResultPage'
+    subscriptionResultPage:
+      title: Subscription schema result page
+      type: object
+      additionalProperties: false
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/subscriptionDTO'
+      allOf:
+        - $ref: '#/components/schemas/schemaResultPage'
+    SignalResultPage:
+      title: Signal result page
+      type: object
+      additionalProperties: false
+      properties:
+        pageSize:
+          type: integer
+          description: Page size, defined by the system
+          example: 50
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/eventDTO'
+    subscriptionId:
+      title: Id subscription created
+      type: object
+      additionalProperties: false
+      properties:
+        id:
+          type: string
+          description: subscription id
+          example: 123
+    errorDTO:
+      title: Error
+      type: object
+      description: >-
+        This [RFC7807] specification is to define common error formats for those
+        applications that need one, so that they aren't required to define their
+        own, or worse, tempted to redefine the semantics of existing HTTP status
+        codes. This definition was copied from
+        https://datatracker.ietf.org/doc/html/rfc7807
+      properties:
+        title:
+          type: string
+          description: >-
+            A short, human-readable summary of the problem type.  It SHOULD NOT
+            change from occurrence to occurrence of the problem, except for
+            purposes of localization (e.g., using proactive content negotiation;
+            see [RFC7231], Section 3.4). This definition was copied from
+            https://datatracker.ietf.org/doc/html/rfc7807
+        status:
+          type: integer
+          description: >-
+            The HTTP status code ([RFC7231], Section 6) generated by the origin
+            server for this occurrence of the problem. This definition was
+            copied from https://datatracker.ietf.org/doc/html/rfc7807
+        detail:
+          type: string
+          description: The details of the Error
+        errorCode:
+          type: string
+          description: Unique Identifier of the Error
+        type:
+          type: string
+          description: >-
+            A URI reference [RFC3986] that identifies the problem type. This
+            definition was copied from
+            https://datatracker.ietf.org/doc/html/rfc7807
+    authErrorDTO:
+      title: Authentication Error
+      type: object
+      properties:
+        error:
+          type: string
+    callbackResumedInfoDTO:
+      title: Callback Information
+      type: object
+      required:
+        - uri
+        - protocol
+      properties:
+        uri:
+          type: string
+          minLength: 1
+          maxLength: 1024
+          description: >-
+            Uri to perform the callback from the Subscription API once the
+            trigger is fired
+          example: https://fake.domain.es/triggers/hook
+        protocol:
+          type: string
+          enum:
+            - HTTPS
+          description: >-
+            Only value possible actually is HTTPS which means the callback URI
+            must be a valid https
+          example: HTTPS
+    callbackInfoDTO:
+      allOf:
+        - $ref: '#/components/schemas/callbackResumedInfoDTO'
+      properties:
+        headers:
+          type: object
+          description: >
+            Callback headers may include authentication tokens, content types,
+            and more. 
+
+            <br><br>Allowed callback headers are: 
+
+            <br>Authorization 
+
+            <br>Content-Type 
+
+            <br>User-Agent 
+
+            <br>Host 
+
+            <br>Accept 
+
+            <br><br>Additionally, the total size limit for headers is
+            <strong>8192</strong> bytes.
+          additionalProperties:
+            type: string
+            example:
+              Authorization: eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI0Ii
+              Content-Type: application/json
+    triggerDTO:
+      title: Trigger
+      description: Trigger defined at KM
+      type: object
+      properties:
+        id:
+          type: string
+          description: Trigger's Unique identifier as a SUID
+          example: abc-123-bad-123
+        record:
+          type: string
+          description: Record's Unique identifier as a SUID
+          example: efg-456-efg-456
+        name:
+          type: string
+          description: Human understandable Trigger name
+          example: Blocked Orders
+    triggerDetailedDTO:
+      title: Trigger
+      description: Trigger detailed
+      type: object
+      properties:
+        id:
+          type: string
+          description: Trigger's Unique identifier as a SUID
+          example: abc-123-bad-123
+        name:
+          type: string
+          description: Human understandable Trigger name
+          example: Blocked Orders
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/triggerFieldDTO'
+    triggerFieldDTO:
+      title: Trigger Field
+      description: Fields for a Trigger
+      type: object
+      properties:
+        name:
+          type: string
+          example: Amount in euros pending to pay
+          description: human understandable name
+        type:
+          type: string
+          enum:
+            - string
+            - date
+            - time
+            - integer
+            - boolean
+            - number
+            - datetime
+            - timestamp
+            - float
+        format:
+          type: string
+          example: '#.###'
+          description: Format to be applied
+        unit:
+          type: string
+          example: euros
+          description: Unit added to field value
+    subscriptionDTO:
+      title: Subscription
+      description: Subscription schema
+      type: object
+      properties:
+        id:
+          type: string
+          description: Subscriber's Unique identifier as a SUID
+          example: abc-123-bad-123
+        name:
+          type: string
+          description: Human understandable Subscription name
+          example: Blocked Orders
+        status:
+          type: string
+          enum:
+            - active
+            - failed
+            - suspended
+            - paused
+            - rejected
+        configurations:
+          allOf:
+            - $ref: '#/components/schemas/configurations'
+        knowledgeModelId:
+          type: string
+          description: Unique Identifier of Knowledge Model
+          example: open-purchase-requisition.purchase-requisition-km
+        triggerId:
+          type: string
+          description: Trigger's Unique identifier as a SUID
+          example: abc-123-bad-123
+        latestSucceedEvent:
+          type: string
+          format: date-time
+          description: Date of the last successfully emitted event
+          example: '2023-07-21T17:32:28Z'
+        offset:
+          type: number
+          format: int64
+          description: Offset of the last successfully emitted event
+          example: 123
+        creationDate:
+          type: string
+          format: date-time
+          description: Subscription creation date
+        ownerName:
+          type: string
+          description: Owner name
+          example: Owner name
+        callbackInfo:
+          $ref: '#/components/schemas/callbackResumedInfoDTO'
+        lastSuccessEventOffset:
+          type: integer
+          format: int64
+          description: Identifier of the last succeed event
+          example: 123
+    configurations:
+      type: array
+      uniqueItems: true
+      description: Configuration for the Subscription
+      example:
+        - SKIP_ERRORS
+      items:
+        type: string
+        enum:
+          - SKIP_ERRORS
+    eventDTO:
+      title: Event stored at subscription data source
+      description: Event stored at subscription data source
+      type: object
+      properties:
+        subscriberId:
+          type: string
+          description: Subscriber's Unique identifier as a SUID
+          example: abc-123-bad-123
+        triggerId:
+          type: string
+          description: Trigger's Unique identifier as a SUID
+          example: abc-123-bad-123
+        offset:
+          type: number
+          description: Position of the event in the subscription data source
+          example: 1234
+        creationDate:
+          type: string
+          format: date-time
+          description: Date of the event creation
+          example: '2023-07-21T17:32:28Z'
+        event:
+          $ref: '#/components/schemas/signalEventDTO'
+    signalEventDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Event's Unique identifier as a SUID
+          example: abc-123-bad-123
+        identifier:
+          type: string
+          description: Third party Identifier as a string
+          example: 1
+        typedIdentifier:
+          type: object
+          description: Type of the Identifier for the event
+          example: 2
+        fields:
+          type: array
+          description: Fields for the Event
+          items:
+            $ref: '#/components/schemas/eventFieldDTO'
+    eventFieldDTO:
+      title: Fields Metadata for the event
+      description: Fields Metadata for the event
+      type: object
+      properties:
+        id:
+          type: string
+          description: Id for the field as a String
+          example: CASE_NUMBER
+        value:
+          type: object
+          description: >-
+            Value for the field, it could be any type of (date, string, float,
+            int)
+          example: my_value
+        type:
+          type: string
+          description: The type that applies to the value (DATE, STRING, FLOAT, INT)
+          example: STRING
+        isIdentifier:
+          type: boolean
+          description: If the field is used as an identifier
+          example: true
+    subscriptionRequest:
+      title: SubscriptionRequest
+      description: Request with details to create the subscription
+      type: object
+      required:
+        - name
+        - callbackInfo
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 1024
+          description: Name for the subscription
+          example: My Subscription to XYZ
+        callbackInfo:
+          allOf:
+            - $ref: '#/components/schemas/callbackInfoDTO'
+        configurations:
+          allOf:
+            - $ref: '#/components/schemas/configurations'
+  parameters:
+    pageParam:
+      in: query
+      name: page
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+        description: The page number of the result, starting by 0 (first page)
+    pageSizeParam:
+      in: query
+      name: pageSize
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 50
+        description: The number of items returned in a page.
+    singleSortParam:
+      style: form
+      explode: false
+      in: query
+      name: sort
+      required: false
+      description: >-
+        Defines the strategy to proceed for case insensitive sorting. It must be
+        just one field, and it should start with "+" to apply ASC order or "-"
+        to apply DESC order. Non prefix will sort as ASC. Non existing field at
+        the header will throw an error
+      schema:
+        type: string
+        example:
+          - '-field1'
+  responses:
+    Ok:
+      description: The resource has been fetched and transmitted in the message body
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/resultPage'
+    BadRequest:
+      description: Bad Request.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    Unauthorized:
+      description: Unauthorized access.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/authErrorDTO'
+    Forbidden:
+      description: Forbidden.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    InternalError:
+      description: Internal Server Error.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    ServiceUnavailable:
+      description: Service Unavailable.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'

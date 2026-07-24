@@ -1,0 +1,34 @@
+generated: '2026-07-18'
+method: searched
+source: >-
+  https://developer.celonis.com/changelog/,
+  https://docs.celonis.com/en/release-notes.html,
+  https://status.celonis.com
+versioning:
+  scheme: uri-path
+  per_api_semver: true
+  current:
+    knowledge-model-api: v1.32.0
+    subscription-api: v1.8.0
+    ai-agent-api: v1.2.0
+    mcp-tool-calling-api: v1.0.0
+  docs: https://developer.celonis.com/changelog/
+deprecation:
+  policy: >-
+    Legacy Celonis Process Management / Power Platform REST APIs (BPMN, Element
+    Subscription, Feature Flags, Permalinks, Power Platform, Reporting, Storages) are
+    explicitly labelled "(Legacy)" in the developer center. User API Key and
+    Application API Key auth are documented as deprecating in favor of OAuth 2.0.
+  legacy_apis:
+  - Power Platform API (Legacy)
+  - BPMN API (Legacy)
+  - Element Subscription API (Legacy)
+  - Feature Flags API (Legacy)
+  - Permalinks API (Legacy)
+  - Reporting API (Legacy)
+  - Storages API (Legacy)
+status_page: https://status.celonis.com
+release_notes:
+  developer_changelog: https://developer.celonis.com/changelog/
+  product_release_notes: https://docs.celonis.com/en/release-notes.html
+  community_product_updates: https://community.celonis.com/product-updates

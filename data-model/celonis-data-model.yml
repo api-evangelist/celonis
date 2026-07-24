@@ -1,0 +1,51 @@
+generated: '2026-07-18'
+method: derived
+source: openapi/celonis-knowledge-model-openapi.yaml, openapi/celonis-subscription-openapi.yaml, openapi/celonis-mlwb-openapi.yaml
+summary: >-
+  Entity-relationship graph derived from the Celonis Process Intelligence / Knowledge
+  Model API path structure and id-reference fields. The Knowledge Model is the central
+  entity; records, KPIs, filters and event triggers hang off it.
+entities:
+- name: KnowledgeModel
+  id: km_id
+  domain: Process Intelligence
+  relationships:
+  - {kind: has_many, target: Record, via: km_id}
+  - {kind: has_many, target: Kpi, via: km_id}
+  - {kind: has_many, target: Filter, via: km_id}
+  - {kind: has_many, target: Trigger, via: km_id}
+- name: Record
+  id: record_id
+  relationships:
+  - {kind: belongs_to, target: KnowledgeModel, via: km_id}
+  - {kind: has_one, target: RecordData, via: record_id}
+- name: Kpi
+  relationships:
+  - {kind: belongs_to, target: KnowledgeModel, via: km_id}
+- name: Filter
+  relationships:
+  - {kind: belongs_to, target: KnowledgeModel, via: km_id}
+- name: Trigger
+  id: trigger_id
+  relationships:
+  - {kind: belongs_to, target: KnowledgeModel, via: km_id}
+  - {kind: has_many, target: Subscription, via: trigger_id}
+- name: Subscription
+  id: subscription_id
+  relationships:
+  - {kind: belongs_to, target: Trigger, via: trigger_id}
+  - {kind: has_many, target: Event, via: subscription_id}
+- name: Notebook
+  id: id
+  domain: Machine Learning Workbench
+  relationships:
+  - {kind: has_many, target: Execution, via: jobId}
+  - {kind: has_many, target: Schedule, via: id}
+- name: Schedule
+  relationships:
+  - {kind: has_many, target: Execution, via: id}
+- name: Agent
+  id: agent_id
+  domain: AI Agent API
+  relationships:
+  - {kind: has_many, target: Conversation, via: agent_id}

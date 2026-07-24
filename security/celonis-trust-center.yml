@@ -1,0 +1,20 @@
+generated: '2026-07-18'
+method: searched
+probe: true
+source: https://trust.celonis.com/
+url: https://trust.celonis.com/
+certifications:
+- SOC 2
+- ISO 27001
+- HIPAA
+- GDPR
+- CSA STAR
+evidence:
+- source: https://trust.celonis.com/
+  keywords:
+  - soc 2
+  - iso/iec 27001
+  - hipaa
+  - trust center
+  - gdpr
+  - csa star

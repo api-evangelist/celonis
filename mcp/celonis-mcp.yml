@@ -1,0 +1,38 @@
+generated: '2026-07-18'
+method: searched
+status: published
+source: https://developer.celonis.com/mcp-server-asset/overview
+server:
+  name: Celonis Agent Tools (MCP) Asset
+  official: true
+  transport: http
+  hosting: >-
+    Hosted/remote. An MCP Server URL is generated per asset when the Agent Tools (MCP)
+    asset is created in Celonis Studio and published. The URL is the endpoint MCP
+    clients connect to; it is team/asset-specific, not a single global URL.
+  auth: OAuth 2.0 (production) or Application Keys (development)
+  rate_limit: 500 calls per minute per asset
+docs:
+  overview: https://developer.celonis.com/mcp-server-asset/overview
+  getting_started: https://developer.celonis.com/mcp-server-asset/getting-started
+  tool_calling_api: https://developer.celonis.com/mcp-server-asset/api-reference/openapi/openapi
+capabilities:
+- Search Celonis data models
+- Retrieve real-time KPIs and process metrics
+- Trigger external system actions
+- Write decisions back to Celonis
+integrations:
+- name: Microsoft Copilot Studio
+  url: https://developer.celonis.com/mcp-server-asset/integrations/msft-connector
+- name: Amazon Q (Quick)
+  url: https://developer.celonis.com/mcp-server-asset/integrations/mcp-amazon-quick
+- name: Custom MCP Server (Copilot Studio)
+  url: https://developer.celonis.com/mcp-server-asset/integrations/custom-mcp-server
+tool_api:
+  spec: openapi/celonis-mcp-tool-calling-openapi.yaml
+  operation: postMcpServerToolResponse
+  path: POST /studio-copilot/api/v1/mcp-servers/mcp/{asset_id}/tool-api/{tool_id}
+note: >-
+  The MCP tool set is configured per asset ("a growing set of ready-to-use tools"),
+  so exact tool names are asset-defined rather than a fixed catalog. The Tool Calling
+  API describes how tools are invoked.

@@ -1,0 +1,12 @@
+generated: '2026-07-18'
+method: generated
+source: openapi/celonis-knowledge-model-openapi.yaml, openapi/celonis-subscription-openapi.yaml
+skills:
+- file: celonis-query-knowledge-model.md
+  name: Query a Celonis Knowledge Model
+  api: openapi/celonis-knowledge-model-openapi.yaml
+  operations: [getKnowledgeModel, getKnowledgeModelDetails, getRecords, getRecordDetails, getKpis, getKnowledgeModelDataResult, getKnowledgeModelQueryResultByUsingQueryInBody]
+- file: celonis-subscribe-to-events.md
+  name: Subscribe to Celonis Knowledge Model events
+  api: openapi/celonis-subscription-openapi.yaml
+  operations: [getTriggers, getTriggerDetails, createSubscription, getSubscriptions, nextPageFromRemainingData, pauseSubscription, resumeSubscription, replaySubscriptionFromAnOffset, unsubscribe]

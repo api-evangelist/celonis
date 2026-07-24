@@ -1,0 +1,20 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Celonis Knowledge Model API
+  version: 1.0.0
+extends: openapi/celonis-knowledge-model-openapi.yaml
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-18'
+    x-apievangelist-product: Process Intelligence
+    x-apievangelist-production-base-url: https://{team_domain}.{realm}.celonis.cloud
+    x-apievangelist-auth: authentication/celonis-authentication.yml
+    x-apievangelist-conventions: conventions/celonis-conventions.yml
+    x-apievangelist-errors: errors/celonis-problem-types.yml
+- target: $.info
+  update:
+    x-apievangelist-capabilities:
+    - OData query endpoints ($metadata, .svc)
+    - page/pageSize pagination (5000-record data ceiling)
+    - x-ratelimit-* rate-limit signaling
