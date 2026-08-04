@@ -1,0 +1,696 @@
+{
+  "info": {
+    "_postman_id": "d8d3cb50-2265-44b8-a00d-215ad6a9b5b4",
+    "name": "OpenAPI Specification Agents - Conversation Notebook Resources API",
+    "description": "AI API to chat with Celonis Agents and run their tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:18:32.000Z",
+    "updatedAt": "2026-07-28T01:18:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d8d3cb50-2265-44b8-a00d-215ad6a9b5b4"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "notebooks",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "resources",
+                  "item": [
+                    {
+                      "name": "Get Notebook Resources",
+                      "id": "78840083-5a66-4c82-98ee-143c18ede289",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/notebooks/:id/resources",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "notebooks",
+                            ":id",
+                            "resources"
+                          ],
+                          "variable": [
+                            {
+                              "id": "79675b4e-1d1c-413d-b885-45ca6dd0979d",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "641b647c-a2f9-40bc-a11d-453e83fe9a26",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/notebooks/:id/resources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "notebooks",
+                                ":id",
+                                "resources"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"cpu\": \"<double>\",\n  \"memory\": \"<integer>\",\n  \"storage\": \"<integer>\",\n  \"gpu\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T01:18:32.000Z",
+                          "updatedAt": "2026-07-28T01:18:32.000Z",
+                          "uid": "35240-641b647c-a2f9-40bc-a11d-453e83fe9a26"
+                        },
+                        {
+                          "id": "fe2a3f4b-d74b-4174-be0a-6e10f9b3b48a",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/notebooks/:id/resources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "notebooks",
+                                ":id",
+                                "resources"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:32.000Z",
+                          "updatedAt": "2026-07-28T01:18:32.000Z",
+                          "uid": "35240-fe2a3f4b-d74b-4174-be0a-6e10f9b3b48a"
+                        },
+                        {
+                          "id": "76f4ed31-6a40-494d-b46e-e6f9deb32ecd",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/notebooks/:id/resources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "notebooks",
+                                ":id",
+                                "resources"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                          "createdAt": "2026-07-28T01:18:32.000Z",
+                          "updatedAt": "2026-07-28T01:18:32.000Z",
+                          "uid": "35240-76f4ed31-6a40-494d-b46e-e6f9deb32ecd"
+                        },
+                        {
+                          "id": "e5840948-f4a7-4f36-a1b5-856380d189e7",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/notebooks/:id/resources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "notebooks",
+                                ":id",
+                                "resources"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:32.000Z",
+                          "updatedAt": "2026-07-28T01:18:32.000Z",
+                          "uid": "35240-e5840948-f4a7-4f36-a1b5-856380d189e7"
+                        },
+                        {
+                          "id": "5e762ea7-3a5e-4a2a-821f-591fd878e8be",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/notebooks/:id/resources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "notebooks",
+                                ":id",
+                                "resources"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:32.000Z",
+                          "updatedAt": "2026-07-28T01:18:32.000Z",
+                          "uid": "35240-5e762ea7-3a5e-4a2a-821f-591fd878e8be"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:18:32.000Z",
+                      "updatedAt": "2026-07-28T01:18:32.000Z",
+                      "uid": "35240-78840083-5a66-4c82-98ee-143c18ede289"
+                    },
+                    {
+                      "name": "Update Notebook Resources",
+                      "id": "b68978b4-5ef5-4420-8965-634cfc335607",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"cpu\": \"<double>\",\n  \"memory\": \"<integer>\",\n  \"storage\": \"<integer>\",\n  \"gpu\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/notebooks/:id/resources",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "notebooks",
+                            ":id",
+                            "resources"
+                          ],
+                          "variable": [
+                            {
+                              "id": "377fc7c4-022d-4e0b-a535-f9328af6ac8d",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "72d3cf0a-86ef-44cb-a571-6c4236cc90a3",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpu\": \"<double>\",\n  \"memory\": \"<integer>\",\n  \"storage\": \"<integer>\",\n  \"gpu\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/notebooks/:id/resources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "notebooks",
+                                ":id",
+                                "resources"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"cpu\": \"<double>\",\n  \"memory\": \"<integer>\",\n  \"storage\": \"<integer>\",\n  \"gpu\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T01:18:32.000Z",
+                          "updatedAt": "2026-07-28T01:18:32.000Z",
+                          "uid": "35240-72d3cf0a-86ef-44cb-a571-6c4236cc90a3"
+                        },
+                        {
+                          "id": "092285d8-cbda-457f-a21f-ee57b714fbd0",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpu\": \"<double>\",\n  \"memory\": \"<integer>\",\n  \"storage\": \"<integer>\",\n  \"gpu\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/notebooks/:id/resources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "notebooks",
+                                ":id",
+                                "resources"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:32.000Z",
+                          "updatedAt": "2026-07-28T01:18:32.000Z",
+                          "uid": "35240-092285d8-cbda-457f-a21f-ee57b714fbd0"
+                        },
+                        {
+                          "id": "778cb0f9-ed8d-42c1-9a76-80bef5173a41",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpu\": \"<double>\",\n  \"memory\": \"<integer>\",\n  \"storage\": \"<integer>\",\n  \"gpu\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/notebooks/:id/resources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "notebooks",
+                                ":id",
+                                "resources"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                          "createdAt": "2026-07-28T01:18:32.000Z",
+                          "updatedAt": "2026-07-28T01:18:32.000Z",
+                          "uid": "35240-778cb0f9-ed8d-42c1-9a76-80bef5173a41"
+                        },
+                        {
+                          "id": "4adc5dba-5582-4d54-8e4e-a62ecbdb4ac5",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpu\": \"<double>\",\n  \"memory\": \"<integer>\",\n  \"storage\": \"<integer>\",\n  \"gpu\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/notebooks/:id/resources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "notebooks",
+                                ":id",
+                                "resources"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:32.000Z",
+                          "updatedAt": "2026-07-28T01:18:32.000Z",
+                          "uid": "35240-4adc5dba-5582-4d54-8e4e-a62ecbdb4ac5"
+                        },
+                        {
+                          "id": "a3a4f1c7-4c10-4df1-9a3d-df709fdce2ef",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"cpu\": \"<double>\",\n  \"memory\": \"<integer>\",\n  \"storage\": \"<integer>\",\n  \"gpu\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/notebooks/:id/resources",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "notebooks",
+                                ":id",
+                                "resources"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:32.000Z",
+                          "updatedAt": "2026-07-28T01:18:32.000Z",
+                          "uid": "35240-a3a4f1c7-4c10-4df1-9a3d-df709fdce2ef"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:18:32.000Z",
+                      "updatedAt": "2026-07-28T01:18:32.000Z",
+                      "uid": "35240-b68978b4-5ef5-4420-8965-634cfc335607"
+                    }
+                  ],
+                  "id": "04789436-0c55-4c12-8a15-e01019da1813",
+                  "createdAt": "2026-07-28T01:18:32.000Z",
+                  "updatedAt": "2026-07-28T01:18:32.000Z",
+                  "uid": "35240-04789436-0c55-4c12-8a15-e01019da1813"
+                }
+              ],
+              "id": "16306f2c-e57b-4012-87f3-b8a23df9a69b",
+              "createdAt": "2026-07-28T01:18:32.000Z",
+              "updatedAt": "2026-07-28T01:18:32.000Z",
+              "uid": "35240-16306f2c-e57b-4012-87f3-b8a23df9a69b"
+            }
+          ],
+          "id": "17cf0db5-a26f-4019-92f2-8e3ed532d795",
+          "createdAt": "2026-07-28T01:18:32.000Z",
+          "updatedAt": "2026-07-28T01:18:32.000Z",
+          "uid": "35240-17cf0db5-a26f-4019-92f2-8e3ed532d795"
+        }
+      ],
+      "id": "519109c1-c5b1-40e8-a12e-df22bb190eca",
+      "createdAt": "2026-07-28T01:18:32.000Z",
+      "updatedAt": "2026-07-28T01:18:32.000Z",
+      "uid": "35240-519109c1-c5b1-40e8-a12e-df22bb190eca"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com"
+    }
+  ]
+}

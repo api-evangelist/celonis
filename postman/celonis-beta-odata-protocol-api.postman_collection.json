@@ -1,0 +1,1974 @@
+{
+  "info": {
+    "_postman_id": "3a023c18-3dc4-411a-a40f-facbf2721e1f",
+    "name": "OpenAPI Specification Agents - Conversation Beta: OData Protocol API",
+    "description": "AI API to chat with Celonis Agents and run their tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:17:55.000Z",
+    "updatedAt": "2026-07-28T01:17:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3a023c18-3dc4-411a-a40f-facbf2721e1f"
+  },
+  "item": [
+    {
+      "name": "intelligence",
+      "item": [
+        {
+          "name": "api",
+          "item": [
+            {
+              "name": "odata",
+              "item": [
+                {
+                  "name": "{km_id}.svc",
+                  "item": [
+                    {
+                      "name": "$metadata",
+                      "item": [
+                        {
+                          "name": "OData metadata endpoint",
+                          "id": "7b06a300-ab83-4e95-877a-e30beced9acc",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/$metadata?$format=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "odata",
+                                "{{km_id}}.svc",
+                                "$metadata"
+                              ],
+                              "query": [
+                                {
+                                  "key": "$format",
+                                  "value": "<string>"
+                                }
+                              ]
+                            },
+                            "description": "OData Knowledge Model $metadata"
+                          },
+                          "response": [
+                            {
+                              "id": "286f6238-17bc-4a62-9b23-1216af31376f",
+                              "name": "List of Record data",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/$metadata?$format=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "$metadata"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$Version\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-286f6238-17bc-4a62-9b23-1216af31376f"
+                            },
+                            {
+                              "id": "5488ae05-a7c1-4ee1-a26c-013af673d0cf",
+                              "name": "Bad Request.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/$metadata?$format=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "$metadata"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-5488ae05-a7c1-4ee1-a26c-013af673d0cf"
+                            },
+                            {
+                              "id": "0d76dc72-a937-4bd9-9da2-661cba240e68",
+                              "name": "Unauthorized access.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/$metadata?$format=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "$metadata"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-0d76dc72-a937-4bd9-9da2-661cba240e68"
+                            },
+                            {
+                              "id": "5e146c0a-3ca7-4176-8c0f-fc349abb1901",
+                              "name": "Forbidden.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/$metadata?$format=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "$metadata"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-5e146c0a-3ca7-4176-8c0f-fc349abb1901"
+                            },
+                            {
+                              "id": "9c9d1508-2630-4644-8d01-644f9e615f4c",
+                              "name": "The specified resource was not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/$metadata?$format=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "$metadata"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-9c9d1508-2630-4644-8d01-644f9e615f4c"
+                            },
+                            {
+                              "id": "6cf44239-5796-4edb-b678-61e799181fe3",
+                              "name": "Unsupported media type requested.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/$metadata?$format=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "$metadata"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unsupported Media Type",
+                              "code": 415,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-6cf44239-5796-4edb-b678-61e799181fe3"
+                            },
+                            {
+                              "id": "02fb677f-712a-42cc-a451-111253ba91bf",
+                              "name": "Too Many Requests.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/$metadata?$format=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "$metadata"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Too Many Requests",
+                              "code": 429,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Request limit per hour.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The number of requests left for the time window.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Remaining",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The UTC date/time at which the current rate limit window resets.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Reset",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-02fb677f-712a-42cc-a451-111253ba91bf"
+                            },
+                            {
+                              "id": "ab28ad86-8992-455d-ab91-75cb8e20300a",
+                              "name": "Internal Server Error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/$metadata?$format=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "$metadata"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-ab28ad86-8992-455d-ab91-75cb8e20300a"
+                            },
+                            {
+                              "id": "cb2cdb55-fe82-4ffd-b27f-f33403a32eea",
+                              "name": "Service Unavailable.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/$metadata?$format=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "$metadata"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Service Unavailable",
+                              "code": 503,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-cb2cdb55-fe82-4ffd-b27f-f33403a32eea"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:17:55.000Z",
+                          "updatedAt": "2026-07-28T01:17:55.000Z",
+                          "uid": "35240-7b06a300-ab83-4e95-877a-e30beced9acc"
+                        }
+                      ],
+                      "id": "564cfff6-d497-4ae1-8281-24dd7103e679",
+                      "createdAt": "2026-07-28T01:17:55.000Z",
+                      "updatedAt": "2026-07-28T01:17:55.000Z",
+                      "uid": "35240-564cfff6-d497-4ae1-8281-24dd7103e679"
+                    },
+                    {
+                      "name": "{record_id}_entries",
+                      "item": [
+                        {
+                          "name": "OData service data endpoint",
+                          "id": "79966513-6cc3-440e-95bb-eacd52b8c77d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/{{record_id}}_entries?$format=<string>&$select=<string>&$select=<string>&$top=<integer>&$skip=<integer>&$filter=<string>&filterid=<string>&$orderby=<string>&$count=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "odata",
+                                "{{km_id}}.svc",
+                                "{{record_id}}_entries"
+                              ],
+                              "query": [
+                                {
+                                  "key": "$format",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "$select",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "$select",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "$top",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "$skip",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "key": "$filter",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "filterid",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "$orderby",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "key": "$count",
+                                  "value": "<boolean>"
+                                }
+                              ]
+                            },
+                            "description": "OData Knowledge Model service data endpoint"
+                          },
+                          "response": [
+                            {
+                              "id": "10ba1f7a-96da-4eef-b974-5fff009e5e9b",
+                              "name": "List of Record data",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/{{record_id}}_entries?$format=<string>&$select=<string>&$top=<integer>&$skip=<integer>&$filter=<string>&filterid=<string>&$orderby=<string>&$count=<boolean>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "{{record_id}}_entries"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$select",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$skip",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$filter",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "filterid",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$orderby",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$count",
+                                      "value": "<boolean>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"@odata.context\": \"<string>\",\n  \"value\": [\n    {\n      \"tempor4c\": {},\n      \"magna7ce\": {}\n    },\n    {\n      \"ullamco7f\": {}\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-10ba1f7a-96da-4eef-b974-5fff009e5e9b"
+                            },
+                            {
+                              "id": "33f3074e-7bc4-4dd0-bf38-09cf5a88a62d",
+                              "name": "Bad Request.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/{{record_id}}_entries?$format=<string>&$select=<string>&$top=<integer>&$skip=<integer>&$filter=<string>&filterid=<string>&$orderby=<string>&$count=<boolean>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "{{record_id}}_entries"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$select",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$skip",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$filter",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "filterid",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$orderby",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$count",
+                                      "value": "<boolean>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-33f3074e-7bc4-4dd0-bf38-09cf5a88a62d"
+                            },
+                            {
+                              "id": "50d15580-e706-47c4-9888-b132be1de8dd",
+                              "name": "Unauthorized access.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/{{record_id}}_entries?$format=<string>&$select=<string>&$top=<integer>&$skip=<integer>&$filter=<string>&filterid=<string>&$orderby=<string>&$count=<boolean>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "{{record_id}}_entries"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$select",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$skip",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$filter",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "filterid",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$orderby",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$count",
+                                      "value": "<boolean>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-50d15580-e706-47c4-9888-b132be1de8dd"
+                            },
+                            {
+                              "id": "2ea51015-d4e5-45f8-82f3-db39ba165d51",
+                              "name": "Forbidden.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/{{record_id}}_entries?$format=<string>&$select=<string>&$top=<integer>&$skip=<integer>&$filter=<string>&filterid=<string>&$orderby=<string>&$count=<boolean>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "{{record_id}}_entries"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$select",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$skip",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$filter",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "filterid",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$orderby",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$count",
+                                      "value": "<boolean>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-2ea51015-d4e5-45f8-82f3-db39ba165d51"
+                            },
+                            {
+                              "id": "20084665-eb34-400a-8f8d-d83af3038737",
+                              "name": "The specified resource was not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/{{record_id}}_entries?$format=<string>&$select=<string>&$top=<integer>&$skip=<integer>&$filter=<string>&filterid=<string>&$orderby=<string>&$count=<boolean>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "{{record_id}}_entries"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$select",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$skip",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$filter",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "filterid",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$orderby",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$count",
+                                      "value": "<boolean>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-20084665-eb34-400a-8f8d-d83af3038737"
+                            },
+                            {
+                              "id": "18e5d993-1ba3-4529-9b19-ef88b45b0fbc",
+                              "name": "Unsupported media type requested.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/{{record_id}}_entries?$format=<string>&$select=<string>&$top=<integer>&$skip=<integer>&$filter=<string>&filterid=<string>&$orderby=<string>&$count=<boolean>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "{{record_id}}_entries"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$select",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$skip",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$filter",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "filterid",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$orderby",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$count",
+                                      "value": "<boolean>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unsupported Media Type",
+                              "code": 415,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-18e5d993-1ba3-4529-9b19-ef88b45b0fbc"
+                            },
+                            {
+                              "id": "3e241e1d-510e-454e-bfb0-b6cd68a4a0d7",
+                              "name": "Too Many Requests.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/{{record_id}}_entries?$format=<string>&$select=<string>&$top=<integer>&$skip=<integer>&$filter=<string>&filterid=<string>&$orderby=<string>&$count=<boolean>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "{{record_id}}_entries"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$select",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$skip",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$filter",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "filterid",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$orderby",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$count",
+                                      "value": "<boolean>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Too Many Requests",
+                              "code": 429,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Request limit per hour.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The number of requests left for the time window.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Remaining",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The UTC date/time at which the current rate limit window resets.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Reset",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-3e241e1d-510e-454e-bfb0-b6cd68a4a0d7"
+                            },
+                            {
+                              "id": "1074d3f1-043b-49e7-afb6-3fc9729264e6",
+                              "name": "Internal Server Error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/{{record_id}}_entries?$format=<string>&$select=<string>&$top=<integer>&$skip=<integer>&$filter=<string>&filterid=<string>&$orderby=<string>&$count=<boolean>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "{{record_id}}_entries"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$select",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$skip",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$filter",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "filterid",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$orderby",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$count",
+                                      "value": "<boolean>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-1074d3f1-043b-49e7-afb6-3fc9729264e6"
+                            },
+                            {
+                              "id": "816f03ca-325c-46ab-be5d-778eaa455cb1",
+                              "name": "Service Unavailable.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc/{{record_id}}_entries?$format=<string>&$select=<string>&$top=<integer>&$skip=<integer>&$filter=<string>&filterid=<string>&$orderby=<string>&$count=<boolean>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "odata",
+                                    "{{km_id}}.svc",
+                                    "{{record_id}}_entries"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "$format",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$select",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$top",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$skip",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "key": "$filter",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "filterid",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$orderby",
+                                      "value": "<string>"
+                                    },
+                                    {
+                                      "key": "$count",
+                                      "value": "<boolean>"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Service Unavailable",
+                              "code": 503,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:55.000Z",
+                              "updatedAt": "2026-07-28T01:17:55.000Z",
+                              "uid": "35240-816f03ca-325c-46ab-be5d-778eaa455cb1"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:17:55.000Z",
+                          "updatedAt": "2026-07-28T01:17:55.000Z",
+                          "uid": "35240-79966513-6cc3-440e-95bb-eacd52b8c77d"
+                        }
+                      ],
+                      "id": "3547133a-65ab-4f6c-8774-d3a4d8d5005c",
+                      "createdAt": "2026-07-28T01:17:55.000Z",
+                      "updatedAt": "2026-07-28T01:17:55.000Z",
+                      "uid": "35240-3547133a-65ab-4f6c-8774-d3a4d8d5005c"
+                    },
+                    {
+                      "name": "OData service definition endpoint",
+                      "id": "67cba842-8a1b-437c-86ea-f38818d4f1b3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc?$format=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "intelligence",
+                            "api",
+                            "odata",
+                            "{{km_id}}.svc"
+                          ],
+                          "query": [
+                            {
+                              "key": "$format",
+                              "value": "<string>"
+                            }
+                          ]
+                        },
+                        "description": "OData Knowledge Model service definition endpoint"
+                      },
+                      "response": [
+                        {
+                          "id": "bdcd599f-3263-4d0e-8243-ccfab02be4b3",
+                          "name": "List of Record data",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc?$format=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "odata",
+                                "{{km_id}}.svc"
+                              ],
+                              "query": [
+                                {
+                                  "key": "$format",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"@odata.context\": \"<string>\",\n  \"value\": [\n    {\n      \"name\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:17:55.000Z",
+                          "updatedAt": "2026-07-28T01:17:55.000Z",
+                          "uid": "35240-bdcd599f-3263-4d0e-8243-ccfab02be4b3"
+                        },
+                        {
+                          "id": "bfc0b626-60eb-462c-b56f-c21ee7668de3",
+                          "name": "Bad Request.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc?$format=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "odata",
+                                "{{km_id}}.svc"
+                              ],
+                              "query": [
+                                {
+                                  "key": "$format",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:17:55.000Z",
+                          "updatedAt": "2026-07-28T01:17:55.000Z",
+                          "uid": "35240-bfc0b626-60eb-462c-b56f-c21ee7668de3"
+                        },
+                        {
+                          "id": "1144c952-f4c4-4161-9c3f-0748b75b5361",
+                          "name": "Unauthorized access.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc?$format=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "odata",
+                                "{{km_id}}.svc"
+                              ],
+                              "query": [
+                                {
+                                  "key": "$format",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:17:55.000Z",
+                          "updatedAt": "2026-07-28T01:17:55.000Z",
+                          "uid": "35240-1144c952-f4c4-4161-9c3f-0748b75b5361"
+                        },
+                        {
+                          "id": "c3039c26-d062-4bbb-bd22-8fce216e7f3a",
+                          "name": "Forbidden.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc?$format=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "odata",
+                                "{{km_id}}.svc"
+                              ],
+                              "query": [
+                                {
+                                  "key": "$format",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:17:55.000Z",
+                          "updatedAt": "2026-07-28T01:17:55.000Z",
+                          "uid": "35240-c3039c26-d062-4bbb-bd22-8fce216e7f3a"
+                        },
+                        {
+                          "id": "d2859ed2-5d7b-4f3c-af4a-8715c93f7b86",
+                          "name": "The specified resource was not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc?$format=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "odata",
+                                "{{km_id}}.svc"
+                              ],
+                              "query": [
+                                {
+                                  "key": "$format",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:17:55.000Z",
+                          "updatedAt": "2026-07-28T01:17:55.000Z",
+                          "uid": "35240-d2859ed2-5d7b-4f3c-af4a-8715c93f7b86"
+                        },
+                        {
+                          "id": "d1963522-efcb-4473-87a6-dd85a36ab8a1",
+                          "name": "Unsupported media type requested.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc?$format=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "odata",
+                                "{{km_id}}.svc"
+                              ],
+                              "query": [
+                                {
+                                  "key": "$format",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unsupported Media Type",
+                          "code": 415,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:17:55.000Z",
+                          "updatedAt": "2026-07-28T01:17:55.000Z",
+                          "uid": "35240-d1963522-efcb-4473-87a6-dd85a36ab8a1"
+                        },
+                        {
+                          "id": "028782ce-7fd3-4ee0-ae24-22c0c4d47fa7",
+                          "name": "Too Many Requests.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc?$format=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "odata",
+                                "{{km_id}}.svc"
+                              ],
+                              "query": [
+                                {
+                                  "key": "$format",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "Request limit per hour.",
+                                "type": "text/plain"
+                              },
+                              "key": "X-RateLimit-Limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The number of requests left for the time window.",
+                                "type": "text/plain"
+                              },
+                              "key": "X-RateLimit-Remaining",
+                              "value": "<integer>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The UTC date/time at which the current rate limit window resets.",
+                                "type": "text/plain"
+                              },
+                              "key": "X-RateLimit-Reset",
+                              "value": "<dateTime>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:17:55.000Z",
+                          "updatedAt": "2026-07-28T01:17:55.000Z",
+                          "uid": "35240-028782ce-7fd3-4ee0-ae24-22c0c4d47fa7"
+                        },
+                        {
+                          "id": "dd28f4ac-6dfd-45c2-af44-25289fd10d81",
+                          "name": "Internal Server Error.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc?$format=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "odata",
+                                "{{km_id}}.svc"
+                              ],
+                              "query": [
+                                {
+                                  "key": "$format",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:17:55.000Z",
+                          "updatedAt": "2026-07-28T01:17:55.000Z",
+                          "uid": "35240-dd28f4ac-6dfd-45c2-af44-25289fd10d81"
+                        },
+                        {
+                          "id": "82996180-f391-491e-8b13-98747df0a5b9",
+                          "name": "Service Unavailable.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/odata/{{km_id}}.svc?$format=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "odata",
+                                "{{km_id}}.svc"
+                              ],
+                              "query": [
+                                {
+                                  "key": "$format",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Service Unavailable",
+                          "code": 503,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:17:55.000Z",
+                          "updatedAt": "2026-07-28T01:17:55.000Z",
+                          "uid": "35240-82996180-f391-491e-8b13-98747df0a5b9"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:17:55.000Z",
+                      "updatedAt": "2026-07-28T01:17:55.000Z",
+                      "uid": "35240-67cba842-8a1b-437c-86ea-f38818d4f1b3"
+                    }
+                  ],
+                  "id": "493aea4a-e6ea-439a-99a7-ccf1fc6c3da3",
+                  "createdAt": "2026-07-28T01:17:55.000Z",
+                  "updatedAt": "2026-07-28T01:17:55.000Z",
+                  "uid": "35240-493aea4a-e6ea-439a-99a7-ccf1fc6c3da3"
+                }
+              ],
+              "id": "5334dc1c-cd40-4e4f-a8f9-45892e8e8f7c",
+              "createdAt": "2026-07-28T01:17:55.000Z",
+              "updatedAt": "2026-07-28T01:17:55.000Z",
+              "uid": "35240-5334dc1c-cd40-4e4f-a8f9-45892e8e8f7c"
+            }
+          ],
+          "id": "93040eac-6073-403a-8921-354baf2e214e",
+          "createdAt": "2026-07-28T01:17:55.000Z",
+          "updatedAt": "2026-07-28T01:17:55.000Z",
+          "uid": "35240-93040eac-6073-403a-8921-354baf2e214e"
+        }
+      ],
+      "id": "b4a6c3ec-9001-4759-b7b7-cd6850101f48",
+      "createdAt": "2026-07-28T01:17:55.000Z",
+      "updatedAt": "2026-07-28T01:17:55.000Z",
+      "uid": "35240-b4a6c3ec-9001-4759-b7b7-cd6850101f48"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com"
+    },
+    {
+      "key": "km_id",
+      "value": "<string>"
+    },
+    {
+      "key": "record_id",
+      "value": "<string>"
+    }
+  ]
+}

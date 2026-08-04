@@ -1,0 +1,480 @@
+{
+  "info": {
+    "_postman_id": "e320d89e-c9b8-4132-bf94-0c242555d377",
+    "name": "OpenAPI Specification Agents - Conversation Members API API",
+    "description": "AI API to chat with Celonis Agents and run their tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:18:27.000Z",
+    "updatedAt": "2026-07-28T01:18:27.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e320d89e-c9b8-4132-bf94-0c242555d377"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "external",
+          "item": [
+            {
+              "name": "members",
+              "item": [
+                {
+                  "name": "List of all members",
+                  "id": "4a26f2bb-affd-4b4d-8ed0-d0494462f6b2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/external/members?pageNumber=0&pageSize=200&includeInternal=true",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "external",
+                        "members"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number to be retrieved. Starts with 0.",
+                          "key": "pageNumber",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Limit of results per page",
+                          "key": "pageSize",
+                          "value": "200"
+                        },
+                        {
+                          "description": "(Required) A boolean parameter to show internal or external members",
+                          "key": "includeInternal",
+                          "value": "true"
+                        }
+                      ]
+                    },
+                    "description": "Maximum number of members that will be received by page is 200.<br> The OAuth 2.0 scope to use is <tt>team.user-group-info:read</tt>.<br>"
+                  },
+                  "response": [
+                    {
+                      "id": "ae0f6c54-b444-4808-9d37-5dd6cd4df3b0",
+                      "name": "A list of Members",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/external/members?pageNumber=0&pageSize=200&includeInternal=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "external",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to be retrieved. Starts with 0.",
+                              "key": "pageNumber",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Limit of results per page",
+                              "key": "pageSize",
+                              "value": "200"
+                            },
+                            {
+                              "description": "(Required) A boolean parameter to show internal or external members",
+                              "key": "includeInternal",
+                              "value": "true"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"content\": [\n    {\n      \"group\": [\n        {\n          \"name\": \"<string>\",\n          \"teamRole\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"teamRole\": \"<string>\"\n        }\n      ],\n      \"inactivityPeriod\": \"<long>\",\n      \"lastLogin\": \"<string>\",\n      \"nameAndEmail\": \"<string>\",\n      \"status\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"userRole\": \"<string>\"\n    },\n    {\n      \"group\": [\n        {\n          \"name\": \"<string>\",\n          \"teamRole\": \"<string>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"teamRole\": \"<string>\"\n        }\n      ],\n      \"inactivityPeriod\": \"<long>\",\n      \"lastLogin\": \"<string>\",\n      \"nameAndEmail\": \"<string>\",\n      \"status\": \"<string>\",\n      \"userId\": \"<string>\",\n      \"userRole\": \"<string>\"\n    }\n  ],\n  \"pageNumber\": \"<integer>\",\n  \"pageSize\": \"<integer>\",\n  \"totalCount\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T01:18:27.000Z",
+                      "updatedAt": "2026-07-28T01:18:27.000Z",
+                      "uid": "35240-ae0f6c54-b444-4808-9d37-5dd6cd4df3b0"
+                    },
+                    {
+                      "id": "849d90dd-41ee-45de-895b-fd82384870f0",
+                      "name": "No Content",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/external/members?pageNumber=0&pageSize=200&includeInternal=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "external",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to be retrieved. Starts with 0.",
+                              "key": "pageNumber",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Limit of results per page",
+                              "key": "pageSize",
+                              "value": "200"
+                            },
+                            {
+                              "description": "(Required) A boolean parameter to show internal or external members",
+                              "key": "includeInternal",
+                              "value": "true"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:27.000Z",
+                      "updatedAt": "2026-07-28T01:18:27.000Z",
+                      "uid": "35240-849d90dd-41ee-45de-895b-fd82384870f0"
+                    },
+                    {
+                      "id": "49d675f7-a72b-45af-b4ec-05bfa0cb2540",
+                      "name": "Bad Request. Check the response contents for an explanation of the cause.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/external/members?pageNumber=0&pageSize=200&includeInternal=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "external",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to be retrieved. Starts with 0.",
+                              "key": "pageNumber",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Limit of results per page",
+                              "key": "pageSize",
+                              "value": "200"
+                            },
+                            {
+                              "description": "(Required) A boolean parameter to show internal or external members",
+                              "key": "includeInternal",
+                              "value": "true"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:27.000Z",
+                      "updatedAt": "2026-07-28T01:18:27.000Z",
+                      "uid": "35240-49d675f7-a72b-45af-b4ec-05bfa0cb2540"
+                    },
+                    {
+                      "id": "0a0aa703-3c7f-4ac0-b91b-7c90b6ffecef",
+                      "name": "Unauthorized. Check whether your API key or application key has sufficient permissions. If you are unsure, refer the documentation on [application keys](https://docs.celonis.com/en/creating-api-keys.html) and [permissions](https://docs.celonis.com/en/crea",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/external/members?pageNumber=0&pageSize=200&includeInternal=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "external",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to be retrieved. Starts with 0.",
+                              "key": "pageNumber",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Limit of results per page",
+                              "key": "pageSize",
+                              "value": "200"
+                            },
+                            {
+                              "description": "(Required) A boolean parameter to show internal or external members",
+                              "key": "includeInternal",
+                              "value": "true"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:27.000Z",
+                      "updatedAt": "2026-07-28T01:18:27.000Z",
+                      "uid": "35240-0a0aa703-3c7f-4ac0-b91b-7c90b6ffecef"
+                    },
+                    {
+                      "id": "e78f2463-5333-47f5-b275-6448865d3282",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/external/members?pageNumber=0&pageSize=200&includeInternal=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "external",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to be retrieved. Starts with 0.",
+                              "key": "pageNumber",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Limit of results per page",
+                              "key": "pageSize",
+                              "value": "200"
+                            },
+                            {
+                              "description": "(Required) A boolean parameter to show internal or external members",
+                              "key": "includeInternal",
+                              "value": "true"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:27.000Z",
+                      "updatedAt": "2026-07-28T01:18:27.000Z",
+                      "uid": "35240-e78f2463-5333-47f5-b275-6448865d3282"
+                    },
+                    {
+                      "id": "20d363cd-1d0d-4522-9cd2-849d445efa80",
+                      "name": "Method Not Allowed",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/external/members?pageNumber=0&pageSize=200&includeInternal=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "external",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to be retrieved. Starts with 0.",
+                              "key": "pageNumber",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Limit of results per page",
+                              "key": "pageSize",
+                              "value": "200"
+                            },
+                            {
+                              "description": "(Required) A boolean parameter to show internal or external members",
+                              "key": "includeInternal",
+                              "value": "true"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Method Not Allowed",
+                      "code": 405,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:27.000Z",
+                      "updatedAt": "2026-07-28T01:18:27.000Z",
+                      "uid": "35240-20d363cd-1d0d-4522-9cd2-849d445efa80"
+                    },
+                    {
+                      "id": "60fd8998-40b5-4c85-82d5-f2d957b37e16",
+                      "name": "An internal error happened. Forward the associated error ID along with any helpful information to [our support](https://www.celopeers.com/s/support?language=en_US)",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/external/members?pageNumber=0&pageSize=200&includeInternal=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "external",
+                            "members"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to be retrieved. Starts with 0.",
+                              "key": "pageNumber",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Limit of results per page",
+                              "key": "pageSize",
+                              "value": "200"
+                            },
+                            {
+                              "description": "(Required) A boolean parameter to show internal or external members",
+                              "key": "includeInternal",
+                              "value": "true"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:27.000Z",
+                      "updatedAt": "2026-07-28T01:18:27.000Z",
+                      "uid": "35240-60fd8998-40b5-4c85-82d5-f2d957b37e16"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:18:27.000Z",
+                  "updatedAt": "2026-07-28T01:18:27.000Z",
+                  "uid": "35240-4a26f2bb-affd-4b4d-8ed0-d0494462f6b2"
+                }
+              ],
+              "id": "1b5979e8-9d30-4338-aafb-a2ce53212967",
+              "createdAt": "2026-07-28T01:18:27.000Z",
+              "updatedAt": "2026-07-28T01:18:27.000Z",
+              "uid": "35240-1b5979e8-9d30-4338-aafb-a2ce53212967"
+            }
+          ],
+          "id": "cefaeee1-2a19-4b30-90af-aa8e27f44ea4",
+          "createdAt": "2026-07-28T01:18:27.000Z",
+          "updatedAt": "2026-07-28T01:18:27.000Z",
+          "uid": "35240-cefaeee1-2a19-4b30-90af-aa8e27f44ea4"
+        }
+      ],
+      "id": "56b9cfda-867c-40d1-9319-d37dace2c3ca",
+      "createdAt": "2026-07-28T01:18:27.000Z",
+      "updatedAt": "2026-07-28T01:18:27.000Z",
+      "uid": "35240-56b9cfda-867c-40d1-9319-d37dace2c3ca"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com"
+    }
+  ]
+}

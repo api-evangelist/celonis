@@ -1,0 +1,2207 @@
+{
+  "info": {
+    "_postman_id": "e90d1a86-1806-4ff1-8bf8-071be5247a03",
+    "name": "OpenAPI Specification Agents - Conversation Notebook Execution API",
+    "description": "AI API to chat with Celonis Agents and run their tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:18:29.000Z",
+    "updatedAt": "2026-07-28T01:18:29.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e90d1a86-1806-4ff1-8bf8-071be5247a03"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "executions",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "stop",
+                  "item": [
+                    {
+                      "name": "Stop a running execution",
+                      "id": "68961d03-3c58-4aa8-baab-603d66cc269d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/executions/:id/stop",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "executions",
+                            ":id",
+                            "stop"
+                          ],
+                          "variable": [
+                            {
+                              "id": "739bd055-746a-4f8b-9569-e3e7573542de",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1e3b6a2a-204b-4bc3-80d6-53f4aaae4581",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/:id/stop",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                ":id",
+                                "stop"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-1e3b6a2a-204b-4bc3-80d6-53f4aaae4581"
+                        },
+                        {
+                          "id": "3dea884a-f927-4087-b4df-bd653da15c73",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/:id/stop",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                ":id",
+                                "stop"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-3dea884a-f927-4087-b4df-bd653da15c73"
+                        },
+                        {
+                          "id": "2b117676-4b76-4e2c-814e-d6be7825a206",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/:id/stop",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                ":id",
+                                "stop"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-2b117676-4b76-4e2c-814e-d6be7825a206"
+                        },
+                        {
+                          "id": "cf414ecd-4f35-4172-bac6-052a9802d8a7",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/:id/stop",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                ":id",
+                                "stop"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-cf414ecd-4f35-4172-bac6-052a9802d8a7"
+                        },
+                        {
+                          "id": "c140853c-e039-4c0e-8ac8-26e09befec7e",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/:id/stop",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                ":id",
+                                "stop"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-c140853c-e039-4c0e-8ac8-26e09befec7e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:18:30.000Z",
+                      "updatedAt": "2026-07-28T01:18:30.000Z",
+                      "uid": "35240-68961d03-3c58-4aa8-baab-603d66cc269d"
+                    }
+                  ],
+                  "id": "0d8b0ffe-5cb8-4745-8610-49899535819b",
+                  "createdAt": "2026-07-28T01:18:29.000Z",
+                  "updatedAt": "2026-07-28T01:18:29.000Z",
+                  "uid": "35240-0d8b0ffe-5cb8-4745-8610-49899535819b"
+                },
+                {
+                  "name": "logs",
+                  "item": [
+                    {
+                      "name": "Get execution logs",
+                      "id": "52cf6678-c561-40ff-86b1-a252a81c1cf8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/executions/:id/logs?logLevels=INFO&logLevels=DEBUG&logLevels=WARNING&logLevels=ERROR",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "executions",
+                            ":id",
+                            "logs"
+                          ],
+                          "query": [
+                            {
+                              "key": "logLevels",
+                              "value": "INFO"
+                            },
+                            {
+                              "key": "logLevels",
+                              "value": "DEBUG"
+                            },
+                            {
+                              "key": "logLevels",
+                              "value": "WARNING"
+                            },
+                            {
+                              "key": "logLevels",
+                              "value": "ERROR"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "beac332c-d5c5-4cc8-835f-ec22d132ab04",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "f38a788b-e8c2-425a-aa3f-16fceda4292f",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/:id/logs?logLevels=ERROR",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                ":id",
+                                "logs"
+                              ],
+                              "query": [
+                                {
+                                  "key": "logLevels",
+                                  "value": "ERROR"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"notebookExecutionId\": \"<string>\",\n    \"message\": \"<string>\",\n    \"timestamp\": \"<dateTime>\",\n    \"logLevel\": \"<string>\"\n  },\n  {\n    \"notebookExecutionId\": \"<string>\",\n    \"message\": \"<string>\",\n    \"timestamp\": \"<dateTime>\",\n    \"logLevel\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-f38a788b-e8c2-425a-aa3f-16fceda4292f"
+                        },
+                        {
+                          "id": "c6ccb6d0-eb5e-4bf9-96dd-4c5682950033",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/:id/logs?logLevels=ERROR",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                ":id",
+                                "logs"
+                              ],
+                              "query": [
+                                {
+                                  "key": "logLevels",
+                                  "value": "ERROR"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-c6ccb6d0-eb5e-4bf9-96dd-4c5682950033"
+                        },
+                        {
+                          "id": "da48b75c-23c8-4ede-afc1-30f39fcb3009",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/:id/logs?logLevels=ERROR",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                ":id",
+                                "logs"
+                              ],
+                              "query": [
+                                {
+                                  "key": "logLevels",
+                                  "value": "ERROR"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-da48b75c-23c8-4ede-afc1-30f39fcb3009"
+                        },
+                        {
+                          "id": "1fb56d4f-95e0-441d-8513-bac86481366b",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/:id/logs?logLevels=ERROR",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                ":id",
+                                "logs"
+                              ],
+                              "query": [
+                                {
+                                  "key": "logLevels",
+                                  "value": "ERROR"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-1fb56d4f-95e0-441d-8513-bac86481366b"
+                        },
+                        {
+                          "id": "210fce7c-787d-4664-8063-ede85167c6c5",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/:id/logs?logLevels=ERROR",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                ":id",
+                                "logs"
+                              ],
+                              "query": [
+                                {
+                                  "key": "logLevels",
+                                  "value": "ERROR"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-210fce7c-787d-4664-8063-ede85167c6c5"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:18:30.000Z",
+                      "updatedAt": "2026-07-28T01:18:30.000Z",
+                      "uid": "35240-52cf6678-c561-40ff-86b1-a252a81c1cf8"
+                    }
+                  ],
+                  "id": "7c61b4d6-8bc1-4305-be8f-904404ef886e",
+                  "createdAt": "2026-07-28T01:18:29.000Z",
+                  "updatedAt": "2026-07-28T01:18:29.000Z",
+                  "uid": "35240-7c61b4d6-8bc1-4305-be8f-904404ef886e"
+                },
+                {
+                  "name": "Get an execution",
+                  "id": "28503c5c-5ba0-44cc-90fd-2f87ae09bba6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/executions/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "executions",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "2c3b0f5d-4e72-495a-a85f-630995054028",
+                          "key": "id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2eb05759-7093-4111-b0c3-3ef9d0393371",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/executions/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "executions",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"executionFileName\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"id\": \"<string>\",\n  \"notebookExecutionSourceId\": \"<string>\",\n  \"notebookExecutionSource\": \"<string>\",\n  \"notebookExecutionStatus\": \"TIMEOUT\",\n  \"started\": \"<dateTime>\",\n  \"completed\": \"<dateTime>\",\n  \"params\": {},\n  \"result\": \"<string>\",\n  \"logsOutputPath\": \"<string>\",\n  \"executionTimeout\": \"<integer>\",\n  \"maxRetries\": \"<integer>\",\n  \"timeUnit\": \"DAYS\"\n}",
+                      "createdAt": "2026-07-28T01:18:30.000Z",
+                      "updatedAt": "2026-07-28T01:18:30.000Z",
+                      "uid": "35240-2eb05759-7093-4111-b0c3-3ef9d0393371"
+                    },
+                    {
+                      "id": "1f619ed3-b55f-4e64-a153-3177d04031e9",
+                      "name": "No Content",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/executions/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "executions",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:30.000Z",
+                      "updatedAt": "2026-07-28T01:18:30.000Z",
+                      "uid": "35240-1f619ed3-b55f-4e64-a153-3177d04031e9"
+                    },
+                    {
+                      "id": "b78074cb-0030-49a0-aa5b-d5f49b213ea3",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/executions/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "executions",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                      "createdAt": "2026-07-28T01:18:30.000Z",
+                      "updatedAt": "2026-07-28T01:18:30.000Z",
+                      "uid": "35240-b78074cb-0030-49a0-aa5b-d5f49b213ea3"
+                    },
+                    {
+                      "id": "ee206b76-8e8b-412d-bdad-61744bab1d93",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/executions/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "executions",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:30.000Z",
+                      "updatedAt": "2026-07-28T01:18:30.000Z",
+                      "uid": "35240-ee206b76-8e8b-412d-bdad-61744bab1d93"
+                    },
+                    {
+                      "id": "d57b1846-8aa0-4358-82e9-cfb890b9eeb3",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/executions/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "executions",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:18:30.000Z",
+                      "updatedAt": "2026-07-28T01:18:30.000Z",
+                      "uid": "35240-d57b1846-8aa0-4358-82e9-cfb890b9eeb3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:18:30.000Z",
+                  "updatedAt": "2026-07-28T01:18:30.000Z",
+                  "uid": "35240-28503c5c-5ba0-44cc-90fd-2f87ae09bba6"
+                }
+              ],
+              "id": "448dee4a-f74e-4c21-b926-e595d14c3847",
+              "createdAt": "2026-07-28T01:18:29.000Z",
+              "updatedAt": "2026-07-28T01:18:29.000Z",
+              "uid": "35240-448dee4a-f74e-4c21-b926-e595d14c3847"
+            },
+            {
+              "name": "triggered",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Get triggered executions",
+                      "id": "53ffc22e-51b7-4e87-af06-84fb141de56c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/executions/triggered/:id?pageIndex=0&limit=1&startedOrder=DESC&executionSources=DATA_MODEL_RELOAD&executionSources=KNOWLEDGE_MODEL&executionSources=API",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "executions",
+                            "triggered",
+                            ":id"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageIndex",
+                              "value": "0"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "1"
+                            },
+                            {
+                              "key": "startedOrder",
+                              "value": "DESC"
+                            },
+                            {
+                              "key": "executionSources",
+                              "value": "DATA_MODEL_RELOAD"
+                            },
+                            {
+                              "key": "executionSources",
+                              "value": "KNOWLEDGE_MODEL"
+                            },
+                            {
+                              "key": "executionSources",
+                              "value": "API"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "bcb4c7ab-59e1-431b-ada8-f99ada41abde",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "2e59a935-180e-45fe-8225-b1d82974c0df",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/triggered/:id?pageIndex=0&limit=1&startedOrder=DESC&executionSources=API",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                "triggered",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageIndex",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "startedOrder",
+                                  "value": "DESC"
+                                },
+                                {
+                                  "key": "executionSources",
+                                  "value": "API"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"content\": [\n    {\n      \"executionFileName\": \"<string>\",\n      \"notebookId\": \"<string>\",\n      \"id\": \"<string>\",\n      \"notebookExecutionSourceId\": \"<string>\",\n      \"notebookExecutionSource\": \"<string>\",\n      \"notebookExecutionStatus\": \"TIMEOUT\",\n      \"started\": \"<dateTime>\",\n      \"completed\": \"<dateTime>\",\n      \"params\": {},\n      \"result\": \"<string>\",\n      \"logsOutputPath\": \"<string>\",\n      \"executionTimeout\": \"<integer>\",\n      \"maxRetries\": \"<integer>\",\n      \"timeUnit\": \"HOURS\"\n    },\n    {\n      \"executionFileName\": \"<string>\",\n      \"notebookId\": \"<string>\",\n      \"id\": \"<string>\",\n      \"notebookExecutionSourceId\": \"<string>\",\n      \"notebookExecutionSource\": \"<string>\",\n      \"notebookExecutionStatus\": \"COMPLETED\",\n      \"started\": \"<dateTime>\",\n      \"completed\": \"<dateTime>\",\n      \"params\": {},\n      \"result\": \"<string>\",\n      \"logsOutputPath\": \"<string>\",\n      \"executionTimeout\": \"<integer>\",\n      \"maxRetries\": \"<integer>\",\n      \"timeUnit\": \"SECONDS\"\n    }\n  ],\n  \"pageSize\": \"<integer>\",\n  \"pageNumber\": \"<integer>\",\n  \"totalCount\": \"<long>\",\n  \"first\": \"<boolean>\",\n  \"last\": \"<boolean>\",\n  \"empty\": \"<boolean>\",\n  \"totalPages\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-2e59a935-180e-45fe-8225-b1d82974c0df"
+                        },
+                        {
+                          "id": "522521dd-4569-4a01-8242-3872d4851ea5",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/triggered/:id?pageIndex=0&limit=1&startedOrder=DESC&executionSources=API",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                "triggered",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageIndex",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "startedOrder",
+                                  "value": "DESC"
+                                },
+                                {
+                                  "key": "executionSources",
+                                  "value": "API"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-522521dd-4569-4a01-8242-3872d4851ea5"
+                        },
+                        {
+                          "id": "60b8e663-ce8d-4dcb-a11e-f0bfad1d47d8",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/triggered/:id?pageIndex=0&limit=1&startedOrder=DESC&executionSources=API",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                "triggered",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageIndex",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "startedOrder",
+                                  "value": "DESC"
+                                },
+                                {
+                                  "key": "executionSources",
+                                  "value": "API"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-60b8e663-ce8d-4dcb-a11e-f0bfad1d47d8"
+                        },
+                        {
+                          "id": "8b900f66-fdc8-450f-b92a-7d1b46fdd1f3",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/triggered/:id?pageIndex=0&limit=1&startedOrder=DESC&executionSources=API",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                "triggered",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageIndex",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "startedOrder",
+                                  "value": "DESC"
+                                },
+                                {
+                                  "key": "executionSources",
+                                  "value": "API"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-8b900f66-fdc8-450f-b92a-7d1b46fdd1f3"
+                        },
+                        {
+                          "id": "eff5b9f5-edc8-43b7-8bd1-d524bdaf6924",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/triggered/:id?pageIndex=0&limit=1&startedOrder=DESC&executionSources=API",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                "triggered",
+                                ":id"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageIndex",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "startedOrder",
+                                  "value": "DESC"
+                                },
+                                {
+                                  "key": "executionSources",
+                                  "value": "API"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-eff5b9f5-edc8-43b7-8bd1-d524bdaf6924"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:18:30.000Z",
+                      "updatedAt": "2026-07-28T01:18:30.000Z",
+                      "uid": "35240-53ffc22e-51b7-4e87-af06-84fb141de56c"
+                    }
+                  ],
+                  "id": "d20a8ce2-10dc-4035-90ba-8e9a793f49a7",
+                  "createdAt": "2026-07-28T01:18:29.000Z",
+                  "updatedAt": "2026-07-28T01:18:29.000Z",
+                  "uid": "35240-d20a8ce2-10dc-4035-90ba-8e9a793f49a7"
+                }
+              ],
+              "id": "e9ee39cc-0fd5-4802-a0fe-828189968383",
+              "createdAt": "2026-07-28T01:18:29.000Z",
+              "updatedAt": "2026-07-28T01:18:29.000Z",
+              "uid": "35240-e9ee39cc-0fd5-4802-a0fe-828189968383"
+            },
+            {
+              "name": "triggered-groups",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "Get triggered execution groups by ID",
+                      "id": "3f672151-8b34-46da-b295-0f09a7fbaaf0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/executions/triggered-groups/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "executions",
+                            "triggered-groups",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "86b4ad20-9f71-44c5-84f2-35b90faf3de7",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "a4e5e126-322b-48e5-9d8b-93ece5cc6e17",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/triggered-groups/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                "triggered-groups",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"executionFileName\": \"<string>\",\n  \"lastExecutionId\": \"<string>\",\n  \"lastExecutionStatus\": \"COMPLETED\",\n  \"lastExecutionStartedDate\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-a4e5e126-322b-48e5-9d8b-93ece5cc6e17"
+                        },
+                        {
+                          "id": "9e1faa02-b833-492b-90a1-df81521585b3",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/triggered-groups/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                "triggered-groups",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-9e1faa02-b833-492b-90a1-df81521585b3"
+                        },
+                        {
+                          "id": "2b0633da-7d0f-4cde-9497-730119516352",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/triggered-groups/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                "triggered-groups",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-2b0633da-7d0f-4cde-9497-730119516352"
+                        },
+                        {
+                          "id": "297fc854-c813-495e-af1d-7ce60c664038",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/triggered-groups/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                "triggered-groups",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-297fc854-c813-495e-af1d-7ce60c664038"
+                        },
+                        {
+                          "id": "918ec2db-6304-45fd-8404-e156a726d4ea",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/executions/triggered-groups/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "executions",
+                                "triggered-groups",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:30.000Z",
+                          "updatedAt": "2026-07-28T01:18:30.000Z",
+                          "uid": "35240-918ec2db-6304-45fd-8404-e156a726d4ea"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:18:30.000Z",
+                      "updatedAt": "2026-07-28T01:18:30.000Z",
+                      "uid": "35240-3f672151-8b34-46da-b295-0f09a7fbaaf0"
+                    }
+                  ],
+                  "id": "f018e538-07bb-4952-93f5-99ae63bcf482",
+                  "createdAt": "2026-07-28T01:18:29.000Z",
+                  "updatedAt": "2026-07-28T01:18:29.000Z",
+                  "uid": "35240-f018e538-07bb-4952-93f5-99ae63bcf482"
+                },
+                {
+                  "name": "Get triggered execution groups",
+                  "id": "dff2ac8d-91d1-4f60-8c2f-b23d93904b3a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/executions/triggered-groups?notebookId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "executions",
+                        "triggered-groups"
+                      ],
+                      "query": [
+                        {
+                          "key": "notebookId",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "2938c3f1-6f09-4adc-828f-fda5cf0c078c",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/executions/triggered-groups?notebookId=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "executions",
+                            "triggered-groups"
+                          ],
+                          "query": [
+                            {
+                              "key": "notebookId",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"notebookId\": \"<string>\",\n    \"notebookName\": \"<string>\",\n    \"executionFileName\": \"<string>\",\n    \"lastExecutionId\": \"<string>\",\n    \"lastExecutionStatus\": \"CANCELED\",\n    \"lastExecutionStartedDate\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"notebookId\": \"<string>\",\n    \"notebookName\": \"<string>\",\n    \"executionFileName\": \"<string>\",\n    \"lastExecutionId\": \"<string>\",\n    \"lastExecutionStatus\": \"TIMEOUT\",\n    \"lastExecutionStartedDate\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-07-28T01:18:30.000Z",
+                      "updatedAt": "2026-07-28T01:18:30.000Z",
+                      "uid": "35240-2938c3f1-6f09-4adc-828f-fda5cf0c078c"
+                    },
+                    {
+                      "id": "8d85e6f2-4eed-486b-a88f-64feba8b1d4b",
+                      "name": "No Content",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/executions/triggered-groups?notebookId=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "executions",
+                            "triggered-groups"
+                          ],
+                          "query": [
+                            {
+                              "key": "notebookId",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:30.000Z",
+                      "updatedAt": "2026-07-28T01:18:30.000Z",
+                      "uid": "35240-8d85e6f2-4eed-486b-a88f-64feba8b1d4b"
+                    },
+                    {
+                      "id": "0e09cc31-da83-4702-b0bf-2466a4ba69c9",
+                      "name": "Bad Request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/executions/triggered-groups?notebookId=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "executions",
+                            "triggered-groups"
+                          ],
+                          "query": [
+                            {
+                              "key": "notebookId",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                      "createdAt": "2026-07-28T01:18:30.000Z",
+                      "updatedAt": "2026-07-28T01:18:30.000Z",
+                      "uid": "35240-0e09cc31-da83-4702-b0bf-2466a4ba69c9"
+                    },
+                    {
+                      "id": "1c7024b0-4fbc-4d31-85c6-504367112207",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/executions/triggered-groups?notebookId=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "executions",
+                            "triggered-groups"
+                          ],
+                          "query": [
+                            {
+                              "key": "notebookId",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:30.000Z",
+                      "updatedAt": "2026-07-28T01:18:30.000Z",
+                      "uid": "35240-1c7024b0-4fbc-4d31-85c6-504367112207"
+                    },
+                    {
+                      "id": "8ae2fb53-2410-48c0-8d5e-f807057aaf35",
+                      "name": "Internal Server Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/executions/triggered-groups?notebookId=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "executions",
+                            "triggered-groups"
+                          ],
+                          "query": [
+                            {
+                              "key": "notebookId",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:18:30.000Z",
+                      "updatedAt": "2026-07-28T01:18:30.000Z",
+                      "uid": "35240-8ae2fb53-2410-48c0-8d5e-f807057aaf35"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:18:30.000Z",
+                  "updatedAt": "2026-07-28T01:18:30.000Z",
+                  "uid": "35240-dff2ac8d-91d1-4f60-8c2f-b23d93904b3a"
+                }
+              ],
+              "id": "dcf6b3cb-8eab-467e-b9b5-fc356d255983",
+              "createdAt": "2026-07-28T01:18:29.000Z",
+              "updatedAt": "2026-07-28T01:18:29.000Z",
+              "uid": "35240-dcf6b3cb-8eab-467e-b9b5-fc356d255983"
+            },
+            {
+              "name": "Trigger an execution",
+              "id": "6ba1b836-c483-469a-aad4-4b0dc493aaaf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"executionFileName\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"id\": \"<string>\",\n  \"notebookExecutionSourceId\": \"<string>\",\n  \"notebookExecutionSource\": \"<string>\",\n  \"notebookExecutionStatus\": \"TIMEOUT\",\n  \"started\": \"<dateTime>\",\n  \"completed\": \"<dateTime>\",\n  \"params\": {},\n  \"result\": \"<string>\",\n  \"logsOutputPath\": \"<string>\",\n  \"executionTimeout\": \"<integer>\",\n  \"maxRetries\": \"<integer>\",\n  \"timeUnit\": \"DAYS\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/executions",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "executions"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "20f4affd-9a35-44aa-9180-65410279834c",
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"executionFileName\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"id\": \"<string>\",\n  \"notebookExecutionSourceId\": \"<string>\",\n  \"notebookExecutionSource\": \"<string>\",\n  \"notebookExecutionStatus\": \"TIMEOUT\",\n  \"started\": \"<dateTime>\",\n  \"completed\": \"<dateTime>\",\n  \"params\": {},\n  \"result\": \"<string>\",\n  \"logsOutputPath\": \"<string>\",\n  \"executionTimeout\": \"<integer>\",\n  \"maxRetries\": \"<integer>\",\n  \"timeUnit\": \"DAYS\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/executions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "executions"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"executionFileName\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"id\": \"<string>\",\n  \"notebookExecutionSourceId\": \"<string>\",\n  \"notebookExecutionSource\": \"<string>\",\n  \"notebookExecutionStatus\": \"TIMEOUT\",\n  \"started\": \"<dateTime>\",\n  \"completed\": \"<dateTime>\",\n  \"params\": {},\n  \"result\": \"<string>\",\n  \"logsOutputPath\": \"<string>\",\n  \"executionTimeout\": \"<integer>\",\n  \"maxRetries\": \"<integer>\",\n  \"timeUnit\": \"DAYS\"\n}",
+                  "createdAt": "2026-07-28T01:18:30.000Z",
+                  "updatedAt": "2026-07-28T01:18:30.000Z",
+                  "uid": "35240-20f4affd-9a35-44aa-9180-65410279834c"
+                },
+                {
+                  "id": "ae11116c-f630-4e49-8724-8d5f35494539",
+                  "name": "No Content",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"executionFileName\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"id\": \"<string>\",\n  \"notebookExecutionSourceId\": \"<string>\",\n  \"notebookExecutionSource\": \"<string>\",\n  \"notebookExecutionStatus\": \"TIMEOUT\",\n  \"started\": \"<dateTime>\",\n  \"completed\": \"<dateTime>\",\n  \"params\": {},\n  \"result\": \"<string>\",\n  \"logsOutputPath\": \"<string>\",\n  \"executionTimeout\": \"<integer>\",\n  \"maxRetries\": \"<integer>\",\n  \"timeUnit\": \"DAYS\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/executions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "executions"
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:18:30.000Z",
+                  "updatedAt": "2026-07-28T01:18:30.000Z",
+                  "uid": "35240-ae11116c-f630-4e49-8724-8d5f35494539"
+                },
+                {
+                  "id": "875bece4-e763-476c-bafc-9995be5f74f5",
+                  "name": "Bad Request",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"executionFileName\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"id\": \"<string>\",\n  \"notebookExecutionSourceId\": \"<string>\",\n  \"notebookExecutionSource\": \"<string>\",\n  \"notebookExecutionStatus\": \"TIMEOUT\",\n  \"started\": \"<dateTime>\",\n  \"completed\": \"<dateTime>\",\n  \"params\": {},\n  \"result\": \"<string>\",\n  \"logsOutputPath\": \"<string>\",\n  \"executionTimeout\": \"<integer>\",\n  \"maxRetries\": \"<integer>\",\n  \"timeUnit\": \"DAYS\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/executions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "executions"
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                  "createdAt": "2026-07-28T01:18:30.000Z",
+                  "updatedAt": "2026-07-28T01:18:30.000Z",
+                  "uid": "35240-875bece4-e763-476c-bafc-9995be5f74f5"
+                },
+                {
+                  "id": "a6f35bba-bd1f-4a03-a382-0847311f6267",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"executionFileName\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"id\": \"<string>\",\n  \"notebookExecutionSourceId\": \"<string>\",\n  \"notebookExecutionSource\": \"<string>\",\n  \"notebookExecutionStatus\": \"TIMEOUT\",\n  \"started\": \"<dateTime>\",\n  \"completed\": \"<dateTime>\",\n  \"params\": {},\n  \"result\": \"<string>\",\n  \"logsOutputPath\": \"<string>\",\n  \"executionTimeout\": \"<integer>\",\n  \"maxRetries\": \"<integer>\",\n  \"timeUnit\": \"DAYS\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/executions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "executions"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:18:30.000Z",
+                  "updatedAt": "2026-07-28T01:18:30.000Z",
+                  "uid": "35240-a6f35bba-bd1f-4a03-a382-0847311f6267"
+                },
+                {
+                  "id": "e3918a1c-f3fc-4341-807d-8e456591e4b7",
+                  "name": "Internal Server Error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"executionFileName\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"id\": \"<string>\",\n  \"notebookExecutionSourceId\": \"<string>\",\n  \"notebookExecutionSource\": \"<string>\",\n  \"notebookExecutionStatus\": \"TIMEOUT\",\n  \"started\": \"<dateTime>\",\n  \"completed\": \"<dateTime>\",\n  \"params\": {},\n  \"result\": \"<string>\",\n  \"logsOutputPath\": \"<string>\",\n  \"executionTimeout\": \"<integer>\",\n  \"maxRetries\": \"<integer>\",\n  \"timeUnit\": \"DAYS\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/executions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "executions"
+                      ]
+                    }
+                  },
+                  "status": "Internal Server Error",
+                  "code": 500,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:18:30.000Z",
+                  "updatedAt": "2026-07-28T01:18:30.000Z",
+                  "uid": "35240-e3918a1c-f3fc-4341-807d-8e456591e4b7"
+                }
+              ],
+              "createdAt": "2026-07-28T01:18:30.000Z",
+              "updatedAt": "2026-07-28T01:18:30.000Z",
+              "uid": "35240-6ba1b836-c483-469a-aad4-4b0dc493aaaf"
+            }
+          ],
+          "id": "6664f501-8097-4be7-96b3-ffd1591702fc",
+          "createdAt": "2026-07-28T01:18:29.000Z",
+          "updatedAt": "2026-07-28T01:18:29.000Z",
+          "uid": "35240-6664f501-8097-4be7-96b3-ffd1591702fc"
+        }
+      ],
+      "id": "9c1e52ed-05b7-45f1-aa64-ec8941e0d13d",
+      "createdAt": "2026-07-28T01:18:29.000Z",
+      "updatedAt": "2026-07-28T01:18:29.000Z",
+      "uid": "35240-9c1e52ed-05b7-45f1-aa64-ec8941e0d13d"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com"
+    }
+  ]
+}

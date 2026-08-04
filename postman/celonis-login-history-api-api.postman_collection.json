@@ -1,0 +1,520 @@
+{
+  "info": {
+    "_postman_id": "7a00a6b7-c224-41b8-b7b4-81c52b3c396c",
+    "name": "OpenAPI Specification Agents - Conversation Login History API API",
+    "description": "AI API to chat with Celonis Agents and run their tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:18:18.000Z",
+    "updatedAt": "2026-07-28T01:18:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7a00a6b7-c224-41b8-b7b4-81c52b3c396c"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "external",
+          "item": [
+            {
+              "name": "authentication-events",
+              "item": [
+                {
+                  "name": "List Login History",
+                  "id": "b614f3c7-12ad-4878-b051-c64f1dc9d19f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/external/authentication-events?pageNumber=0&pageSize=200&from=<dateTime>&to=<dateTime>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "external",
+                        "authentication-events"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number to be retrieved, starts with 0",
+                          "key": "pageNumber",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Limit of results per page",
+                          "key": "pageSize",
+                          "value": "200"
+                        },
+                        {
+                          "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                          "key": "from",
+                          "value": "<dateTime>"
+                        },
+                        {
+                          "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                          "key": "to",
+                          "value": "<dateTime>"
+                        }
+                      ]
+                    },
+                    "description": "Login History events can be filtered by specifying a date interval.<br> Maximum number of events that will be received by page is 200. <br> The OAuth 2.0 scope to use is <tt>team.login-history:read</tt>.<br> If there would be more events on the specified date interval total number of pages will be returned for further querying."
+                  },
+                  "response": [
+                    {
+                      "id": "12e874c3-147e-434a-b207-c73bd630d11f",
+                      "name": "A list of Login History events",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/external/authentication-events?pageNumber=0&pageSize=200&from=<dateTime>&to=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "external",
+                            "authentication-events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to be retrieved, starts with 0",
+                              "key": "pageNumber",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Limit of results per page",
+                              "key": "pageSize",
+                              "value": "200"
+                            },
+                            {
+                              "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                              "key": "from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                              "key": "to",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"content\": [\n    {\n      \"authenticationEventType\": \"LOGIN_CELONIS_ID\",\n      \"email\": \"<string>\",\n      \"success\": \"<boolean>\",\n      \"timestamp\": \"<dateTime>\"\n    },\n    {\n      \"authenticationEventType\": \"LOGIN_OIDC\",\n      \"email\": \"<string>\",\n      \"success\": \"<boolean>\",\n      \"timestamp\": \"<dateTime>\"\n    }\n  ],\n  \"pageNumber\": \"<integer>\",\n  \"pageSize\": \"<integer>\",\n  \"totalCount\": \"<long>\"\n}",
+                      "createdAt": "2026-07-28T01:18:18.000Z",
+                      "updatedAt": "2026-07-28T01:18:18.000Z",
+                      "uid": "35240-12e874c3-147e-434a-b207-c73bd630d11f"
+                    },
+                    {
+                      "id": "d1b2b520-986f-40e6-957d-69bd462364f8",
+                      "name": "No Content",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/external/authentication-events?pageNumber=0&pageSize=200&from=<dateTime>&to=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "external",
+                            "authentication-events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to be retrieved, starts with 0",
+                              "key": "pageNumber",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Limit of results per page",
+                              "key": "pageSize",
+                              "value": "200"
+                            },
+                            {
+                              "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                              "key": "from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                              "key": "to",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:18.000Z",
+                      "updatedAt": "2026-07-28T01:18:18.000Z",
+                      "uid": "35240-d1b2b520-986f-40e6-957d-69bd462364f8"
+                    },
+                    {
+                      "id": "badeee01-5277-40ec-a57a-82ed899cc0d1",
+                      "name": "Bad Request. Please check the response contents for an explanation of the cause.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/external/authentication-events?pageNumber=0&pageSize=200&from=<dateTime>&to=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "external",
+                            "authentication-events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to be retrieved, starts with 0",
+                              "key": "pageNumber",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Limit of results per page",
+                              "key": "pageSize",
+                              "value": "200"
+                            },
+                            {
+                              "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                              "key": "from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                              "key": "to",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:18.000Z",
+                      "updatedAt": "2026-07-28T01:18:18.000Z",
+                      "uid": "35240-badeee01-5277-40ec-a57a-82ed899cc0d1"
+                    },
+                    {
+                      "id": "e414587f-e8a7-4cbd-9cbe-81d168021074",
+                      "name": "Unauthorized. Check whether your API key or application key has sufficient permissions. In case you are unsure, please refer the documentation on [application keys](https://docs.celonis.com/en/creating-api-keys.html) and [permissions](https://docs.celonis",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/external/authentication-events?pageNumber=0&pageSize=200&from=<dateTime>&to=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "external",
+                            "authentication-events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to be retrieved, starts with 0",
+                              "key": "pageNumber",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Limit of results per page",
+                              "key": "pageSize",
+                              "value": "200"
+                            },
+                            {
+                              "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                              "key": "from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                              "key": "to",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:18.000Z",
+                      "updatedAt": "2026-07-28T01:18:18.000Z",
+                      "uid": "35240-e414587f-e8a7-4cbd-9cbe-81d168021074"
+                    },
+                    {
+                      "id": "585728da-9839-4e0f-a91c-a12d6b0dcea2",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/external/authentication-events?pageNumber=0&pageSize=200&from=<dateTime>&to=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "external",
+                            "authentication-events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to be retrieved, starts with 0",
+                              "key": "pageNumber",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Limit of results per page",
+                              "key": "pageSize",
+                              "value": "200"
+                            },
+                            {
+                              "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                              "key": "from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                              "key": "to",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:18.000Z",
+                      "updatedAt": "2026-07-28T01:18:18.000Z",
+                      "uid": "35240-585728da-9839-4e0f-a91c-a12d6b0dcea2"
+                    },
+                    {
+                      "id": "73418d5e-6e94-4654-bdfe-e081796319ce",
+                      "name": "Method Not Allowed",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/external/authentication-events?pageNumber=0&pageSize=200&from=<dateTime>&to=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "external",
+                            "authentication-events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to be retrieved, starts with 0",
+                              "key": "pageNumber",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Limit of results per page",
+                              "key": "pageSize",
+                              "value": "200"
+                            },
+                            {
+                              "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                              "key": "from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                              "key": "to",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Method Not Allowed",
+                      "code": 405,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:18.000Z",
+                      "updatedAt": "2026-07-28T01:18:18.000Z",
+                      "uid": "35240-73418d5e-6e94-4654-bdfe-e081796319ce"
+                    },
+                    {
+                      "id": "d76a3965-32c2-4d4e-9dde-c7aa686448b9",
+                      "name": "An internal error happened. Please forward the associated error ID along with any helpful information to [our support](https://www.celopeers.com/s/support?language=en_US)",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/external/authentication-events?pageNumber=0&pageSize=200&from=<dateTime>&to=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "external",
+                            "authentication-events"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number to be retrieved, starts with 0",
+                              "key": "pageNumber",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Limit of results per page",
+                              "key": "pageSize",
+                              "value": "200"
+                            },
+                            {
+                              "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                              "key": "from",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss",
+                              "key": "to",
+                              "value": "<dateTime>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T01:18:18.000Z",
+                      "updatedAt": "2026-07-28T01:18:18.000Z",
+                      "uid": "35240-d76a3965-32c2-4d4e-9dde-c7aa686448b9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:18:18.000Z",
+                  "updatedAt": "2026-07-28T01:18:18.000Z",
+                  "uid": "35240-b614f3c7-12ad-4878-b051-c64f1dc9d19f"
+                }
+              ],
+              "id": "c3a07ac1-fcb0-4377-9e12-adf003127697",
+              "createdAt": "2026-07-28T01:18:18.000Z",
+              "updatedAt": "2026-07-28T01:18:18.000Z",
+              "uid": "35240-c3a07ac1-fcb0-4377-9e12-adf003127697"
+            }
+          ],
+          "id": "339eb28a-bbaa-40f8-8a83-07f263692d91",
+          "createdAt": "2026-07-28T01:18:18.000Z",
+          "updatedAt": "2026-07-28T01:18:18.000Z",
+          "uid": "35240-339eb28a-bbaa-40f8-8a83-07f263692d91"
+        }
+      ],
+      "id": "586feae1-9dc7-4159-8cd9-7f1156ea9b23",
+      "createdAt": "2026-07-28T01:18:18.000Z",
+      "updatedAt": "2026-07-28T01:18:18.000Z",
+      "uid": "35240-586feae1-9dc7-4159-8cd9-7f1156ea9b23"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com"
+    }
+  ]
+}

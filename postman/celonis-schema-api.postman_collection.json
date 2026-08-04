@@ -1,0 +1,3478 @@
+{
+  "info": {
+    "_postman_id": "39ebc1b5-b5de-4021-a081-a0ebde0b2b3f",
+    "name": "OpenAPI Specification Agents - Conversation Schema API",
+    "description": "AI API to chat with Celonis Agents and run their tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:18:35.000Z",
+    "updatedAt": "2026-07-28T01:18:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-39ebc1b5-b5de-4021-a081-a0ebde0b2b3f"
+  },
+  "item": [
+    {
+      "name": "intelligence",
+      "item": [
+        {
+          "name": "api",
+          "item": [
+            {
+              "name": "knowledge-models",
+              "item": [
+                {
+                  "name": "{km_id}",
+                  "item": [
+                    {
+                      "name": "filters",
+                      "item": [
+                        {
+                          "name": "Get a list of KM Filters",
+                          "id": "944e3fd0-1e77-439b-8cef-265c883b4f30",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/filters?page=0&pageSize=50&sort=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "knowledge-models",
+                                ":km_id",
+                                "filters"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "pageSize",
+                                  "value": "50"
+                                },
+                                {
+                                  "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                  "key": "sort",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "6371dad0-967d-45b9-8d81-5253a33d7f8e",
+                                  "key": "km_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "List of Filters for the Knowledge Model"
+                          },
+                          "response": [
+                            {
+                              "id": "72536648-9376-471c-ab21-053f4f3f87df",
+                              "name": "List of Filter ids and names",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/filters?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "filters"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"page\": \"<integer>\",\n  \"pageSize\": \"<integer>\",\n  \"total\": \"<integer>\",\n  \"sort\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-72536648-9376-471c-ab21-053f4f3f87df"
+                            },
+                            {
+                              "id": "b89b3e39-e574-457c-8cd0-77fcf42e8209",
+                              "name": "Bad Request.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/filters?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "filters"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-b89b3e39-e574-457c-8cd0-77fcf42e8209"
+                            },
+                            {
+                              "id": "7d2ed359-6d63-4675-a468-0ca7db7b8b78",
+                              "name": "Unauthorized access.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/filters?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "filters"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-7d2ed359-6d63-4675-a468-0ca7db7b8b78"
+                            },
+                            {
+                              "id": "4047eab2-63bb-4918-8ee8-0d309a0be17a",
+                              "name": "Forbidden.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/filters?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "filters"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-4047eab2-63bb-4918-8ee8-0d309a0be17a"
+                            },
+                            {
+                              "id": "cc309ebc-6511-4d1d-8ec9-3da9d4c73f75",
+                              "name": "The specified resource was not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/filters?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "filters"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-cc309ebc-6511-4d1d-8ec9-3da9d4c73f75"
+                            },
+                            {
+                              "id": "da2538db-fb40-408c-9b91-43634eafade1",
+                              "name": "Too Many Requests.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/filters?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "filters"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Too Many Requests",
+                              "code": 429,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Request limit per hour.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The number of requests left for the time window.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Remaining",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The UTC date/time at which the current rate limit window resets.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Reset",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-da2538db-fb40-408c-9b91-43634eafade1"
+                            },
+                            {
+                              "id": "6ee0bb84-f477-4a40-a830-cf1bb9267a3b",
+                              "name": "Internal Server Error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/filters?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "filters"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-6ee0bb84-f477-4a40-a830-cf1bb9267a3b"
+                            },
+                            {
+                              "id": "821f7b42-512d-4ba4-ae8c-fc9877dcc434",
+                              "name": "Service Unavailable.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/filters?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "filters"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Service Unavailable",
+                              "code": 503,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-821f7b42-512d-4ba4-ae8c-fc9877dcc434"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:18:36.000Z",
+                          "updatedAt": "2026-07-28T01:18:36.000Z",
+                          "uid": "35240-944e3fd0-1e77-439b-8cef-265c883b4f30"
+                        }
+                      ],
+                      "id": "33dc4fd6-2b66-4c29-9d47-36081a33f66e",
+                      "createdAt": "2026-07-28T01:18:36.000Z",
+                      "updatedAt": "2026-07-28T01:18:36.000Z",
+                      "uid": "35240-33dc4fd6-2b66-4c29-9d47-36081a33f66e"
+                    },
+                    {
+                      "name": "records",
+                      "item": [
+                        {
+                          "name": "{record_id}",
+                          "item": [
+                            {
+                              "name": "Get the top-level KM Record Schema details",
+                              "id": "66d9f15d-cca1-455a-a84b-702ade157590",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records/:record_id?sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "records",
+                                    ":record_id"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "3400e8c3-76b1-4bb3-96fa-ea6ee7475de6",
+                                      "key": "km_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "0de5f057-d021-4b56-9c80-d316adb61f4a",
+                                      "key": "record_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Top-level Record Schema details"
+                              },
+                              "response": [
+                                {
+                                  "id": "031c63ad-2472-41b6-815e-970e27c34686",
+                                  "name": "Top-level Record Schema details",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records/:record_id?sort=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "knowledge-models",
+                                        ":km_id",
+                                        "records",
+                                        ":record_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                          "key": "sort",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "km_id"
+                                        },
+                                        {
+                                          "key": "record_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"shortDisplayName\": \"<string>\",\n  \"internalNote\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:18:36.000Z",
+                                  "updatedAt": "2026-07-28T01:18:36.000Z",
+                                  "uid": "35240-031c63ad-2472-41b6-815e-970e27c34686"
+                                },
+                                {
+                                  "id": "ccba5241-f489-4053-8d9f-7f709e6db827",
+                                  "name": "Bad Request.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records/:record_id?sort=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "knowledge-models",
+                                        ":km_id",
+                                        "records",
+                                        ":record_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                          "key": "sort",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "km_id"
+                                        },
+                                        {
+                                          "key": "record_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:18:36.000Z",
+                                  "updatedAt": "2026-07-28T01:18:36.000Z",
+                                  "uid": "35240-ccba5241-f489-4053-8d9f-7f709e6db827"
+                                },
+                                {
+                                  "id": "71984a9b-494c-4db7-aff7-5dc4cf8dadc4",
+                                  "name": "Unauthorized access.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records/:record_id?sort=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "knowledge-models",
+                                        ":km_id",
+                                        "records",
+                                        ":record_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                          "key": "sort",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "km_id"
+                                        },
+                                        {
+                                          "key": "record_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"error\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:18:36.000Z",
+                                  "updatedAt": "2026-07-28T01:18:36.000Z",
+                                  "uid": "35240-71984a9b-494c-4db7-aff7-5dc4cf8dadc4"
+                                },
+                                {
+                                  "id": "a549ff64-db3a-408c-9c33-f7383dde0661",
+                                  "name": "Forbidden.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records/:record_id?sort=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "knowledge-models",
+                                        ":km_id",
+                                        "records",
+                                        ":record_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                          "key": "sort",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "km_id"
+                                        },
+                                        {
+                                          "key": "record_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:18:36.000Z",
+                                  "updatedAt": "2026-07-28T01:18:36.000Z",
+                                  "uid": "35240-a549ff64-db3a-408c-9c33-f7383dde0661"
+                                },
+                                {
+                                  "id": "d04f9749-2246-4906-b852-40de9732ae90",
+                                  "name": "The specified resource was not found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records/:record_id?sort=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "knowledge-models",
+                                        ":km_id",
+                                        "records",
+                                        ":record_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                          "key": "sort",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "km_id"
+                                        },
+                                        {
+                                          "key": "record_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:18:36.000Z",
+                                  "updatedAt": "2026-07-28T01:18:36.000Z",
+                                  "uid": "35240-d04f9749-2246-4906-b852-40de9732ae90"
+                                },
+                                {
+                                  "id": "72b8a3bc-8398-446c-9209-f26199d9dd22",
+                                  "name": "Too Many Requests.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records/:record_id?sort=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "knowledge-models",
+                                        ":km_id",
+                                        "records",
+                                        ":record_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                          "key": "sort",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "km_id"
+                                        },
+                                        {
+                                          "key": "record_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Too Many Requests",
+                                  "code": 429,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Request limit per hour.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "X-RateLimit-Limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The number of requests left for the time window.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "X-RateLimit-Remaining",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The UTC date/time at which the current rate limit window resets.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "X-RateLimit-Reset",
+                                      "value": "<dateTime>"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:18:36.000Z",
+                                  "updatedAt": "2026-07-28T01:18:36.000Z",
+                                  "uid": "35240-72b8a3bc-8398-446c-9209-f26199d9dd22"
+                                },
+                                {
+                                  "id": "18befc79-f395-45f7-b0d4-3755cb8f3244",
+                                  "name": "Internal Server Error.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records/:record_id?sort=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "knowledge-models",
+                                        ":km_id",
+                                        "records",
+                                        ":record_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                          "key": "sort",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "km_id"
+                                        },
+                                        {
+                                          "key": "record_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:18:36.000Z",
+                                  "updatedAt": "2026-07-28T01:18:36.000Z",
+                                  "uid": "35240-18befc79-f395-45f7-b0d4-3755cb8f3244"
+                                },
+                                {
+                                  "id": "b8149775-5d8a-4074-81fb-ee4cebd12fba",
+                                  "name": "Service Unavailable.",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records/:record_id?sort=<string>",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "knowledge-models",
+                                        ":km_id",
+                                        "records",
+                                        ":record_id"
+                                      ],
+                                      "query": [
+                                        {
+                                          "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                          "key": "sort",
+                                          "value": "<string>"
+                                        }
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "km_id"
+                                        },
+                                        {
+                                          "key": "record_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Service Unavailable",
+                                  "code": 503,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T01:18:36.000Z",
+                                  "updatedAt": "2026-07-28T01:18:36.000Z",
+                                  "uid": "35240-b8149775-5d8a-4074-81fb-ee4cebd12fba"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-66d9f15d-cca1-455a-a84b-702ade157590"
+                            }
+                          ],
+                          "id": "8744b027-2080-4ea3-88cd-fb4c59ea783b",
+                          "createdAt": "2026-07-28T01:18:36.000Z",
+                          "updatedAt": "2026-07-28T01:18:36.000Z",
+                          "uid": "35240-8744b027-2080-4ea3-88cd-fb4c59ea783b"
+                        },
+                        {
+                          "name": "Get a list of KM Records schema",
+                          "id": "56a421c2-a118-448f-9db7-c047d4fccd70",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records?page=0&pageSize=50&sort=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "knowledge-models",
+                                ":km_id",
+                                "records"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "pageSize",
+                                  "value": "50"
+                                },
+                                {
+                                  "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                  "key": "sort",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "1d8bffae-73f3-4737-9dde-a96d482d7990",
+                                  "key": "km_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "List of Records schema"
+                          },
+                          "response": [
+                            {
+                              "id": "7ac98014-946d-45ae-a254-4518cf3bf15a",
+                              "name": "List of Record ids and names",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "records"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"page\": \"<integer>\",\n  \"pageSize\": \"<integer>\",\n  \"total\": \"<integer>\",\n  \"sort\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-7ac98014-946d-45ae-a254-4518cf3bf15a"
+                            },
+                            {
+                              "id": "f032c575-a9ad-4db7-8ae5-229095226739",
+                              "name": "Bad Request.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "records"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-f032c575-a9ad-4db7-8ae5-229095226739"
+                            },
+                            {
+                              "id": "066e6c73-ce15-41fa-9bfc-9a0fcf4bc9b0",
+                              "name": "Unauthorized access.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "records"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-066e6c73-ce15-41fa-9bfc-9a0fcf4bc9b0"
+                            },
+                            {
+                              "id": "c545a810-ab47-4009-95e0-368cc3ef5513",
+                              "name": "Forbidden.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "records"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-c545a810-ab47-4009-95e0-368cc3ef5513"
+                            },
+                            {
+                              "id": "1aece330-2ddf-4b12-b7d4-bf7f0e66c8f4",
+                              "name": "The specified resource was not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "records"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-1aece330-2ddf-4b12-b7d4-bf7f0e66c8f4"
+                            },
+                            {
+                              "id": "c0b1fb7b-6510-4348-8d75-83f727cf528c",
+                              "name": "Too Many Requests.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "records"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Too Many Requests",
+                              "code": 429,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Request limit per hour.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The number of requests left for the time window.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Remaining",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The UTC date/time at which the current rate limit window resets.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Reset",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-c0b1fb7b-6510-4348-8d75-83f727cf528c"
+                            },
+                            {
+                              "id": "4b4919b2-eeac-4c7a-9a06-edece2f67312",
+                              "name": "Internal Server Error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "records"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-4b4919b2-eeac-4c7a-9a06-edece2f67312"
+                            },
+                            {
+                              "id": "aa4c4c07-71cd-4a40-aa24-964e970d14f1",
+                              "name": "Service Unavailable.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/records?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "records"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Service Unavailable",
+                              "code": 503,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-aa4c4c07-71cd-4a40-aa24-964e970d14f1"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:18:36.000Z",
+                          "updatedAt": "2026-07-28T01:18:36.000Z",
+                          "uid": "35240-56a421c2-a118-448f-9db7-c047d4fccd70"
+                        }
+                      ],
+                      "id": "53898923-237f-4ba9-ab9e-b89cde6ddc45",
+                      "createdAt": "2026-07-28T01:18:36.000Z",
+                      "updatedAt": "2026-07-28T01:18:36.000Z",
+                      "uid": "35240-53898923-237f-4ba9-ab9e-b89cde6ddc45"
+                    },
+                    {
+                      "name": "kpis",
+                      "item": [
+                        {
+                          "name": "Get a list of KM KPI's schema",
+                          "id": "1e164bac-a568-4f8d-8af3-2bc656a48ed6",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/kpis?page=0&pageSize=50&sort=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "knowledge-models",
+                                ":km_id",
+                                "kpis"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "pageSize",
+                                  "value": "50"
+                                },
+                                {
+                                  "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                  "key": "sort",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "2c80007b-efda-4d11-829f-abd0a9dd0fea",
+                                  "key": "km_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "List of KPI's schema."
+                          },
+                          "response": [
+                            {
+                              "id": "7ced5e46-4f87-41f5-ab38-09bba3fcdf18",
+                              "name": "List of KPI's.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/kpis?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "kpis"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"page\": \"<integer>\",\n  \"pageSize\": \"<integer>\",\n  \"total\": \"<integer>\",\n  \"sort\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-7ced5e46-4f87-41f5-ab38-09bba3fcdf18"
+                            },
+                            {
+                              "id": "81567ce5-f0be-494a-ab70-846a980c9ab3",
+                              "name": "Bad Request.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/kpis?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "kpis"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-81567ce5-f0be-494a-ab70-846a980c9ab3"
+                            },
+                            {
+                              "id": "e0ada35b-dd4a-4c72-914c-2347312ee6c6",
+                              "name": "Unauthorized access.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/kpis?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "kpis"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Unauthorized",
+                              "code": 401,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-e0ada35b-dd4a-4c72-914c-2347312ee6c6"
+                            },
+                            {
+                              "id": "3ad9a443-25b0-4dea-9aa8-0637c1a04737",
+                              "name": "Forbidden.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/kpis?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "kpis"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-3ad9a443-25b0-4dea-9aa8-0637c1a04737"
+                            },
+                            {
+                              "id": "af56f6c6-49d4-4b32-8ae3-2dc1ece5471e",
+                              "name": "The specified resource was not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/kpis?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "kpis"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-af56f6c6-49d4-4b32-8ae3-2dc1ece5471e"
+                            },
+                            {
+                              "id": "1c0e0721-4b82-49aa-b9fc-94e9da867464",
+                              "name": "Too Many Requests.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/kpis?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "kpis"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Too Many Requests",
+                              "code": 429,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "Request limit per hour.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Limit",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The number of requests left for the time window.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Remaining",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "disabled": false,
+                                  "description": {
+                                    "content": "The UTC date/time at which the current rate limit window resets.",
+                                    "type": "text/plain"
+                                  },
+                                  "key": "X-RateLimit-Reset",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-1c0e0721-4b82-49aa-b9fc-94e9da867464"
+                            },
+                            {
+                              "id": "a6b3006b-f899-4d15-8f1f-d879c10a4f6b",
+                              "name": "Internal Server Error.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/kpis?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "kpis"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-a6b3006b-f899-4d15-8f1f-d879c10a4f6b"
+                            },
+                            {
+                              "id": "f602c04c-b3e7-4fa4-8036-5562d746888f",
+                              "name": "Service Unavailable.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/problem+json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id/kpis?page=0&pageSize=50&sort=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "knowledge-models",
+                                    ":km_id",
+                                    "kpis"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "page",
+                                      "value": "0"
+                                    },
+                                    {
+                                      "key": "pageSize",
+                                      "value": "50"
+                                    },
+                                    {
+                                      "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                                      "key": "sort",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "km_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Service Unavailable",
+                              "code": 503,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/problem+json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:18:36.000Z",
+                              "updatedAt": "2026-07-28T01:18:36.000Z",
+                              "uid": "35240-f602c04c-b3e7-4fa4-8036-5562d746888f"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:18:36.000Z",
+                          "updatedAt": "2026-07-28T01:18:36.000Z",
+                          "uid": "35240-1e164bac-a568-4f8d-8af3-2bc656a48ed6"
+                        }
+                      ],
+                      "id": "8c2251d4-cc53-4f67-911e-b613a1b52c74",
+                      "createdAt": "2026-07-28T01:18:36.000Z",
+                      "updatedAt": "2026-07-28T01:18:36.000Z",
+                      "uid": "35240-8c2251d4-cc53-4f67-911e-b613a1b52c74"
+                    },
+                    {
+                      "name": "Get the top-level KM details",
+                      "id": "61798b4e-a365-43d4-80e2-334efa357a40",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "intelligence",
+                            "api",
+                            "knowledge-models",
+                            ":km_id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ceb13e40-f600-4cb5-801c-77b1ebd7b44f",
+                              "key": "km_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Knowledge Model defined in an EMS team"
+                      },
+                      "response": [
+                        {
+                          "id": "703e3bee-1726-4e27-b85b-a58dccda4647",
+                          "name": "Top-level Knowledge Model details",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "knowledge-models",
+                                ":km_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "km_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"extendedKMId\": \"ullamco amet in laboris\",\n  \"id\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:36.000Z",
+                          "updatedAt": "2026-07-28T01:18:36.000Z",
+                          "uid": "35240-703e3bee-1726-4e27-b85b-a58dccda4647"
+                        },
+                        {
+                          "id": "ff730031-2a0a-4729-b22d-0b5f3f6ab080",
+                          "name": "Bad Request.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "knowledge-models",
+                                ":km_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "km_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:36.000Z",
+                          "updatedAt": "2026-07-28T01:18:36.000Z",
+                          "uid": "35240-ff730031-2a0a-4729-b22d-0b5f3f6ab080"
+                        },
+                        {
+                          "id": "e5c25d41-76ee-49af-9d66-7caa8153b187",
+                          "name": "Unauthorized access.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "knowledge-models",
+                                ":km_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "km_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:36.000Z",
+                          "updatedAt": "2026-07-28T01:18:36.000Z",
+                          "uid": "35240-e5c25d41-76ee-49af-9d66-7caa8153b187"
+                        },
+                        {
+                          "id": "2358c00d-6252-4750-b40e-33e2b6dd75b1",
+                          "name": "Forbidden.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "knowledge-models",
+                                ":km_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "km_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:36.000Z",
+                          "updatedAt": "2026-07-28T01:18:36.000Z",
+                          "uid": "35240-2358c00d-6252-4750-b40e-33e2b6dd75b1"
+                        },
+                        {
+                          "id": "13af917f-c9c4-427d-a4c5-c814c4672c3e",
+                          "name": "The specified resource was not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "knowledge-models",
+                                ":km_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "km_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:36.000Z",
+                          "updatedAt": "2026-07-28T01:18:36.000Z",
+                          "uid": "35240-13af917f-c9c4-427d-a4c5-c814c4672c3e"
+                        },
+                        {
+                          "id": "59412d6c-c464-4630-82f7-adec92b97da2",
+                          "name": "Too Many Requests.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "knowledge-models",
+                                ":km_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "km_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Too Many Requests",
+                          "code": 429,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "Request limit per hour.",
+                                "type": "text/plain"
+                              },
+                              "key": "X-RateLimit-Limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The number of requests left for the time window.",
+                                "type": "text/plain"
+                              },
+                              "key": "X-RateLimit-Remaining",
+                              "value": "<integer>"
+                            },
+                            {
+                              "disabled": false,
+                              "description": {
+                                "content": "The UTC date/time at which the current rate limit window resets.",
+                                "type": "text/plain"
+                              },
+                              "key": "X-RateLimit-Reset",
+                              "value": "<dateTime>"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:36.000Z",
+                          "updatedAt": "2026-07-28T01:18:36.000Z",
+                          "uid": "35240-59412d6c-c464-4630-82f7-adec92b97da2"
+                        },
+                        {
+                          "id": "d298e7ab-83c8-4481-83c4-fd8705efff76",
+                          "name": "Internal Server Error.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "knowledge-models",
+                                ":km_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "km_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:36.000Z",
+                          "updatedAt": "2026-07-28T01:18:36.000Z",
+                          "uid": "35240-d298e7ab-83c8-4481-83c4-fd8705efff76"
+                        },
+                        {
+                          "id": "33dacf92-a7f2-45a3-b6e9-7480098fea0e",
+                          "name": "Service Unavailable.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/problem+json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/intelligence/api/knowledge-models/:km_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "intelligence",
+                                "api",
+                                "knowledge-models",
+                                ":km_id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "km_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Service Unavailable",
+                          "code": 503,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/problem+json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:36.000Z",
+                          "updatedAt": "2026-07-28T01:18:36.000Z",
+                          "uid": "35240-33dacf92-a7f2-45a3-b6e9-7480098fea0e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:18:36.000Z",
+                      "updatedAt": "2026-07-28T01:18:36.000Z",
+                      "uid": "35240-61798b4e-a365-43d4-80e2-334efa357a40"
+                    }
+                  ],
+                  "id": "d096ebb4-6709-43a7-83d0-4e68e84580f3",
+                  "createdAt": "2026-07-28T01:18:36.000Z",
+                  "updatedAt": "2026-07-28T01:18:36.000Z",
+                  "uid": "35240-d096ebb4-6709-43a7-83d0-4e68e84580f3"
+                },
+                {
+                  "name": "Get a list of KMs",
+                  "id": "f24e32fe-932d-4831-8729-2efa67390f06",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/intelligence/api/knowledge-models?page=0&pageSize=50&sort=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "intelligence",
+                        "api",
+                        "knowledge-models"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "0"
+                        },
+                        {
+                          "key": "pageSize",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                          "key": "sort",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "List of Knowledge Models defined in an EMS team"
+                  },
+                  "response": [
+                    {
+                      "id": "cb8205f8-b5a1-4f69-8da3-b1315a8fd701",
+                      "name": "List of Knowledge Model ids and names",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/intelligence/api/knowledge-models?page=0&pageSize=50&sort=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "intelligence",
+                            "api",
+                            "knowledge-models"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "0"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                              "key": "sort",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"page\": \"<integer>\",\n  \"pageSize\": \"<integer>\",\n  \"total\": \"<integer>\",\n  \"sort\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:18:36.000Z",
+                      "updatedAt": "2026-07-28T01:18:36.000Z",
+                      "uid": "35240-cb8205f8-b5a1-4f69-8da3-b1315a8fd701"
+                    },
+                    {
+                      "id": "7a4df177-4330-4f5f-a899-032281dc7082",
+                      "name": "Bad Request.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/problem+json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/intelligence/api/knowledge-models?page=0&pageSize=50&sort=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "intelligence",
+                            "api",
+                            "knowledge-models"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "0"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                              "key": "sort",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/problem+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:18:36.000Z",
+                      "updatedAt": "2026-07-28T01:18:36.000Z",
+                      "uid": "35240-7a4df177-4330-4f5f-a899-032281dc7082"
+                    },
+                    {
+                      "id": "ab907769-69ab-490c-9026-a76889fd976f",
+                      "name": "Unauthorized access.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/problem+json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/intelligence/api/knowledge-models?page=0&pageSize=50&sort=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "intelligence",
+                            "api",
+                            "knowledge-models"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "0"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                              "key": "sort",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/problem+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:18:36.000Z",
+                      "updatedAt": "2026-07-28T01:18:36.000Z",
+                      "uid": "35240-ab907769-69ab-490c-9026-a76889fd976f"
+                    },
+                    {
+                      "id": "fb0a7ef2-c179-44ca-8858-64063382ac16",
+                      "name": "Forbidden.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/problem+json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/intelligence/api/knowledge-models?page=0&pageSize=50&sort=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "intelligence",
+                            "api",
+                            "knowledge-models"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "0"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                              "key": "sort",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/problem+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:18:36.000Z",
+                      "updatedAt": "2026-07-28T01:18:36.000Z",
+                      "uid": "35240-fb0a7ef2-c179-44ca-8858-64063382ac16"
+                    },
+                    {
+                      "id": "f9c98ddd-224b-4bf4-a13c-d7400d75de5c",
+                      "name": "Too Many Requests.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/problem+json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/intelligence/api/knowledge-models?page=0&pageSize=50&sort=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "intelligence",
+                            "api",
+                            "knowledge-models"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "0"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                              "key": "sort",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Too Many Requests",
+                      "code": 429,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/problem+json"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "Request limit per hour.",
+                            "type": "text/plain"
+                          },
+                          "key": "X-RateLimit-Limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The number of requests left for the time window.",
+                            "type": "text/plain"
+                          },
+                          "key": "X-RateLimit-Remaining",
+                          "value": "<integer>"
+                        },
+                        {
+                          "disabled": false,
+                          "description": {
+                            "content": "The UTC date/time at which the current rate limit window resets.",
+                            "type": "text/plain"
+                          },
+                          "key": "X-RateLimit-Reset",
+                          "value": "<dateTime>"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:18:36.000Z",
+                      "updatedAt": "2026-07-28T01:18:36.000Z",
+                      "uid": "35240-f9c98ddd-224b-4bf4-a13c-d7400d75de5c"
+                    },
+                    {
+                      "id": "8e80a3c7-50f7-4cc9-aff0-723d8a5f1058",
+                      "name": "Internal Server Error.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/problem+json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/intelligence/api/knowledge-models?page=0&pageSize=50&sort=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "intelligence",
+                            "api",
+                            "knowledge-models"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "0"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                              "key": "sort",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/problem+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:18:36.000Z",
+                      "updatedAt": "2026-07-28T01:18:36.000Z",
+                      "uid": "35240-8e80a3c7-50f7-4cc9-aff0-723d8a5f1058"
+                    },
+                    {
+                      "id": "b04109bd-9b97-4913-b42a-1d9472d61cb8",
+                      "name": "Service Unavailable.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/problem+json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/intelligence/api/knowledge-models?page=0&pageSize=50&sort=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "intelligence",
+                            "api",
+                            "knowledge-models"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "0"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error",
+                              "key": "sort",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Service Unavailable",
+                      "code": 503,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/problem+json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"errorCode\": \"<string>\",\n  \"type\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T01:18:36.000Z",
+                      "updatedAt": "2026-07-28T01:18:36.000Z",
+                      "uid": "35240-b04109bd-9b97-4913-b42a-1d9472d61cb8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:18:36.000Z",
+                  "updatedAt": "2026-07-28T01:18:36.000Z",
+                  "uid": "35240-f24e32fe-932d-4831-8729-2efa67390f06"
+                }
+              ],
+              "id": "949d9603-483e-467a-a5b4-ed3c6728b0a4",
+              "createdAt": "2026-07-28T01:18:36.000Z",
+              "updatedAt": "2026-07-28T01:18:36.000Z",
+              "uid": "35240-949d9603-483e-467a-a5b4-ed3c6728b0a4"
+            }
+          ],
+          "id": "d84cde45-4d60-48af-82c1-bf98dc1a5756",
+          "createdAt": "2026-07-28T01:18:36.000Z",
+          "updatedAt": "2026-07-28T01:18:36.000Z",
+          "uid": "35240-d84cde45-4d60-48af-82c1-bf98dc1a5756"
+        }
+      ],
+      "id": "90f86728-b105-49fa-a472-b1ac278d9391",
+      "createdAt": "2026-07-28T01:18:36.000Z",
+      "updatedAt": "2026-07-28T01:18:36.000Z",
+      "uid": "35240-90f86728-b105-49fa-a472-b1ac278d9391"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com"
+    }
+  ]
+}

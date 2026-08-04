@@ -1,0 +1,343 @@
+{
+  "info": {
+    "_postman_id": "70c903c3-c89f-4f5e-a2f9-9ee4bbb89ccb",
+    "name": "OpenAPI Specification Agents - Conversation OpenAPI Tool Calling API",
+    "description": "AI API to chat with Celonis Agents and run their tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:18:32.000Z",
+    "updatedAt": "2026-07-28T01:18:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-70c903c3-c89f-4f5e-a2f9-9ee4bbb89ccb"
+  },
+  "item": [
+    {
+      "name": "studio-copilot",
+      "item": [
+        {
+          "name": "api",
+          "item": [
+            {
+              "name": "v1",
+              "item": [
+                {
+                  "name": "mcp-servers",
+                  "item": [
+                    {
+                      "name": "mcp",
+                      "item": [
+                        {
+                          "name": "{asset_id}",
+                          "item": [
+                            {
+                              "name": "tool-api",
+                              "item": [
+                                {
+                                  "name": "{tool_id}",
+                                  "item": [
+                                    {
+                                      "name": "Call Agent Tools (MCP) Asset Tool",
+                                      "id": "bcf85180-85ba-4a2d-9788-924538387bd8",
+                                      "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                      },
+                                      "request": {
+                                        "method": "POST",
+                                        "header": [
+                                          {
+                                            "key": "Accept",
+                                            "value": "application/json"
+                                          }
+                                        ],
+                                        "url": {
+                                          "raw": "{{baseUrl}}/studio-copilot/api/v1/mcp-servers/mcp/:asset_id/tool-api/:tool_id?draft=false",
+                                          "host": [
+                                            "{{baseUrl}}"
+                                          ],
+                                          "path": [
+                                            "studio-copilot",
+                                            "api",
+                                            "v1",
+                                            "mcp-servers",
+                                            "mcp",
+                                            ":asset_id",
+                                            "tool-api",
+                                            ":tool_id"
+                                          ],
+                                          "query": [
+                                            {
+                                              "description": "Set to true to call the draft version of the asset.",
+                                              "key": "draft",
+                                              "value": "false"
+                                            }
+                                          ],
+                                          "variable": [
+                                            {
+                                              "id": "d48f6b61-abd0-4f61-bd2a-3a522b0e249d",
+                                              "key": "asset_id",
+                                              "value": "<string>",
+                                              "description": "(Required) "
+                                            },
+                                            {
+                                              "id": "4a3faa3e-352d-4022-8bae-1bf7d865d721",
+                                              "key": "tool_id",
+                                              "value": "<string>",
+                                              "description": "(Required) Tool ID as configured in the asset (for example, `search-data` or `load-data`)."
+                                            }
+                                          ]
+                                        }
+                                      },
+                                      "response": [
+                                        {
+                                          "id": "63506a1d-459b-4868-8609-80aa35ed7594",
+                                          "name": "Successful Response",
+                                          "originalRequest": {
+                                            "method": "POST",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: bearer",
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/studio-copilot/api/v1/mcp-servers/mcp/:asset_id/tool-api/:tool_id?draft=false",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "studio-copilot",
+                                                "api",
+                                                "v1",
+                                                "mcp-servers",
+                                                "mcp",
+                                                ":asset_id",
+                                                "tool-api",
+                                                ":tool_id"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "Set to true to call the draft version of the asset.",
+                                                  "key": "draft",
+                                                  "value": "false"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "asset_id"
+                                                },
+                                                {
+                                                  "key": "tool_id"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "OK",
+                                          "code": 200,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "{\n  \"voluptate713\": false,\n  \"cillum_e7\": \"nulla Ut anim sint\"\n}",
+                                          "createdAt": "2026-07-28T01:18:33.000Z",
+                                          "updatedAt": "2026-07-28T01:18:33.000Z",
+                                          "uid": "35240-63506a1d-459b-4868-8609-80aa35ed7594"
+                                        },
+                                        {
+                                          "id": "aef80e78-61e0-4d5d-a478-2ad314a3f4a6",
+                                          "name": "Asset not found",
+                                          "originalRequest": {
+                                            "method": "POST",
+                                            "header": [
+                                              {
+                                                "description": "Added as a part of security scheme: bearer",
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/studio-copilot/api/v1/mcp-servers/mcp/:asset_id/tool-api/:tool_id?draft=false",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "studio-copilot",
+                                                "api",
+                                                "v1",
+                                                "mcp-servers",
+                                                "mcp",
+                                                ":asset_id",
+                                                "tool-api",
+                                                ":tool_id"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "Set to true to call the draft version of the asset.",
+                                                  "key": "draft",
+                                                  "value": "false"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "asset_id"
+                                                },
+                                                {
+                                                  "key": "tool_id"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Not Found",
+                                          "code": 404,
+                                          "_postman_previewlanguage": "text",
+                                          "header": [],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": null,
+                                          "createdAt": "2026-07-28T01:18:33.000Z",
+                                          "updatedAt": "2026-07-28T01:18:33.000Z",
+                                          "uid": "35240-aef80e78-61e0-4d5d-a478-2ad314a3f4a6"
+                                        },
+                                        {
+                                          "id": "dd6e1f04-a34f-4f8f-a1a2-b29dea3cacf8",
+                                          "name": "Unprocessable Entity",
+                                          "originalRequest": {
+                                            "method": "POST",
+                                            "header": [
+                                              {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                              },
+                                              {
+                                                "description": "Added as a part of security scheme: bearer",
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                              }
+                                            ],
+                                            "url": {
+                                              "raw": "{{baseUrl}}/studio-copilot/api/v1/mcp-servers/mcp/:asset_id/tool-api/:tool_id?draft=false",
+                                              "host": [
+                                                "{{baseUrl}}"
+                                              ],
+                                              "path": [
+                                                "studio-copilot",
+                                                "api",
+                                                "v1",
+                                                "mcp-servers",
+                                                "mcp",
+                                                ":asset_id",
+                                                "tool-api",
+                                                ":tool_id"
+                                              ],
+                                              "query": [
+                                                {
+                                                  "description": "Set to true to call the draft version of the asset.",
+                                                  "key": "draft",
+                                                  "value": "false"
+                                                }
+                                              ],
+                                              "variable": [
+                                                {
+                                                  "key": "asset_id"
+                                                },
+                                                {
+                                                  "key": "tool_id"
+                                                }
+                                              ]
+                                            }
+                                          },
+                                          "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                                          "code": 422,
+                                          "_postman_previewlanguage": "json",
+                                          "header": [
+                                            {
+                                              "key": "Content-Type",
+                                              "value": "application/json"
+                                            }
+                                          ],
+                                          "cookie": [],
+                                          "responseTime": null,
+                                          "body": "[\n  {\n    \"error\": \"<string>\",\n    \"attribute\": \"\",\n    \"errorCode\": \"\",\n    \"additionalInfo\": \"\"\n  },\n  {\n    \"error\": \"<string>\",\n    \"attribute\": \"\",\n    \"errorCode\": \"\",\n    \"additionalInfo\": \"\"\n  }\n]",
+                                          "createdAt": "2026-07-28T01:18:33.000Z",
+                                          "updatedAt": "2026-07-28T01:18:33.000Z",
+                                          "uid": "35240-dd6e1f04-a34f-4f8f-a1a2-b29dea3cacf8"
+                                        }
+                                      ],
+                                      "createdAt": "2026-07-28T01:18:33.000Z",
+                                      "updatedAt": "2026-07-28T01:18:33.000Z",
+                                      "uid": "35240-bcf85180-85ba-4a2d-9788-924538387bd8"
+                                    }
+                                  ],
+                                  "id": "ced2d957-f950-4797-ad94-41760bc7620b",
+                                  "createdAt": "2026-07-28T01:18:33.000Z",
+                                  "updatedAt": "2026-07-28T01:18:33.000Z",
+                                  "uid": "35240-ced2d957-f950-4797-ad94-41760bc7620b"
+                                }
+                              ],
+                              "id": "1e4878f4-d886-466c-bf31-a46086056544",
+                              "createdAt": "2026-07-28T01:18:33.000Z",
+                              "updatedAt": "2026-07-28T01:18:33.000Z",
+                              "uid": "35240-1e4878f4-d886-466c-bf31-a46086056544"
+                            }
+                          ],
+                          "id": "83c45a53-4281-4be2-a026-11f288c52211",
+                          "createdAt": "2026-07-28T01:18:33.000Z",
+                          "updatedAt": "2026-07-28T01:18:33.000Z",
+                          "uid": "35240-83c45a53-4281-4be2-a026-11f288c52211"
+                        }
+                      ],
+                      "id": "2cccd8eb-372f-48a4-8e7e-60390d77b4d0",
+                      "createdAt": "2026-07-28T01:18:33.000Z",
+                      "updatedAt": "2026-07-28T01:18:33.000Z",
+                      "uid": "35240-2cccd8eb-372f-48a4-8e7e-60390d77b4d0"
+                    }
+                  ],
+                  "id": "02d5d2bd-44c3-4b75-b581-c940eca8ea18",
+                  "createdAt": "2026-07-28T01:18:33.000Z",
+                  "updatedAt": "2026-07-28T01:18:33.000Z",
+                  "uid": "35240-02d5d2bd-44c3-4b75-b581-c940eca8ea18"
+                }
+              ],
+              "id": "39311958-b28d-4bfd-a2c4-6088132598ea",
+              "createdAt": "2026-07-28T01:18:33.000Z",
+              "updatedAt": "2026-07-28T01:18:33.000Z",
+              "uid": "35240-39311958-b28d-4bfd-a2c4-6088132598ea"
+            }
+          ],
+          "id": "bc6275b2-1154-4810-b180-26b2bc97afdc",
+          "createdAt": "2026-07-28T01:18:33.000Z",
+          "updatedAt": "2026-07-28T01:18:33.000Z",
+          "uid": "35240-bc6275b2-1154-4810-b180-26b2bc97afdc"
+        }
+      ],
+      "id": "64d59226-9183-454f-9af2-e056dbac28cc",
+      "createdAt": "2026-07-28T01:18:33.000Z",
+      "updatedAt": "2026-07-28T01:18:33.000Z",
+      "uid": "35240-64d59226-9183-454f-9af2-e056dbac28cc"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com"
+    }
+  ]
+}

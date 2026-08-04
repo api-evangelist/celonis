@@ -1,0 +1,306 @@
+{
+  "info": {
+    "_postman_id": "540e14b6-548f-4033-8077-dac13c3ef2cc",
+    "name": "OpenAPI Specification Agents - Conversation Job Execution Group API",
+    "description": "AI API to chat with Celonis Agents and run their tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:18:17.000Z",
+    "updatedAt": "2026-07-28T01:18:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-540e14b6-548f-4033-8077-dac13c3ef2cc"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "jobs",
+          "item": [
+            {
+              "name": "executions",
+              "item": [
+                {
+                  "name": "groups",
+                  "item": [
+                    {
+                      "name": "Get execution groups",
+                      "id": "88ad05e2-83b6-4031-b0cd-37cd0e2a1baa",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/jobs/executions/groups",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "jobs",
+                            "executions",
+                            "groups"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "5e4eb1e7-4bbc-4302-9672-9090ecfe6b44",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/executions/groups",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                "executions",
+                                "groups"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"jobName\": \"<string>\",\n    \"lastJobExecutionId\": \"<string>\",\n    \"lastJobExecutionStatus\": \"COMPLETED\",\n    \"lastJobExecutionStartedDate\": \"<dateTime>\"\n  },\n  {\n    \"jobName\": \"<string>\",\n    \"lastJobExecutionId\": \"<string>\",\n    \"lastJobExecutionStatus\": \"CREATED\",\n    \"lastJobExecutionStartedDate\": \"<dateTime>\"\n  }\n]",
+                          "createdAt": "2026-07-28T01:18:17.000Z",
+                          "updatedAt": "2026-07-28T01:18:17.000Z",
+                          "uid": "35240-5e4eb1e7-4bbc-4302-9672-9090ecfe6b44"
+                        },
+                        {
+                          "id": "033bc20c-d21f-477e-8c86-7b9d56c3044e",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/executions/groups",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                "executions",
+                                "groups"
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:17.000Z",
+                          "updatedAt": "2026-07-28T01:18:17.000Z",
+                          "uid": "35240-033bc20c-d21f-477e-8c86-7b9d56c3044e"
+                        },
+                        {
+                          "id": "dd76456f-de5b-4f3c-9ecb-65ea01fa42f9",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/executions/groups",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                "executions",
+                                "groups"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                          "createdAt": "2026-07-28T01:18:17.000Z",
+                          "updatedAt": "2026-07-28T01:18:17.000Z",
+                          "uid": "35240-dd76456f-de5b-4f3c-9ecb-65ea01fa42f9"
+                        },
+                        {
+                          "id": "c4aeeb3b-ff92-44bd-904d-95932e819752",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/executions/groups",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                "executions",
+                                "groups"
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:17.000Z",
+                          "updatedAt": "2026-07-28T01:18:17.000Z",
+                          "uid": "35240-c4aeeb3b-ff92-44bd-904d-95932e819752"
+                        },
+                        {
+                          "id": "f1c24873-3748-429a-bb3f-2567ebc8d357",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/executions/groups",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                "executions",
+                                "groups"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:17.000Z",
+                          "updatedAt": "2026-07-28T01:18:17.000Z",
+                          "uid": "35240-f1c24873-3748-429a-bb3f-2567ebc8d357"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:18:17.000Z",
+                      "updatedAt": "2026-07-28T01:18:17.000Z",
+                      "uid": "35240-88ad05e2-83b6-4031-b0cd-37cd0e2a1baa"
+                    }
+                  ],
+                  "id": "26d51f9c-d88e-469b-bc13-851c44f21223",
+                  "createdAt": "2026-07-28T01:18:17.000Z",
+                  "updatedAt": "2026-07-28T01:18:17.000Z",
+                  "uid": "35240-26d51f9c-d88e-469b-bc13-851c44f21223"
+                }
+              ],
+              "id": "da492a1f-a16d-4c2d-8a7a-106322b59ceb",
+              "createdAt": "2026-07-28T01:18:17.000Z",
+              "updatedAt": "2026-07-28T01:18:17.000Z",
+              "uid": "35240-da492a1f-a16d-4c2d-8a7a-106322b59ceb"
+            }
+          ],
+          "id": "b8f8789a-0681-45e7-880e-61d5ae5ed248",
+          "createdAt": "2026-07-28T01:18:17.000Z",
+          "updatedAt": "2026-07-28T01:18:17.000Z",
+          "uid": "35240-b8f8789a-0681-45e7-880e-61d5ae5ed248"
+        }
+      ],
+      "id": "b3c79eaa-8cb5-4a09-9f4d-a4738b95398f",
+      "createdAt": "2026-07-28T01:18:17.000Z",
+      "updatedAt": "2026-07-28T01:18:17.000Z",
+      "uid": "35240-b3c79eaa-8cb5-4a09-9f4d-a4738b95398f"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com"
+    }
+  ]
+}

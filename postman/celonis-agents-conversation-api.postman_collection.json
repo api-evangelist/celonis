@@ -1,0 +1,829 @@
+{
+  "info": {
+    "_postman_id": "c6ed6e20-5e4e-453d-b32e-51354412a94d",
+    "name": "OpenAPI Specification Agents - Conversation API",
+    "description": "AI API to chat with Celonis Agents and run their tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:17:53.000Z",
+    "updatedAt": "2026-07-28T01:17:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c6ed6e20-5e4e-453d-b32e-51354412a94d"
+  },
+  "item": [
+    {
+      "name": "intelligence",
+      "item": [
+        {
+          "name": "api",
+          "item": [
+            {
+              "name": "ai",
+              "item": [
+                {
+                  "name": "agents",
+                  "item": [
+                    {
+                      "name": "{agent_id}",
+                      "item": [
+                        {
+                          "name": "conversations",
+                          "item": [
+                            {
+                              "name": "Post Conversation Message",
+                              "id": "38a9af9c-4edf-4e4c-9bb4-19cfb64c4f70",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"message\": \"<string>\",\n  \"conversationId\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/intelligence/api/ai/agents/:agent_id/conversations",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "intelligence",
+                                    "api",
+                                    "ai",
+                                    "agents",
+                                    ":agent_id",
+                                    "conversations"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "ab77dd52-97b8-44c7-99b3-fd30d3f09f12",
+                                      "key": "agent_id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Posts a conversation message to an asset, optionally with a conversation id.\nAlways returns a text response for external use cases."
+                              },
+                              "response": [
+                                {
+                                  "id": "f90598a5-5ed5-4eaa-8efb-ceae859f6a0f",
+                                  "name": "Return agent id",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"message\": \"<string>\",\n  \"conversationId\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/ai/agents/:agent_id/conversations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "ai",
+                                        "agents",
+                                        ":agent_id",
+                                        "conversations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "agent_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"conversationId\": \"<string>\",\n  \"text\": \"<string>\",\n  \"structuredOutput\": {\n    \"elitf\": \"eiusmod est proident sun\",\n    \"qui7e\": \"reprehenderit est ut\",\n    \"enim2f\": 98578584\n  }\n}",
+                                  "createdAt": "2026-07-28T01:17:53.000Z",
+                                  "updatedAt": "2026-07-28T01:17:53.000Z",
+                                  "uid": "35240-f90598a5-5ed5-4eaa-8efb-ceae859f6a0f"
+                                },
+                                {
+                                  "id": "0e1a8430-5318-4ce4-9ef4-3caca0c77720",
+                                  "name": "Bad Request.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"message\": \"<string>\",\n  \"conversationId\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/ai/agents/:agent_id/conversations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "ai",
+                                        "agents",
+                                        ":agent_id",
+                                        "conversations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "agent_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Bad Request",
+                                  "code": 400,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"type\": \"about:blank\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<uri-reference>\"\n}",
+                                  "createdAt": "2026-07-28T01:17:53.000Z",
+                                  "updatedAt": "2026-07-28T01:17:53.000Z",
+                                  "uid": "35240-0e1a8430-5318-4ce4-9ef4-3caca0c77720"
+                                },
+                                {
+                                  "id": "83468567-1aa9-493e-b2fd-d0eb5433d882",
+                                  "name": "Unauthorized access.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"message\": \"<string>\",\n  \"conversationId\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/ai/agents/:agent_id/conversations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "ai",
+                                        "agents",
+                                        ":agent_id",
+                                        "conversations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "agent_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Unauthorized",
+                                  "code": 401,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"type\": \"about:blank\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<uri-reference>\"\n}",
+                                  "createdAt": "2026-07-28T01:17:53.000Z",
+                                  "updatedAt": "2026-07-28T01:17:53.000Z",
+                                  "uid": "35240-83468567-1aa9-493e-b2fd-d0eb5433d882"
+                                },
+                                {
+                                  "id": "751a0419-5601-4132-ba01-e942c3507099",
+                                  "name": "Forbidden.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"message\": \"<string>\",\n  \"conversationId\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/ai/agents/:agent_id/conversations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "ai",
+                                        "agents",
+                                        ":agent_id",
+                                        "conversations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "agent_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Forbidden",
+                                  "code": 403,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"type\": \"about:blank\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<uri-reference>\"\n}",
+                                  "createdAt": "2026-07-28T01:17:53.000Z",
+                                  "updatedAt": "2026-07-28T01:17:53.000Z",
+                                  "uid": "35240-751a0419-5601-4132-ba01-e942c3507099"
+                                },
+                                {
+                                  "id": "ee91ac4a-fade-4cef-9583-7a2b35b880d6",
+                                  "name": "The specified resource was not found",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"message\": \"<string>\",\n  \"conversationId\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/ai/agents/:agent_id/conversations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "ai",
+                                        "agents",
+                                        ":agent_id",
+                                        "conversations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "agent_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"type\": \"about:blank\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<uri-reference>\"\n}",
+                                  "createdAt": "2026-07-28T01:17:53.000Z",
+                                  "updatedAt": "2026-07-28T01:17:53.000Z",
+                                  "uid": "35240-ee91ac4a-fade-4cef-9583-7a2b35b880d6"
+                                },
+                                {
+                                  "id": "4489f4ff-6d76-4d20-a881-53f391d9d623",
+                                  "name": "Conflict.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"message\": \"<string>\",\n  \"conversationId\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/ai/agents/:agent_id/conversations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "ai",
+                                        "agents",
+                                        ":agent_id",
+                                        "conversations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "agent_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Conflict",
+                                  "code": 409,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"type\": \"about:blank\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<uri-reference>\"\n}",
+                                  "createdAt": "2026-07-28T01:17:53.000Z",
+                                  "updatedAt": "2026-07-28T01:17:53.000Z",
+                                  "uid": "35240-4489f4ff-6d76-4d20-a881-53f391d9d623"
+                                },
+                                {
+                                  "id": "fbb96342-ab95-422d-9057-02b6c4afe065",
+                                  "name": "Too Many Requests.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"message\": \"<string>\",\n  \"conversationId\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/ai/agents/:agent_id/conversations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "ai",
+                                        "agents",
+                                        ":agent_id",
+                                        "conversations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "agent_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Too Many Requests",
+                                  "code": 429,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "Request limit per hour.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "X-RateLimit-Limit",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The number of requests left for the time window.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "X-RateLimit-Remaining",
+                                      "value": "<integer>"
+                                    },
+                                    {
+                                      "disabled": false,
+                                      "description": {
+                                        "content": "The UTC date/time at which the current rate limit window resets.",
+                                        "type": "text/plain"
+                                      },
+                                      "key": "X-RateLimit-Reset",
+                                      "value": "<dateTime>"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"type\": \"about:blank\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<uri-reference>\"\n}",
+                                  "createdAt": "2026-07-28T01:17:53.000Z",
+                                  "updatedAt": "2026-07-28T01:17:53.000Z",
+                                  "uid": "35240-fbb96342-ab95-422d-9057-02b6c4afe065"
+                                },
+                                {
+                                  "id": "65341089-462d-4ae7-86e6-1ef76349bb82",
+                                  "name": "Internal Server Error.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"message\": \"<string>\",\n  \"conversationId\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/ai/agents/:agent_id/conversations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "ai",
+                                        "agents",
+                                        ":agent_id",
+                                        "conversations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "agent_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"type\": \"about:blank\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<uri-reference>\"\n}",
+                                  "createdAt": "2026-07-28T01:17:53.000Z",
+                                  "updatedAt": "2026-07-28T01:17:53.000Z",
+                                  "uid": "35240-65341089-462d-4ae7-86e6-1ef76349bb82"
+                                },
+                                {
+                                  "id": "d71a0cea-dca0-48c2-a70a-b9dcace6a337",
+                                  "name": "Service Unavailable.",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"message\": \"<string>\",\n  \"conversationId\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/ai/agents/:agent_id/conversations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "ai",
+                                        "agents",
+                                        ":agent_id",
+                                        "conversations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "agent_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Service Unavailable",
+                                  "code": 503,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"type\": \"about:blank\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<uri-reference>\"\n}",
+                                  "createdAt": "2026-07-28T01:17:53.000Z",
+                                  "updatedAt": "2026-07-28T01:17:53.000Z",
+                                  "uid": "35240-d71a0cea-dca0-48c2-a70a-b9dcace6a337"
+                                },
+                                {
+                                  "id": "82d8a501-e4fa-4ff6-b9fd-e3d609ef9585",
+                                  "name": "Default error",
+                                  "originalRequest": {
+                                    "method": "POST",
+                                    "header": [
+                                      {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/problem+json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: bearer",
+                                        "key": "Authorization",
+                                        "value": "Bearer <token>"
+                                      }
+                                    ],
+                                    "body": {
+                                      "mode": "raw",
+                                      "raw": "{\n  \"message\": \"<string>\",\n  \"conversationId\": \"<string>\"\n}",
+                                      "options": {
+                                        "raw": {
+                                          "headerFamily": "json",
+                                          "language": "json"
+                                        }
+                                      }
+                                    },
+                                    "url": {
+                                      "raw": "{{baseUrl}}/intelligence/api/ai/agents/:agent_id/conversations",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "intelligence",
+                                        "api",
+                                        "ai",
+                                        "agents",
+                                        ":agent_id",
+                                        "conversations"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "agent_id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Internal Server Error",
+                                  "code": 500,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/problem+json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"type\": \"about:blank\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<uri-reference>\"\n}",
+                                  "createdAt": "2026-07-28T01:17:53.000Z",
+                                  "updatedAt": "2026-07-28T01:17:53.000Z",
+                                  "uid": "35240-82d8a501-e4fa-4ff6-b9fd-e3d609ef9585"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T01:17:53.000Z",
+                              "updatedAt": "2026-07-28T01:17:53.000Z",
+                              "uid": "35240-38a9af9c-4edf-4e4c-9bb4-19cfb64c4f70"
+                            }
+                          ],
+                          "id": "e1518c2d-084e-4f7b-bbd3-31ea92870a02",
+                          "createdAt": "2026-07-28T01:17:53.000Z",
+                          "updatedAt": "2026-07-28T01:17:53.000Z",
+                          "uid": "35240-e1518c2d-084e-4f7b-bbd3-31ea92870a02"
+                        }
+                      ],
+                      "id": "a1c53ab5-b014-4800-ad1d-ea0bbfdd445f",
+                      "createdAt": "2026-07-28T01:17:53.000Z",
+                      "updatedAt": "2026-07-28T01:17:53.000Z",
+                      "uid": "35240-a1c53ab5-b014-4800-ad1d-ea0bbfdd445f"
+                    }
+                  ],
+                  "id": "547cd7f1-cf22-43e5-92e8-7190d984444a",
+                  "createdAt": "2026-07-28T01:17:53.000Z",
+                  "updatedAt": "2026-07-28T01:17:53.000Z",
+                  "uid": "35240-547cd7f1-cf22-43e5-92e8-7190d984444a"
+                }
+              ],
+              "id": "ae16f632-ef63-44b9-a3bb-c9adba713453",
+              "createdAt": "2026-07-28T01:17:53.000Z",
+              "updatedAt": "2026-07-28T01:17:53.000Z",
+              "uid": "35240-ae16f632-ef63-44b9-a3bb-c9adba713453"
+            }
+          ],
+          "id": "36d0b561-59fa-4e37-9572-6f5db1e82f0a",
+          "createdAt": "2026-07-28T01:17:53.000Z",
+          "updatedAt": "2026-07-28T01:17:53.000Z",
+          "uid": "35240-36d0b561-59fa-4e37-9572-6f5db1e82f0a"
+        }
+      ],
+      "id": "c7f86977-5b4d-45f7-82e8-a9f5334e8720",
+      "createdAt": "2026-07-28T01:17:53.000Z",
+      "updatedAt": "2026-07-28T01:17:53.000Z",
+      "uid": "35240-c7f86977-5b4d-45f7-82e8-a9f5334e8720"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com"
+    }
+  ]
+}

@@ -1,0 +1,1982 @@
+{
+  "info": {
+    "_postman_id": "4e32cdfc-392c-472d-9a31-dc00ce7104a1",
+    "name": "OpenAPI Specification Agents - Conversation Job Execution API",
+    "description": "AI API to chat with Celonis Agents and run their tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:17:58.000Z",
+    "updatedAt": "2026-07-28T01:17:58.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-4e32cdfc-392c-472d-9a31-dc00ce7104a1"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "jobs",
+          "item": [
+            {
+              "name": "{jobId}",
+              "item": [
+                {
+                  "name": "executions",
+                  "item": [
+                    {
+                      "name": "Get all executions",
+                      "id": "98a791f3-8feb-4405-aa5a-956cc3f4964f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/jobs/:jobId/executions?pageIndex=0&limit=1&startedOrder=DESC&executionSources=DATA_MODEL_RELOAD&executionSources=KNOWLEDGE_MODEL&executionSources=API&executionSources=SKILL_UPDATE",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "jobs",
+                            ":jobId",
+                            "executions"
+                          ],
+                          "query": [
+                            {
+                              "key": "pageIndex",
+                              "value": "0"
+                            },
+                            {
+                              "key": "limit",
+                              "value": "1"
+                            },
+                            {
+                              "key": "startedOrder",
+                              "value": "DESC"
+                            },
+                            {
+                              "key": "executionSources",
+                              "value": "DATA_MODEL_RELOAD"
+                            },
+                            {
+                              "key": "executionSources",
+                              "value": "KNOWLEDGE_MODEL"
+                            },
+                            {
+                              "key": "executionSources",
+                              "value": "API"
+                            },
+                            {
+                              "key": "executionSources",
+                              "value": "SKILL_UPDATE"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "fbea925f-8839-4602-9828-c303aa20e037",
+                              "key": "jobId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "42cc939c-5032-4f22-bd16-6638ab1248ab",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/:jobId/executions?pageIndex=0&limit=1&startedOrder=DESC&executionSources=SKILL_UPDATE",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                ":jobId",
+                                "executions"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageIndex",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "startedOrder",
+                                  "value": "DESC"
+                                },
+                                {
+                                  "key": "executionSources",
+                                  "value": "SKILL_UPDATE"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"content\": [\n    {\n      \"id\": \"<string>\",\n      \"jobId\": \"<string>\",\n      \"params\": {},\n      \"status\": \"CANCELED\",\n      \"started\": \"<dateTime>\",\n      \"completed\": \"<dateTime>\",\n      \"jobExecutionSource\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"jobId\": \"<string>\",\n      \"params\": {},\n      \"status\": \"CREATED\",\n      \"started\": \"<dateTime>\",\n      \"completed\": \"<dateTime>\",\n      \"jobExecutionSource\": \"<string>\",\n      \"errorMessage\": \"<string>\"\n    }\n  ],\n  \"pageSize\": \"<integer>\",\n  \"pageNumber\": \"<integer>\",\n  \"totalCount\": \"<long>\",\n  \"first\": \"<boolean>\",\n  \"last\": \"<boolean>\",\n  \"empty\": \"<boolean>\",\n  \"totalPages\": \"<integer>\"\n}",
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-42cc939c-5032-4f22-bd16-6638ab1248ab"
+                        },
+                        {
+                          "id": "00163e68-a441-4946-a4d4-09826b507c15",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/:jobId/executions?pageIndex=0&limit=1&startedOrder=DESC&executionSources=SKILL_UPDATE",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                ":jobId",
+                                "executions"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageIndex",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "startedOrder",
+                                  "value": "DESC"
+                                },
+                                {
+                                  "key": "executionSources",
+                                  "value": "SKILL_UPDATE"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-00163e68-a441-4946-a4d4-09826b507c15"
+                        },
+                        {
+                          "id": "d315472b-3247-4261-8d86-cfc82d4937c2",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/:jobId/executions?pageIndex=0&limit=1&startedOrder=DESC&executionSources=SKILL_UPDATE",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                ":jobId",
+                                "executions"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageIndex",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "startedOrder",
+                                  "value": "DESC"
+                                },
+                                {
+                                  "key": "executionSources",
+                                  "value": "SKILL_UPDATE"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-d315472b-3247-4261-8d86-cfc82d4937c2"
+                        },
+                        {
+                          "id": "2222ebd6-f218-40a9-9fd8-f4fe64951532",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/:jobId/executions?pageIndex=0&limit=1&startedOrder=DESC&executionSources=SKILL_UPDATE",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                ":jobId",
+                                "executions"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageIndex",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "startedOrder",
+                                  "value": "DESC"
+                                },
+                                {
+                                  "key": "executionSources",
+                                  "value": "SKILL_UPDATE"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-2222ebd6-f218-40a9-9fd8-f4fe64951532"
+                        },
+                        {
+                          "id": "cb14e506-9b55-45d1-8e42-939906d54e7b",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/:jobId/executions?pageIndex=0&limit=1&startedOrder=DESC&executionSources=SKILL_UPDATE",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                ":jobId",
+                                "executions"
+                              ],
+                              "query": [
+                                {
+                                  "key": "pageIndex",
+                                  "value": "0"
+                                },
+                                {
+                                  "key": "limit",
+                                  "value": "1"
+                                },
+                                {
+                                  "key": "startedOrder",
+                                  "value": "DESC"
+                                },
+                                {
+                                  "key": "executionSources",
+                                  "value": "SKILL_UPDATE"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-cb14e506-9b55-45d1-8e42-939906d54e7b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:17:58.000Z",
+                      "updatedAt": "2026-07-28T01:17:58.000Z",
+                      "uid": "35240-98a791f3-8feb-4405-aa5a-956cc3f4964f"
+                    },
+                    {
+                      "name": "Trigger an execution",
+                      "id": "64c5bb51-bba2-4bc5-af2c-8eb61b0503e1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/jobs/:jobId/executions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "jobs",
+                            ":jobId",
+                            "executions"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9c8ec0da-75e9-4b47-b9d8-5a255f9a8a9f",
+                              "key": "jobId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "03174f4f-5e56-43d9-b714-f4d73c02efc0",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/:jobId/executions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                ":jobId",
+                                "executions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"jobId\": \"<string>\",\n  \"image\": \"<string>\",\n  \"input\": \"<string>\",\n  \"status\": \"RUNNING\",\n  \"started\": \"<dateTime>\",\n  \"completed\": \"<dateTime>\",\n  \"jobExecutionSource\": \"API\",\n  \"jobExecutionSourceId\": \"<string>\",\n  \"timeout\": \"<long>\",\n  \"errorMessage\": \"<string>\",\n  \"logsCleanup\": \"<boolean>\",\n  \"optionalTenantId\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-03174f4f-5e56-43d9-b714-f4d73c02efc0"
+                        },
+                        {
+                          "id": "c78192c1-1ed9-4b94-ac89-59530a431a86",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/:jobId/executions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                ":jobId",
+                                "executions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-c78192c1-1ed9-4b94-ac89-59530a431a86"
+                        },
+                        {
+                          "id": "4d176475-657d-4b8f-9d91-8a5a9ff29603",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/:jobId/executions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                ":jobId",
+                                "executions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-4d176475-657d-4b8f-9d91-8a5a9ff29603"
+                        },
+                        {
+                          "id": "f533811c-d661-4ce5-acc7-c6e7557fa475",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/:jobId/executions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                ":jobId",
+                                "executions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-f533811c-d661-4ce5-acc7-c6e7557fa475"
+                        },
+                        {
+                          "id": "3284200b-e648-44b8-ad05-a78eef7c7912",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/:jobId/executions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                ":jobId",
+                                "executions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-3284200b-e648-44b8-ad05-a78eef7c7912"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:17:58.000Z",
+                      "updatedAt": "2026-07-28T01:17:58.000Z",
+                      "uid": "35240-64c5bb51-bba2-4bc5-af2c-8eb61b0503e1"
+                    }
+                  ],
+                  "id": "67fee870-f68b-4a5d-a894-7f54c74888ca",
+                  "createdAt": "2026-07-28T01:17:58.000Z",
+                  "updatedAt": "2026-07-28T01:17:58.000Z",
+                  "uid": "35240-67fee870-f68b-4a5d-a894-7f54c74888ca"
+                },
+                {
+                  "name": "application-key",
+                  "item": [
+                    {
+                      "name": "Update job application key",
+                      "id": "9658a0da-e99d-4b15-baf8-90ac1b0db515",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"lastUsedAt\": \"<dateTime>\",\n  \"originalId\": \"<string>\",\n  \"teamRole\": \"<integer>\",\n  \"internal\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/jobs/:jobId/application-key",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "jobs",
+                            ":jobId",
+                            "application-key"
+                          ],
+                          "variable": [
+                            {
+                              "id": "671819d7-3077-4f98-8b8c-30a2a459d859",
+                              "key": "jobId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "c249dc43-51b4-4c3f-8088-b6d3758d8f95",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"lastUsedAt\": \"<dateTime>\",\n  \"originalId\": \"<string>\",\n  \"teamRole\": \"<integer>\",\n  \"internal\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/:jobId/application-key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                ":jobId",
+                                "application-key"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-c249dc43-51b4-4c3f-8088-b6d3758d8f95"
+                        },
+                        {
+                          "id": "27c3980d-9189-4d6e-9516-ff636e130604",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"lastUsedAt\": \"<dateTime>\",\n  \"originalId\": \"<string>\",\n  \"teamRole\": \"<integer>\",\n  \"internal\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/:jobId/application-key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                ":jobId",
+                                "application-key"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-27c3980d-9189-4d6e-9516-ff636e130604"
+                        },
+                        {
+                          "id": "20c3f2d4-33a7-4ba8-8695-0bef237322a5",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"lastUsedAt\": \"<dateTime>\",\n  \"originalId\": \"<string>\",\n  \"teamRole\": \"<integer>\",\n  \"internal\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/:jobId/application-key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                ":jobId",
+                                "application-key"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-20c3f2d4-33a7-4ba8-8695-0bef237322a5"
+                        },
+                        {
+                          "id": "ca91af02-edb5-4a7d-9fc7-49757606a413",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"lastUsedAt\": \"<dateTime>\",\n  \"originalId\": \"<string>\",\n  \"teamRole\": \"<integer>\",\n  \"internal\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/:jobId/application-key",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                ":jobId",
+                                "application-key"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "jobId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-ca91af02-edb5-4a7d-9fc7-49757606a413"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:17:58.000Z",
+                      "updatedAt": "2026-07-28T01:17:58.000Z",
+                      "uid": "35240-9658a0da-e99d-4b15-baf8-90ac1b0db515"
+                    }
+                  ],
+                  "id": "ca6971d6-5a46-485f-b523-f7ec65f63969",
+                  "createdAt": "2026-07-28T01:17:58.000Z",
+                  "updatedAt": "2026-07-28T01:17:58.000Z",
+                  "uid": "35240-ca6971d6-5a46-485f-b523-f7ec65f63969"
+                }
+              ],
+              "id": "a1fcfd79-4d92-414c-a689-223c554aed32",
+              "createdAt": "2026-07-28T01:17:58.000Z",
+              "updatedAt": "2026-07-28T01:17:58.000Z",
+              "uid": "35240-a1fcfd79-4d92-414c-a689-223c554aed32"
+            },
+            {
+              "name": "executions",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "stop",
+                      "item": [
+                        {
+                          "name": "Stop a running execution",
+                          "id": "fa000770-0b87-48fb-9ce5-1de781a80715",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/executions/:id/stop",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                "executions",
+                                ":id",
+                                "stop"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0ce0fe8b-86e3-4666-af66-765a8c9c3e2e",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "48bde90f-d9b8-4e16-85ea-3e5bb4c7690f",
+                              "name": "No Content",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/jobs/executions/:id/stop",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "jobs",
+                                    "executions",
+                                    ":id",
+                                    "stop"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:17:58.000Z",
+                              "updatedAt": "2026-07-28T01:17:58.000Z",
+                              "uid": "35240-48bde90f-d9b8-4e16-85ea-3e5bb4c7690f"
+                            },
+                            {
+                              "id": "900bc866-be5f-4052-b011-7ed32ce90b0d",
+                              "name": "Bad Request",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "*/*"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/jobs/executions/:id/stop",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "jobs",
+                                    "executions",
+                                    ":id",
+                                    "stop"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "*/*"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                              "createdAt": "2026-07-28T01:17:58.000Z",
+                              "updatedAt": "2026-07-28T01:17:58.000Z",
+                              "uid": "35240-900bc866-be5f-4052-b011-7ed32ce90b0d"
+                            },
+                            {
+                              "id": "e274caaf-d154-4cd6-ac2f-2f18b71c4024",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/jobs/executions/:id/stop",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "jobs",
+                                    "executions",
+                                    ":id",
+                                    "stop"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:17:58.000Z",
+                              "updatedAt": "2026-07-28T01:17:58.000Z",
+                              "uid": "35240-e274caaf-d154-4cd6-ac2f-2f18b71c4024"
+                            },
+                            {
+                              "id": "7764b76c-19d8-4946-98c2-424cdc2c4784",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "*/*"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/jobs/executions/:id/stop",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "jobs",
+                                    "executions",
+                                    ":id",
+                                    "stop"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "*/*"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:58.000Z",
+                              "updatedAt": "2026-07-28T01:17:58.000Z",
+                              "uid": "35240-7764b76c-19d8-4946-98c2-424cdc2c4784"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-fa000770-0b87-48fb-9ce5-1de781a80715"
+                        }
+                      ],
+                      "id": "87faf2ef-7f46-44ba-b1bb-6c5570df3d3d",
+                      "createdAt": "2026-07-28T01:17:58.000Z",
+                      "updatedAt": "2026-07-28T01:17:58.000Z",
+                      "uid": "35240-87faf2ef-7f46-44ba-b1bb-6c5570df3d3d"
+                    },
+                    {
+                      "name": "logs",
+                      "item": [
+                        {
+                          "name": "Get job execution logs",
+                          "id": "a62f9ffa-597c-47e2-921a-79ac39d857d9",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/executions/:id/logs?logLevels=INFO&logLevels=DEBUG&logLevels=WARNING&logLevels=ERROR",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                "executions",
+                                ":id",
+                                "logs"
+                              ],
+                              "query": [
+                                {
+                                  "key": "logLevels",
+                                  "value": "INFO"
+                                },
+                                {
+                                  "key": "logLevels",
+                                  "value": "DEBUG"
+                                },
+                                {
+                                  "key": "logLevels",
+                                  "value": "WARNING"
+                                },
+                                {
+                                  "key": "logLevels",
+                                  "value": "ERROR"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "541afe6c-6736-4186-ac75-2e079c73c1d8",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "059f25f5-fb42-42dc-871b-fbdd3833b965",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "*/*"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/jobs/executions/:id/logs?logLevels=ERROR",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "jobs",
+                                    "executions",
+                                    ":id",
+                                    "logs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "logLevels",
+                                      "value": "ERROR"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "*/*"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"message\": \"<string>\",\n    \"timestamp\": \"<dateTime>\",\n    \"logLevel\": \"<string>\"\n  },\n  {\n    \"message\": \"<string>\",\n    \"timestamp\": \"<dateTime>\",\n    \"logLevel\": \"<string>\"\n  }\n]",
+                              "createdAt": "2026-07-28T01:17:58.000Z",
+                              "updatedAt": "2026-07-28T01:17:58.000Z",
+                              "uid": "35240-059f25f5-fb42-42dc-871b-fbdd3833b965"
+                            },
+                            {
+                              "id": "bbafcbbb-abf8-4081-bd20-abe32dbd8754",
+                              "name": "No Content",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/jobs/executions/:id/logs?logLevels=ERROR",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "jobs",
+                                    "executions",
+                                    ":id",
+                                    "logs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "logLevels",
+                                      "value": "ERROR"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:17:58.000Z",
+                              "updatedAt": "2026-07-28T01:17:58.000Z",
+                              "uid": "35240-bbafcbbb-abf8-4081-bd20-abe32dbd8754"
+                            },
+                            {
+                              "id": "a882b217-cc0e-44a9-8164-805855160d3b",
+                              "name": "Bad Request",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "*/*"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/jobs/executions/:id/logs?logLevels=ERROR",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "jobs",
+                                    "executions",
+                                    ":id",
+                                    "logs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "logLevels",
+                                      "value": "ERROR"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "*/*"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                              "createdAt": "2026-07-28T01:17:58.000Z",
+                              "updatedAt": "2026-07-28T01:17:58.000Z",
+                              "uid": "35240-a882b217-cc0e-44a9-8164-805855160d3b"
+                            },
+                            {
+                              "id": "a6aff7fd-a4c9-474f-97a5-d5770a98a935",
+                              "name": "Forbidden",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/jobs/executions/:id/logs?logLevels=ERROR",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "jobs",
+                                    "executions",
+                                    ":id",
+                                    "logs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "logLevels",
+                                      "value": "ERROR"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Forbidden",
+                              "code": 403,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T01:17:58.000Z",
+                              "updatedAt": "2026-07-28T01:17:58.000Z",
+                              "uid": "35240-a6aff7fd-a4c9-474f-97a5-d5770a98a935"
+                            },
+                            {
+                              "id": "3a5cdb25-0543-454d-9915-4601c679adef",
+                              "name": "Internal Server Error",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "*/*"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/jobs/executions/:id/logs?logLevels=ERROR",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "jobs",
+                                    "executions",
+                                    ":id",
+                                    "logs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "logLevels",
+                                      "value": "ERROR"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Internal Server Error",
+                              "code": 500,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "*/*"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T01:17:58.000Z",
+                              "updatedAt": "2026-07-28T01:17:58.000Z",
+                              "uid": "35240-3a5cdb25-0543-454d-9915-4601c679adef"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-a62f9ffa-597c-47e2-921a-79ac39d857d9"
+                        }
+                      ],
+                      "id": "0027598f-686e-4e96-891c-d06532340f17",
+                      "createdAt": "2026-07-28T01:17:58.000Z",
+                      "updatedAt": "2026-07-28T01:17:58.000Z",
+                      "uid": "35240-0027598f-686e-4e96-891c-d06532340f17"
+                    },
+                    {
+                      "name": "Get an execution",
+                      "id": "7e93b0e4-5b5a-4364-bda2-6eb4acd0aa88",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/jobs/executions/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "jobs",
+                            "executions",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "2d985d79-f15e-430e-8443-0da671831db1",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "e3cfe53a-bd0c-4fbe-b70f-58e617fbb4d5",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/executions/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                "executions",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"tenantId\": \"<string>\",\n  \"jobId\": \"<string>\",\n  \"image\": \"<string>\",\n  \"input\": \"<string>\",\n  \"status\": \"RUNNING\",\n  \"started\": \"<dateTime>\",\n  \"completed\": \"<dateTime>\",\n  \"jobExecutionSource\": \"API\",\n  \"jobExecutionSourceId\": \"<string>\",\n  \"timeout\": \"<long>\",\n  \"errorMessage\": \"<string>\",\n  \"logsCleanup\": \"<boolean>\",\n  \"optionalTenantId\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-e3cfe53a-bd0c-4fbe-b70f-58e617fbb4d5"
+                        },
+                        {
+                          "id": "83907b82-7a32-46e3-a75b-de43a201045d",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/executions/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                "executions",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-83907b82-7a32-46e3-a75b-de43a201045d"
+                        },
+                        {
+                          "id": "5ad1a966-a0fa-4089-89f2-48e0594efea4",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/executions/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                "executions",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": {}\n}",
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-5ad1a966-a0fa-4089-89f2-48e0594efea4"
+                        },
+                        {
+                          "id": "9cc736f7-4ed5-42df-a9f1-889490fd8999",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/executions/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                "executions",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-9cc736f7-4ed5-42df-a9f1-889490fd8999"
+                        },
+                        {
+                          "id": "1c80b51f-9a40-403c-89c2-83a924a3df3b",
+                          "name": "Internal Server Error",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/jobs/executions/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "jobs",
+                                "executions",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"reference\": \"<string>\",\n  \"message\": \"<string>\",\n  \"shortMessage\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:17:58.000Z",
+                          "updatedAt": "2026-07-28T01:17:58.000Z",
+                          "uid": "35240-1c80b51f-9a40-403c-89c2-83a924a3df3b"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:17:58.000Z",
+                      "updatedAt": "2026-07-28T01:17:58.000Z",
+                      "uid": "35240-7e93b0e4-5b5a-4364-bda2-6eb4acd0aa88"
+                    }
+                  ],
+                  "id": "ad85cdb9-ad2a-4dc6-b6dd-1a8ad71db0ab",
+                  "createdAt": "2026-07-28T01:17:58.000Z",
+                  "updatedAt": "2026-07-28T01:17:58.000Z",
+                  "uid": "35240-ad85cdb9-ad2a-4dc6-b6dd-1a8ad71db0ab"
+                }
+              ],
+              "id": "d72f1bdb-433d-42d6-ae48-d4b4ac5c2d3a",
+              "createdAt": "2026-07-28T01:17:58.000Z",
+              "updatedAt": "2026-07-28T01:17:58.000Z",
+              "uid": "35240-d72f1bdb-433d-42d6-ae48-d4b4ac5c2d3a"
+            }
+          ],
+          "id": "30f88cf6-8958-433e-860d-9d729893a8b5",
+          "createdAt": "2026-07-28T01:17:58.000Z",
+          "updatedAt": "2026-07-28T01:17:58.000Z",
+          "uid": "35240-30f88cf6-8958-433e-860d-9d729893a8b5"
+        }
+      ],
+      "id": "fd522543-0715-43f9-9dd3-881ea318fdda",
+      "createdAt": "2026-07-28T01:17:58.000Z",
+      "updatedAt": "2026-07-28T01:17:58.000Z",
+      "uid": "35240-fd522543-0715-43f9-9dd3-881ea318fdda"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com"
+    }
+  ]
+}

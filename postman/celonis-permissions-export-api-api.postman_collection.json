@@ -1,0 +1,334 @@
+{
+  "info": {
+    "_postman_id": "8537220c-9908-45ad-8dd7-5867f245b573",
+    "name": "OpenAPI Specification Agents - Conversation Permissions Export API API",
+    "description": "AI API to chat with Celonis Agents and run their tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:18:33.000Z",
+    "updatedAt": "2026-07-28T01:18:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8537220c-9908-45ad-8dd7-5867f245b573"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "authorization",
+          "item": [
+            {
+              "name": "external",
+              "item": [
+                {
+                  "name": "permissions",
+                  "item": [
+                    {
+                      "name": "Export permissions",
+                      "id": "8f86589b-3f4d-4913-b6fa-ccd34866287a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/authorization/external/permissions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "authorization",
+                            "external",
+                            "permissions"
+                          ]
+                        },
+                        "description": "Exports all permissions for the team as a JSON file."
+                      },
+                      "response": [
+                        {
+                          "id": "373d1c8a-0b36-49c3-8a08-2fa4d959d91e",
+                          "name": "A JSON file containing all permissions.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/authorization/external/permissions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "authorization",
+                                "external",
+                                "permissions"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"permissions\": [\n    {\n      \"subjectName\": \"<string>\",\n      \"subjectType\": \"<string>\",\n      \"subjectId\": \"<string>\",\n      \"groups\": \"<string>\",\n      \"role\": \"<string>\",\n      \"service\": \"<string>\",\n      \"objectName\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"subjectName\": \"<string>\",\n      \"subjectType\": \"<string>\",\n      \"subjectId\": \"<string>\",\n      \"groups\": \"<string>\",\n      \"role\": \"<string>\",\n      \"service\": \"<string>\",\n      \"objectName\": \"<string>\",\n      \"objectType\": \"<string>\",\n      \"objectId\": \"<string>\",\n      \"actions\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:18:34.000Z",
+                          "updatedAt": "2026-07-28T01:18:34.000Z",
+                          "uid": "35240-373d1c8a-0b36-49c3-8a08-2fa4d959d91e"
+                        },
+                        {
+                          "id": "aab19043-c430-47fd-99f0-84780c1ca335",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/authorization/external/permissions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "authorization",
+                                "external",
+                                "permissions"
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:34.000Z",
+                          "updatedAt": "2026-07-28T01:18:34.000Z",
+                          "uid": "35240-aab19043-c430-47fd-99f0-84780c1ca335"
+                        },
+                        {
+                          "id": "9091805f-ecfc-4f98-bca2-a20dbac6f495",
+                          "name": "Bad Request",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/authorization/external/permissions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "authorization",
+                                "external",
+                                "permissions"
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"frontendErrorKey\": \"<string>\",\n  \"errorInformation\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T01:18:34.000Z",
+                          "updatedAt": "2026-07-28T01:18:34.000Z",
+                          "uid": "35240-9091805f-ecfc-4f98-bca2-a20dbac6f495"
+                        },
+                        {
+                          "id": "6ad45148-7f6e-444b-b25e-9a81a59023cf",
+                          "name": "Unauthorized. Please check whether your API key or application key has sufficient\\ \\permissions. In case you are unsure, please refer the documentation on [application keys]\\ \\(https://help.celonis.cloud/help/display/CIBC/Application+Keys) and [permission",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/authorization/external/permissions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "authorization",
+                                "external",
+                                "permissions"
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:34.000Z",
+                          "updatedAt": "2026-07-28T01:18:34.000Z",
+                          "uid": "35240-6ad45148-7f6e-444b-b25e-9a81a59023cf"
+                        },
+                        {
+                          "id": "5c40b28b-57d4-4c5f-9a99-9081ce3fe32f",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/authorization/external/permissions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "authorization",
+                                "external",
+                                "permissions"
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:34.000Z",
+                          "updatedAt": "2026-07-28T01:18:34.000Z",
+                          "uid": "35240-5c40b28b-57d4-4c5f-9a99-9081ce3fe32f"
+                        },
+                        {
+                          "id": "160150cd-72d5-4b59-ae19-0fb8717ad4a6",
+                          "name": "An internal error happened.\\ \\Please forward the associated error ID along with any helpful information to [our support]\\ \\(https://help.celonis.cloud/help/display/CIBC/Support)",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/authorization/external/permissions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "authorization",
+                                "external",
+                                "permissions"
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:18:34.000Z",
+                          "updatedAt": "2026-07-28T01:18:34.000Z",
+                          "uid": "35240-160150cd-72d5-4b59-ae19-0fb8717ad4a6"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:18:34.000Z",
+                      "updatedAt": "2026-07-28T01:18:34.000Z",
+                      "uid": "35240-8f86589b-3f4d-4913-b6fa-ccd34866287a"
+                    }
+                  ],
+                  "id": "89a172cd-382d-431c-a62c-e78b64cb69a2",
+                  "createdAt": "2026-07-28T01:18:34.000Z",
+                  "updatedAt": "2026-07-28T01:18:34.000Z",
+                  "uid": "35240-89a172cd-382d-431c-a62c-e78b64cb69a2"
+                }
+              ],
+              "id": "422881e9-ec2a-40be-98cb-3b95db2cf2c8",
+              "createdAt": "2026-07-28T01:18:34.000Z",
+              "updatedAt": "2026-07-28T01:18:34.000Z",
+              "uid": "35240-422881e9-ec2a-40be-98cb-3b95db2cf2c8"
+            }
+          ],
+          "id": "e7b5193f-4ff3-4192-99b0-41fabdc04a17",
+          "createdAt": "2026-07-28T01:18:34.000Z",
+          "updatedAt": "2026-07-28T01:18:34.000Z",
+          "uid": "35240-e7b5193f-4ff3-4192-99b0-41fabdc04a17"
+        }
+      ],
+      "id": "55dc1227-44bf-4ca9-9c1e-6c3dced30091",
+      "createdAt": "2026-07-28T01:18:34.000Z",
+      "updatedAt": "2026-07-28T01:18:34.000Z",
+      "uid": "35240-55dc1227-44bf-4ca9-9c1e-6c3dced30091"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com"
+    }
+  ]
+}
