@@ -311,6 +311,8 @@ apis:
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 common:
+- type: Overlay
+  url: overlays/celonis-knowledge-model-overlay.yaml
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/celonis/overview
 - type: DeveloperPortal
