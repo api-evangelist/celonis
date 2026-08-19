@@ -1,0 +1,202 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Specification Agents - Conversation Schema API",
+    "version": "v1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schema",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of KMs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/knowledge-models",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error"
+              }
+            ]
+          },
+          "docs": "List of Knowledge Models defined in an EMS team"
+        },
+        {
+          "info": {
+            "name": "Get the top-level KM details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/knowledge-models/:km_id",
+            "params": [
+              {
+                "name": "km_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Knowledge Model defined in an EMS team"
+        },
+        {
+          "info": {
+            "name": "Get a list of KM Filters",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/knowledge-models/:km_id/filters",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error"
+              },
+              {
+                "name": "km_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List of Filters for the Knowledge Model"
+        },
+        {
+          "info": {
+            "name": "Get a list of KM Records schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/knowledge-models/:km_id/records",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error"
+              },
+              {
+                "name": "km_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List of Records schema"
+        },
+        {
+          "info": {
+            "name": "Get the top-level KM Record Schema details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/knowledge-models/:km_id/records/:record_id",
+            "params": [
+              {
+                "name": "km_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "record_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error"
+              }
+            ]
+          },
+          "docs": "Top-level Record Schema details"
+        },
+        {
+          "info": {
+            "name": "Get a list of KM KPI's schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/knowledge-models/:km_id/kpis",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error"
+              },
+              {
+                "name": "km_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List of KPI's schema."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

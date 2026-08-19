@@ -1,0 +1,478 @@
+{
+  "item": [
+    {
+      "id": "9d9980d8-8b2e-4054-b20f-9a6ff9824809",
+      "name": "Members API",
+      "description": {
+        "content": "Allows you to query and export a list of all members assigned to a Celonis Platform team.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1c158ed8-161e-4add-a03d-110396ad2257",
+          "name": "List of all members",
+          "request": {
+            "name": "List of all members",
+            "description": {
+              "content": "Maximum number of members that will be received by page is 200.<br> The OAuth 2.0 scope to use is <tt>team.user-group-info:read</tt>.<br>",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "external",
+                "members"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageNumber",
+                  "value": "0",
+                  "description": "Page number to be retrieved. Starts with 0."
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "200",
+                  "description": "Limit of results per page"
+                },
+                {
+                  "disabled": false,
+                  "key": "includeInternal",
+                  "value": "true",
+                  "description": "(Required) A boolean parameter to show internal or external members"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "37e9d221-c5b0-4d2a-94bf-c37a1dd6d09f",
+              "name": "A list of Members",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "external",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageNumber",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "200"
+                    },
+                    {
+                      "key": "includeInternal",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": [\n    {\n      \"group\": [\n        {\n          \"name\": \"Sample Group\",\n          \"teamRole\": \"ANALYST\"\n        },\n        {\n          \"name\": \"Sample Group\",\n          \"teamRole\": \"ANALYST\"\n        }\n      ],\n      \"inactivityPeriod\": 14,\n      \"lastLogin\": \"12/10/2023, 6:49:07 AM UTC\",\n      \"nameAndEmail\": \"Lorem Ipsum (email@example.com)\",\n      \"status\": \"Active\",\n      \"userId\": \"8161c24e-2b32-44eb-bedb-ede2267be989\",\n      \"userRole\": \"MEMBER\"\n    },\n    {\n      \"group\": [\n        {\n          \"name\": \"Sample Group\",\n          \"teamRole\": \"ANALYST\"\n        },\n        {\n          \"name\": \"Sample Group\",\n          \"teamRole\": \"ANALYST\"\n        }\n      ],\n      \"inactivityPeriod\": 14,\n      \"lastLogin\": \"12/10/2023, 6:49:07 AM UTC\",\n      \"nameAndEmail\": \"Lorem Ipsum (email@example.com)\",\n      \"status\": \"Active\",\n      \"userId\": \"8161c24e-2b32-44eb-bedb-ede2267be989\",\n      \"userRole\": \"MEMBER\"\n    }\n  ],\n  \"pageNumber\": 581,\n  \"pageSize\": 9777,\n  \"totalCount\": 4162\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cb7e5369-aee7-4f32-8af9-fe4992298f09",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "external",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageNumber",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "200"
+                    },
+                    {
+                      "key": "includeInternal",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "92967189-c830-4f42-b9bb-3f2cb743ca32",
+              "name": "Bad Request. Check the response contents for an explanation of the cause.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "external",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageNumber",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "200"
+                    },
+                    {
+                      "key": "includeInternal",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f48d11a0-4b1f-4217-bc16-098ced7b7ac7",
+              "name": "Unauthorized. Check whether your API key or application key has sufficient permissions. If you are unsure, refer the documentation on [application keys](https://docs.celonis.com/en/creating-api-keys.html) and [permissions](https://docs.celonis.com/en/creating-and-granting-permissions-to-application-keys.html).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "external",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageNumber",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "200"
+                    },
+                    {
+                      "key": "includeInternal",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "81e25147-f5bd-411b-a8b7-63f76cc6ddaf",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "external",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageNumber",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "200"
+                    },
+                    {
+                      "key": "includeInternal",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "34470be4-9969-486f-963b-0d6b9e8bb744",
+              "name": "Method Not Allowed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "external",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageNumber",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "200"
+                    },
+                    {
+                      "key": "includeInternal",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Method Not Allowed",
+              "code": 405,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "04e0a0ba-4980-4925-90eb-8f8a2b2ba822",
+              "name": "An internal error happened. Forward the associated error ID along with any helpful information to [our support](https://www.celopeers.com/s/support?language=en_US)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "external",
+                    "members"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageNumber",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "200"
+                    },
+                    {
+                      "key": "includeInternal",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "0aedb627-8cbe-4a84-b92d-da9b7c92e6ae",
+    "name": "OpenAPI Specification Agents - Conversation Members API API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AI API to chat with Celonis Agents and run their tools.",
+      "type": "text/plain"
+    }
+  }
+}

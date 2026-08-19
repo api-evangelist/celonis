@@ -1,0 +1,223 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Specification Agents - Conversation Data API",
+    "version": "v1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Data",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a list of KM data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/knowledge-models/:km_id/data",
+            "params": [
+              {
+                "name": "km_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Defines the order in which results are returned (Knowledge Model–level GET).\n\nThe `sortParamKm` query parameter must be a comma-separated list of record fields and/or KPIs.\nAny value used in `sortParamKm` **must also be included** in the `fields` or `kpis` parameters.\nIf a value appears in `sortParamKm` but is **not** included in `fields` or `kpis`, the API cannot evaluate it and sorting will not be applied correctly.\n\nIf a non-existing field is provided, the request will return an error.\n\nSort direction is specified using optional prefixes:\n- `+` for ascending order (ASC)\n- `-` for descending order (DESC)\n- No prefix defaults to ascending order (ASC)\n\n**Examples**\n- `sortParamKm=+record1_id.field1` (sorting in ascending order by a record field)\n- `sortParamKm=-record1_id.field2,kpi1` (sorting in descending order by a record field and in ascending order by a KPI)\n- `sortParamKm=record1_id.field1,-kpi2` (sorting in ascending order by a record field and in descending order by a KPI)\n- `sortParamKm=-kpi1` (sorting in descending order by a KPI)"
+              },
+              {
+                "name": "filterExpr",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "options",
+                "value": "",
+                "type": "query",
+                "description": "Set different **options to customize the data results** for a query. Supported options \n* **Distinct**: Enable the unique data results for a query\n"
+              },
+              {
+                "name": "kpis",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchTerm",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchPrecision",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchField",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Data for a Knowledge Model"
+        },
+        {
+          "info": {
+            "name": "Get a list of KM data with advanced filtering",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/knowledge-models/:km_id/data",
+            "params": [
+              {
+                "name": "km_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query Data for a Knowledge Model that is combining different Records, this endpoint allows clients to easily include more complicated queries."
+        },
+        {
+          "info": {
+            "name": "Get a list of KM Record data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/knowledge-models/:km_id/records/:record_id/data",
+            "params": [
+              {
+                "name": "km_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "record_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filters",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fields",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Defines the order in which results are returned (record-level GET).\n\nThe `sortParamRecord` query parameter must be a comma-separated list of record fields.\nAny value used in `sortParamRecord` **must also be included** in the `fields` parameter.\nIf a value appears in `sortParamRecord` but is **not** included in `fields`, the API cannot evaluate it and sorting will not be applied correctly.\n\nIf a non-existing field is provided, the request will return an error.\n\nSort direction is specified using optional prefixes:\n- `+` for ascending order (ASC)\n- `-` for descending order (DESC)\n- No prefix defaults to ascending order (ASC)\n\n**Examples**\n- `sortParamRecord=+field1` (sorting in ascending order by a record field)\n- `sortParamRecord=-field2,field1` (sorting in descending order by a record field and in ascending order by another record field)"
+              },
+              {
+                "name": "filterExpr",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "options",
+                "value": "",
+                "type": "query",
+                "description": "Set different **options to customize the data results** for a query. Supported options \n* **Distinct**: Enable the unique data results for a query\n"
+              },
+              {
+                "name": "searchTerm",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchPrecision",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "searchField",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Data for a Record in the Knowledge Model."
+        },
+        {
+          "info": {
+            "name": "Get a list of KM Record data with advanced filtering",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/knowledge-models/:km_id/records/:record_id/data",
+            "params": [
+              {
+                "name": "km_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "record_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Query Data for a Record in the Knowledge Model. This endpoint allows clients to easily include more complicated queries."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

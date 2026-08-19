@@ -1,0 +1,133 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Specification Agents - Conversation Beta: OData Protocol API",
+    "version": "v1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Beta: OData Protocol",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "OData metadata endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/odata/:km_id.svc/$metadata",
+            "params": [
+              {
+                "name": "km_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "$format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "OData Knowledge Model $metadata"
+        },
+        {
+          "info": {
+            "name": "OData service definition endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/odata/:km_id.svc",
+            "params": [
+              {
+                "name": "km_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "$format",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "OData Knowledge Model service definition endpoint"
+        },
+        {
+          "info": {
+            "name": "OData service data endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/odata/:km_id.svc/:record_id_entries",
+            "params": [
+              {
+                "name": "km_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "record_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "$format",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "filterid",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "OData Knowledge Model service data endpoint"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

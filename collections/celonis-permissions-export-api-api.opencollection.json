@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Specification Agents - Conversation Permissions Export API API",
+    "version": "v1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Permissions Export API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Export permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/authorization/external/permissions"
+          },
+          "docs": "Exports all permissions for the team as a JSON file."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,54 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Specification Agents - Conversation OpenAPI Tool Calling API",
+    "version": "v1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OpenAPI Tool Calling",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Call Agent Tools (MCP) Asset Tool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/studio-copilot/api/v1/mcp-servers/mcp/:asset_id/tool-api/:tool_id",
+            "params": [
+              {
+                "name": "asset_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tool_id",
+                "value": "",
+                "type": "path",
+                "description": "Tool ID as configured in the asset (for example, `search-data` or `load-data`)."
+              },
+              {
+                "name": "draft",
+                "value": "",
+                "type": "query",
+                "description": "Set to true to call the draft version of the asset."
+              }
+            ]
+          },
+          "docs": "Call Agent Tools (MCP) Asset Tool"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

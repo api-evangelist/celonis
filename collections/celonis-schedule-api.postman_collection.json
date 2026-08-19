@@ -1,0 +1,2536 @@
+{
+  "item": [
+    {
+      "id": "50d433c7-1b9c-4f09-a376-a9cf1004cff3",
+      "name": "Schedule",
+      "description": {
+        "content": "The Schedule API is used to create, read, update, and delete schedules.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "84743b33-e787-4994-9641-ae0ceb9ddb94",
+          "name": "Get a schedule",
+          "request": {
+            "name": "Get a schedule",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "scheduling",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "559ff2da-b1a8-4b25-acc0-16123dbc0d29",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"executeFile\": \"string\",\n  \"name\": \"string\",\n  \"notebookId\": \"string\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"WEEKLY\",\n    \"minute\": 6509,\n    \"everyXHours\": 7879,\n    \"time\": \"string\",\n    \"day\": 9090,\n    \"weekDays\": [\n      5349,\n      7189\n    ],\n    \"monthPattern\": \"LAST_DAY\",\n    \"customCron\": \"string\",\n    \"timezoneId\": \"string\",\n    \"lastExecutionDate\": \"1983-12-01T17:36:50.233Z\",\n    \"nextExecutionDate\": \"1959-11-09T09:50:54.004Z\",\n    \"enabled\": true\n  },\n  \"timeUnit\": \"MINUTES\",\n  \"timeout\": 6154,\n  \"permissions\": [\n    \"string\"\n  ],\n  \"resourcePath\": \"string\",\n  \"actions\": [\n    \"READ\",\n    \"SHARE_ALL\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"CREATE\",\n      \"USE_ALL\"\n    ]\n  },\n  \"id\": \"string\",\n  \"notebookName\": \"string\",\n  \"lastNotebookExecutionId\": \"string\",\n  \"maxRetries\": 4192,\n  \"lastNotebookExecutionStatus\": \"RESOURCES_ERROR\",\n  \"notebookStopped\": true,\n  \"objectId\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "accbc2b4-7f9d-4833-91bb-06a69d8726c2",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2dd61f86-81b8-4e94-824a-912849b1015b",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"frontendErrorKey\": \"string\",\n  \"errorInformation\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "108c7a7e-c245-42ea-879e-a52846034e95",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9a14fcde-e9a0-4f66-b5cc-91240a4dd0c1",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"reference\": \"string\",\n  \"message\": \"string\",\n  \"shortMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2a916d29-a904-499b-ac3c-ce367b93e5e6",
+          "name": "Update a schedule",
+          "request": {
+            "name": "Update a schedule",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "scheduling",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9abd81b6-2595-42d2-befa-11e47e9e4eb5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_1\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_2\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_1\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_2\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2c935d79-0e1b-422a-a14c-f6887cb558a1",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_1\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_2\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c63c6b9a-c5ba-4cfc-9c66-015293a29958",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_1\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_2\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"frontendErrorKey\": \"string\",\n  \"errorInformation\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "beda223d-995e-441e-bb38-1c4ff308f864",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_1\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_2\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1675b40f-5e0f-4464-9278-7a665e943627",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_1\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_2\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"reference\": \"string\",\n  \"message\": \"string\",\n  \"shortMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "537d60e6-1067-4353-ba6c-6c0fd853bd6c",
+          "name": "Delete a schedule",
+          "request": {
+            "name": "Delete a schedule",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "scheduling",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63f8f637-76ec-4bc8-9aca-f122ed194537",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d3157b24-754b-4ef5-aa7c-68e97b8914bb",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"frontendErrorKey\": \"string\",\n  \"errorInformation\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "29faddf9-ac6e-4ee9-9051-f830b95b9891",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7a3d5377-38a2-403c-b580-9264a8bee0b0",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"reference\": \"string\",\n  \"message\": \"string\",\n  \"shortMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "92ed46d0-9392-444b-b169-629ed1a9966e",
+          "name": "Enable or Disable a schedule",
+          "request": {
+            "name": "Enable or Disable a schedule",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "scheduling",
+                ":id",
+                "change-status"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "status",
+                  "value": "<boolean>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff295c03-b58e-455d-be5d-0baec2fd779c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "change-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_1\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_2\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e47b065-ff9c-4fff-96fd-ac1bffababe5",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "change-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b62e59ef-c483-4b8b-ac86-a9e25e81bbe4",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "change-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"frontendErrorKey\": \"string\",\n  \"errorInformation\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc064e9b-1412-46ed-8c9e-c5549bc23ceb",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "change-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e65e9bf0-bb0e-4a19-8719-00beee5a3bc8",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "change-status"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "<boolean>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"reference\": \"string\",\n  \"message\": \"string\",\n  \"shortMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b891c7a1-fe8e-4c0b-8e4c-812a09725f5e",
+          "name": "List all schedules",
+          "request": {
+            "name": "List all schedules",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "scheduling"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "notebookId",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a837aa90-500f-4993-a9a3-207baaa4ae03",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "notebookId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "[\n  {\n    \"executeFile\": \"<string>\",\n    \"name\": \"<string>\",\n    \"notebookId\": \"<string>\",\n    \"schedulingConfig\": {\n      \"executionPattern\": \"<string>\",\n      \"minute\": \"<integer>\",\n      \"everyXHours\": \"<integer>\",\n      \"time\": \"<string>\",\n      \"day\": \"<integer>\",\n      \"weekDays\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"monthPattern\": \"<string>\",\n      \"customCron\": \"<string>\",\n      \"timezoneId\": \"<string>\",\n      \"lastExecutionDate\": \"<dateTime>\",\n      \"nextExecutionDate\": \"<dateTime>\",\n      \"enabled\": \"<boolean>\"\n    },\n    \"timeUnit\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"resourcePath\": \"<string>\",\n    \"actions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"groupedResourceTypeToActions\": {\n      \"key_0\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key_1\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"id\": \"<string>\",\n    \"notebookName\": \"<string>\",\n    \"lastNotebookExecutionId\": \"<string>\",\n    \"maxRetries\": \"<integer>\",\n    \"lastNotebookExecutionStatus\": \"<string>\",\n    \"notebookStopped\": \"<boolean>\",\n    \"objectId\": \"<string>\"\n  },\n  {\n    \"executeFile\": \"<string>\",\n    \"name\": \"<string>\",\n    \"notebookId\": \"<string>\",\n    \"schedulingConfig\": {\n      \"executionPattern\": \"<string>\",\n      \"minute\": \"<integer>\",\n      \"everyXHours\": \"<integer>\",\n      \"time\": \"<string>\",\n      \"day\": \"<integer>\",\n      \"weekDays\": [\n        \"<integer>\",\n        \"<integer>\"\n      ],\n      \"monthPattern\": \"<string>\",\n      \"customCron\": \"<string>\",\n      \"timezoneId\": \"<string>\",\n      \"lastExecutionDate\": \"<dateTime>\",\n      \"nextExecutionDate\": \"<dateTime>\",\n      \"enabled\": \"<boolean>\"\n    },\n    \"timeUnit\": \"<string>\",\n    \"timeout\": \"<integer>\",\n    \"permissions\": [\n      \"<string>\"\n    ],\n    \"resourcePath\": \"<string>\",\n    \"actions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"groupedResourceTypeToActions\": {\n      \"key_0\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"key_1\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    \"id\": \"<string>\",\n    \"notebookName\": \"<string>\",\n    \"lastNotebookExecutionId\": \"<string>\",\n    \"maxRetries\": \"<integer>\",\n    \"lastNotebookExecutionStatus\": \"<string>\",\n    \"notebookStopped\": \"<boolean>\",\n    \"objectId\": \"<string>\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "744a2ad9-b408-4de0-9af4-f1196c595ca9",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "notebookId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aa9f3a7b-2bd8-435e-9921-beabb6324cd9",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "notebookId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"frontendErrorKey\": \"string\",\n  \"errorInformation\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "74ea886a-b3ec-4b37-a3ad-379d99132c6c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "notebookId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "67e21208-6f57-419e-8478-8bf40c05f8d3",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "notebookId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"reference\": \"string\",\n  \"message\": \"string\",\n  \"shortMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bf2321c5-cc3f-47f4-a9db-038fe09f8be1",
+          "name": "Create a schedule",
+          "request": {
+            "name": "Create a schedule",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "scheduling"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_1\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c9fafddb-e452-4955-b30f-a8494eb09a1a",
+              "name": "Created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_1\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_2\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_1\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_2\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1b629a9c-e972-4e41-9382-37e0aca58bf7",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_1\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_2\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f8a2396f-c3ac-4f71-9c31-72b56408ee3a",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_1\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_2\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"frontendErrorKey\": \"string\",\n  \"errorInformation\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a68acec9-bd67-4eb9-988f-bb664e82eb4a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_1\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_2\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "776f6ab9-bbeb-49df-9c51-42252c3ddc12",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"executeFile\": \"<string>\",\n  \"name\": \"<string>\",\n  \"notebookId\": \"<string>\",\n  \"schedulingConfig\": {\n    \"executionPattern\": \"<string>\",\n    \"minute\": \"<integer>\",\n    \"everyXHours\": \"<integer>\",\n    \"time\": \"<string>\",\n    \"day\": \"<integer>\",\n    \"weekDays\": [\n      \"<integer>\",\n      \"<integer>\"\n    ],\n    \"monthPattern\": \"<string>\",\n    \"customCron\": \"<string>\",\n    \"timezoneId\": \"<string>\",\n    \"lastExecutionDate\": \"<dateTime>\",\n    \"nextExecutionDate\": \"<dateTime>\",\n    \"enabled\": \"<boolean>\"\n  },\n  \"timeUnit\": \"<string>\",\n  \"timeout\": \"<integer>\",\n  \"permissions\": [\n    \"<string>\"\n  ],\n  \"resourcePath\": \"<string>\",\n  \"actions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"groupedResourceTypeToActions\": {\n    \"key_0\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_1\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"key_2\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  \"id\": \"<string>\",\n  \"notebookName\": \"<string>\",\n  \"lastNotebookExecutionId\": \"<string>\",\n  \"maxRetries\": \"<integer>\",\n  \"lastNotebookExecutionStatus\": \"<string>\",\n  \"notebookStopped\": \"<boolean>\",\n  \"objectId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"reference\": \"string\",\n  \"message\": \"string\",\n  \"shortMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e41c9b53-e865-42d9-a4b9-797188b31f6e",
+          "name": "Run a schedule",
+          "request": {
+            "name": "Run a schedule",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "scheduling",
+                ":id",
+                "run"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "68eaf1a1-1579-4319-9063-f14372fc6c6b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "484805db-b088-40b0-bb4f-835a0319de48",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d44829b6-da42-49f4-9228-bca883bba491",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"frontendErrorKey\": \"string\",\n  \"errorInformation\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8e5746b5-fb2e-4ed2-bea4-c15b9bce5752",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "271ba94c-9e11-45e1-93ad-f9f609b3538d",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "run"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"reference\": \"string\",\n  \"message\": \"string\",\n  \"shortMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16f106dc-d762-492c-970d-0d93981e4c7c",
+          "name": "List all executions of a schedule",
+          "request": {
+            "name": "List all executions of a schedule",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "scheduling",
+                ":id",
+                "executions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "pageIndex",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "1"
+                },
+                {
+                  "disabled": false,
+                  "key": "startedOrder",
+                  "value": "DESC"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d809fa9f-36b1-4a60-8d2a-5cabd2c099d5",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "executions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageIndex",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "startedOrder",
+                      "value": "DESC"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"content\": [\n    {\n      \"executionFileName\": \"string\",\n      \"notebookId\": \"string\",\n      \"id\": \"string\",\n      \"notebookExecutionSourceId\": \"string\",\n      \"notebookExecutionSource\": \"string\",\n      \"notebookExecutionStatus\": \"NOTEBOOK_ERROR\",\n      \"started\": \"1963-05-19T08:17:18.308Z\",\n      \"completed\": \"1972-01-12T19:25:54.893Z\",\n      \"params\": {},\n      \"result\": \"string\",\n      \"logsOutputPath\": \"string\",\n      \"executionTimeout\": 2479,\n      \"maxRetries\": 1276,\n      \"timeUnit\": \"DAYS\"\n    },\n    {\n      \"executionFileName\": \"string\",\n      \"notebookId\": \"string\",\n      \"id\": \"string\",\n      \"notebookExecutionSourceId\": \"string\",\n      \"notebookExecutionSource\": \"string\",\n      \"notebookExecutionStatus\": \"FAILED\",\n      \"started\": \"1956-08-01T03:32:28.906Z\",\n      \"completed\": \"2008-05-02T10:20:34.206Z\",\n      \"params\": {},\n      \"result\": \"string\",\n      \"logsOutputPath\": \"string\",\n      \"executionTimeout\": 3636,\n      \"maxRetries\": 4549,\n      \"timeUnit\": \"MINUTES\"\n    }\n  ],\n  \"pageSize\": 6292,\n  \"pageNumber\": 8070,\n  \"totalCount\": 4,\n  \"first\": false,\n  \"last\": false,\n  \"empty\": false,\n  \"totalPages\": 8431\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e3aa9b5a-e516-4de6-a6d5-d25270877644",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "executions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageIndex",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "startedOrder",
+                      "value": "DESC"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5a47e00a-cccf-45f7-bf0e-56ccf4062953",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "executions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageIndex",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "startedOrder",
+                      "value": "DESC"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"frontendErrorKey\": \"string\",\n  \"errorInformation\": \"\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "23616b83-f606-4ae7-b922-8ece43cf8550",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "executions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageIndex",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "startedOrder",
+                      "value": "DESC"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4693d18a-fa33-40db-a1d2-8aca03f2372c",
+              "name": "Internal Server Error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "scheduling",
+                    ":id",
+                    "executions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "pageIndex",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "1"
+                    },
+                    {
+                      "key": "startedOrder",
+                      "value": "DESC"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"reference\": \"string\",\n  \"message\": \"string\",\n  \"shortMessage\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6170d62e-32e7-43db-a69e-03635f98bb60",
+    "name": "OpenAPI Specification Agents - Conversation Schedule API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AI API to chat with Celonis Agents and run their tools.",
+      "type": "text/plain"
+    }
+  }
+}

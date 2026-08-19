@@ -1,0 +1,338 @@
+{
+  "item": [
+    {
+      "id": "2a7a6e18-acc2-45a4-8aa4-52bea21ac7d8",
+      "name": "Permissions Export API",
+      "description": {
+        "content": "Export all permissions for the team as a JSON file.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "76162e7d-7cc1-4b96-bd88-24e43d7efdc0",
+          "name": "Export permissions",
+          "request": {
+            "name": "Export permissions",
+            "description": {
+              "content": "Exports all permissions for the team as a JSON file.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "api",
+                "authorization",
+                "external",
+                "permissions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "37c3227f-d9fa-47eb-bf4d-36ec1ea679ac",
+              "name": "A JSON file containing all permissions.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "authorization",
+                    "external",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"permissions\": [\n    {\n      \"subjectName\": \"string\",\n      \"subjectType\": \"string\",\n      \"subjectId\": \"string\",\n      \"groups\": \"string\",\n      \"role\": \"string\",\n      \"service\": \"string\",\n      \"objectName\": \"string\",\n      \"objectType\": \"string\",\n      \"objectId\": \"string\",\n      \"actions\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"subjectName\": \"string\",\n      \"subjectType\": \"string\",\n      \"subjectId\": \"string\",\n      \"groups\": \"string\",\n      \"role\": \"string\",\n      \"service\": \"string\",\n      \"objectName\": \"string\",\n      \"objectType\": \"string\",\n      \"objectId\": \"string\",\n      \"actions\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0cda5f12-3364-4623-a965-4e99df6c78ed",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "authorization",
+                    "external",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "59ba8a17-0417-4652-9df1-8e2ca9706bc2",
+              "name": "Bad Request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "authorization",
+                    "external",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"frontendErrorKey\": \"string\",\n  \"errorInformation\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a10c57fd-b302-47ac-982c-800fc4e8daba",
+              "name": "Unauthorized. Please check whether your API key or application key has sufficient\\ \\permissions. In case you are unsure, please refer the documentation on [application keys]\\ \\(https://help.celonis.cloud/help/display/CIBC/Application+Keys) and [permissions]\\ \\(https://help.celonis.cloud/help/display/CIBC/Permissions).",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "authorization",
+                    "external",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1a9272a8-bbca-42e2-ae27-d1c4c751f5cf",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "authorization",
+                    "external",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e0ff4ef6-2d2a-4178-bb93-3993b2c887c6",
+              "name": "An internal error happened.\\ \\Please forward the associated error ID along with any helpful information to [our support]\\ \\(https://help.celonis.cloud/help/display/CIBC/Support)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "authorization",
+                    "external",
+                    "permissions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "d83d7adf-f542-4201-b020-7db21585cce3",
+    "name": "OpenAPI Specification Agents - Conversation Permissions Export API API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AI API to chat with Celonis Agents and run their tools.",
+      "type": "text/plain"
+    }
+  }
+}

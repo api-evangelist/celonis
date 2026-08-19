@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Specification Agents - Conversation Notebook Resources API",
+    "version": "v1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notebook Resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Notebook Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id/resources",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Notebook Resources"
+        },
+        {
+          "info": {
+            "name": "Update Notebook Resources",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id/resources",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update Notebook Resources"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,165 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Specification Agents - Conversation Job Execution API",
+    "version": "v1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Job Execution",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get all executions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/jobs/:jobId/executions",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageIndex",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startedOrder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "executionSources",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get all executions"
+        },
+        {
+          "info": {
+            "name": "Trigger an execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/jobs/:jobId/executions",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Trigger an execution"
+        },
+        {
+          "info": {
+            "name": "Update job application key",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/jobs/:jobId/application-key",
+            "params": [
+              {
+                "name": "jobId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update job application key"
+        },
+        {
+          "info": {
+            "name": "Stop a running execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/jobs/executions/:id/stop",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stop a running execution"
+        },
+        {
+          "info": {
+            "name": "Get job execution logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/jobs/executions/:id/logs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "logLevels",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get job execution logs"
+        },
+        {
+          "info": {
+            "name": "Get an execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/jobs/executions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an execution"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

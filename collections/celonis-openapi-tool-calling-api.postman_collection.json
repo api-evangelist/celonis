@@ -1,0 +1,308 @@
+{
+  "item": [
+    {
+      "id": "05d971c4-1e3a-4839-be31-71ce96473ce6",
+      "name": "OpenAPI Tool Calling",
+      "description": {
+        "content": "OpenAPI endpoints for calling tools configured in the Agent Tools (MCP) Asset.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3c8681bb-24e1-4c8c-a542-afc35ab71c04",
+          "name": "Call Agent Tools (MCP) Asset Tool",
+          "request": {
+            "name": "Call Agent Tools (MCP) Asset Tool",
+            "description": {},
+            "url": {
+              "path": [
+                "studio-copilot",
+                "api",
+                "v1",
+                "mcp-servers",
+                "mcp",
+                ":asset_id",
+                "tool-api",
+                ":tool_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "draft",
+                  "value": "false",
+                  "description": "Set to true to call the draft version of the asset."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "asset_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "tool_id",
+                  "description": "(Required) Tool ID as configured in the asset (for example, `search-data` or `load-data`)."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6301cc43-4023-47b0-aa76-cb4aa356c784",
+              "name": "Successful Response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studio-copilot",
+                    "api",
+                    "v1",
+                    "mcp-servers",
+                    "mcp",
+                    ":asset_id",
+                    "tool-api",
+                    ":tool_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "draft",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asset_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tool_id",
+                      "description": "(Required) Tool ID as configured in the asset (for example, `search-data` or `load-data`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"search_result\": \"{\\\"string\\\": [{\\\"id\\\": \\\"MCP_GETTING_STARTED.TEXT\\\", \\\"display_name\\\": \\\"Text\\\", \\\"record_display_name\\\": \\\"Mcp Getting Started\\\", \\\"column_type\\\": \\\"STRING\\\", \\\"entity_type\\\": \\\"Attribute\\\"}]}\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6e6ebf91-f728-4f9a-8037-a1c3aec22ea0",
+              "name": "Asset not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studio-copilot",
+                    "api",
+                    "v1",
+                    "mcp-servers",
+                    "mcp",
+                    ":asset_id",
+                    "tool-api",
+                    ":tool_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "draft",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asset_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tool_id",
+                      "description": "(Required) Tool ID as configured in the asset (for example, `search-data` or `load-data`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7e308563-e8a3-485a-a350-b9e3bd1ebdaf",
+              "name": "Unprocessable Entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "studio-copilot",
+                    "api",
+                    "v1",
+                    "mcp-servers",
+                    "mcp",
+                    ":asset_id",
+                    "tool-api",
+                    ":tool_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "draft",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "asset_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "tool_id",
+                      "description": "(Required) Tool ID as configured in the asset (for example, `search-data` or `load-data`)."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"error\": \"string\",\n    \"attribute\": \"\",\n    \"errorCode\": \"\",\n    \"additionalInfo\": \"\"\n  },\n  {\n    \"error\": \"string\",\n    \"attribute\": \"\",\n    \"errorCode\": \"\",\n    \"additionalInfo\": \"\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cb72da34-df77-433a-865e-3c868d43a345",
+    "name": "OpenAPI Specification Agents - Conversation OpenAPI Tool Calling API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AI API to chat with Celonis Agents and run their tools.",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Specification Agents - Conversation Login History API API",
+    "version": "v1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Login History API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Login History",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/external/authentication-events",
+            "params": [
+              {
+                "name": "pageNumber",
+                "value": "0",
+                "type": "query",
+                "description": "Page number to be retrieved, starts with 0"
+              },
+              {
+                "name": "pageSize",
+                "value": "200",
+                "type": "query",
+                "description": "Limit of results per page"
+              },
+              {
+                "name": "from",
+                "value": "2022-01-01T09:00:00",
+                "type": "query",
+                "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss"
+              },
+              {
+                "name": "to",
+                "value": "2022-01-31T09:00:00",
+                "type": "query",
+                "description": "Date Time ISO 8601 yyyy-MM-ddTHH:mm:ss"
+              }
+            ]
+          },
+          "docs": "Login History events can be filtered by specifying a date interval.<br> Maximum number of events that will be received by page is 200. <br> The OAuth 2.0 scope to use is <tt>team.login-history:read</tt>.<br> If there would be more events on the specified date interval total number of pages will be returned for further querying."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

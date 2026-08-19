@@ -1,0 +1,189 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Specification Agents - Conversation Schedule API",
+    "version": "v1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Schedule",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get a schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/scheduling/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a schedule"
+        },
+        {
+          "info": {
+            "name": "Update a schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/scheduling/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a schedule"
+        },
+        {
+          "info": {
+            "name": "Delete a schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/scheduling/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a schedule"
+        },
+        {
+          "info": {
+            "name": "Enable or Disable a schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/scheduling/:id/change-status",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Enable or Disable a schedule"
+        },
+        {
+          "info": {
+            "name": "List all schedules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/scheduling",
+            "params": [
+              {
+                "name": "notebookId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List all schedules"
+        },
+        {
+          "info": {
+            "name": "Create a schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/scheduling",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a schedule"
+        },
+        {
+          "info": {
+            "name": "Run a schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/scheduling/:id/run",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Run a schedule"
+        },
+        {
+          "info": {
+            "name": "List all executions of a schedule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/scheduling/:id/executions",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageIndex",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startedOrder",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List all executions of a schedule"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

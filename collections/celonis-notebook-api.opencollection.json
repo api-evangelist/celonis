@@ -1,0 +1,383 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Specification Agents - Conversation Notebook API",
+    "version": "v1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notebook",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an app",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an app"
+        },
+        {
+          "info": {
+            "name": "Update an app",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an app"
+        },
+        {
+          "info": {
+            "name": "Delete an app",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an app"
+        },
+        {
+          "info": {
+            "name": "Upgrade app to the latest version",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id/upgrade",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Upgrade app to the latest version"
+        },
+        {
+          "info": {
+            "name": "Check if an app is running",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id/probe",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Check if an app is running"
+        },
+        {
+          "info": {
+            "name": "Move an app from one workspace to another",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id/move",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "workspaceId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Move an app from one workspace to another"
+        },
+        {
+          "info": {
+            "name": "Get the application key of the app",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id/app-key",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the application key of the app"
+        },
+        {
+          "info": {
+            "name": "Set an application key to the app",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id/app-key",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "appKey",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Set an application key to the app"
+        },
+        {
+          "info": {
+            "name": "List all notebooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks"
+          },
+          "docs": "List all notebooks"
+        },
+        {
+          "info": {
+            "name": "Create an app",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an app"
+        },
+        {
+          "info": {
+            "name": "Stop an app",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id/stop",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stop an app"
+        },
+        {
+          "info": {
+            "name": "Start an app",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id/start",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Start an app"
+        },
+        {
+          "info": {
+            "name": "Open an app",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id/open",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Open an app"
+        },
+        {
+          "info": {
+            "name": "Get a list of all versions newer than the Notebook id version provided in the parameter",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id/versions/latest",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a list of all versions newer than the Notebook id version provided in the parameter"
+        },
+        {
+          "info": {
+            "name": "Get app's access information for LLM use case",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id/llm/access-info",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get app's access information for LLM use case"
+        },
+        {
+          "info": {
+            "name": "Get a list of all the files inside the app",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id/content",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "path",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a list of all the files inside the app"
+        },
+        {
+          "info": {
+            "name": "Get access information for the app",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/:id/access-info",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get access information for the app"
+        },
+        {
+          "info": {
+            "name": "Get a list of all the versions of the app",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/versions"
+          },
+          "docs": "Get a list of all the versions of the app"
+        },
+        {
+          "info": {
+            "name": "Check if team has dedicated service",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/node"
+          },
+          "docs": "Check if team has dedicated service"
+        },
+        {
+          "info": {
+            "name": "List all Machine Learning images",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/machine-learning-images"
+          },
+          "docs": "List all Machine Learning images"
+        },
+        {
+          "info": {
+            "name": "Check if the team has reached the maximum number of notebooks",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/notebooks/limit/reached"
+          },
+          "docs": "Check if the team has reached the maximum number of notebooks"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,81 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Specification Agents - Conversation Triggers API",
+    "version": "v1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Triggers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List the Triggers of a Knowledge Model",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/knowledge-models/:km_id/triggers",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with \"+\" to apply ASC order or \"-\" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error"
+              },
+              {
+                "name": "km_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List the Triggers of a Knowledge Model"
+        },
+        {
+          "info": {
+            "name": "Get Trigger Schema details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/intelligence/api/knowledge-models/:km_id/triggers/:trigger_id",
+            "params": [
+              {
+                "name": "km_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "trigger_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Trigger Schema details"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

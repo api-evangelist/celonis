@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Specification Agents - Conversation Job Execution Group API",
+    "version": "v1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Job Execution Group",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get execution groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/jobs/executions/groups"
+          },
+          "docs": "Get execution groups"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

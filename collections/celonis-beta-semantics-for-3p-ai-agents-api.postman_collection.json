@@ -1,0 +1,3299 @@
+{
+  "item": [
+    {
+      "id": "827be2c5-b2f9-4062-95a9-dbe01480ce4b",
+      "name": "Beta: Semantics for 3P AI Agents",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0687457e-d243-431e-8bf7-2506781c2433",
+          "name": "Get a list of KM Record data",
+          "request": {
+            "name": "Get a list of KM Record data",
+            "description": {
+              "content": "Query Data for a Record in the Knowledge Model.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "intelligence",
+                "api",
+                "knowledge-models",
+                ":km_id",
+                "records",
+                ":record_id",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>,<string>",
+                  "description": "Defines the order in which results are returned (record-level GET).\n\nThe `sortParamRecord` query parameter must be a comma-separated list of record fields.\nAny value used in `sortParamRecord` **must also be included** in the `fields` parameter.\nIf a value appears in `sortParamRecord` but is **not** included in `fields`, the API cannot evaluate it and sorting will not be applied correctly.\n\nIf a non-existing field is provided, the request will return an error.\n\nSort direction is specified using optional prefixes:\n- `+` for ascending order (ASC)\n- `-` for descending order (DESC)\n- No prefix defaults to ascending order (ASC)\n\n**Examples**\n- `sortParamRecord=+field1` (sorting in ascending order by a record field)\n- `sortParamRecord=-field2,field1` (sorting in descending order by a record field and in ascending order by another record field)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filterExpr",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filterExpr",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "options",
+                  "value": "<string>,<string>",
+                  "description": "Set different **options to customize the data results** for a query. Supported options \n* **Distinct**: Enable the unique data results for a query\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchTerm",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchPrecision",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchField",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "km_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "record_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13b10534-66eb-4a23-a0fa-6cfe91afd6f7",
+              "name": "List of Record data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+field1,-field2,field3,+field1,-field2,field3"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": [\n    {\n      \"key_0\": {},\n      \"key_1\": {}\n    },\n    {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {}\n    }\n  ],\n  \"page\": 0,\n  \"pageSize\": 50,\n  \"total\": 1,\n  \"sort\": [\n    \"material_number\",\n    \"material_number\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "edfd6a9d-e0ab-4606-844e-132edf0aae8a",
+              "name": "Bad Request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+field1,-field2,field3,+field1,-field2,field3"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5679f050-212b-4ff7-b651-61fd81fc17b3",
+              "name": "Unauthorized access.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+field1,-field2,field3,+field1,-field2,field3"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b11185f2-b59c-4963-aaa0-75ec7cc4cfdb",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+field1,-field2,field3,+field1,-field2,field3"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3cc44074-d725-4f9d-abef-f195eb43f1a2",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+field1,-field2,field3,+field1,-field2,field3"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e1ab1c63-80ea-4d67-a9dc-4ab4470a9499",
+              "name": "Too Many Requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+field1,-field2,field3,+field1,-field2,field3"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Request limit per hour.",
+                  "key": "X-RateLimit-Limit",
+                  "value": "6422"
+                },
+                {
+                  "disabled": false,
+                  "description": "The number of requests left for the time window.",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "6422"
+                },
+                {
+                  "disabled": false,
+                  "description": "The UTC date/time at which the current rate limit window resets.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "1987-04-07T23:02:37.928Z"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "93d25a56-8c4c-40d2-a06a-1b81f2b154ff",
+              "name": "Internal Server Error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+field1,-field2,field3,+field1,-field2,field3"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f16a8b1e-47a0-4ec8-94e0-3524172720b9",
+              "name": "Service Unavailable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+field1,-field2,field3,+field1,-field2,field3"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9006c508-789a-4720-9864-f9cebefb2e78",
+          "name": "Get a list of KM data from different records",
+          "request": {
+            "name": "Get a list of KM data from different records",
+            "description": {
+              "content": "Query Data for a Knowledge Model that is combining different Records",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "intelligence",
+                "api",
+                "knowledge-models",
+                ":km_id",
+                "query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0"
+                },
+                {
+                  "disabled": false,
+                  "key": "pageSize",
+                  "value": "50"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>,<string>",
+                  "description": "Defines the order in which results are returned (Knowledge Model–level GET).\n\nThe `sortParamKm` query parameter must be a comma-separated list of record fields and/or KPIs.\nAny value used in `sortParamKm` **must also be included** in the `fields` or `kpis` parameters.\nIf a value appears in `sortParamKm` but is **not** included in `fields` or `kpis`, the API cannot evaluate it and sorting will not be applied correctly.\n\nIf a non-existing field is provided, the request will return an error.\n\nSort direction is specified using optional prefixes:\n- `+` for ascending order (ASC)\n- `-` for descending order (DESC)\n- No prefix defaults to ascending order (ASC)\n\n**Examples**\n- `sortParamKm=+record1_id.field1` (sorting in ascending order by a record field)\n- `sortParamKm=-record1_id.field2,kpi1` (sorting in descending order by a record field and in ascending order by a KPI)\n- `sortParamKm=record1_id.field1,-kpi2` (sorting in ascending order by a record field and in descending order by a KPI)\n- `sortParamKm=-kpi1` (sorting in descending order by a KPI)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filterExpr",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "filterExpr",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "options",
+                  "value": "<string>,<string>",
+                  "description": "Set different **options to customize the data results** for a query. Supported options \n* **Distinct**: Enable the unique data results for a query\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "kpis",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchTerm",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchPrecision",
+                  "value": "<integer>"
+                },
+                {
+                  "disabled": false,
+                  "key": "searchField",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "km_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16395ff3-a661-4c3c-b9eb-36de8f796f5c",
+              "name": "List of Record data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+record1_id.field1,-record1_id.field2,kpi1,+record1_id.field1,-record1_id.field2,kpi1"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "kpis",
+                      "value": "AVG_EVENTS_PER_CASE,FILTERED_COUNT,AVG_EVENTS_PER_CASE,FILTERED_COUNT"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": [\n    {\n      \"key_0\": {}\n    },\n    {\n      \"key_0\": {},\n      \"key_1\": {},\n      \"key_2\": {},\n      \"key_3\": {}\n    }\n  ],\n  \"page\": 0,\n  \"pageSize\": 50,\n  \"total\": 1,\n  \"sort\": [\n    \"material_number\",\n    \"material_number\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "edb1c7cf-8a2f-41e8-b195-287341312725",
+              "name": "Bad Request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+record1_id.field1,-record1_id.field2,kpi1,+record1_id.field1,-record1_id.field2,kpi1"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "kpis",
+                      "value": "AVG_EVENTS_PER_CASE,FILTERED_COUNT,AVG_EVENTS_PER_CASE,FILTERED_COUNT"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4590276d-528b-42c6-8768-e2fe75954cc5",
+              "name": "Unauthorized access.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+record1_id.field1,-record1_id.field2,kpi1,+record1_id.field1,-record1_id.field2,kpi1"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "kpis",
+                      "value": "AVG_EVENTS_PER_CASE,FILTERED_COUNT,AVG_EVENTS_PER_CASE,FILTERED_COUNT"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c42db3b4-f6f0-428c-9bba-4f6dadbef4bd",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+record1_id.field1,-record1_id.field2,kpi1,+record1_id.field1,-record1_id.field2,kpi1"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "kpis",
+                      "value": "AVG_EVENTS_PER_CASE,FILTERED_COUNT,AVG_EVENTS_PER_CASE,FILTERED_COUNT"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "17468de9-b5f0-4ee5-aec7-c3c6c2d46933",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+record1_id.field1,-record1_id.field2,kpi1,+record1_id.field1,-record1_id.field2,kpi1"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "kpis",
+                      "value": "AVG_EVENTS_PER_CASE,FILTERED_COUNT,AVG_EVENTS_PER_CASE,FILTERED_COUNT"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "77576f17-e9e9-4649-aa7b-c2f3340dc372",
+              "name": "Too Many Requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+record1_id.field1,-record1_id.field2,kpi1,+record1_id.field1,-record1_id.field2,kpi1"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "kpis",
+                      "value": "AVG_EVENTS_PER_CASE,FILTERED_COUNT,AVG_EVENTS_PER_CASE,FILTERED_COUNT"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Request limit per hour.",
+                  "key": "X-RateLimit-Limit",
+                  "value": "6422"
+                },
+                {
+                  "disabled": false,
+                  "description": "The number of requests left for the time window.",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "6422"
+                },
+                {
+                  "disabled": false,
+                  "description": "The UTC date/time at which the current rate limit window resets.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "1987-04-07T23:02:37.928Z"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1dd6b609-c350-4100-b605-6e75f39500f5",
+              "name": "Internal Server Error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+record1_id.field1,-record1_id.field2,kpi1,+record1_id.field1,-record1_id.field2,kpi1"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "kpis",
+                      "value": "AVG_EVENTS_PER_CASE,FILTERED_COUNT,AVG_EVENTS_PER_CASE,FILTERED_COUNT"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "daae042e-d677-4a97-bcae-03afb5926eea",
+              "name": "Service Unavailable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "+record1_id.field1,-record1_id.field2,kpi1,+record1_id.field1,-record1_id.field2,kpi1"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "filterExpr",
+                      "value": "active eq true and name not eq 'John Doe'"
+                    },
+                    {
+                      "key": "options",
+                      "value": "distinct,distinct"
+                    },
+                    {
+                      "key": "kpis",
+                      "value": "AVG_EVENTS_PER_CASE,FILTERED_COUNT,AVG_EVENTS_PER_CASE,FILTERED_COUNT"
+                    },
+                    {
+                      "key": "searchTerm",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "searchPrecision",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "searchField",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d2c42991-343d-4453-96b7-e46acdc1470a",
+          "name": "Generate an OpenAPI spec from a Knowledge Model",
+          "request": {
+            "name": "Generate an OpenAPI spec from a Knowledge Model",
+            "description": {
+              "content": "OpenaAPI spec of Knowledge Model",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "intelligence",
+                "api",
+                "knowledge-models",
+                ":km_id",
+                "spec"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "curated",
+                  "value": "<boolean>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "km_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1f454c30-4513-4c13-9a10-01ef869c9992",
+              "name": "OpenAPI Spec",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "spec"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "curated",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"openapi\": \"3.0.8-$WTz0Yp*2kX\",\n  \"info\": {\n    \"title\": \"string\",\n    \"version\": \"string\",\n    \"description\": \"string\",\n    \"termsOfService\": \"https://DHoUsGIsUQeSHgFS.hpftaTBI4UXq+a64ykD8\",\n    \"contact\": {\n      \"name\": \"string\",\n      \"url\": \"https://YogobxbTVrSoT.zphbf06GLI,tzP?rcvh&\"\n    },\n    \"x-audience\": \"EX\"\n  },\n  \"servers\": [\n    {\n      \"url\": \"string\"\n    },\n    {\n      \"url\": \"string\"\n    }\n  ],\n  \"security\": [\n    {\n      \"key_0\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_1\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"key_0\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_1\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_2\": [\n        \"string\",\n        \"string\"\n      ],\n      \"key_3\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ],\n  \"paths\": {},\n  \"components\": {\n    \"schemas\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ca420f66-b95b-4703-9aef-40f483512c80",
+              "name": "Bad Request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "spec"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "curated",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "022d16e9-cfc6-4cab-8819-4b88c5705499",
+              "name": "Unauthorized access.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "spec"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "curated",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "ccab4ba0-0f04-4258-ae83-51a369008396",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "spec"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "curated",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9d41b741-b3a0-470e-b70e-060d76432076",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "spec"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "curated",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "53354aad-c547-4575-a3b0-25ae4720d598",
+              "name": "Too Many Requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "spec"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "curated",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Request limit per hour.",
+                  "key": "X-RateLimit-Limit",
+                  "value": "6422"
+                },
+                {
+                  "disabled": false,
+                  "description": "The number of requests left for the time window.",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "6422"
+                },
+                {
+                  "disabled": false,
+                  "description": "The UTC date/time at which the current rate limit window resets.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "1987-04-07T23:02:37.928Z"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e92cb99a-fa71-4d2f-b411-952b9711cc7e",
+              "name": "Internal Server Error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "spec"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "curated",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "33d7176a-6ba8-4e44-9076-7c4db2544f68",
+              "name": "Service Unavailable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "spec"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "curated",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5592492-ee83-422a-a337-8d2420ce9836",
+          "name": "Get KM record statistics - Only for Attributes",
+          "request": {
+            "name": "Get KM record statistics - Only for Attributes",
+            "description": {
+              "content": "Knowledge Model record content statistics, only calculed for attributes. KPI and Flags will return empty results",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "intelligence",
+                "api",
+                "knowledge-models",
+                ":km_id",
+                "records",
+                ":record_id",
+                "summary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "filters",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "fields",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "excludeFields",
+                  "value": "<string>,<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "sampleSize",
+                  "value": "10"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "km_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "record_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "35b9e28a-7bc8-4e67-a843-5243ed19b533",
+              "name": "List of Record data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "excludeFields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "sampleSize",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"content\": {\n    \"headers\": [\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"integer\",\n        \"format\": \"string\",\n        \"unit\": \"string\",\n        \"aggregation\": false,\n        \"filterable\": false,\n        \"sortable\": false\n      },\n      {\n        \"id\": \"string\",\n        \"name\": \"string\",\n        \"type\": \"float\",\n        \"format\": \"string\",\n        \"unit\": \"string\",\n        \"aggregation\": false,\n        \"filterable\": false,\n        \"sortable\": false\n      }\n    ],\n    \"data\": [\n      {\n        \"key_0\": {},\n        \"key_1\": {},\n        \"key_2\": {}\n      },\n      {\n        \"key_0\": {}\n      }\n    ]\n  },\n  \"shape\": [\n    745,\n    489\n  ],\n  \"summary\": {\n    \"count\": 300000,\n    \"unique\": 8624,\n    \"top\": \"string\",\n    \"freq\": \"string\",\n    \"mean\": 9089.52459715414,\n    \"std\": 1713.6527230372433,\n    \"min\": 8728.375436580049,\n    \"max\": 9053.613879887187,\n    \"25_percentile\": 7259.905810749483,\n    \"50_percentile\": 4882.436090291927,\n    \"75_percentile\": 4264.024633204108\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c4f3c15b-8df1-4361-b057-31162d004861",
+              "name": "Bad Request.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "excludeFields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "sampleSize",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1740b6b6-ed6e-40ad-aee1-5a63cda9ebf3",
+              "name": "Unauthorized access.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "excludeFields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "sampleSize",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "54c312e5-6521-4dfe-862b-324a00b5085c",
+              "name": "Forbidden.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "excludeFields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "sampleSize",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e46e55a4-d14a-4508-bdf3-1ec50dcec26f",
+              "name": "The specified resource was not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "excludeFields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "sampleSize",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fafd5b0e-8048-4934-8682-4541b10db699",
+              "name": "Too Many Requests.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "excludeFields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "sampleSize",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Request limit per hour.",
+                  "key": "X-RateLimit-Limit",
+                  "value": "6422"
+                },
+                {
+                  "disabled": false,
+                  "description": "The number of requests left for the time window.",
+                  "key": "X-RateLimit-Remaining",
+                  "value": "6422"
+                },
+                {
+                  "disabled": false,
+                  "description": "The UTC date/time at which the current rate limit window resets.",
+                  "key": "X-RateLimit-Reset",
+                  "value": "1987-04-07T23:02:37.928Z"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6736c585-78d9-40ab-8121-9742ec7e17d2",
+              "name": "Internal Server Error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "excludeFields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "sampleSize",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "452de8b3-808f-4903-a78a-e04e87222f4a",
+              "name": "Service Unavailable.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "intelligence",
+                    "api",
+                    "knowledge-models",
+                    ":km_id",
+                    "records",
+                    ":record_id",
+                    "summary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "filters",
+                      "value": "active_incidents,cel_and_kpi,active_incidents,cel_and_kpi"
+                    },
+                    {
+                      "key": "fields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "excludeFields",
+                      "value": "active,approval,active,approval"
+                    },
+                    {
+                      "key": "sampleSize",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "km_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "record_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/problem+json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Service Unavailable",
+              "code": 503,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/problem+json"
+                }
+              ],
+              "body": "{\n  \"title\": \"string\",\n  \"status\": 2959,\n  \"detail\": \"string\",\n  \"errorCode\": \"string\",\n  \"type\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "edbff535-49c2-4f57-b89e-991469f88bd2",
+    "name": "OpenAPI Specification Agents - Conversation Beta: Semantics for 3P AI Agents API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AI API to chat with Celonis Agents and run their tools.",
+      "type": "text/plain"
+    }
+  }
+}

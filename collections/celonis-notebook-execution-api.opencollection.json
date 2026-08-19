@@ -1,0 +1,172 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Specification Agents - Conversation Notebook Execution API",
+    "version": "v1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Notebook Execution",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Stop a running execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/executions/:id/stop",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stop a running execution"
+        },
+        {
+          "info": {
+            "name": "Trigger an execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/executions",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Trigger an execution"
+        },
+        {
+          "info": {
+            "name": "Get an execution",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/executions/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an execution"
+        },
+        {
+          "info": {
+            "name": "Get execution logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/executions/:id/logs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "logLevels",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get execution logs"
+        },
+        {
+          "info": {
+            "name": "Get triggered executions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/executions/triggered/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageIndex",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startedOrder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "executionSources",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get triggered executions"
+        },
+        {
+          "info": {
+            "name": "Get triggered execution groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/executions/triggered-groups",
+            "params": [
+              {
+                "name": "notebookId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get triggered execution groups"
+        },
+        {
+          "info": {
+            "name": "Get triggered execution groups by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/executions/triggered-groups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get triggered execution groups by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

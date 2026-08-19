@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OpenAPI Specification Agents - Conversation Members API API",
+    "version": "v1.2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Members API",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List of all members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com/api/external/members",
+            "params": [
+              {
+                "name": "pageNumber",
+                "value": "0",
+                "type": "query",
+                "description": "Page number to be retrieved. Starts with 0."
+              },
+              {
+                "name": "pageSize",
+                "value": "200",
+                "type": "query",
+                "description": "Limit of results per page"
+              },
+              {
+                "name": "includeInternal",
+                "value": "true",
+                "type": "query",
+                "description": "A boolean parameter to show internal or external members"
+              }
+            ]
+          },
+          "docs": "Maximum number of members that will be received by page is 200.<br> The OAuth 2.0 scope to use is <tt>team.user-group-info:read</tt>.<br>"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
