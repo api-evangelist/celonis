@@ -40,6 +40,16 @@ tags:
 - Process Intelligence
 - Data
 - Analytics
+- Machine-Learning
+- AI Agents
+- Enterprise
+tags_raw:
+- Company
+- Automation
+- Process Mining
+- Process Intelligence
+- Data
+- Analytics
 - Machine Learning
 - AI Agents
 - Enterprise
@@ -286,6 +296,8 @@ apis:
   humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
   baseURL: https://{team_domain}.{realm}.celonis.cloud
   tags:
+  - Subscription
+  tags_raw:
   - Subscriptions
   properties:
   - type: OpenAPI
