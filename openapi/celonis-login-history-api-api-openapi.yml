@@ -1,14 +1,11 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: OpenAPI Specification Agents - Conversation Login History API API
-  description: AI API to chat with Celonis Agents and run their tools.
-  x-audience: EX
-  version: v1.2.0
+  title: OpenAPI Specification Login History API
+  version: 1.0.0
+  description: This is the documentation for the Team API, that allows querying data for a Celonis Platform team.
 servers:
-- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
-security:
-- BearerAuth: []
-- ApiKeyAuth: []
+- description: Default Server URL
+  url: /
 tags:
 - description: Allows you to query the Login History for a team and export it for use with external monitoring tools to capture and monitor platform login events.
   name: Login History API
@@ -83,6 +80,25 @@ paths:
       - Login History API
 components:
   schemas:
+    AuthenticationEventType:
+      type: string
+      description: Category of the Login History Event
+      enum:
+      - LOGIN
+      - LOGIN_SSO
+      - LOGIN_CELONIS_ID
+      - LOGIN_OIDC
+      - LOGOUT
+      - ACCOUNT_TEMPORARILY_LOCKED
+      - ACCOUNT_NOT_CONFIRMED
+      - ACCOUNT_NOT_ACTIVE
+      - NOT_MEMBER_OF_TEAM
+      - TEAM_MEMBERSHIP_NOT_ACTIVE
+      - TEAM_MEMBERSHIP_NOT_CONFIRMED
+      - BAD_CREDENTIALS
+      - INVALID_2FA_TOKEN
+      - INVALID_PROVIDER
+      example: LOGIN
     PageTransportAuthenticationEventExternalTransport:
       type: object
       properties:
@@ -117,31 +133,9 @@ components:
           format: date-time
           description: Date and time when event occurred in ISO 8601 UTC format
           example: '2021-01-08T16:36:29.003Z'
-    AuthenticationEventType:
-      type: string
-      description: Category of the Login History Event
-      enum:
-      - LOGIN
-      - LOGIN_SSO
-      - LOGIN_CELONIS_ID
-      - LOGIN_OIDC
-      - LOGOUT
-      - ACCOUNT_TEMPORARILY_LOCKED
-      - ACCOUNT_NOT_CONFIRMED
-      - ACCOUNT_NOT_ACTIVE
-      - NOT_MEMBER_OF_TEAM
-      - TEAM_MEMBERSHIP_NOT_ACTIVE
-      - TEAM_MEMBERSHIP_NOT_CONFIRMED
-      - BAD_CREDENTIALS
-      - INVALID_2FA_TOKEN
-      - INVALID_PROVIDER
-      example: LOGIN
   securitySchemes:
-    BearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
-    ApiKeyAuth:
-      type: apiKey
+    Authorization:
+      description: Prefix the Token with "AppKey " or "Bearer " (word and space) to indicate the Authorization type
       in: header
-      name: AppKey
+      name: Authorization
+      type: apiKey

@@ -1,14 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: OpenAPI Specification Agents - Conversation Job Execution API
-  description: AI API to chat with Celonis Agents and run their tools.
-  x-audience: EX
-  version: v1.2.0
+  title: Celonis Machine Learning Workbench Job Execution API
+  description: Documentation for the external Machine Learning APIs. These APIs allow you to trigger executions, manage resources, and more. To access the APIs, a Bearer API Key and a team-specific AppKey must be passed in the header.
+  version: v1.0
 servers:
-- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+- description: Default Server URL
+  url: /
 security:
-- BearerAuth: []
-- ApiKeyAuth: []
+- authorization: []
 tags:
 - name: Job Execution
   description: The Job Execution API is used to trigger, stop, and track job executions.
@@ -283,34 +282,16 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
-    FrontendHandledBackendError:
+    JobExecutionLogTransport:
       type: object
       properties:
-        frontendErrorKey:
+        message:
           type: string
-        errorInformation: {}
-    ApplicationKeyTransport:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        key:
-          type: string
-        createdAt:
+        timestamp:
           type: string
           format: date-time
-        lastUsedAt:
+        logLevel:
           type: string
-          format: date-time
-        originalId:
-          type: string
-        teamRole:
-          type: integer
-          format: int32
-        internal:
-          type: boolean
     ExceptionReference:
       type: object
       properties:
@@ -320,6 +301,31 @@ components:
           type: string
         shortMessage:
           type: string
+    PageJobExecutionTransport:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/JobExecutionTransport'
+        pageSize:
+          type: integer
+          format: int32
+        pageNumber:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int64
+        first:
+          type: boolean
+        last:
+          type: boolean
+        empty:
+          type: boolean
+        totalPages:
+          type: integer
+          format: int32
     JobExecution:
       type: object
       properties:
@@ -367,31 +373,28 @@ components:
           type: boolean
         optionalTenantId:
           type: string
-    PageJobExecutionTransport:
+    ApplicationKeyTransport:
       type: object
       properties:
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/JobExecutionTransport'
-        pageSize:
+        id:
+          type: string
+        name:
+          type: string
+        key:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        lastUsedAt:
+          type: string
+          format: date-time
+        originalId:
+          type: string
+        teamRole:
           type: integer
           format: int32
-        pageNumber:
-          type: integer
-          format: int32
-        totalCount:
-          type: integer
-          format: int64
-        first:
+        internal:
           type: boolean
-        last:
-          type: boolean
-        empty:
-          type: boolean
-        totalPages:
-          type: integer
-          format: int32
     JobExecutionTransport:
       type: object
       properties:
@@ -421,22 +424,9 @@ components:
         errorMessage:
           type: string
     JsonNode: {}
-    JobExecutionLogTransport:
+    FrontendHandledBackendError:
       type: object
       properties:
-        message:
+        frontendErrorKey:
           type: string
-        timestamp:
-          type: string
-          format: date-time
-        logLevel:
-          type: string
-  securitySchemes:
-    BearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: AppKey
+        errorInformation: {}

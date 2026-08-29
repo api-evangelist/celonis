@@ -1,11 +1,11 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: 'OpenAPI Specification Agents - Conversation Beta: OData Protocol API'
-  description: AI API to chat with Celonis Agents and run their tools.
+  title: 'OpenAPI Specification Beta: OData Protocol API'
+  description: EMS API to work with Knowledge Model elements, like records, kpis, filters and their related data.
   x-audience: EX
-  version: v1.2.0
+  version: v1.32.0
 servers:
-- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+- url: https://b0eca2bc-fbc3-400f-b855-9fe468151d15.remockly.com
 security:
 - BearerAuth: []
 - ApiKeyAuth: []
@@ -149,7 +149,159 @@ paths:
         '503':
           $ref: '#/components/responses/ServiceUnavailable'
 components:
+  responses:
+    InternalError:
+      description: Internal Server Error.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    Forbidden:
+      description: Forbidden.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    NotSupportedFormat:
+      description: Unsupported media type requested.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    ServiceUnavailable:
+      description: Service Unavailable.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    TooManyRequests:
+      description: Too Many Requests.
+      headers:
+        X-RateLimit-Limit:
+          description: Request limit per hour.
+          schema:
+            type: integer
+            format: int32
+        X-RateLimit-Remaining:
+          description: The number of requests left for the time window.
+          schema:
+            type: integer
+            format: int32
+        X-RateLimit-Reset:
+          description: The UTC date/time at which the current rate limit window resets.
+          schema:
+            type: string
+            format: date-time
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    BadRequest:
+      description: Bad Request.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    Unauthorized:
+      description: Unauthorized access.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/authErrorDTO'
+  parameters:
+    odataCountParam:
+      in: query
+      name: $count
+      required: false
+      schema:
+        type: boolean
+        description: The $count system query option allows clients to request a count of the matching resources included with the resources in the response. The $count query option has a Boolean value of true or false.
+        example: true
+    odataFilterParam:
+      in: query
+      name: $filter
+      required: false
+      schema:
+        type: string
+        description: The $filter system query option allows clients to filter a collection of resources that are addressed by a request URL.
+        example: field1 eq 'value1'
+    odataFilterIdParam:
+      in: query
+      name: filterid
+      required: false
+      schema:
+        type: string
+        description: The filterid is a custom query option allows clients to filter a collection of resources using pre-defined knowledge model filter.
+        example: filterid
+    odataOrderByParam:
+      in: query
+      name: $orderby
+      required: false
+      schema:
+        type: string
+        description: The $orderby system query option allows clients to request resources in a particular order.
+        example: field1
+    odataTopParam:
+      in: query
+      name: $top
+      required: false
+      schema:
+        type: integer
+        description: The $top system query option requests the number of items in the queried collection to be included in the result.
+        example: 10
+    odataSelectParam:
+      in: query
+      name: $select
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          description: The $select system query option allows clients to request a specific set of properties for each entity or complex type.
+          example: active,approval
+    odataSkipParam:
+      in: query
+      name: $skip
+      required: false
+      schema:
+        type: integer
+        description: The $skip query option requests the number of items in the queried collection that are to be skipped and not included in the result.
+        example: 100
+    odataFormatParam:
+      in: query
+      name: $format
+      required: false
+      schema:
+        type: string
+        description: The $format system query option allows clients to request a response in a particular format and is useful for clients without access to request headers for standard content-type negotiation.
+        example: json
   schemas:
+    errorDTO:
+      title: Error
+      type: object
+      description: This [RFC7807] specification is to define common error formats for those applications that need one, so that they aren't required to define their own, or worse, tempted to redefine the semantics of existing HTTP status codes. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+      properties:
+        title:
+          type: string
+          description: A short, human-readable summary of the problem type.  It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4). This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+        detail:
+          type: string
+          description: The details of the Error
+        errorCode:
+          type: string
+          description: Unique Identifier of the Error
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
     ODataServiceDefinitionXMLResultPage:
       title: OData Service Definition result page
       type: object
@@ -182,25 +334,6 @@ components:
                   title:
                     type: string
                     example: km_record_entries
-    ODataServiceDefinitionResultPage:
-      title: OData Service Definition result page
-      type: object
-      properties:
-        '@odata.context':
-          type: string
-          description: OData $metadata URI
-          example: https://team.domain.celonis.cloud/intelligence/api/odata/kmid.svc/$metadata
-        value:
-          type: array
-          items:
-            type: object
-            properties:
-              name:
-                type: string
-                example: km_record_entries
-              url:
-                type: string
-                example: km_record_entries
     ODataServiceResultPage:
       title: OData Service result page
       type: object
@@ -220,6 +353,23 @@ components:
             $Type:
               type: string
               example: null
+    ODataServiceDataResultPage:
+      title: OData Service Data result page
+      type: object
+      properties:
+        '@odata.context':
+          type: string
+          description: OData $metadata URI
+          example: https://team.domain.celonis.cloud/intelligence/api/odata/kmid.svc/$metadata#km_record_entries
+        value:
+          type: array
+          items:
+            type: object
+            additionalProperties:
+              type: object
+              example:
+                field_id1: value1
+                field_id2: value2
     ODataServiceDataXMLResultPage:
       title: OData Service Data XML result page
       type: object
@@ -264,181 +414,31 @@ components:
                           example:
                             field_id1: value1
                             field_id2: value2
-    ODataServiceDataResultPage:
-      title: OData Service Data result page
+    ODataServiceDefinitionResultPage:
+      title: OData Service Definition result page
       type: object
       properties:
         '@odata.context':
           type: string
           description: OData $metadata URI
-          example: https://team.domain.celonis.cloud/intelligence/api/odata/kmid.svc/$metadata#km_record_entries
+          example: https://team.domain.celonis.cloud/intelligence/api/odata/kmid.svc/$metadata
         value:
           type: array
           items:
             type: object
-            additionalProperties:
-              type: object
-              example:
-                field_id1: value1
-                field_id2: value2
-    errorDTO:
-      title: Error
-      type: object
-      description: This [RFC7807] specification is to define common error formats for those applications that need one, so that they aren't required to define their own, or worse, tempted to redefine the semantics of existing HTTP status codes. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
-      properties:
-        title:
-          type: string
-          description: A short, human-readable summary of the problem type.  It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4). This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
-        status:
-          type: integer
-          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
-        detail:
-          type: string
-          description: The details of the Error
-        errorCode:
-          type: string
-          description: Unique Identifier of the Error
-        type:
-          type: string
-          description: A URI reference [RFC3986] that identifies the problem type. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+            properties:
+              name:
+                type: string
+                example: km_record_entries
+              url:
+                type: string
+                example: km_record_entries
     authErrorDTO:
       title: Authentication Error
       type: object
       properties:
         error:
           type: string
-  responses:
-    NotSupportedFormat:
-      description: Unsupported media type requested.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    NotFound:
-      description: The specified resource was not found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    ServiceUnavailable:
-      description: Service Unavailable.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    Forbidden:
-      description: Forbidden.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    Unauthorized:
-      description: Unauthorized access.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/authErrorDTO'
-    TooManyRequests:
-      description: Too Many Requests.
-      headers:
-        X-RateLimit-Limit:
-          description: Request limit per hour.
-          schema:
-            type: integer
-            format: int32
-        X-RateLimit-Remaining:
-          description: The number of requests left for the time window.
-          schema:
-            type: integer
-            format: int32
-        X-RateLimit-Reset:
-          description: The UTC date/time at which the current rate limit window resets.
-          schema:
-            type: string
-            format: date-time
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    InternalError:
-      description: Internal Server Error.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    BadRequest:
-      description: Bad Request.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-  parameters:
-    odataFormatParam:
-      in: query
-      name: $format
-      required: false
-      schema:
-        type: string
-        description: The $format system query option allows clients to request a response in a particular format and is useful for clients without access to request headers for standard content-type negotiation.
-        example: json
-    odataSelectParam:
-      in: query
-      name: $select
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-          description: The $select system query option allows clients to request a specific set of properties for each entity or complex type.
-          example: active,approval
-    odataTopParam:
-      in: query
-      name: $top
-      required: false
-      schema:
-        type: integer
-        description: The $top system query option requests the number of items in the queried collection to be included in the result.
-        example: 10
-    odataOrderByParam:
-      in: query
-      name: $orderby
-      required: false
-      schema:
-        type: string
-        description: The $orderby system query option allows clients to request resources in a particular order.
-        example: field1
-    odataSkipParam:
-      in: query
-      name: $skip
-      required: false
-      schema:
-        type: integer
-        description: The $skip query option requests the number of items in the queried collection that are to be skipped and not included in the result.
-        example: 100
-    odataFilterIdParam:
-      in: query
-      name: filterid
-      required: false
-      schema:
-        type: string
-        description: The filterid is a custom query option allows clients to filter a collection of resources using pre-defined knowledge model filter.
-        example: filterid
-    odataFilterParam:
-      in: query
-      name: $filter
-      required: false
-      schema:
-        type: string
-        description: The $filter system query option allows clients to filter a collection of resources that are addressed by a request URL.
-        example: field1 eq 'value1'
-    odataCountParam:
-      in: query
-      name: $count
-      required: false
-      schema:
-        type: boolean
-        description: The $count system query option allows clients to request a count of the matching resources included with the resources in the response. The $count query option has a Boolean value of true or false.
-        example: true
   securitySchemes:
     BearerAuth:
       type: http

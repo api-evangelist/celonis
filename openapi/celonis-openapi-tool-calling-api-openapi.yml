@@ -1,14 +1,18 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: OpenAPI Specification Agents - Conversation OpenAPI Tool Calling API
-  description: AI API to chat with Celonis Agents and run their tools.
-  x-audience: EX
-  version: v1.2.0
+  title: Agent Tools (MCP) Asset Tool Calling OpenAPI Tool Calling API
+  version: v1.0.0
+  description: OpenAPI endpoints for calling tools configured in the Agent Tools (MCP) Asset.
 servers:
-- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
-security:
-- BearerAuth: []
-- ApiKeyAuth: []
+- url: https://{team_domain}.{realm}
+  description: MCP Server Wrapper
+  variables:
+    team_domain:
+      default: my_team
+      description: Team domain name in Celonis
+    realm:
+      default: eu-1.celonis.cloud
+      description: Celonis realm (e.g., eu-1.celonis.cloud)
 tags:
 - name: OpenAPI Tool Calling
   description: OpenAPI endpoints for calling tools configured in the Agent Tools (MCP) Asset.
@@ -112,12 +116,3 @@ components:
           default: ''
       required:
       - error
-  securitySchemes:
-    BearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: AppKey

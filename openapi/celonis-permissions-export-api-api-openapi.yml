@@ -1,14 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: OpenAPI Specification Agents - Conversation Permissions Export API API
-  description: AI API to chat with Celonis Agents and run their tools.
-  x-audience: EX
-  version: v1.2.0
+  description: 'This is the documentation for the Permissions Export API that allows querying of access permissions for a Celonis team. This API supports authentication via OAuth 2.0 token with scope <tt>authorization.permissions:read</tt>, passed in an HTTP header like this: <tt>Authorization: Bearer TOKEN</tt><br/><br/>Please see [this help page](https://docs.celonis.com/en/using-oauth-2-0.html) for more information about OAuth 2.0.<br/>'
+  title: Permissions Export API
+  version: 1.0.0
 servers:
-- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+- description: Default Server URL
+  url: /
 security:
-- BearerAuth: []
-- ApiKeyAuth: []
+- Authorization: []
 tags:
 - description: Export all permissions for the team as a JSON file.
   name: Permissions Export API
@@ -71,6 +70,13 @@ components:
           type: array
           items:
             type: string
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation:
+          type: string
     PermissionExportResponse:
       type: object
       properties:
@@ -79,19 +85,9 @@ components:
           description: List of permissions
           items:
             $ref: '#/components/schemas/PermissionExportItem'
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation:
-          type: string
   securitySchemes:
-    BearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
-    ApiKeyAuth:
-      type: apiKey
+    Authorization:
+      description: Please, prefix the Token with "AppKey " or "Bearer " (word and space) to indicate   the Authorization type
       in: header
-      name: AppKey
+      name: Authorization
+      type: apiKey

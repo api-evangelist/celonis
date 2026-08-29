@@ -1,14 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: OpenAPI Specification Agents - Conversation Notebook Resources API
-  description: AI API to chat with Celonis Agents and run their tools.
-  x-audience: EX
-  version: v1.2.0
+  title: Celonis Machine Learning Workbench Notebook Resources API
+  description: Documentation for the external Machine Learning APIs. These APIs allow you to trigger executions, manage resources, and more. To access the APIs, a Bearer API Key and a team-specific AppKey must be passed in the header.
+  version: v1.0
 servers:
-- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+- description: Default Server URL
+  url: /
 security:
-- BearerAuth: []
-- ApiKeyAuth: []
+- authorization: []
 tags:
 - name: Notebook Resources
   description: The Notebook Resources API configures notebook resource such as CPU, memory, storage, and gpu.
@@ -90,6 +89,15 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
     NotebookResourcesTransport:
       type: object
       properties:
@@ -109,27 +117,9 @@ components:
       - cpu
       - memory
       - storage
-    ExceptionReference:
-      type: object
-      properties:
-        reference:
-          type: string
-        message:
-          type: string
-        shortMessage:
-          type: string
     FrontendHandledBackendError:
       type: object
       properties:
         frontendErrorKey:
           type: string
         errorInformation: {}
-  securitySchemes:
-    BearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: AppKey

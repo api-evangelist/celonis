@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
   title: OpenAPI Specification Agents - Conversation API
   description: AI API to chat with Celonis Agents and run their tools.
@@ -62,20 +62,44 @@ paths:
           $ref: '#/components/responses/DefaultResponse'
 components:
   responses:
+    Conflict:
+      description: Conflict.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    BadRequest:
+      description: Bad Request.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
     InternalError:
       description: Internal Server Error.
       content:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Problem'
-    DefaultResponse:
-      description: Default error
+    Forbidden:
+      description: Forbidden.
       content:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Problem'
-    Forbidden:
-      description: Forbidden.
+    Unauthorized:
+      description: Unauthorized access.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    DefaultResponse:
+      description: Default error
       content:
         application/problem+json:
           schema:
@@ -102,37 +126,24 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Problem'
-    NotFound:
-      description: The specified resource was not found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
-    Conflict:
-      description: Conflict.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
-    Unauthorized:
-      description: Unauthorized access.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
     ServiceUnavailable:
       description: Service Unavailable.
       content:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Problem'
-    BadRequest:
-      description: Bad Request.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
   schemas:
+    Message:
+      title: Message chat
+      type: object
+      additionalProperties: false
+      properties:
+        message:
+          type: string
+        conversationId:
+          type: string
+      required:
+      - message
     Problem:
       type: object
       properties:
@@ -157,8 +168,7 @@ components:
 
             '
           minimum: 100
-          maximum: 600
-          exclusiveMaximum: true
+          exclusiveMaximum: 600
         detail:
           type: string
           description: 'A human readable explanation specific to this occurrence of the problem that is helpful to locate the problem and give advice on how to proceed. Written in English and readable for engineers. Usually not suited for non technical stakeholders and not localized.
@@ -186,23 +196,13 @@ components:
           description: Text from Chat
           example: this is an example
         structuredOutput:
-          type: object
+          type:
+          - object
+          - 'null'
           additionalProperties: true
-          nullable: true
           description: 'This field is intended for machine-to-machine communication. The structure  is dynamic and defined by the JSON schema configured within the specific  agent’s settings. This field will only be present if a schema is defined  for the agent and the LLM successfully populates it based on the  conversation context. If no schema is configured, or if the agent provides  a purely conversational response, this field will be omitted.
 
             '
-    Message:
-      title: Message chat
-      type: object
-      additionalProperties: false
-      properties:
-        message:
-          type: string
-        conversationId:
-          type: string
-      required:
-      - message
   securitySchemes:
     BearerAuth:
       type: http

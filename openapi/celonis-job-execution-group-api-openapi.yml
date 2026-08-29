@@ -1,14 +1,13 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: OpenAPI Specification Agents - Conversation Job Execution Group API
-  description: AI API to chat with Celonis Agents and run their tools.
-  x-audience: EX
-  version: v1.2.0
+  title: Celonis Machine Learning Workbench Job Execution Group API
+  description: Documentation for the external Machine Learning APIs. These APIs allow you to trigger executions, manage resources, and more. To access the APIs, a Bearer API Key and a team-specific AppKey must be passed in the header.
+  version: v1.0
 servers:
-- url: https://30f873b4-88d4-49ba-b327-6f651d7b99e6.remockly.com
+- description: Default Server URL
+  url: /
 security:
-- BearerAuth: []
-- ApiKeyAuth: []
+- authorization: []
 tags:
 - name: Job Execution Group
   description: The Job Execution Group API retrieves job execution groups.
@@ -46,6 +45,15 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
     JobExecutionGroup:
       type: object
       properties:
@@ -71,21 +79,3 @@ components:
         frontendErrorKey:
           type: string
         errorInformation: {}
-    ExceptionReference:
-      type: object
-      properties:
-        reference:
-          type: string
-        message:
-          type: string
-        shortMessage:
-          type: string
-  securitySchemes:
-    BearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: AppKey
