@@ -1,15 +1,13 @@
 aid: celonis
 name: Celonis
-description: >-
-  Celonis is the process intelligence and process mining company. Its cloud platform
-  ingests event data from enterprise systems, builds Knowledge Models of how business
-  processes actually run, and surfaces KPIs, bottlenecks and automation opportunities.
-  For developers Celonis publishes a Developer Center with REST APIs across Process
-  Intelligence (Knowledge Model, AI Agent, Event Subscription), data ingestion and
-  push, Machine Learning Workbench, Team, Permissions and SCIM, plus an official
-  hosted Agent Tools (MCP) server, the PyCelonis Python SDK and the content-cli. Auth
-  is via OAuth 2.0 (recommended) or API keys, with page-based pagination, x-ratelimit
-  signaling and OData-style querying on the Knowledge Model API.
+description: Celonis is the process intelligence and process mining company. Its cloud platform ingests
+  event data from enterprise systems, builds Knowledge Models of how business processes actually run,
+  and surfaces KPIs, bottlenecks and automation opportunities. For developers Celonis publishes a Developer
+  Center with REST APIs across Process Intelligence (Knowledge Model, AI Agent, Event Subscription), data
+  ingestion and push, Machine Learning Workbench, Team, Permissions and SCIM, plus an official hosted
+  Agent Tools (MCP) server, the PyCelonis Python SDK and the content-cli. Auth is via OAuth 2.0 (recommended)
+  or API keys, with page-based pagination, x-ratelimit signaling and OData-style querying on the Knowledge
+  Model API.
 url: https://raw.githubusercontent.com/api-evangelist/celonis/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -44,7 +42,7 @@ accessModel:
 image: https://delivery-p141552-e1488202.adobeaemcloud.com/adobe/assets/urn:aaid:aem:df855fa1-2c83-4a48-8cad-536a7d5cb952/as/Meta_Image.png
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-18'
+modified: '2026-09-16'
 tags:
 - Company
 - Automation
@@ -82,8 +80,7 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-agents-conversation-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-beta-odata-protocol-api
@@ -97,15 +94,13 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-beta-odata-protocol-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-beta-semantics-for-3p-ai-agents-api
   name: 'Celonis Beta: Semantics for 3P AI Agents API'
-  description: >-
-    The Beta: Semantics for 3P AI Agents API from Celonis — 4 operation(s) for beta: semantics for 3p
-    ai agents.
+  description: 'The Beta: Semantics for 3P AI Agents API from Celonis — 4 operation(s) for beta: semantics
+    for 3p ai agents.'
   humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
   baseURL: https://{team_domain}.{realm}.celonis.cloud
   tags:
@@ -114,8 +109,7 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-beta-semantics-for-3p-ai-agents-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-data-api
@@ -129,8 +123,7 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-data-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-job-execution-api
@@ -144,8 +137,7 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-job-execution-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-job-execution-group-api
@@ -159,15 +151,13 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-job-execution-group-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-login-history-api-api
-  name: Celonis Login History API API
-  description: >-
-    Allows you to query the Login History for a team and export it for use with external monitoring tools
-    to capture and monitor platform login events.
+  name: Celonis Login History API
+  description: Allows you to query the Login History for a team and export it for use with external monitoring
+    tools to capture and monitor platform login events.
   humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
   baseURL: https://{team_domain}.{realm}.celonis.cloud
   tags:
@@ -176,14 +166,12 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-login-history-api-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-members-api-api
-  name: Celonis Members API API
-  description: >-
-    Allows you to query and export a list of all members assigned to a Celonis Platform team.
+  name: Celonis Members API
+  description: Allows you to query and export a list of all members assigned to a Celonis Platform team.
   humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
   baseURL: https://{team_domain}.{realm}.celonis.cloud
   tags:
@@ -192,8 +180,7 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-members-api-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-notebook-api
@@ -207,8 +194,7 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-notebook-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-notebook-execution-api
@@ -222,14 +208,13 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-notebook-execution-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-notebook-resources-api
   name: Celonis Notebook Resources API
-  description: >-
-    The Notebook Resources API configures notebook resource such as CPU, memory, storage, and gpu.
+  description: The Notebook Resources API configures notebook resource such as CPU, memory, storage, and
+    gpu.
   humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
   baseURL: https://{team_domain}.{realm}.celonis.cloud
   tags:
@@ -238,8 +223,7 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-notebook-resources-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-openapi-tool-calling-api
@@ -253,12 +237,11 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-openapi-tool-calling-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-permissions-export-api-api
-  name: Celonis Permissions Export API API
+  name: Celonis Permissions Export API
   description: Export all permissions for the team as a JSON file.
   humanURL: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/overview
   baseURL: https://{team_domain}.{realm}.celonis.cloud
@@ -268,8 +251,7 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-permissions-export-api-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-schedule-api
@@ -283,8 +265,7 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-schedule-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-schema-api
@@ -298,8 +279,7 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-schema-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-subscriptions-api
@@ -315,8 +295,7 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-subscriptions-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 - aid: celonis:celonis-triggers-api
@@ -330,8 +309,7 @@ apis:
   - type: OpenAPI
     url: openapi/celonis-triggers-api-openapi.yml
   - type: Try it
-    url: >-
-      https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
+    url: https://developer.celonis.com/process-intelligence-apis/knowledge-model-api/api-reference/try-it/
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 common:
