@@ -43,6 +43,9 @@ image: https://delivery-p141552-e1488202.adobeaemcloud.com/adobe/assets/urn:aaid
 specificationVersion: '0.23'
 created: '2026-07-17'
 modified: '2026-09-16'
+x-docs-platform: redocly
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-09-21
 tags:
 - Company
 - Automation
