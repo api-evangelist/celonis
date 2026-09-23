@@ -1,6 +1,9 @@
 openapi: 3.2.0
 info:
-  description: 'This is the documentation for the Permissions Export API that allows querying of access permissions for a Celonis team. This API supports authentication via OAuth 2.0 token with scope <tt>authorization.permissions:read</tt>, passed in an HTTP header like this: <tt>Authorization: Bearer TOKEN</tt><br/><br/>Please see [this help page](https://docs.celonis.com/en/using-oauth-2-0.html) for more information about OAuth 2.0.<br/>'
+  description: 'This is the documentation for the Permissions Export API that allows querying of access permissions for a Celonis team. This API supports authentication via OAuth 2.0 token with scope authorization.permissions:read, passed in an HTTP header like this: Authorization: Bearer TOKEN
+
+
+    Please see this help page for more information about OAuth 2.0.'
   title: Permissions Export API
   version: 1.0.0
 servers:
@@ -45,6 +48,21 @@ paths:
       - Permissions Export API
 components:
   schemas:
+    PermissionExportResponse:
+      type: object
+      properties:
+        permissions:
+          type: array
+          description: List of permissions
+          items:
+            $ref: '#/components/schemas/PermissionExportItem'
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation:
+          type: string
     PermissionExportItem:
       type: object
       properties:
@@ -70,21 +88,6 @@ components:
           type: array
           items:
             type: string
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation:
-          type: string
-    PermissionExportResponse:
-      type: object
-      properties:
-        permissions:
-          type: array
-          description: List of permissions
-          items:
-            $ref: '#/components/schemas/PermissionExportItem'
   securitySchemes:
     Authorization:
       description: Please, prefix the Token with "AppKey " or "Bearer " (word and space) to indicate   the Authorization type

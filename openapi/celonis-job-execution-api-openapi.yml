@@ -282,6 +282,12 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
     JobExecutionLogTransport:
       type: object
       properties:
@@ -292,40 +298,7 @@ components:
           format: date-time
         logLevel:
           type: string
-    ExceptionReference:
-      type: object
-      properties:
-        reference:
-          type: string
-        message:
-          type: string
-        shortMessage:
-          type: string
-    PageJobExecutionTransport:
-      type: object
-      properties:
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/JobExecutionTransport'
-        pageSize:
-          type: integer
-          format: int32
-        pageNumber:
-          type: integer
-          format: int32
-        totalCount:
-          type: integer
-          format: int64
-        first:
-          type: boolean
-        last:
-          type: boolean
-        empty:
-          type: boolean
-        totalPages:
-          type: integer
-          format: int32
+    JsonNode: {}
     JobExecution:
       type: object
       properties:
@@ -372,6 +345,40 @@ components:
         logsCleanup:
           type: boolean
         optionalTenantId:
+          type: string
+    PageJobExecutionTransport:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/JobExecutionTransport'
+        pageSize:
+          type: integer
+          format: int32
+        pageNumber:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int64
+        first:
+          type: boolean
+        last:
+          type: boolean
+        empty:
+          type: boolean
+        totalPages:
+          type: integer
+          format: int32
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
           type: string
     ApplicationKeyTransport:
       type: object
@@ -423,10 +430,3 @@ components:
           type: string
         errorMessage:
           type: string
-    JsonNode: {}
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation: {}

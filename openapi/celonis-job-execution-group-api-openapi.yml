@@ -54,6 +54,12 @@ components:
           type: string
         shortMessage:
           type: string
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
     JobExecutionGroup:
       type: object
       properties:
@@ -73,9 +79,3 @@ components:
         lastJobExecutionStartedDate:
           type: string
           format: date-time
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation: {}

@@ -12,7 +12,9 @@ tags:
 paths:
   /api/external/members:
     get:
-      description: Maximum number of members that will be received by page is 200.<br> The OAuth 2.0 scope to use is <tt>team.user-group-info:read</tt>.<br>
+      description: 'Maximum number of members that will be received by page is 200.
+
+        The OAuth 2.0 scope to use is team.user-group-info:read.'
       operationId: getMemberProfileExternalTransport
       parameters:
       - description: Page number to be retrieved. Starts with 0.
@@ -72,6 +74,22 @@ paths:
       - Members API
 components:
   schemas:
+    PageTransportMemberProfileExternalTransport:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/MemberProfileExternalTransport'
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int64
     MemberProfileExternalTransport:
       type: object
       properties:
@@ -104,22 +122,6 @@ components:
           type: string
           description: Role of the member in the Celonis Platform
           example: MEMBER
-    PageTransportMemberProfileExternalTransport:
-      type: object
-      properties:
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/MemberProfileExternalTransport'
-        pageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalCount:
-          type: integer
-          format: int64
     ExternalGroupTransport:
       type: object
       properties:

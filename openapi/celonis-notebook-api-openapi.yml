@@ -443,7 +443,7 @@ paths:
     get:
       tags:
       - Notebook
-      summary: Get a list of all versions newer than the Notebook id version provided in the parameter
+      summary: Get a list of all versions newer than the Notebook id version provided in the…
       operationId: getAllNewVersions
       parameters:
       - name: id
@@ -709,33 +709,6 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
-    NotebookTreeItem:
-      type: object
-      properties:
-        name:
-          type: string
-        path:
-          type: string
-        type:
-          type: string
-        content: {}
-        directory:
-          type: boolean
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/NotebookTreeItem'
-        notebook:
-          type: boolean
-    ExceptionReference:
-      type: object
-      properties:
-        reference:
-          type: string
-        message:
-          type: string
-        shortMessage:
-          type: string
     NotebookVersionTransport:
       type: object
       properties:
@@ -758,6 +731,74 @@ components:
           type: string
         releaseNotes:
           type: string
+    NotebookAccessInformationTransport:
+      type: object
+      properties:
+        token:
+          type: string
+        machineId:
+          type: string
+        puppetId:
+          type: string
+        publicAddress:
+          type: string
+        instanceType:
+          type: string
+        volumeDriver:
+          type: string
+        memoryLimit:
+          type: string
+        cpuCoresLimit:
+          type: string
+        diskUsageLimit:
+          type: string
+        gpuCoresLimit:
+          type: string
+        appKey:
+          type: string
+        imageUrl:
+          type: string
+        imageType:
+          type: string
+        execCommands:
+          type: array
+          items:
+            type: string
+        notebookMode:
+          type: boolean
+        routeToBedrock:
+          type: boolean
+        kubernetes:
+          type: boolean
+        withPlan:
+          type: boolean
+        migration:
+          type: boolean
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
+    NotebookResourcesTransport:
+      type: object
+      properties:
+        cpu:
+          type: number
+          format: double
+        memory:
+          type: integer
+          format: int32
+        storage:
+          type: integer
+          format: int32
+        gpu:
+          type: integer
+          format: int32
+      required:
+      - cpu
+      - memory
+      - storage
     ImageTransport:
       type: object
       properties:
@@ -801,6 +842,15 @@ components:
           format: int32
         internal:
           type: boolean
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
     NotebookTransport:
       type: object
       properties:
@@ -930,71 +980,21 @@ components:
       - agreement
       - imageId
       - name
-    NotebookAccessInformationTransport:
+    NotebookTreeItem:
       type: object
       properties:
-        token:
+        name:
           type: string
-        machineId:
+        path:
           type: string
-        puppetId:
+        type:
           type: string
-        publicAddress:
-          type: string
-        instanceType:
-          type: string
-        volumeDriver:
-          type: string
-        memoryLimit:
-          type: string
-        cpuCoresLimit:
-          type: string
-        diskUsageLimit:
-          type: string
-        gpuCoresLimit:
-          type: string
-        appKey:
-          type: string
-        imageUrl:
-          type: string
-        imageType:
-          type: string
-        execCommands:
+        content: {}
+        directory:
+          type: boolean
+        children:
           type: array
           items:
-            type: string
-        notebookMode:
+            $ref: '#/components/schemas/NotebookTreeItem'
+        notebook:
           type: boolean
-        routeToBedrock:
-          type: boolean
-        kubernetes:
-          type: boolean
-        withPlan:
-          type: boolean
-        migration:
-          type: boolean
-    NotebookResourcesTransport:
-      type: object
-      properties:
-        cpu:
-          type: number
-          format: double
-        memory:
-          type: integer
-          format: int32
-        storage:
-          type: integer
-          format: int32
-        gpu:
-          type: integer
-          format: int32
-      required:
-      - cpu
-      - memory
-      - storage
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation: {}

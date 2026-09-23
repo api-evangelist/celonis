@@ -62,48 +62,6 @@ paths:
           $ref: '#/components/responses/DefaultResponse'
 components:
   responses:
-    Conflict:
-      description: Conflict.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
-    NotFound:
-      description: The specified resource was not found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
-    BadRequest:
-      description: Bad Request.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
-    InternalError:
-      description: Internal Server Error.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
-    Forbidden:
-      description: Forbidden.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
-    Unauthorized:
-      description: Unauthorized access.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
-    DefaultResponse:
-      description: Default error
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
     TooManyRequests:
       description: Too Many Requests.
       headers:
@@ -126,8 +84,50 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Problem'
+    InternalError:
+      description: Internal Server Error.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
     ServiceUnavailable:
       description: Service Unavailable.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    BadRequest:
+      description: Bad Request.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Forbidden:
+      description: Forbidden.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Conflict:
+      description: Conflict.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    DefaultResponse:
+      description: Default error
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    Unauthorized:
+      description: Unauthorized access.
       content:
         application/problem+json:
           schema:
@@ -144,6 +144,27 @@ components:
           type: string
       required:
       - message
+    ChatResponse:
+      title: ChatResponse
+      description: Hits conversations of an specific agent
+      type: object
+      properties:
+        conversationId:
+          type: string
+          description: Conversation identifier
+          example: abc-def-ghi-etc
+        text:
+          type: string
+          description: Text from Chat
+          example: this is an example
+        structuredOutput:
+          type:
+          - object
+          - 'null'
+          additionalProperties: true
+          description: 'This field is intended for machine-to-machine communication. The structure  is dynamic and defined by the JSON schema configured within the specific  agent’s settings. This field will only be present if a schema is defined  for the agent and the LLM successfully populates it based on the  conversation context. If no schema is configured, or if the agent provides  a purely conversational response, this field will be omitted.
+
+            '
     Problem:
       type: object
       properties:
@@ -182,27 +203,6 @@ components:
 
             '
           example: /some/uri-reference#specific-occurrence-context
-    ChatResponse:
-      title: ChatResponse
-      description: Hits conversations of an specific agent
-      type: object
-      properties:
-        conversationId:
-          type: string
-          description: Conversation identifier
-          example: abc-def-ghi-etc
-        text:
-          type: string
-          description: Text from Chat
-          example: this is an example
-        structuredOutput:
-          type:
-          - object
-          - 'null'
-          additionalProperties: true
-          description: 'This field is intended for machine-to-machine communication. The structure  is dynamic and defined by the JSON schema configured within the specific  agent’s settings. This field will only be present if a schema is defined  for the agent and the LLM successfully populates it based on the  conversation context. If no schema is configured, or if the agent provides  a purely conversational response, this field will be omitted.
-
-            '
   securitySchemes:
     BearerAuth:
       type: http

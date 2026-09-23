@@ -315,57 +315,13 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
-    TriggeredExecutionGroupTransport:
+    FrontendHandledBackendError:
       type: object
       properties:
-        id:
+        frontendErrorKey:
           type: string
-        notebookId:
-          type: string
-        notebookName:
-          type: string
-        executionFileName:
-          type: string
-        lastExecutionId:
-          type: string
-        lastExecutionStatus:
-          type: string
-          enum:
-          - CREATED
-          - QUEUED
-          - STARTING
-          - STARTED
-          - COMPLETED
-          - NOTEBOOK_ERROR
-          - FAILED
-          - TIMEOUT
-          - CANCELED
-          - RESOURCES_ERROR
-          - CONFIGURATION_ERROR
-        lastExecutionStartedDate:
-          type: string
-          format: date-time
-    ExceptionReference:
-      type: object
-      properties:
-        reference:
-          type: string
-        message:
-          type: string
-        shortMessage:
-          type: string
-    NotebookExecutionLogTransport:
-      type: object
-      properties:
-        notebookExecutionId:
-          type: string
-        message:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
-        logLevel:
-          type: string
+        errorInformation: {}
+    JsonNode: {}
     PageNotebookExecutionTransport:
       type: object
       properties:
@@ -391,13 +347,15 @@ components:
         totalPages:
           type: integer
           format: int32
-    JsonNode: {}
-    FrontendHandledBackendError:
+    ExceptionReference:
       type: object
       properties:
-        frontendErrorKey:
+        reference:
           type: string
-        errorInformation: {}
+        message:
+          type: string
+        shortMessage:
+          type: string
     NotebookExecutionTransport:
       type: object
       properties:
@@ -456,3 +414,45 @@ components:
       required:
       - executionFileName
       - notebookId
+    NotebookExecutionLogTransport:
+      type: object
+      properties:
+        notebookExecutionId:
+          type: string
+        message:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        logLevel:
+          type: string
+    TriggeredExecutionGroupTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        notebookId:
+          type: string
+        notebookName:
+          type: string
+        executionFileName:
+          type: string
+        lastExecutionId:
+          type: string
+        lastExecutionStatus:
+          type: string
+          enum:
+          - CREATED
+          - QUEUED
+          - STARTING
+          - STARTED
+          - COMPLETED
+          - NOTEBOOK_ERROR
+          - FAILED
+          - TIMEOUT
+          - CANCELED
+          - RESOURCES_ERROR
+          - CONFIGURATION_ERROR
+        lastExecutionStartedDate:
+          type: string
+          format: date-time

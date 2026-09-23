@@ -46,7 +46,8 @@
     "celonis-subscription-openapi.yaml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
     "celonis-subscription-openapi.yaml: declared missing tag: Subscriptions",
     "celonis-subscription-openapi.yaml: declared missing tag: Triggers",
-    "celonis-team-openapi.yaml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0"
+    "celonis-team-openapi.yaml: upgraded openapi 3.0.1 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "celonis-agents-conversation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
