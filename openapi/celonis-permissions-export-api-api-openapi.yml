@@ -48,6 +48,13 @@ paths:
       - Permissions Export API
 components:
   schemas:
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation:
+          type: string
     PermissionExportResponse:
       type: object
       properties:
@@ -56,13 +63,6 @@ components:
           description: List of permissions
           items:
             $ref: '#/components/schemas/PermissionExportItem'
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation:
-          type: string
     PermissionExportItem:
       type: object
       properties:

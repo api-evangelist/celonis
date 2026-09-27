@@ -74,22 +74,6 @@ paths:
       - Members API
 components:
   schemas:
-    PageTransportMemberProfileExternalTransport:
-      type: object
-      properties:
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/MemberProfileExternalTransport'
-        pageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalCount:
-          type: integer
-          format: int64
     MemberProfileExternalTransport:
       type: object
       properties:
@@ -133,6 +117,22 @@ components:
           type: string
           description: Role assigned to group
           example: ANALYST
+    PageTransportMemberProfileExternalTransport:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/MemberProfileExternalTransport'
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int64
   securitySchemes:
     Authorization:
       description: Prefix the Token with "AppKey " or "Bearer " (word and space) to indicate the Authorization type

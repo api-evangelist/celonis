@@ -315,13 +315,6 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation: {}
-    JsonNode: {}
     PageNotebookExecutionTransport:
       type: object
       properties:
@@ -426,6 +419,13 @@ components:
           format: date-time
         logLevel:
           type: string
+    JsonNode: {}
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
     TriggeredExecutionGroupTransport:
       type: object
       properties:

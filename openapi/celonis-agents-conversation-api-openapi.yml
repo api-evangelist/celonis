@@ -62,6 +62,18 @@ paths:
           $ref: '#/components/responses/DefaultResponse'
 components:
   responses:
+    BadRequest:
+      description: Bad Request.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    DefaultResponse:
+      description: Default error
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
     TooManyRequests:
       description: Too Many Requests.
       headers:
@@ -90,26 +102,14 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Problem'
-    NotFound:
-      description: The specified resource was not found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
-    ServiceUnavailable:
-      description: Service Unavailable.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
-    BadRequest:
-      description: Bad Request.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/Problem'
     Forbidden:
       description: Forbidden.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+    NotFound:
+      description: The specified resource was not found
       content:
         application/problem+json:
           schema:
@@ -120,8 +120,8 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/Problem'
-    DefaultResponse:
-      description: Default error
+    ServiceUnavailable:
+      description: Service Unavailable.
       content:
         application/problem+json:
           schema:
@@ -133,17 +133,6 @@ components:
           schema:
             $ref: '#/components/schemas/Problem'
   schemas:
-    Message:
-      title: Message chat
-      type: object
-      additionalProperties: false
-      properties:
-        message:
-          type: string
-        conversationId:
-          type: string
-      required:
-      - message
     ChatResponse:
       title: ChatResponse
       description: Hits conversations of an specific agent
@@ -203,6 +192,17 @@ components:
 
             '
           example: /some/uri-reference#specific-occurrence-context
+    Message:
+      title: Message chat
+      type: object
+      additionalProperties: false
+      properties:
+        message:
+          type: string
+        conversationId:
+          type: string
+      required:
+      - message
   securitySchemes:
     BearerAuth:
       type: http

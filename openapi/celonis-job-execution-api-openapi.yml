@@ -282,23 +282,43 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
-    FrontendHandledBackendError:
+    ExceptionReference:
       type: object
       properties:
-        frontendErrorKey:
+        reference:
           type: string
-        errorInformation: {}
-    JobExecutionLogTransport:
-      type: object
-      properties:
         message:
           type: string
-        timestamp:
+        shortMessage:
+          type: string
+    JobExecutionTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        jobId:
+          type: string
+        params:
+          $ref: '#/components/schemas/JsonNode'
+        status:
+          type: string
+          enum:
+          - CREATED
+          - STARTED
+          - RUNNING
+          - COMPLETED
+          - FAILED
+          - CANCELED
+        started:
           type: string
           format: date-time
-        logLevel:
+        completed:
           type: string
-    JsonNode: {}
+          format: date-time
+        jobExecutionSource:
+          type: string
+        errorMessage:
+          type: string
     JobExecution:
       type: object
       properties:
@@ -346,6 +366,45 @@ components:
           type: boolean
         optionalTenantId:
           type: string
+    JobExecutionLogTransport:
+      type: object
+      properties:
+        message:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        logLevel:
+          type: string
+    JsonNode: {}
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
+    ApplicationKeyTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        key:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        lastUsedAt:
+          type: string
+          format: date-time
+        originalId:
+          type: string
+        teamRole:
+          type: integer
+          format: int32
+        internal:
+          type: boolean
     PageJobExecutionTransport:
       type: object
       properties:
@@ -371,62 +430,3 @@ components:
         totalPages:
           type: integer
           format: int32
-    ExceptionReference:
-      type: object
-      properties:
-        reference:
-          type: string
-        message:
-          type: string
-        shortMessage:
-          type: string
-    ApplicationKeyTransport:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        key:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        lastUsedAt:
-          type: string
-          format: date-time
-        originalId:
-          type: string
-        teamRole:
-          type: integer
-          format: int32
-        internal:
-          type: boolean
-    JobExecutionTransport:
-      type: object
-      properties:
-        id:
-          type: string
-        jobId:
-          type: string
-        params:
-          $ref: '#/components/schemas/JsonNode'
-        status:
-          type: string
-          enum:
-          - CREATED
-          - STARTED
-          - RUNNING
-          - COMPLETED
-          - FAILED
-          - CANCELED
-        started:
-          type: string
-          format: date-time
-        completed:
-          type: string
-          format: date-time
-        jobExecutionSource:
-          type: string
-        errorMessage:
-          type: string

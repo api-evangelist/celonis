@@ -104,37 +104,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/triggerFieldDTO'
-    triggerResultPage:
-      title: Trigger schema result page
-      type: object
-      additionalProperties: false
-      properties:
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/triggerDTO'
-      allOf:
-      - $ref: '#/components/schemas/schemaResultPage'
-    schemaResultPage:
-      title: Result page
-      type: object
-      properties:
-        page:
-          type: integer
-          description: Page
-          example: 0
-        pageSize:
-          type: integer
-          description: Page size, defined by pageSize parameter
-          example: 50
-        total:
-          type: integer
-          description: Total elements returned in the page
-          example: 1
-        sort:
-          type: string
-          description: Field used to apply sorting to the requested data, + or no symbol means ASC, - means DESC
-          example: +id
     errorDTO:
       title: Error
       type: object
@@ -155,6 +124,49 @@ components:
         type:
           type: string
           description: A URI reference [RFC3986] that identifies the problem type. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+    triggerDTO:
+      title: Trigger
+      description: Trigger defined at KM
+      type: object
+      properties:
+        id:
+          type: string
+          description: Trigger's Unique identifier as a SUID
+          example: abc-123-bad-123
+        record:
+          type: string
+          description: Record's Unique identifier as a SUID
+          example: efg-456-efg-456
+        name:
+          type: string
+          description: Human understandable Trigger name
+          example: Blocked Orders
+    schemaResultPage:
+      title: Result page
+      type: object
+      properties:
+        page:
+          type: integer
+          description: Page
+          example: 0
+        pageSize:
+          type: integer
+          description: Page size, defined by pageSize parameter
+          example: 50
+        total:
+          type: integer
+          description: Total elements returned in the page
+          example: 1
+        sort:
+          type: string
+          description: Field used to apply sorting to the requested data, + or no symbol means ASC, - means DESC
+          example: +id
+    authErrorDTO:
+      title: Authentication Error
+      type: object
+      properties:
+        error:
+          type: string
     triggerFieldDTO:
       title: Trigger Field
       description: Fields for a Trigger
@@ -184,30 +196,30 @@ components:
           type: string
           example: euros
           description: Unit added to field value
-    triggerDTO:
-      title: Trigger
-      description: Trigger defined at KM
+    triggerResultPage:
+      title: Trigger schema result page
       type: object
+      additionalProperties: false
       properties:
-        id:
-          type: string
-          description: Trigger's Unique identifier as a SUID
-          example: abc-123-bad-123
-        record:
-          type: string
-          description: Record's Unique identifier as a SUID
-          example: efg-456-efg-456
-        name:
-          type: string
-          description: Human understandable Trigger name
-          example: Blocked Orders
-    authErrorDTO:
-      title: Authentication Error
-      type: object
-      properties:
-        error:
-          type: string
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/triggerDTO'
+      allOf:
+      - $ref: '#/components/schemas/schemaResultPage'
   responses:
+    BadRequest:
+      description: Bad Request.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    Forbidden:
+      description: Forbidden.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
     InternalError:
       description: Internal Server Error.
       content:
@@ -222,18 +234,6 @@ components:
             $ref: '#/components/schemas/errorDTO'
     ServiceUnavailable:
       description: Service Unavailable.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    Forbidden:
-      description: Forbidden.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    BadRequest:
-      description: Bad Request.
       content:
         application/problem+json:
           schema:
@@ -254,6 +254,15 @@ components:
         minimum: 0
         default: 0
         description: The page number of the result, starting by 0 (first page)
+    pageSizeParam:
+      in: query
+      name: pageSize
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 50
+        description: The number of items returned in a page.
     singleSortParam:
       style: form
       explode: false
@@ -265,15 +274,6 @@ components:
         type: string
         example:
         - -field1
-    pageSizeParam:
-      in: query
-      name: pageSize
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 50
-        description: The number of items returned in a page.
   securitySchemes:
     BearerAuth:
       type: http
