@@ -45,21 +45,6 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
-    ExceptionReference:
-      type: object
-      properties:
-        reference:
-          type: string
-        message:
-          type: string
-        shortMessage:
-          type: string
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation: {}
     JobExecutionGroup:
       type: object
       properties:
@@ -79,3 +64,18 @@ components:
         lastJobExecutionStartedDate:
           type: string
           format: date-time
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}

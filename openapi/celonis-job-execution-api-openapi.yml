@@ -282,15 +282,7 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
-    ExceptionReference:
-      type: object
-      properties:
-        reference:
-          type: string
-        message:
-          type: string
-        shortMessage:
-          type: string
+    JsonNode: {}
     JobExecutionTransport:
       type: object
       properties:
@@ -318,6 +310,43 @@ components:
         jobExecutionSource:
           type: string
         errorMessage:
+          type: string
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
+    ApplicationKeyTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        key:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        lastUsedAt:
+          type: string
+          format: date-time
+        originalId:
+          type: string
+        teamRole:
+          type: integer
+          format: int32
+        internal:
+          type: boolean
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
           type: string
     JobExecution:
       type: object
@@ -366,45 +395,6 @@ components:
           type: boolean
         optionalTenantId:
           type: string
-    JobExecutionLogTransport:
-      type: object
-      properties:
-        message:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
-        logLevel:
-          type: string
-    JsonNode: {}
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation: {}
-    ApplicationKeyTransport:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        key:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        lastUsedAt:
-          type: string
-          format: date-time
-        originalId:
-          type: string
-        teamRole:
-          type: integer
-          format: int32
-        internal:
-          type: boolean
     PageJobExecutionTransport:
       type: object
       properties:
@@ -430,3 +420,13 @@ components:
         totalPages:
           type: integer
           format: int32
+    JobExecutionLogTransport:
+      type: object
+      properties:
+        message:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        logLevel:
+          type: string

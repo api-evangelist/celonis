@@ -315,39 +315,17 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
-    PageNotebookExecutionTransport:
+    NotebookExecutionLogTransport:
       type: object
       properties:
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/NotebookExecutionTransport'
-        pageSize:
-          type: integer
-          format: int32
-        pageNumber:
-          type: integer
-          format: int32
-        totalCount:
-          type: integer
-          format: int64
-        first:
-          type: boolean
-        last:
-          type: boolean
-        empty:
-          type: boolean
-        totalPages:
-          type: integer
-          format: int32
-    ExceptionReference:
-      type: object
-      properties:
-        reference:
+        notebookExecutionId:
           type: string
         message:
           type: string
-        shortMessage:
+        timestamp:
+          type: string
+          format: date-time
+        logLevel:
           type: string
     NotebookExecutionTransport:
       type: object
@@ -407,18 +385,6 @@ components:
       required:
       - executionFileName
       - notebookId
-    NotebookExecutionLogTransport:
-      type: object
-      properties:
-        notebookExecutionId:
-          type: string
-        message:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
-        logLevel:
-          type: string
     JsonNode: {}
     FrontendHandledBackendError:
       type: object
@@ -426,6 +392,15 @@ components:
         frontendErrorKey:
           type: string
         errorInformation: {}
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
     TriggeredExecutionGroupTransport:
       type: object
       properties:
@@ -456,3 +431,28 @@ components:
         lastExecutionStartedDate:
           type: string
           format: date-time
+    PageNotebookExecutionTransport:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/NotebookExecutionTransport'
+        pageSize:
+          type: integer
+          format: int32
+        pageNumber:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int64
+        first:
+          type: boolean
+        last:
+          type: boolean
+        empty:
+          type: boolean
+        totalPages:
+          type: integer
+          format: int32

@@ -104,22 +104,6 @@ components:
           format: date-time
           description: Date and time when event occurred in ISO 8601 UTC format
           example: '2021-01-08T16:36:29.003Z'
-    PageTransportAuthenticationEventExternalTransport:
-      type: object
-      properties:
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/AuthenticationEventExternalTransport'
-        pageNumber:
-          type: integer
-          format: int32
-        pageSize:
-          type: integer
-          format: int32
-        totalCount:
-          type: integer
-          format: int64
     AuthenticationEventType:
       type: string
       description: Category of the Login History Event
@@ -139,6 +123,22 @@ components:
       - INVALID_2FA_TOKEN
       - INVALID_PROVIDER
       example: LOGIN
+    PageTransportAuthenticationEventExternalTransport:
+      type: object
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/AuthenticationEventExternalTransport'
+        pageNumber:
+          type: integer
+          format: int32
+        pageSize:
+          type: integer
+          format: int32
+        totalCount:
+          type: integer
+          format: int64
   securitySchemes:
     Authorization:
       description: Prefix the Token with "AppKey " or "Bearer " (word and space) to indicate the Authorization type

@@ -316,6 +316,116 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
+    NotebookExecutionTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        notebookId:
+          type: string
+        notebookExecutionSourceId:
+          type: string
+        notebookExecutionSource:
+          type: string
+        executionFileName:
+          type: string
+        notebookExecutionStatus:
+          type: string
+          enum:
+          - CREATED
+          - QUEUED
+          - STARTING
+          - STARTED
+          - COMPLETED
+          - NOTEBOOK_ERROR
+          - FAILED
+          - TIMEOUT
+          - CANCELED
+          - RESOURCES_ERROR
+          - CONFIGURATION_ERROR
+        started:
+          type: string
+          format: date-time
+        completed:
+          type: string
+          format: date-time
+        params:
+          $ref: '#/components/schemas/JsonNode'
+        result:
+          type: string
+        logsOutputPath:
+          type: string
+        executionTimeout:
+          type: integer
+          format: int32
+        maxRetries:
+          type: integer
+          format: int32
+        timeUnit:
+          type: string
+          enum:
+          - NANOSECONDS
+          - MICROSECONDS
+          - MILLISECONDS
+          - SECONDS
+          - MINUTES
+          - HOURS
+          - DAYS
+      required:
+      - executionFileName
+      - notebookId
+    SchedulingConfig:
+      type: object
+      properties:
+        executionPattern:
+          type: string
+          enum:
+          - HOURLY
+          - X_HOURLY
+          - DAILY
+          - WEEKLY
+          - MONTHLY
+          - CUSTOM
+        minute:
+          type: integer
+          format: int32
+        everyXHours:
+          type: integer
+          format: int32
+        time:
+          type: string
+        day:
+          type: integer
+          format: int32
+        weekDays:
+          type: array
+          items:
+            type: integer
+            format: int32
+        monthPattern:
+          type: string
+          enum:
+          - SPECIFIC_DAY
+          - LAST_DAY
+        customCron:
+          type: string
+        timezoneId:
+          type: string
+        lastExecutionDate:
+          type: string
+          format: date-time
+        nextExecutionDate:
+          type: string
+          format: date-time
+        enabled:
+          type: boolean
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
+    JsonNode: {}
     SchedulingTransport:
       type: object
       properties:
@@ -449,109 +559,6 @@ components:
           type: string
         shortMessage:
           type: string
-    NotebookExecutionTransport:
-      type: object
-      properties:
-        id:
-          type: string
-        notebookId:
-          type: string
-        notebookExecutionSourceId:
-          type: string
-        notebookExecutionSource:
-          type: string
-        executionFileName:
-          type: string
-        notebookExecutionStatus:
-          type: string
-          enum:
-          - CREATED
-          - QUEUED
-          - STARTING
-          - STARTED
-          - COMPLETED
-          - NOTEBOOK_ERROR
-          - FAILED
-          - TIMEOUT
-          - CANCELED
-          - RESOURCES_ERROR
-          - CONFIGURATION_ERROR
-        started:
-          type: string
-          format: date-time
-        completed:
-          type: string
-          format: date-time
-        params:
-          $ref: '#/components/schemas/JsonNode'
-        result:
-          type: string
-        logsOutputPath:
-          type: string
-        executionTimeout:
-          type: integer
-          format: int32
-        maxRetries:
-          type: integer
-          format: int32
-        timeUnit:
-          type: string
-          enum:
-          - NANOSECONDS
-          - MICROSECONDS
-          - MILLISECONDS
-          - SECONDS
-          - MINUTES
-          - HOURS
-          - DAYS
-      required:
-      - executionFileName
-      - notebookId
-    SchedulingConfig:
-      type: object
-      properties:
-        executionPattern:
-          type: string
-          enum:
-          - HOURLY
-          - X_HOURLY
-          - DAILY
-          - WEEKLY
-          - MONTHLY
-          - CUSTOM
-        minute:
-          type: integer
-          format: int32
-        everyXHours:
-          type: integer
-          format: int32
-        time:
-          type: string
-        day:
-          type: integer
-          format: int32
-        weekDays:
-          type: array
-          items:
-            type: integer
-            format: int32
-        monthPattern:
-          type: string
-          enum:
-          - SPECIFIC_DAY
-          - LAST_DAY
-        customCron:
-          type: string
-        timezoneId:
-          type: string
-        lastExecutionDate:
-          type: string
-          format: date-time
-        nextExecutionDate:
-          type: string
-          format: date-time
-        enabled:
-          type: boolean
     PageNotebookExecutionTransport:
       type: object
       properties:
@@ -577,10 +584,3 @@ components:
         totalPages:
           type: integer
           format: int32
-    JsonNode: {}
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation: {}

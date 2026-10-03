@@ -196,6 +196,211 @@ paths:
         '503':
           $ref: '#/components/responses/ServiceUnavailable'
 components:
+  parameters:
+    sortParamKm:
+      style: form
+      explode: false
+      in: query
+      name: sort
+      required: false
+      description: 'Defines the order in which results are returned (Knowledge Model–level GET).
+
+
+        The `sortParamKm` query parameter must be a comma-separated list of record fields and/or KPIs.
+
+        Any value used in `sortParamKm` **must also be included** in the `fields` or `kpis` parameters.
+
+        If a value appears in `sortParamKm` but is **not** included in `fields` or `kpis`, the API cannot evaluate it and sorting will not be applied correctly.
+
+
+        If a non-existing field is provided, the request will return an error.
+
+
+        Sort direction is specified using optional prefixes:
+
+        - `+` for ascending order (ASC)
+
+        - `-` for descending order (DESC)
+
+        - No prefix defaults to ascending order (ASC)
+
+
+        **Examples**
+
+        - `sortParamKm=+record1_id.field1` (sorting in ascending order by a record field)
+
+        - `sortParamKm=-record1_id.field2,kpi1` (sorting in descending order by a record field and in ascending order by a KPI)
+
+        - `sortParamKm=record1_id.field1,-kpi2` (sorting in ascending order by a record field and in descending order by a KPI)
+
+        - `sortParamKm=-kpi1` (sorting in descending order by a KPI)'
+      schema:
+        type: array
+        items:
+          type: string
+          example: +record1_id.field1,-record1_id.field2,kpi1
+    sampleSizeParam:
+      in: query
+      name: sampleSize
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 10
+        description: The number of items returned in a sample.
+    searchTerm:
+      in: query
+      name: searchTerm
+      required: false
+      schema:
+        type: string
+        description: The term to search for. The search will attempt to find matches that are similar to this term.
+    options:
+      style: form
+      explode: false
+      in: query
+      name: options
+      required: false
+      description: "Set different **options to customize the data results** for a query. Supported options \n* **Distinct**: Enable the unique data results for a query\n"
+      schema:
+        type: array
+        items:
+          type: string
+          example: distinct
+    pageParam:
+      in: query
+      name: page
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+        description: The page number of the result, starting by 0 (first page)
+    fieldsOptionalParam:
+      style: form
+      explode: false
+      in: query
+      name: fields
+      required: false
+      allowEmptyValue: false
+      schema:
+        type: array
+        items:
+          type: string
+          description: A predefined filter id
+          example: active,approval
+    filterExprParam:
+      style: form
+      explode: true
+      in: query
+      name: filterExpr
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          description: Dynamic filter expressions
+          example: active eq true and name not eq 'John Doe'
+    searchField:
+      in: query
+      name: searchField
+      required: false
+      schema:
+        type: string
+        description: The specific field within the data structure that is targeted by the search.
+    excludFieldsOptionalParam:
+      style: form
+      explode: false
+      in: query
+      name: excludeFields
+      required: false
+      allowEmptyValue: false
+      schema:
+        type: array
+        items:
+          type: string
+          description: Field id from a record
+          example: active,approval
+    filtersParam:
+      style: form
+      explode: false
+      in: query
+      name: filters
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          description: A predefined filter id
+          example: active_incidents,cel_and_kpi
+    sortParamRecord:
+      style: form
+      explode: false
+      in: query
+      name: sort
+      required: false
+      description: 'Defines the order in which results are returned (record-level GET).
+
+
+        The `sortParamRecord` query parameter must be a comma-separated list of record fields.
+
+        Any value used in `sortParamRecord` **must also be included** in the `fields` parameter.
+
+        If a value appears in `sortParamRecord` but is **not** included in `fields`, the API cannot evaluate it and sorting will not be applied correctly.
+
+
+        If a non-existing field is provided, the request will return an error.
+
+
+        Sort direction is specified using optional prefixes:
+
+        - `+` for ascending order (ASC)
+
+        - `-` for descending order (DESC)
+
+        - No prefix defaults to ascending order (ASC)
+
+
+        **Examples**
+
+        - `sortParamRecord=+field1` (sorting in ascending order by a record field)
+
+        - `sortParamRecord=-field2,field1` (sorting in descending order by a record field and in ascending order by another record field)'
+      schema:
+        type: array
+        items:
+          type: string
+          example: +field1,-field2,field3
+    searchPrecision:
+      in: query
+      name: searchPrecision
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        description: The strictness of the fuzzy matching algorithm. A lower value will return less accurate matches (more 'fuzzy').
+    pageSizeParam:
+      in: query
+      name: pageSize
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 50
+        description: The number of items returned in a page.
+    kpisParam:
+      style: form
+      explode: false
+      in: query
+      name: kpis
+      required: false
+      schema:
+        type: array
+        items:
+          type: string
+          description: As many kpi ids if they exists in the knowledge model
+          example: AVG_EVENTS_PER_CASE,FILTERED_COUNT
   schemas:
     resultPage:
       title: Result page
@@ -218,26 +423,129 @@ components:
           items:
             type: string
             example: material_number
-    errorDTO:
-      title: Error
+    SecurityRequirement:
       type: object
-      description: This [RFC7807] specification is to define common error formats for those applications that need one, so that they aren't required to define their own, or worse, tempted to redefine the semantics of existing HTTP status codes. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+      additionalProperties:
+        type: array
+        items:
+          type: string
+    openApiSpecDTO:
       properties:
-        title:
+        openapi:
           type: string
-          description: A short, human-readable summary of the problem type.  It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4). This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
-        status:
-          type: integer
-          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
-        detail:
+          pattern: ^3\.0\.\d(-.+)?$
+        info:
+          type: object
+          required:
+          - title
+          - version
+          properties:
+            title:
+              type: string
+            description:
+              type: string
+            termsOfService:
+              type: string
+              format: uri-reference
+            contact:
+              type: object
+              properties:
+                name:
+                  type: string
+                url:
+                  type: string
+                  format: uri-reference
+            version:
+              type: string
+            x-audience:
+              type: string
+              example: EX
+        servers:
+          type: array
+          items:
+            type: object
+            required:
+            - url
+            properties:
+              url:
+                type: string
+        security:
+          type: array
+          items:
+            $ref: '#/components/schemas/SecurityRequirement'
+        paths:
+          $ref: '#/components/schemas/Paths'
+        components:
+          $ref: '#/components/schemas/Components'
+    Reference:
+      type: object
+      properties:
+        $ref:
           type: string
-          description: The details of the Error
-        errorCode:
+          format: uri-reference
+    authErrorDTO:
+      title: Authentication Error
+      type: object
+      properties:
+        error:
           type: string
-          description: Unique Identifier of the Error
-        type:
-          type: string
-          description: A URI reference [RFC3986] that identifies the problem type. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+    recordItemDTO:
+      title: Record Item
+      type: object
+      properties:
+        headers:
+          type: array
+          items:
+            $ref: '#/components/schemas/recordItemHeaderDTO'
+          example:
+          - id: material_name
+            name: Material name
+            type: string
+            format: ''
+            unit: ''
+            aggregation: 'false'
+            filterable: 'true'
+            sortable: 'true'
+          - id: material_number
+            name: Material number
+            type: string
+            format: ''
+            unit: ''
+            aggregation: 'false'
+            filterable: 'true'
+            sortable: 'true'
+          - id: material_group
+            name: Material group
+            type: string
+            format: ''
+            unit: ''
+            aggregation: 'false'
+            filterable: 'true'
+            sortable: 'true'
+        data:
+          type: array
+          description: List of record item, compound with name and value
+          items:
+            additionalProperties: {}
+            example:
+            - material_name: PC Installation / Configuration
+              material_number: I-1000
+              material_group: Services
+    queryResultPageDTO:
+      title: Query data result page
+      type: object
+      additionalProperties: false
+      properties:
+        content:
+          type: array
+          items:
+            additionalProperties: {}
+            example:
+            - material_name: PC Installation / Configuration
+              material_number: I-1000
+              material_group: Services
+      allOf:
+      - $ref: '#/components/schemas/resultPage'
     recordSummaryResultPageDTO:
       title: Record data result page
       type: object
@@ -289,26 +597,6 @@ components:
             75_percentile:
               type: number
               description: percentile (applicable only to numeric fields)
-    authErrorDTO:
-      title: Authentication Error
-      type: object
-      properties:
-        error:
-          type: string
-    Components:
-      type: object
-      properties:
-        schemas:
-          type: object
-          oneOf:
-          - $ref: '#/components/schemas/Schema'
-          - $ref: '#/components/schemas/Reference'
-    Reference:
-      type: object
-      properties:
-        $ref:
-          type: string
-          format: uri-reference
     Schema:
       type: object
       properties:
@@ -422,120 +710,37 @@ components:
           default: false
         example: {}
       additionalProperties: false
-    recordItemDTO:
-      title: Record Item
-      type: object
-      properties:
-        headers:
-          type: array
-          items:
-            $ref: '#/components/schemas/recordItemHeaderDTO'
-          example:
-          - id: material_name
-            name: Material name
-            type: string
-            format: ''
-            unit: ''
-            aggregation: 'false'
-            filterable: 'true'
-            sortable: 'true'
-          - id: material_number
-            name: Material number
-            type: string
-            format: ''
-            unit: ''
-            aggregation: 'false'
-            filterable: 'true'
-            sortable: 'true'
-          - id: material_group
-            name: Material group
-            type: string
-            format: ''
-            unit: ''
-            aggregation: 'false'
-            filterable: 'true'
-            sortable: 'true'
-        data:
-          type: array
-          description: List of record item, compound with name and value
-          items:
-            additionalProperties: {}
-            example:
-            - material_name: PC Installation / Configuration
-              material_number: I-1000
-              material_group: Services
     Paths:
       type: object
       additionalProperties: false
-    SecurityRequirement:
+    errorDTO:
+      title: Error
       type: object
-      additionalProperties:
-        type: array
-        items:
+      description: This [RFC7807] specification is to define common error formats for those applications that need one, so that they aren't required to define their own, or worse, tempted to redefine the semantics of existing HTTP status codes. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+      properties:
+        title:
           type: string
-    queryResultPageDTO:
-      title: Query data result page
+          description: A short, human-readable summary of the problem type.  It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization (e.g., using proactive content negotiation; see [RFC7231], Section 3.4). This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+        status:
+          type: integer
+          description: The HTTP status code ([RFC7231], Section 6) generated by the origin server for this occurrence of the problem. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+        detail:
+          type: string
+          description: The details of the Error
+        errorCode:
+          type: string
+          description: Unique Identifier of the Error
+        type:
+          type: string
+          description: A URI reference [RFC3986] that identifies the problem type. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+    Components:
       type: object
-      additionalProperties: false
       properties:
-        content:
-          type: array
-          items:
-            additionalProperties: {}
-            example:
-            - material_name: PC Installation / Configuration
-              material_number: I-1000
-              material_group: Services
-      allOf:
-      - $ref: '#/components/schemas/resultPage'
-    openApiSpecDTO:
-      properties:
-        openapi:
-          type: string
-          pattern: ^3\.0\.\d(-.+)?$
-        info:
+        schemas:
           type: object
-          required:
-          - title
-          - version
-          properties:
-            title:
-              type: string
-            description:
-              type: string
-            termsOfService:
-              type: string
-              format: uri-reference
-            contact:
-              type: object
-              properties:
-                name:
-                  type: string
-                url:
-                  type: string
-                  format: uri-reference
-            version:
-              type: string
-            x-audience:
-              type: string
-              example: EX
-        servers:
-          type: array
-          items:
-            type: object
-            required:
-            - url
-            properties:
-              url:
-                type: string
-        security:
-          type: array
-          items:
-            $ref: '#/components/schemas/SecurityRequirement'
-        paths:
-          $ref: '#/components/schemas/Paths'
-        components:
-          $ref: '#/components/schemas/Components'
+          oneOf:
+          - $ref: '#/components/schemas/Schema'
+          - $ref: '#/components/schemas/Reference'
     recordItemHeaderDTO:
       title: Record Item Header
       type: object
@@ -576,242 +781,7 @@ components:
           type: boolean
           default: false
           description: Indicate if the field could be sorted.
-  parameters:
-    sortParamRecord:
-      style: form
-      explode: false
-      in: query
-      name: sort
-      required: false
-      description: 'Defines the order in which results are returned (record-level GET).
-
-
-        The `sortParamRecord` query parameter must be a comma-separated list of record fields.
-
-        Any value used in `sortParamRecord` **must also be included** in the `fields` parameter.
-
-        If a value appears in `sortParamRecord` but is **not** included in `fields`, the API cannot evaluate it and sorting will not be applied correctly.
-
-
-        If a non-existing field is provided, the request will return an error.
-
-
-        Sort direction is specified using optional prefixes:
-
-        - `+` for ascending order (ASC)
-
-        - `-` for descending order (DESC)
-
-        - No prefix defaults to ascending order (ASC)
-
-
-        **Examples**
-
-        - `sortParamRecord=+field1` (sorting in ascending order by a record field)
-
-        - `sortParamRecord=-field2,field1` (sorting in descending order by a record field and in ascending order by another record field)'
-      schema:
-        type: array
-        items:
-          type: string
-          example: +field1,-field2,field3
-    kpisParam:
-      style: form
-      explode: false
-      in: query
-      name: kpis
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-          description: As many kpi ids if they exists in the knowledge model
-          example: AVG_EVENTS_PER_CASE,FILTERED_COUNT
-    options:
-      style: form
-      explode: false
-      in: query
-      name: options
-      required: false
-      description: "Set different **options to customize the data results** for a query. Supported options \n* **Distinct**: Enable the unique data results for a query\n"
-      schema:
-        type: array
-        items:
-          type: string
-          example: distinct
-    searchField:
-      in: query
-      name: searchField
-      required: false
-      schema:
-        type: string
-        description: The specific field within the data structure that is targeted by the search.
-    excludFieldsOptionalParam:
-      style: form
-      explode: false
-      in: query
-      name: excludeFields
-      required: false
-      allowEmptyValue: false
-      schema:
-        type: array
-        items:
-          type: string
-          description: Field id from a record
-          example: active,approval
-    filterExprParam:
-      style: form
-      explode: true
-      in: query
-      name: filterExpr
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-          description: Dynamic filter expressions
-          example: active eq true and name not eq 'John Doe'
-    fieldsOptionalParam:
-      style: form
-      explode: false
-      in: query
-      name: fields
-      required: false
-      allowEmptyValue: false
-      schema:
-        type: array
-        items:
-          type: string
-          description: A predefined filter id
-          example: active,approval
-    pageParam:
-      in: query
-      name: page
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-        description: The page number of the result, starting by 0 (first page)
-    sortParamKm:
-      style: form
-      explode: false
-      in: query
-      name: sort
-      required: false
-      description: 'Defines the order in which results are returned (Knowledge Model–level GET).
-
-
-        The `sortParamKm` query parameter must be a comma-separated list of record fields and/or KPIs.
-
-        Any value used in `sortParamKm` **must also be included** in the `fields` or `kpis` parameters.
-
-        If a value appears in `sortParamKm` but is **not** included in `fields` or `kpis`, the API cannot evaluate it and sorting will not be applied correctly.
-
-
-        If a non-existing field is provided, the request will return an error.
-
-
-        Sort direction is specified using optional prefixes:
-
-        - `+` for ascending order (ASC)
-
-        - `-` for descending order (DESC)
-
-        - No prefix defaults to ascending order (ASC)
-
-
-        **Examples**
-
-        - `sortParamKm=+record1_id.field1` (sorting in ascending order by a record field)
-
-        - `sortParamKm=-record1_id.field2,kpi1` (sorting in descending order by a record field and in ascending order by a KPI)
-
-        - `sortParamKm=record1_id.field1,-kpi2` (sorting in ascending order by a record field and in descending order by a KPI)
-
-        - `sortParamKm=-kpi1` (sorting in descending order by a KPI)'
-      schema:
-        type: array
-        items:
-          type: string
-          example: +record1_id.field1,-record1_id.field2,kpi1
-    pageSizeParam:
-      in: query
-      name: pageSize
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 50
-        description: The number of items returned in a page.
-    searchTerm:
-      in: query
-      name: searchTerm
-      required: false
-      schema:
-        type: string
-        description: The term to search for. The search will attempt to find matches that are similar to this term.
-    filtersParam:
-      style: form
-      explode: false
-      in: query
-      name: filters
-      required: false
-      schema:
-        type: array
-        items:
-          type: string
-          description: A predefined filter id
-          example: active_incidents,cel_and_kpi
-    searchPrecision:
-      in: query
-      name: searchPrecision
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        description: The strictness of the fuzzy matching algorithm. A lower value will return less accurate matches (more 'fuzzy').
-    sampleSizeParam:
-      in: query
-      name: sampleSize
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 10
-        description: The number of items returned in a sample.
   responses:
-    Forbidden:
-      description: Forbidden.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    InternalError:
-      description: Internal Server Error.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    NotFound:
-      description: The specified resource was not found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    BadRequest:
-      description: Bad Request.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    Unauthorized:
-      description: Unauthorized access.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/authErrorDTO'
     TooManyRequests:
       description: Too Many Requests.
       headers:
@@ -834,8 +804,38 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/errorDTO'
+    BadRequest:
+      description: Bad Request.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    Unauthorized:
+      description: Unauthorized access.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/authErrorDTO'
+    InternalError:
+      description: Internal Server Error.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    Forbidden:
+      description: Forbidden.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
     ServiceUnavailable:
       description: Service Unavailable.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    NotFound:
+      description: The specified resource was not found
       content:
         application/problem+json:
           schema:
