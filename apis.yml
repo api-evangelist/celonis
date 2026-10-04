@@ -321,6 +321,9 @@ apis:
   - type: Webhooks
     url: asyncapi/celonis-subscription-webhooks.yml
 common:
+- type: CapabilityMap
+  url: capabilities/celonis-capability-edges.yml
+  name: Celonis Business Capability Map
 - type: Overlay
   url: overlays/celonis-knowledge-model-overlay.yaml
 - type: PostmanWorkspace

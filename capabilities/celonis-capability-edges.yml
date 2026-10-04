@@ -1,0 +1,34 @@
+slug: celonis
+provider: Celonis
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Permissions Export API
+  spec_file: celonis-permissions-export-api-api-openapi.yml
+  capability_id: BC-620.20
+  capability_id_l1: BC-620
+  capability_name: Identity & Access Management
+  confidence: 0.75
+  evidence: '"allows querying of access permissions for a Celonis team"; "Export permissions"; schema
+    PermissionExportItem'
+  reason: Reads and exports access permissions for a team — plainly an access-management/entitlement reporting
+    surface, mapping to Identity & Access Management.
+- tag: Agents - Conversation
+  spec_file: celonis-agents-conversation-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: AI API to chat with Celonis Agents and run their tools.
+  reason: Conversational AI agent invocation with tool execution; the operational AI/assistant surface
+    maps to Artificial Intelligence Management. Some ambiguity vs process intelligence, so moderate confidence.
