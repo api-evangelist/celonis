@@ -89,21 +89,6 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation: {}
-    ExceptionReference:
-      type: object
-      properties:
-        reference:
-          type: string
-        message:
-          type: string
-        shortMessage:
-          type: string
     NotebookResourcesTransport:
       type: object
       properties:
@@ -123,3 +108,18 @@ components:
       - cpu
       - memory
       - storage
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}

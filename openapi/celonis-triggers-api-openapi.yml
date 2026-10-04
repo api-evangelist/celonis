@@ -86,7 +86,61 @@ paths:
         '503':
           $ref: '#/components/responses/ServiceUnavailable'
 components:
+  responses:
+    Unauthorized:
+      description: Unauthorized access.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/authErrorDTO'
+    NotFound:
+      description: The specified resource was not found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    InternalError:
+      description: Internal Server Error.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    Forbidden:
+      description: Forbidden.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    BadRequest:
+      description: Bad Request.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    ServiceUnavailable:
+      description: Service Unavailable.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
   schemas:
+    triggerResultPage:
+      title: Trigger schema result page
+      type: object
+      additionalProperties: false
+      properties:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/triggerDTO'
+      allOf:
+      - $ref: '#/components/schemas/schemaResultPage'
+    authErrorDTO:
+      title: Authentication Error
+      type: object
+      properties:
+        error:
+          type: string
     errorDTO:
       title: Error
       type: object
@@ -107,52 +161,6 @@ components:
         type:
           type: string
           description: A URI reference [RFC3986] that identifies the problem type. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
-    triggerResultPage:
-      title: Trigger schema result page
-      type: object
-      additionalProperties: false
-      properties:
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/triggerDTO'
-      allOf:
-      - $ref: '#/components/schemas/schemaResultPage'
-    authErrorDTO:
-      title: Authentication Error
-      type: object
-      properties:
-        error:
-          type: string
-    triggerFieldDTO:
-      title: Trigger Field
-      description: Fields for a Trigger
-      type: object
-      properties:
-        name:
-          type: string
-          example: Amount in euros pending to pay
-          description: human understandable name
-        type:
-          type: string
-          enum:
-          - string
-          - date
-          - time
-          - integer
-          - boolean
-          - number
-          - datetime
-          - timestamp
-          - float
-        format:
-          type: string
-          example: '#.###'
-          description: Format to be applied
-        unit:
-          type: string
-          example: euros
-          description: Unit added to field value
     schemaResultPage:
       title: Result page
       type: object
@@ -207,18 +215,36 @@ components:
           type: string
           description: Human understandable Trigger name
           example: Blocked Orders
+    triggerFieldDTO:
+      title: Trigger Field
+      description: Fields for a Trigger
+      type: object
+      properties:
+        name:
+          type: string
+          example: Amount in euros pending to pay
+          description: human understandable name
+        type:
+          type: string
+          enum:
+          - string
+          - date
+          - time
+          - integer
+          - boolean
+          - number
+          - datetime
+          - timestamp
+          - float
+        format:
+          type: string
+          example: '#.###'
+          description: Format to be applied
+        unit:
+          type: string
+          example: euros
+          description: Unit added to field value
   parameters:
-    singleSortParam:
-      style: form
-      explode: false
-      in: query
-      name: sort
-      required: false
-      description: Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with "+" to apply ASC order or "-" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error
-      schema:
-        type: string
-        example:
-        - -field1
     pageSizeParam:
       in: query
       name: pageSize
@@ -237,43 +263,17 @@ components:
         minimum: 0
         default: 0
         description: The page number of the result, starting by 0 (first page)
-  responses:
-    Unauthorized:
-      description: Unauthorized access.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/authErrorDTO'
-    NotFound:
-      description: The specified resource was not found
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    InternalError:
-      description: Internal Server Error.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    Forbidden:
-      description: Forbidden.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    BadRequest:
-      description: Bad Request.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    ServiceUnavailable:
-      description: Service Unavailable.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
+    singleSortParam:
+      style: form
+      explode: false
+      in: query
+      name: sort
+      required: false
+      description: Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with "+" to apply ASC order or "-" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error
+      schema:
+        type: string
+        example:
+        - -field1
   securitySchemes:
     BearerAuth:
       type: http

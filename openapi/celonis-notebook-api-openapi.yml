@@ -709,147 +709,6 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation: {}
-    NotebookAccessInformationTransport:
-      type: object
-      properties:
-        token:
-          type: string
-        machineId:
-          type: string
-        puppetId:
-          type: string
-        publicAddress:
-          type: string
-        instanceType:
-          type: string
-        volumeDriver:
-          type: string
-        memoryLimit:
-          type: string
-        cpuCoresLimit:
-          type: string
-        diskUsageLimit:
-          type: string
-        gpuCoresLimit:
-          type: string
-        appKey:
-          type: string
-        imageUrl:
-          type: string
-        imageType:
-          type: string
-        execCommands:
-          type: array
-          items:
-            type: string
-        notebookMode:
-          type: boolean
-        routeToBedrock:
-          type: boolean
-        kubernetes:
-          type: boolean
-        withPlan:
-          type: boolean
-        migration:
-          type: boolean
-    ImageTransport:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        imageKey:
-          type: string
-        imageType:
-          type: string
-          enum:
-          - JUPYTER
-          - VSCODE
-          - STREAMLIT
-        imageUrl:
-          type: string
-        homePath:
-          type: string
-        visibleInDropdown:
-          type: boolean
-    ExceptionReference:
-      type: object
-      properties:
-        reference:
-          type: string
-        message:
-          type: string
-        shortMessage:
-          type: string
-    ApplicationKeyTransport:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        key:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        lastUsedAt:
-          type: string
-          format: date-time
-        originalId:
-          type: string
-        teamRole:
-          type: integer
-          format: int32
-        internal:
-          type: boolean
-    NotebookVersionTransport:
-      type: object
-      properties:
-        id:
-          type: string
-        versionCode:
-          type: string
-        createdDate:
-          type: string
-          format: date-time
-        imageId:
-          type: string
-        imageKey:
-          type: string
-        latest:
-          type: boolean
-        warning:
-          type: string
-        warningCode:
-          type: string
-        releaseNotes:
-          type: string
-    NotebookTreeItem:
-      type: object
-      properties:
-        name:
-          type: string
-        path:
-          type: string
-        type:
-          type: string
-        content: {}
-        directory:
-          type: boolean
-        children:
-          type: array
-          items:
-            $ref: '#/components/schemas/NotebookTreeItem'
-        notebook:
-          type: boolean
     NotebookTransport:
       type: object
       properties:
@@ -979,6 +838,43 @@ components:
       - agreement
       - imageId
       - name
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
+    NotebookVersionTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        versionCode:
+          type: string
+        createdDate:
+          type: string
+          format: date-time
+        imageId:
+          type: string
+        imageKey:
+          type: string
+        latest:
+          type: boolean
+        warning:
+          type: string
+        warningCode:
+          type: string
+        releaseNotes:
+          type: string
     NotebookResourcesTransport:
       type: object
       properties:
@@ -998,3 +894,107 @@ components:
       - cpu
       - memory
       - storage
+    ImageTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        imageKey:
+          type: string
+        imageType:
+          type: string
+          enum:
+          - JUPYTER
+          - VSCODE
+          - STREAMLIT
+        imageUrl:
+          type: string
+        homePath:
+          type: string
+        visibleInDropdown:
+          type: boolean
+    NotebookTreeItem:
+      type: object
+      properties:
+        name:
+          type: string
+        path:
+          type: string
+        type:
+          type: string
+        content: {}
+        directory:
+          type: boolean
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/NotebookTreeItem'
+        notebook:
+          type: boolean
+    ApplicationKeyTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        key:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        lastUsedAt:
+          type: string
+          format: date-time
+        originalId:
+          type: string
+        teamRole:
+          type: integer
+          format: int32
+        internal:
+          type: boolean
+    NotebookAccessInformationTransport:
+      type: object
+      properties:
+        token:
+          type: string
+        machineId:
+          type: string
+        puppetId:
+          type: string
+        publicAddress:
+          type: string
+        instanceType:
+          type: string
+        volumeDriver:
+          type: string
+        memoryLimit:
+          type: string
+        cpuCoresLimit:
+          type: string
+        diskUsageLimit:
+          type: string
+        gpuCoresLimit:
+          type: string
+        appKey:
+          type: string
+        imageUrl:
+          type: string
+        imageType:
+          type: string
+        execCommands:
+          type: array
+          items:
+            type: string
+        notebookMode:
+          type: boolean
+        routeToBedrock:
+          type: boolean
+        kubernetes:
+          type: boolean
+        withPlan:
+          type: boolean
+        migration:
+          type: boolean

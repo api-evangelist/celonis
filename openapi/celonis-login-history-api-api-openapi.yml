@@ -86,24 +86,6 @@ paths:
       - Login History API
 components:
   schemas:
-    AuthenticationEventExternalTransport:
-      type: object
-      properties:
-        authenticationEventType:
-          $ref: '#/components/schemas/AuthenticationEventType'
-        email:
-          type: string
-          description: Email associated with Login History request
-          example: email@example.com
-        success:
-          type: boolean
-          description: Result of the Login History Event
-          example: true
-        timestamp:
-          type: string
-          format: date-time
-          description: Date and time when event occurred in ISO 8601 UTC format
-          example: '2021-01-08T16:36:29.003Z'
     AuthenticationEventType:
       type: string
       description: Category of the Login History Event
@@ -139,6 +121,24 @@ components:
         totalCount:
           type: integer
           format: int64
+    AuthenticationEventExternalTransport:
+      type: object
+      properties:
+        authenticationEventType:
+          $ref: '#/components/schemas/AuthenticationEventType'
+        email:
+          type: string
+          description: Email associated with Login History request
+          example: email@example.com
+        success:
+          type: boolean
+          description: Result of the Login History Event
+          example: true
+        timestamp:
+          type: string
+          format: date-time
+          description: Date and time when event occurred in ISO 8601 UTC format
+          example: '2021-01-08T16:36:29.003Z'
   securitySchemes:
     Authorization:
       description: Prefix the Token with "AppKey " or "Bearer " (word and space) to indicate the Authorization type

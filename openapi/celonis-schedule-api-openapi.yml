@@ -316,6 +316,67 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
+    SchedulingConfig:
+      type: object
+      properties:
+        executionPattern:
+          type: string
+          enum:
+          - HOURLY
+          - X_HOURLY
+          - DAILY
+          - WEEKLY
+          - MONTHLY
+          - CUSTOM
+        minute:
+          type: integer
+          format: int32
+        everyXHours:
+          type: integer
+          format: int32
+        time:
+          type: string
+        day:
+          type: integer
+          format: int32
+        weekDays:
+          type: array
+          items:
+            type: integer
+            format: int32
+        monthPattern:
+          type: string
+          enum:
+          - SPECIFIC_DAY
+          - LAST_DAY
+        customCron:
+          type: string
+        timezoneId:
+          type: string
+        lastExecutionDate:
+          type: string
+          format: date-time
+        nextExecutionDate:
+          type: string
+          format: date-time
+        enabled:
+          type: boolean
+    JsonNode: {}
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
     NotebookExecutionTransport:
       type: object
       properties:
@@ -374,58 +435,6 @@ components:
       required:
       - executionFileName
       - notebookId
-    SchedulingConfig:
-      type: object
-      properties:
-        executionPattern:
-          type: string
-          enum:
-          - HOURLY
-          - X_HOURLY
-          - DAILY
-          - WEEKLY
-          - MONTHLY
-          - CUSTOM
-        minute:
-          type: integer
-          format: int32
-        everyXHours:
-          type: integer
-          format: int32
-        time:
-          type: string
-        day:
-          type: integer
-          format: int32
-        weekDays:
-          type: array
-          items:
-            type: integer
-            format: int32
-        monthPattern:
-          type: string
-          enum:
-          - SPECIFIC_DAY
-          - LAST_DAY
-        customCron:
-          type: string
-        timezoneId:
-          type: string
-        lastExecutionDate:
-          type: string
-          format: date-time
-        nextExecutionDate:
-          type: string
-          format: date-time
-        enabled:
-          type: boolean
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation: {}
-    JsonNode: {}
     SchedulingTransport:
       type: object
       properties:
@@ -550,15 +559,6 @@ components:
       - schedulingConfig
       - timeUnit
       - timeout
-    ExceptionReference:
-      type: object
-      properties:
-        reference:
-          type: string
-        message:
-          type: string
-        shortMessage:
-          type: string
     PageNotebookExecutionTransport:
       type: object
       properties:

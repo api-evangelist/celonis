@@ -304,119 +304,18 @@ paths:
           $ref: '#/components/responses/ServiceUnavailable'
 components:
   schemas:
-    subscriptionResultPage:
-      title: Subscription schema result page
-      type: object
-      additionalProperties: false
-      properties:
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/subscriptionDTO'
+    callbackInfoDTO:
       allOf:
-      - $ref: '#/components/schemas/schemaResultPage'
-    subscriptionId:
-      title: Id subscription created
-      type: object
-      additionalProperties: false
+      - $ref: '#/components/schemas/callbackResumedInfoDTO'
       properties:
-        id:
-          type: string
-          description: subscription id
-          example: 123
-    configurations:
-      type: array
-      uniqueItems: true
-      description: Configuration for the Subscription
-      example:
-      - SKIP_ERRORS
-      items:
-        type: string
-        enum:
-        - SKIP_ERRORS
-    SignalResultPage:
-      title: Signal result page
-      type: object
-      additionalProperties: false
-      properties:
-        pageSize:
-          type: integer
-          description: Page size, defined by the system
-          example: 50
-        content:
-          type: array
-          items:
-            $ref: '#/components/schemas/eventDTO'
-    authErrorDTO:
-      title: Authentication Error
-      type: object
-      properties:
-        error:
-          type: string
-    schemaResultPage:
-      title: Result page
-      type: object
-      properties:
-        page:
-          type: integer
-          description: Page
-          example: 0
-        pageSize:
-          type: integer
-          description: Page size, defined by pageSize parameter
-          example: 50
-        total:
-          type: integer
-          description: Total elements returned in the page
-          example: 1
-        sort:
-          type: string
-          description: Field used to apply sorting to the requested data, + or no symbol means ASC, - means DESC
-          example: +id
-    eventDTO:
-      title: Event stored at subscription data source
-      description: Event stored at subscription data source
-      type: object
-      properties:
-        subscriberId:
-          type: string
-          description: Subscriber's Unique identifier as a SUID
-          example: abc-123-bad-123
-        triggerId:
-          type: string
-          description: Trigger's Unique identifier as a SUID
-          example: abc-123-bad-123
-        offset:
-          type: number
-          description: Position of the event in the subscription data source
-          example: 1234
-        creationDate:
-          type: string
-          format: date-time
-          description: Date of the event creation
-          example: '2023-07-21T17:32:28Z'
-        event:
-          $ref: '#/components/schemas/signalEventDTO'
-    signalEventDTO:
-      type: object
-      properties:
-        id:
-          type: string
-          description: Event's Unique identifier as a SUID
-          example: abc-123-bad-123
-        identifier:
-          type: string
-          description: Third party Identifier as a string
-          example: 1
-        typedIdentifier:
+        headers:
           type: object
-          description: Type of the Identifier for the event
-          example: 2
-        fields:
-          type: array
-          description: Fields for the Event
-          items:
-            $ref: '#/components/schemas/eventFieldDTO'
+          description: "Callback headers may include authentication tokens, content types, and more. \n<br><br>Allowed callback headers are: \n<br>Authorization \n<br>Content-Type \n<br>User-Agent \n<br>Host \n<br>Accept \n<br><br>Additionally, the total size limit for headers is <strong>8192</strong> bytes.\n"
+          additionalProperties:
+            type: string
+            example:
+              Authorization: eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI0Ii
+              Content-Type: application/json
     errorDTO:
       title: Error
       type: object
@@ -437,6 +336,26 @@ components:
         type:
           type: string
           description: A URI reference [RFC3986] that identifies the problem type. This definition was copied from https://datatracker.ietf.org/doc/html/rfc7807
+    schemaResultPage:
+      title: Result page
+      type: object
+      properties:
+        page:
+          type: integer
+          description: Page
+          example: 0
+        pageSize:
+          type: integer
+          description: Page size, defined by pageSize parameter
+          example: 50
+        total:
+          type: integer
+          description: Total elements returned in the page
+          example: 1
+        sort:
+          type: string
+          description: Field used to apply sorting to the requested data, + or no symbol means ASC, - means DESC
+          example: +id
     subscriptionDTO:
       title: Subscription
       description: Subscription schema
@@ -494,37 +413,36 @@ components:
           format: int64
           description: Identifier of the last succeed event
           example: 123
-    callbackInfoDTO:
-      allOf:
-      - $ref: '#/components/schemas/callbackResumedInfoDTO'
-      properties:
-        headers:
-          type: object
-          description: "Callback headers may include authentication tokens, content types, and more. \n<br><br>Allowed callback headers are: \n<br>Authorization \n<br>Content-Type \n<br>User-Agent \n<br>Host \n<br>Accept \n<br><br>Additionally, the total size limit for headers is <strong>8192</strong> bytes.\n"
-          additionalProperties:
-            type: string
-            example:
-              Authorization: eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiI0Ii
-              Content-Type: application/json
-    callbackResumedInfoDTO:
-      title: Callback Information
+    subscriptionResultPage:
+      title: Subscription schema result page
       type: object
-      required:
-      - uri
-      - protocol
+      additionalProperties: false
       properties:
-        uri:
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/subscriptionDTO'
+      allOf:
+      - $ref: '#/components/schemas/schemaResultPage'
+    subscriptionId:
+      title: Id subscription created
+      type: object
+      additionalProperties: false
+      properties:
+        id:
           type: string
-          minLength: 1
-          maxLength: 1024
-          description: Uri to perform the callback from the Subscription API once the trigger is fired
-          example: https://fake.domain.es/triggers/hook
-        protocol:
-          type: string
-          enum:
-          - HTTPS
-          description: Only value possible actually is HTTPS which means the callback URI must be a valid https
-          example: HTTPS
+          description: subscription id
+          example: 123
+    configurations:
+      type: array
+      uniqueItems: true
+      description: Configuration for the Subscription
+      example:
+      - SKIP_ERRORS
+      items:
+        type: string
+        enum:
+        - SKIP_ERRORS
     subscriptionRequest:
       title: SubscriptionRequest
       description: Request with details to create the subscription
@@ -545,6 +463,19 @@ components:
         configurations:
           allOf:
           - $ref: '#/components/schemas/configurations'
+    SignalResultPage:
+      title: Signal result page
+      type: object
+      additionalProperties: false
+      properties:
+        pageSize:
+          type: integer
+          description: Page size, defined by the system
+          example: 50
+        content:
+          type: array
+          items:
+            $ref: '#/components/schemas/eventDTO'
     eventFieldDTO:
       title: Fields Metadata for the event
       description: Fields Metadata for the event
@@ -566,39 +497,78 @@ components:
           type: boolean
           description: If the field is used as an identifier
           example: true
-  parameters:
-    pageParam:
-      in: query
-      name: page
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-        default: 0
-        description: The page number of the result, starting by 0 (first page)
-    singleSortParam:
-      style: form
-      explode: false
-      in: query
-      name: sort
-      required: false
-      description: Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with "+" to apply ASC order or "-" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error
-      schema:
-        type: string
-        example:
-        - -field1
-    pageSizeParam:
-      in: query
-      name: pageSize
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        default: 50
-        description: The number of items returned in a page.
+    authErrorDTO:
+      title: Authentication Error
+      type: object
+      properties:
+        error:
+          type: string
+    eventDTO:
+      title: Event stored at subscription data source
+      description: Event stored at subscription data source
+      type: object
+      properties:
+        subscriberId:
+          type: string
+          description: Subscriber's Unique identifier as a SUID
+          example: abc-123-bad-123
+        triggerId:
+          type: string
+          description: Trigger's Unique identifier as a SUID
+          example: abc-123-bad-123
+        offset:
+          type: number
+          description: Position of the event in the subscription data source
+          example: 1234
+        creationDate:
+          type: string
+          format: date-time
+          description: Date of the event creation
+          example: '2023-07-21T17:32:28Z'
+        event:
+          $ref: '#/components/schemas/signalEventDTO'
+    signalEventDTO:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Event's Unique identifier as a SUID
+          example: abc-123-bad-123
+        identifier:
+          type: string
+          description: Third party Identifier as a string
+          example: 1
+        typedIdentifier:
+          type: object
+          description: Type of the Identifier for the event
+          example: 2
+        fields:
+          type: array
+          description: Fields for the Event
+          items:
+            $ref: '#/components/schemas/eventFieldDTO'
+    callbackResumedInfoDTO:
+      title: Callback Information
+      type: object
+      required:
+      - uri
+      - protocol
+      properties:
+        uri:
+          type: string
+          minLength: 1
+          maxLength: 1024
+          description: Uri to perform the callback from the Subscription API once the trigger is fired
+          example: https://fake.domain.es/triggers/hook
+        protocol:
+          type: string
+          enum:
+          - HTTPS
+          description: Only value possible actually is HTTPS which means the callback URI must be a valid https
+          example: HTTPS
   responses:
-    BadRequest:
-      description: Bad Request.
+    ServiceUnavailable:
+      description: Service Unavailable.
       content:
         application/problem+json:
           schema:
@@ -615,24 +585,54 @@ components:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/errorDTO'
-    Forbidden:
-      description: Forbidden.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
-    ServiceUnavailable:
-      description: Service Unavailable.
-      content:
-        application/problem+json:
-          schema:
-            $ref: '#/components/schemas/errorDTO'
     NotFound:
       description: The specified resource was not found
       content:
         application/problem+json:
           schema:
             $ref: '#/components/schemas/errorDTO'
+    BadRequest:
+      description: Bad Request.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+    Forbidden:
+      description: Forbidden.
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/errorDTO'
+  parameters:
+    singleSortParam:
+      style: form
+      explode: false
+      in: query
+      name: sort
+      required: false
+      description: Defines the strategy to proceed for case insensitive sorting. It must be just one field, and it should start with "+" to apply ASC order or "-" to apply DESC order. Non prefix will sort as ASC. Non existing field at the header will throw an error
+      schema:
+        type: string
+        example:
+        - -field1
+    pageParam:
+      in: query
+      name: page
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+        description: The page number of the result, starting by 0 (first page)
+    pageSizeParam:
+      in: query
+      name: pageSize
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        default: 50
+        description: The number of items returned in a page.
   securitySchemes:
     BearerAuth:
       type: http

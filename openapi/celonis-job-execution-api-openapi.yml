@@ -282,7 +282,32 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
+    JobExecutionLogTransport:
+      type: object
+      properties:
+        message:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        logLevel:
+          type: string
     JsonNode: {}
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
     JobExecutionTransport:
       type: object
       properties:
@@ -310,43 +335,6 @@ components:
         jobExecutionSource:
           type: string
         errorMessage:
-          type: string
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation: {}
-    ApplicationKeyTransport:
-      type: object
-      properties:
-        id:
-          type: string
-        name:
-          type: string
-        key:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        lastUsedAt:
-          type: string
-          format: date-time
-        originalId:
-          type: string
-        teamRole:
-          type: integer
-          format: int32
-        internal:
-          type: boolean
-    ExceptionReference:
-      type: object
-      properties:
-        reference:
-          type: string
-        message:
-          type: string
-        shortMessage:
           type: string
     JobExecution:
       type: object
@@ -420,13 +408,25 @@ components:
         totalPages:
           type: integer
           format: int32
-    JobExecutionLogTransport:
+    ApplicationKeyTransport:
       type: object
       properties:
-        message:
+        id:
           type: string
-        timestamp:
+        name:
+          type: string
+        key:
+          type: string
+        createdAt:
           type: string
           format: date-time
-        logLevel:
+        lastUsedAt:
           type: string
+          format: date-time
+        originalId:
+          type: string
+        teamRole:
+          type: integer
+          format: int32
+        internal:
+          type: boolean
