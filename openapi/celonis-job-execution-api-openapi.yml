@@ -282,60 +282,6 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
-    JobExecutionLogTransport:
-      type: object
-      properties:
-        message:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
-        logLevel:
-          type: string
-    JsonNode: {}
-    ExceptionReference:
-      type: object
-      properties:
-        reference:
-          type: string
-        message:
-          type: string
-        shortMessage:
-          type: string
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation: {}
-    JobExecutionTransport:
-      type: object
-      properties:
-        id:
-          type: string
-        jobId:
-          type: string
-        params:
-          $ref: '#/components/schemas/JsonNode'
-        status:
-          type: string
-          enum:
-          - CREATED
-          - STARTED
-          - RUNNING
-          - COMPLETED
-          - FAILED
-          - CANCELED
-        started:
-          type: string
-          format: date-time
-        completed:
-          type: string
-          format: date-time
-        jobExecutionSource:
-          type: string
-        errorMessage:
-          type: string
     JobExecution:
       type: object
       properties:
@@ -408,6 +354,44 @@ components:
         totalPages:
           type: integer
           format: int32
+    JsonNode: {}
+    ExceptionReference:
+      type: object
+      properties:
+        reference:
+          type: string
+        message:
+          type: string
+        shortMessage:
+          type: string
+    JobExecutionTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        jobId:
+          type: string
+        params:
+          $ref: '#/components/schemas/JsonNode'
+        status:
+          type: string
+          enum:
+          - CREATED
+          - STARTED
+          - RUNNING
+          - COMPLETED
+          - FAILED
+          - CANCELED
+        started:
+          type: string
+          format: date-time
+        completed:
+          type: string
+          format: date-time
+        jobExecutionSource:
+          type: string
+        errorMessage:
+          type: string
     ApplicationKeyTransport:
       type: object
       properties:
@@ -430,3 +414,19 @@ components:
           format: int32
         internal:
           type: boolean
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
+    JobExecutionLogTransport:
+      type: object
+      properties:
+        message:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+        logLevel:
+          type: string

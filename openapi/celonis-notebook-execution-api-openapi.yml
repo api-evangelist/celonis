@@ -315,6 +315,36 @@ paths:
                 $ref: '#/components/schemas/ExceptionReference'
 components:
   schemas:
+    TriggeredExecutionGroupTransport:
+      type: object
+      properties:
+        id:
+          type: string
+        notebookId:
+          type: string
+        notebookName:
+          type: string
+        executionFileName:
+          type: string
+        lastExecutionId:
+          type: string
+        lastExecutionStatus:
+          type: string
+          enum:
+          - CREATED
+          - QUEUED
+          - STARTING
+          - STARTED
+          - COMPLETED
+          - NOTEBOOK_ERROR
+          - FAILED
+          - TIMEOUT
+          - CANCELED
+          - RESOURCES_ERROR
+          - CONFIGURATION_ERROR
+        lastExecutionStartedDate:
+          type: string
+          format: date-time
     JsonNode: {}
     ExceptionReference:
       type: object
@@ -324,24 +354,6 @@ components:
         message:
           type: string
         shortMessage:
-          type: string
-    FrontendHandledBackendError:
-      type: object
-      properties:
-        frontendErrorKey:
-          type: string
-        errorInformation: {}
-    NotebookExecutionLogTransport:
-      type: object
-      properties:
-        notebookExecutionId:
-          type: string
-        message:
-          type: string
-        timestamp:
-          type: string
-          format: date-time
-        logLevel:
           type: string
     NotebookExecutionTransport:
       type: object
@@ -401,36 +413,18 @@ components:
       required:
       - executionFileName
       - notebookId
-    TriggeredExecutionGroupTransport:
+    NotebookExecutionLogTransport:
       type: object
       properties:
-        id:
+        notebookExecutionId:
           type: string
-        notebookId:
+        message:
           type: string
-        notebookName:
-          type: string
-        executionFileName:
-          type: string
-        lastExecutionId:
-          type: string
-        lastExecutionStatus:
-          type: string
-          enum:
-          - CREATED
-          - QUEUED
-          - STARTING
-          - STARTED
-          - COMPLETED
-          - NOTEBOOK_ERROR
-          - FAILED
-          - TIMEOUT
-          - CANCELED
-          - RESOURCES_ERROR
-          - CONFIGURATION_ERROR
-        lastExecutionStartedDate:
+        timestamp:
           type: string
           format: date-time
+        logLevel:
+          type: string
     PageNotebookExecutionTransport:
       type: object
       properties:
@@ -456,3 +450,9 @@ components:
         totalPages:
           type: integer
           format: int32
+    FrontendHandledBackendError:
+      type: object
+      properties:
+        frontendErrorKey:
+          type: string
+        errorInformation: {}
