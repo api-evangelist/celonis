@@ -11,7 +11,7 @@ capability_model:
   attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
     CC BY 4.0
   notice: NOTICE
-edge_count: 2
+edge_count: 3
 edges:
 - tag: Permissions Export API
   spec_file: celonis-permissions-export-api-api-openapi.yml
@@ -32,3 +32,14 @@ edges:
   evidence: AI API to chat with Celonis Agents and run their tools.
   reason: Conversational AI agent invocation with tool execution; the operational AI/assistant surface
     maps to Artificial Intelligence Management. Some ambiguity vs process intelligence, so moderate confidence.
+- tag: Job Execution
+  spec_file: celonis-job-execution-api-openapi.yml
+  capability_id: BC-610.60
+  capability_id_l1: BC-610
+  capability_name: Artificial Intelligence Management
+  confidence: 0.7
+  evidence: '''Documentation for the external Machine Learning APIs. These APIs allow you to trigger executions,
+    manage resources''; POST /api/jobs/{jobId}/executions execute ''Trigger an execution'''
+  reason: Triggering, stopping and logging Machine Learning Workbench job executions is MLOps orchestration,
+    which falls under Artificial Intelligence Management; some risk that it is read as generic batch-job
+    plumbing keeps confidence moderate.
