@@ -64,6 +64,176 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Celonis is a company surfaced as a portfolio company of accel and added to the API Evangelist network as a stub for enrichment. Sector: automation. This profile is a lead awaiting the enrichment pipeline.
+Celonis is the process intelligence and process mining company. Its cloud platform ingests event data from enterprise systems, builds Knowledge Models of how business processes actually run, and surfaces KPIs, bottlenecks and automation opportunities. For developers Celonis publishes a Developer Center with REST APIs across Process Intelligence (Knowledge Model, AI Agent, Event Subscription), data ingestion and push, Machine Learning Workbench, Team, Permissions and SCIM, plus an official hosted Agent Tools (MCP) server, the PyCelonis Python SDK and the content-cli. Auth is via OAuth 2.0 (recommended) or API keys, with page-based pagination, x-ratelimit signaling and OData-style querying on the Knowledge Model API.
 
-Backed by: accel — http://www.celonis.com/de
+**Areas:** Company · Automation · Process Mining · Process Intelligence · Data · Analytics · Machine Learning · AI Agents · Enterprise · Workflow Automation
+
+## Celonis on APIs.io
+
+Everything profiled for Celonis is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/celonis/](https://apis.io/providers/celonis/)** — or go straight to one of the APIs or properties below.
+
+### APIs (17)
+
+- [Celonis Agents - Conversation API](https://apis.io/apis/celonis/celonis-agents-conversation-api/) — The Agents - Conversation API from Celonis — 1 operation(s) for agents - conversation.
+- [Celonis Beta: OData Protocol API](https://apis.io/apis/celonis/celonis-beta-odata-protocol-api/) — The Beta: OData Protocol API from Celonis — 3 operation(s) for beta: odata protocol.
+- [Celonis Beta: Semantics for 3P AI Agents API](https://apis.io/apis/celonis/celonis-beta-semantics-for-3p-ai-agents-api/) — The Beta: Semantics for 3P AI Agents API from Celonis — 4 operation(s) for beta: semantics for 3p ai agents.
+- [Celonis Data API](https://apis.io/apis/celonis/celonis-data-api/) — The Data API from Celonis — 2 operation(s) for data.
+- [Celonis Job Execution API](https://apis.io/apis/celonis/celonis-job-execution-api/) — The Job Execution API is used to trigger, stop, and track job executions.
+- [Celonis Job Execution Group API](https://apis.io/apis/celonis/celonis-job-execution-group-api/) — The Job Execution Group API retrieves job execution groups.
+- [Celonis Login History API](https://apis.io/apis/celonis/celonis-login-history-api-api/) — Allows you to query the Login History for a team and export it for use with external monitoring tools to capture and monitor platform login events.
+- [Celonis Members API](https://apis.io/apis/celonis/celonis-members-api-api/) — Allows you to query and export a list of all members assigned to a Celonis Platform team.
+- [Celonis Notebook API](https://apis.io/apis/celonis/celonis-notebook-api/) — The Notebook API is used to create, read, update, and delete notebooks.
+- [Celonis Notebook Execution API](https://apis.io/apis/celonis/celonis-notebook-execution-api/) — The Notebook Executions API is used to trigger, stop, and track notebook executions.
+- [Celonis Notebook Resources API](https://apis.io/apis/celonis/celonis-notebook-resources-api/) — The Notebook Resources API configures notebook resource such as CPU, memory, storage, and gpu.
+- [Celonis OpenAPI Tool Calling API](https://apis.io/apis/celonis/celonis-openapi-tool-calling-api/) — OpenAPI endpoints for calling tools configured in the Agent Tools (MCP) Asset.
+- [Celonis Permissions Export API](https://apis.io/apis/celonis/celonis-permissions-export-api-api/) — Export all permissions for the team as a JSON file.
+- [Celonis Schedule API](https://apis.io/apis/celonis/celonis-schedule-api/) — The Schedule API is used to create, read, update, and delete schedules.
+- [Celonis Schema API](https://apis.io/apis/celonis/celonis-schema-api/) — The Schema API from Celonis — 6 operation(s) for schema.
+- [Celonis Subscriptions API](https://apis.io/apis/celonis/celonis-subscriptions-api/) — The Subscriptions API from Celonis — 8 operation(s) for subscriptions.
+- [Celonis Triggers API](https://apis.io/apis/celonis/celonis-triggers-api/) — The Triggers API from Celonis — 2 operation(s) for triggers.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Celonis Subscription Webhooks](https://apis.io/asyncapis/celonis/celonis-subscription-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Celonis Agent Tools (MCP) Asset](https://apis.io/servers/celonis/celonis-agent-tools-mcp-asset/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Celonis Agentic Access](https://apis.io/agentic-access/celonis/celonis-agentic-access/)
+
+#### Collections (34)
+
+Postman and Open Collection request collections.
+
+- [OpenAPI Specification Agents - Conversation API](https://apis.io/collections/celonis/open-celonis-agents-conversation-api/)
+- [OpenAPI Specification Agents - Conversation Beta: OData Protocol API](https://apis.io/collections/celonis/open-celonis-beta-odata-protocol-api/)
+- [OpenAPI Specification Agents - Conversation Beta: Semantics for 3P AI Agents API](https://apis.io/collections/celonis/open-celonis-beta-semantics-for-3p-ai-agents-api/)
+- [OpenAPI Specification Agents - Conversation Data API](https://apis.io/collections/celonis/open-celonis-data-api/)
+- [OpenAPI Specification Agents - Conversation Job Execution API](https://apis.io/collections/celonis/open-celonis-job-execution-api/)
+- [OpenAPI Specification Agents - Conversation Job Execution Group API](https://apis.io/collections/celonis/open-celonis-job-execution-group-api/)
+- [OpenAPI Specification Agents - Conversation Login History API API](https://apis.io/collections/celonis/open-celonis-login-history-api-api/)
+- [OpenAPI Specification Agents - Conversation Members API API](https://apis.io/collections/celonis/open-celonis-members-api-api/)
+- [OpenAPI Specification Agents - Conversation Notebook API](https://apis.io/collections/celonis/open-celonis-notebook-api/)
+- [OpenAPI Specification Agents - Conversation Notebook Execution API](https://apis.io/collections/celonis/open-celonis-notebook-execution-api/)
+- [OpenAPI Specification Agents - Conversation Notebook Resources API](https://apis.io/collections/celonis/open-celonis-notebook-resources-api/)
+- [OpenAPI Specification Agents - Conversation OpenAPI Tool Calling API](https://apis.io/collections/celonis/open-celonis-openapi-tool-calling-api/)
+- [OpenAPI Specification Agents - Conversation Permissions Export API API](https://apis.io/collections/celonis/open-celonis-permissions-export-api-api/)
+- [OpenAPI Specification Agents - Conversation Schedule API](https://apis.io/collections/celonis/open-celonis-schedule-api/)
+- [OpenAPI Specification Agents - Conversation Schema API](https://apis.io/collections/celonis/open-celonis-schema-api/)
+- [OpenAPI Specification Agents - Conversation Subscriptions API](https://apis.io/collections/celonis/open-celonis-subscriptions-api/)
+- [OpenAPI Specification Agents - Conversation Triggers API](https://apis.io/collections/celonis/open-celonis-triggers-api/)
+- [OpenAPI Specification Agents - Conversation API](https://apis.io/collections/celonis/postman-celonis-agents-conversation-api/)
+- [OpenAPI Specification Agents - Conversation Beta: OData Protocol API](https://apis.io/collections/celonis/postman-celonis-beta-odata-protocol-api/)
+- [OpenAPI Specification Agents - Conversation Beta: Semantics for 3P AI Agents API](https://apis.io/collections/celonis/postman-celonis-beta-semantics-for-3p-ai-agents-api/)
+- [OpenAPI Specification Agents - Conversation Data API](https://apis.io/collections/celonis/postman-celonis-data-api/)
+- [OpenAPI Specification Agents - Conversation Job Execution API](https://apis.io/collections/celonis/postman-celonis-job-execution-api/)
+- [OpenAPI Specification Agents - Conversation Job Execution Group API](https://apis.io/collections/celonis/postman-celonis-job-execution-group-api/)
+- [OpenAPI Specification Agents - Conversation Login History API API](https://apis.io/collections/celonis/postman-celonis-login-history-api-api/)
+- [OpenAPI Specification Agents - Conversation Members API API](https://apis.io/collections/celonis/postman-celonis-members-api-api/)
+- …and 9 more published on APIs.io
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Celonis Knowledge Model Overlay](https://apis.io/overlays/celonis/celonis-knowledge-model-overlay/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Celonis Authentication](https://apis.io/security/celonis/celonis-authentication/)
+- [Celonis Domain Security](https://apis.io/security/celonis/celonis-domain-security/)
+- [Celonis Trust Center](https://apis.io/security/celonis/celonis-trust-center/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Celonis Scopes](https://apis.io/scopes/celonis/celonis-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.celonis.com)
+- [Documentation](https://docs.celonis.com/)
+- [Getting started](https://developer.celonis.com/celonis-apis/get-started-with-celonis-apis/)
+- [API reference](https://developer.celonis.com/celonis-apis/get-started-with-celonis-apis/)
+- [Pricing](https://www.celonis.com/pricing/)
+- [Sign up](https://signup.celonis.com/ui/sign-up/get-started)
+- [Support](https://community.celonis.com/)
+- [Blog](https://www.celonis.com/blog/)
+- [Compliance](https://trust.celonis.com/)
+- [Terms of service](https://www.celonis.com/legal/terms-and-conditions/)
+- [Privacy policy](https://www.celonis.com/privacy-policy/)
+- [GitHub](https://github.com/celonis)
+- [Status](https://status.celonis.com)
+
+## API Evangelist rating
+
+**Kin Score 62.5** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 76.7 |
+| Contract quality | 61.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 50.0 |
+| Developer ergonomics | 81.5 |
+| Access clarity | 60.5 |
+
+**Agent readiness 51.7** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | verified |
+| Event Surface Described | yes |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | partial |
+| Operation Distinctiveness | mostly |
+
+**Regulatory alignment 36.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/celonis/](https://apis.io/providers/celonis/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Celonis: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/celonis/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
